@@ -23,6 +23,7 @@ Partial Class Frm_NewPatient
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chkFind = New System.Windows.Forms.CheckBox()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -49,7 +50,8 @@ Partial Class Frm_NewPatient
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
-        Me.chkFind = New System.Windows.Forms.CheckBox()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,6 +61,7 @@ Partial Class Frm_NewPatient
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.IconButton1)
         Me.GroupBox1.Controls.Add(Me.chkFind)
         Me.GroupBox1.Controls.Add(Me.ibtnSave)
         Me.GroupBox1.Controls.Add(Me.chkPaperRecord)
@@ -87,9 +90,19 @@ Partial Class Frm_NewPatient
         Me.GroupBox1.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox1.Location = New System.Drawing.Point(3, 1)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(993, 234)
+        Me.GroupBox1.Size = New System.Drawing.Size(1032, 234)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'chkFind
+        '
+        Me.chkFind.AutoSize = True
+        Me.chkFind.Location = New System.Drawing.Point(6, 14)
+        Me.chkFind.Name = "chkFind"
+        Me.chkFind.Size = New System.Drawing.Size(79, 24)
+        Me.chkFind.TabIndex = 259
+        Me.chkFind.Text = "Search"
+        Me.chkFind.UseVisualStyleBackColor = True
         '
         'ibtnSave
         '
@@ -107,7 +120,7 @@ Partial Class Frm_NewPatient
         Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSave.IconSize = 30
         Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(826, 179)
+        Me.ibtnSave.Location = New System.Drawing.Point(860, 179)
         Me.ibtnSave.Name = "ibtnSave"
         Me.ibtnSave.Size = New System.Drawing.Size(162, 49)
         Me.ibtnSave.TabIndex = 61
@@ -118,7 +131,7 @@ Partial Class Frm_NewPatient
         'chkPaperRecord
         '
         Me.chkPaperRecord.AutoSize = True
-        Me.chkPaperRecord.Location = New System.Drawing.Point(860, 11)
+        Me.chkPaperRecord.Location = New System.Drawing.Point(896, 25)
         Me.chkPaperRecord.Name = "chkPaperRecord"
         Me.chkPaperRecord.Size = New System.Drawing.Size(126, 24)
         Me.chkPaperRecord.TabIndex = 258
@@ -341,6 +354,7 @@ Partial Class Frm_NewPatient
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.dgv1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
@@ -348,7 +362,7 @@ Partial Class Frm_NewPatient
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox2.Size = New System.Drawing.Size(993, 580)
+        Me.GroupBox2.Size = New System.Drawing.Size(1032, 580)
         Me.GroupBox2.TabIndex = 78
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Patients List:"
@@ -367,25 +381,51 @@ Partial Class Frm_NewPatient
         Me.dgv1.ReadOnly = True
         Me.dgv1.RowHeadersVisible = False
         Me.dgv1.RowTemplate.Height = 32
-        Me.dgv1.Size = New System.Drawing.Size(979, 553)
+        Me.dgv1.Size = New System.Drawing.Size(1018, 553)
         Me.dgv1.TabIndex = 59
         '
-        'chkFind
+        'IconButton1
         '
-        Me.chkFind.AutoSize = True
-        Me.chkFind.Location = New System.Drawing.Point(6, 14)
-        Me.chkFind.Name = "chkFind"
-        Me.chkFind.Size = New System.Drawing.Size(79, 24)
-        Me.chkFind.TabIndex = 259
-        Me.chkFind.Text = "Search"
-        Me.chkFind.UseVisualStyleBackColor = True
+        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.IconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.IconButton1.FlatAppearance.BorderSize = 2
+        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 30
+        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.IconButton1.Location = New System.Drawing.Point(860, 100)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Size = New System.Drawing.Size(162, 49)
+        Me.IconButton1.TabIndex = 260
+        Me.IconButton1.Text = "Cancel"
+        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton1.UseVisualStyleBackColor = False
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label12.Location = New System.Drawing.Point(168, 182)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(769, 20)
+        Me.Label12.TabIndex = 244
+        Me.Label12.Text = "ordenar los pacientes por fecha de creacion y poner un boton a la vista de inform" &
+    "acion detallada delpaciente"
         '
         'Frm_NewPatient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1001, 824)
+        Me.ClientSize = New System.Drawing.Size(1040, 824)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -395,6 +435,7 @@ Partial Class Frm_NewPatient
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -428,4 +469,6 @@ Partial Class Frm_NewPatient
     Friend WithEvents dgv1 As DataGridView
     Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
     Friend WithEvents chkFind As CheckBox
+    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents Label12 As Label
 End Class

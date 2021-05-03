@@ -57,6 +57,9 @@ Partial Class Frm_Main
         Me.ibtnPatients = New FontAwesome.Sharp.IconButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ibtnNew = New FontAwesome.Sharp.IconButton()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.panelAddAppointment.SuspendLayout()
         Me.gbNewAppointment.SuspendLayout()
@@ -73,6 +76,9 @@ Partial Class Frm_Main
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.Label11)
+        Me.GroupBox2.Controls.Add(Me.Label10)
+        Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.panelAddAppointment)
         Me.GroupBox2.Controls.Add(Me.dgv1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -254,8 +260,7 @@ Partial Class Frm_Main
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label3)
@@ -393,7 +398,7 @@ Partial Class Frm_Main
         Me.ibtnRestore.FlatAppearance.BorderSize = 0
         Me.ibtnRestore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
         Me.ibtnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnRestore.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnRestore.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnRestore.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnRestore.IconChar = FontAwesome.Sharp.IconChar.Server
         Me.ibtnRestore.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
@@ -416,7 +421,7 @@ Partial Class Frm_Main
         Me.ibtnBackup.FlatAppearance.BorderSize = 0
         Me.ibtnBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
         Me.ibtnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnBackup.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnBackup.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnBackup.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnBackup.IconChar = FontAwesome.Sharp.IconChar.Database
         Me.ibtnBackup.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
@@ -438,7 +443,7 @@ Partial Class Frm_Main
         Me.ibtnSams.FlatAppearance.BorderSize = 0
         Me.ibtnSams.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
         Me.ibtnSams.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnSams.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnSams.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnSams.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnSams.IconChar = FontAwesome.Sharp.IconChar.HospitalAlt
         Me.ibtnSams.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
@@ -460,7 +465,7 @@ Partial Class Frm_Main
         Me.ibtnReports.FlatAppearance.BorderSize = 0
         Me.ibtnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
         Me.ibtnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnReports.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnReports.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnReports.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnReports.IconChar = FontAwesome.Sharp.IconChar.CalendarDay
         Me.ibtnReports.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
@@ -482,7 +487,7 @@ Partial Class Frm_Main
         Me.ibtnExpenses.FlatAppearance.BorderSize = 0
         Me.ibtnExpenses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
         Me.ibtnExpenses.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnExpenses.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnExpenses.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnExpenses.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnExpenses.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckAlt
         Me.ibtnExpenses.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
@@ -504,7 +509,7 @@ Partial Class Frm_Main
         Me.ibtnSurgeries.FlatAppearance.BorderSize = 0
         Me.ibtnSurgeries.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
         Me.ibtnSurgeries.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnSurgeries.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnSurgeries.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnSurgeries.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnSurgeries.IconChar = FontAwesome.Sharp.IconChar.UserNurse
         Me.ibtnSurgeries.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
@@ -526,7 +531,7 @@ Partial Class Frm_Main
         Me.ibtnServices.FlatAppearance.BorderSize = 0
         Me.ibtnServices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
         Me.ibtnServices.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnServices.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnServices.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnServices.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnServices.IconChar = FontAwesome.Sharp.IconChar.ListAlt
         Me.ibtnServices.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
@@ -548,7 +553,7 @@ Partial Class Frm_Main
         Me.ibtnPatients.FlatAppearance.BorderSize = 0
         Me.ibtnPatients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
         Me.ibtnPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnPatients.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnPatients.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnPatients.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnPatients.IconChar = FontAwesome.Sharp.IconChar.UserFriends
         Me.ibtnPatients.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
@@ -590,6 +595,40 @@ Partial Class Frm_Main
         Me.ibtnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnNew.UseVisualStyleBackColor = False
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label9.Location = New System.Drawing.Point(931, 209)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(501, 20)
+        Me.Label9.TabIndex = 239
+        Me.Label9.Text = "poner boton paralos detalles del paciente y otropara crear nueva visita"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label10.Location = New System.Drawing.Point(247, 576)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(418, 20)
+        Me.Label10.TabIndex = 240
+        Me.Label10.Text = "si elpaciente no tiene historia clinica marcar lafilde un color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label11.Location = New System.Drawing.Point(701, 551)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(427, 60)
+        Me.Label11.TabIndex = 241
+        Me.Label11.Text = "si elpacientetiene historia elpapel marcar la fila de otro color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "poner leyenda e" &
+    "n laparte baja deldata grid" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'Frm_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -607,6 +646,7 @@ Partial Class Frm_Main
         Me.Name = "Frm_Main"
         Me.Text = "Frm_Main"
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.panelAddAppointment.ResumeLayout(False)
         Me.gbNewAppointment.ResumeLayout(False)
         Me.gbNewAppointment.PerformLayout()
@@ -654,4 +694,7 @@ Partial Class Frm_Main
     Friend WithEvents Label8 As Label
     Friend WithEvents panelAddAppointment As Panel
     Friend WithEvents ibtnClosePanel As FontAwesome.Sharp.IconButton
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
 End Class
