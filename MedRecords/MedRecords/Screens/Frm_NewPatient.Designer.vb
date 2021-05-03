@@ -107,9 +107,9 @@ Partial Class Frm_NewPatient
         Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSave.IconSize = 30
         Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(826, 177)
+        Me.ibtnSave.Location = New System.Drawing.Point(826, 179)
         Me.ibtnSave.Name = "ibtnSave"
-        Me.ibtnSave.Size = New System.Drawing.Size(159, 49)
+        Me.ibtnSave.Size = New System.Drawing.Size(162, 49)
         Me.ibtnSave.TabIndex = 61
         Me.ibtnSave.Text = "Save/Update"
         Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText

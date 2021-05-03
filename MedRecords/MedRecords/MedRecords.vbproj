@@ -87,6 +87,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -98,6 +99,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Screens\Frm_Main.Designer.vb">
+      <DependentUpon>Frm_Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Frm_Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Screens\Frm_NewPatient.Designer.vb">
       <DependentUpon>Frm_NewPatient.vb</DependentUpon>
     </Compile>
@@ -108,6 +115,18 @@
       <DependentUpon>Frm_PatientFilevb.vb</DependentUpon>
     </Compile>
     <Compile Include="Screens\Frm_PatientFilevb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Frm_Services.Designer.vb">
+      <DependentUpon>Frm_Services.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Frm_Services.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Frm_Visit.Designer.vb">
+      <DependentUpon>Frm_Visit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Frm_Visit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Util\Util.vb" />
@@ -122,11 +141,20 @@
     <EmbeddedResource Include="Screens\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Frm_Main.resx">
+      <DependentUpon>Frm_Main.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Frm_NewPatient.resx">
       <DependentUpon>Frm_NewPatient.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Frm_PatientFilevb.resx">
       <DependentUpon>Frm_PatientFilevb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Frm_Services.resx">
+      <DependentUpon>Frm_Services.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Frm_Visit.resx">
+      <DependentUpon>Frm_Visit.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
