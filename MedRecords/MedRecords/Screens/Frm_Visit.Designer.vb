@@ -104,6 +104,8 @@ Partial Class Frm_Visit
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -126,12 +128,14 @@ Partial Class Frm_Visit
         Me.GroupBox11.SuspendLayout()
         CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox13.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(3, 221)
         Me.TabControl1.Name = "TabControl1"
@@ -1011,6 +1015,29 @@ Partial Class Frm_Visit
         Me.TextBox12.Size = New System.Drawing.Size(196, 54)
         Me.TextBox12.TabIndex = 293
         '
+        'TabPage3
+        '
+        Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.Label24)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(849, 571)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Previus Visits"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label24.Location = New System.Drawing.Point(379, 275)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(412, 40)
+        Me.Label24.TabIndex = 268
+        Me.Label24.Text = "poner aqui la lista de visitas anteriores en un datagridview" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "y con un boton de d" &
+    "etalles para acada una" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'Frm_Visit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1049,6 +1076,8 @@ Partial Class Frm_Visit
         CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox13.ResumeLayout(False)
         Me.GroupBox13.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1135,4 +1164,6 @@ Partial Class Frm_Visit
     Friend WithEvents Label18 As Label
     Friend WithEvents TextBox12 As TextBox
     Friend WithEvents Label23 As Label
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents Label24 As Label
 End Class

@@ -24,6 +24,15 @@ Partial Class Frm_Main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.panelAddAppointment = New System.Windows.Forms.Panel()
+        Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
+        Me.gbNewAppointment = New System.Windows.Forms.GroupBox()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
@@ -49,6 +58,9 @@ Partial Class Frm_Main
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ibtnNew = New FontAwesome.Sharp.IconButton()
         Me.GroupBox2.SuspendLayout()
+        Me.panelAddAppointment.SuspendLayout()
+        Me.gbNewAppointment.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,6 +73,7 @@ Partial Class Frm_Main
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.panelAddAppointment)
         Me.GroupBox2.Controls.Add(Me.dgv1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
@@ -72,6 +85,131 @@ Partial Class Frm_Main
         Me.GroupBox2.TabIndex = 79
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Today Walk In/Appointment:"
+        '
+        'panelAddAppointment
+        '
+        Me.panelAddAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
+        Me.panelAddAppointment.Controls.Add(Me.ibtnClosePanel)
+        Me.panelAddAppointment.Controls.Add(Me.gbNewAppointment)
+        Me.panelAddAppointment.Location = New System.Drawing.Point(168, 45)
+        Me.panelAddAppointment.Name = "panelAddAppointment"
+        Me.panelAddAppointment.Size = New System.Drawing.Size(737, 494)
+        Me.panelAddAppointment.TabIndex = 81
+        Me.panelAddAppointment.Visible = False
+        '
+        'ibtnClosePanel
+        '
+        Me.ibtnClosePanel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnClosePanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnClosePanel.FlatAppearance.BorderSize = 0
+        Me.ibtnClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnClosePanel.IconChar = FontAwesome.Sharp.IconChar.WindowClose
+        Me.ibtnClosePanel.IconColor = System.Drawing.Color.White
+        Me.ibtnClosePanel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnClosePanel.IconSize = 30
+        Me.ibtnClosePanel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ibtnClosePanel.Location = New System.Drawing.Point(705, 2)
+        Me.ibtnClosePanel.Name = "ibtnClosePanel"
+        Me.ibtnClosePanel.Size = New System.Drawing.Size(30, 30)
+        Me.ibtnClosePanel.TabIndex = 97
+        Me.ibtnClosePanel.UseVisualStyleBackColor = False
+        '
+        'gbNewAppointment
+        '
+        Me.gbNewAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
+        Me.gbNewAppointment.Controls.Add(Me.IconButton1)
+        Me.gbNewAppointment.Controls.Add(Me.DataGridView1)
+        Me.gbNewAppointment.Controls.Add(Me.TextBox2)
+        Me.gbNewAppointment.Controls.Add(Me.TextBox1)
+        Me.gbNewAppointment.Controls.Add(Me.Label7)
+        Me.gbNewAppointment.Controls.Add(Me.Label8)
+        Me.gbNewAppointment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbNewAppointment.ForeColor = System.Drawing.Color.Black
+        Me.gbNewAppointment.Location = New System.Drawing.Point(11, 28)
+        Me.gbNewAppointment.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.gbNewAppointment.Name = "gbNewAppointment"
+        Me.gbNewAppointment.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.gbNewAppointment.Size = New System.Drawing.Size(715, 454)
+        Me.gbNewAppointment.TabIndex = 80
+        Me.gbNewAppointment.TabStop = False
+        Me.gbNewAppointment.Text = "Search Patient:"
+        '
+        'IconButton1
+        '
+        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
+        Me.IconButton1.FlatAppearance.BorderSize = 2
+        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
+        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 55
+        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton1.Location = New System.Drawing.Point(545, 27)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Size = New System.Drawing.Size(162, 94)
+        Me.IconButton1.TabIndex = 85
+        Me.IconButton1.Text = "New Patient"
+        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton1.UseVisualStyleBackColor = False
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(7, 129)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowTemplate.Height = 32
+        Me.DataGridView1.Size = New System.Drawing.Size(701, 317)
+        Me.DataGridView1.TabIndex = 81
+        '
+        'TextBox2
+        '
+        Me.TextBox2.ForeColor = System.Drawing.Color.Black
+        Me.TextBox2.Location = New System.Drawing.Point(112, 77)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(274, 26)
+        Me.TextBox2.TabIndex = 249
+        '
+        'TextBox1
+        '
+        Me.TextBox1.ForeColor = System.Drawing.Color.Black
+        Me.TextBox1.Location = New System.Drawing.Point(112, 40)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(274, 26)
+        Me.TextBox1.TabIndex = 248
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.Location = New System.Drawing.Point(19, 80)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(90, 20)
+        Me.Label7.TabIndex = 247
+        Me.Label7.Text = "Last Name:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Black
+        Me.Label8.Location = New System.Drawing.Point(19, 43)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(90, 20)
+        Me.Label8.TabIndex = 246
+        Me.Label8.Text = "First Name:"
         '
         'dgv1
         '
@@ -107,7 +245,7 @@ Partial Class Frm_Main
         Me.lblTime.AutoSize = True
         Me.lblTime.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.lblTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 42.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTime.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.lblTime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.lblTime.Location = New System.Drawing.Point(382, 3)
         Me.lblTime.Name = "lblTime"
         Me.lblTime.Size = New System.Drawing.Size(146, 64)
@@ -428,6 +566,7 @@ Partial Class Frm_Main
         '
         'Timer1
         '
+        Me.Timer1.Enabled = True
         '
         'ibtnNew
         '
@@ -468,6 +607,10 @@ Partial Class Frm_Main
         Me.Name = "Frm_Main"
         Me.Text = "Frm_Main"
         Me.GroupBox2.ResumeLayout(False)
+        Me.panelAddAppointment.ResumeLayout(False)
+        Me.gbNewAppointment.ResumeLayout(False)
+        Me.gbNewAppointment.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -502,4 +645,13 @@ Partial Class Frm_Main
     Friend WithEvents ibtnPatients As FontAwesome.Sharp.IconButton
     Friend WithEvents Timer1 As Timer
     Friend WithEvents ibtnNew As FontAwesome.Sharp.IconButton
+    Friend WithEvents gbNewAppointment As GroupBox
+    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents panelAddAppointment As Panel
+    Friend WithEvents ibtnClosePanel As FontAwesome.Sharp.IconButton
 End Class
