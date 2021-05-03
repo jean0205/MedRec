@@ -29,17 +29,17 @@ Partial Class Frm_NewPatient
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblAge = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txtPhone2 = New System.Windows.Forms.TextBox()
+        Me.txtPhone1 = New System.Windows.Forms.TextBox()
         Me.dtpDOB = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.cmbSex = New System.Windows.Forms.ComboBox()
+        Me.cmbParish = New System.Windows.Forms.ComboBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtAddress = New System.Windows.Forms.TextBox()
+        Me.txtOthersNames = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -50,7 +50,7 @@ Partial Class Frm_NewPatient
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.ibtnCancel = New FontAwesome.Sharp.IconButton()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -61,24 +61,24 @@ Partial Class Frm_NewPatient
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.IconButton1)
+        Me.GroupBox1.Controls.Add(Me.ibtnCancel)
         Me.GroupBox1.Controls.Add(Me.chkFind)
         Me.GroupBox1.Controls.Add(Me.ibtnSave)
         Me.GroupBox1.Controls.Add(Me.chkPaperRecord)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.lblAge)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.TextBox7)
-        Me.GroupBox1.Controls.Add(Me.TextBox6)
+        Me.GroupBox1.Controls.Add(Me.txtPhone2)
+        Me.GroupBox1.Controls.Add(Me.txtPhone1)
         Me.GroupBox1.Controls.Add(Me.dtpDOB)
-        Me.GroupBox1.Controls.Add(Me.ComboBox2)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.TextBox5)
+        Me.GroupBox1.Controls.Add(Me.cmbSex)
+        Me.GroupBox1.Controls.Add(Me.cmbParish)
+        Me.GroupBox1.Controls.Add(Me.txtEmail)
         Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.TextBox4)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.txtAddress)
+        Me.GroupBox1.Controls.Add(Me.txtOthersNames)
+        Me.GroupBox1.Controls.Add(Me.txtLastName)
+        Me.GroupBox1.Controls.Add(Me.txtFirstName)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label6)
@@ -171,19 +171,19 @@ Partial Class Frm_NewPatient
         Me.Label10.TabIndex = 255
         Me.Label10.Text = "Age:"
         '
-        'TextBox7
+        'txtPhone2
         '
-        Me.TextBox7.Location = New System.Drawing.Point(669, 114)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(134, 26)
-        Me.TextBox7.TabIndex = 254
+        Me.txtPhone2.Location = New System.Drawing.Point(669, 114)
+        Me.txtPhone2.Name = "txtPhone2"
+        Me.txtPhone2.Size = New System.Drawing.Size(134, 26)
+        Me.txtPhone2.TabIndex = 254
         '
-        'TextBox6
+        'txtPhone1
         '
-        Me.TextBox6.Location = New System.Drawing.Point(505, 114)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(134, 26)
-        Me.TextBox6.TabIndex = 253
+        Me.txtPhone1.Location = New System.Drawing.Point(505, 114)
+        Me.txtPhone1.Name = "txtPhone1"
+        Me.txtPhone1.Size = New System.Drawing.Size(134, 26)
+        Me.txtPhone1.TabIndex = 253
         '
         'dtpDOB
         '
@@ -194,32 +194,32 @@ Partial Class Frm_NewPatient
         Me.dtpDOB.Size = New System.Drawing.Size(134, 26)
         Me.dtpDOB.TabIndex = 252
         '
-        'ComboBox2
+        'cmbSex
         '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Female", "Male"})
-        Me.ComboBox2.Location = New System.Drawing.Point(505, 38)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(80, 28)
-        Me.ComboBox2.TabIndex = 251
+        Me.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSex.FormattingEnabled = True
+        Me.cmbSex.Items.AddRange(New Object() {"Female", "Male"})
+        Me.cmbSex.Location = New System.Drawing.Point(505, 38)
+        Me.cmbSex.Name = "cmbSex"
+        Me.cmbSex.Size = New System.Drawing.Size(80, 28)
+        Me.cmbSex.TabIndex = 251
         '
-        'ComboBox1
+        'cmbParish
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"ST GEORGE'S", "ST ANDREW'S", "ST DAVID'S", "ST JOHN'S", "ST MARK'S", "ST PATRICK'S", "CARRIACOU", "PETITE MARTINIQUE"})
-        Me.ComboBox1.Location = New System.Drawing.Point(129, 186)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(204, 28)
-        Me.ComboBox1.TabIndex = 250
+        Me.cmbParish.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbParish.FormattingEnabled = True
+        Me.cmbParish.Items.AddRange(New Object() {"ST GEORGE'S", "ST ANDREW'S", "ST DAVID'S", "ST JOHN'S", "ST MARK'S", "ST PATRICK'S", "CARRIACOU", "PETITE MARTINIQUE"})
+        Me.cmbParish.Location = New System.Drawing.Point(129, 186)
+        Me.cmbParish.Name = "cmbParish"
+        Me.cmbParish.Size = New System.Drawing.Size(204, 28)
+        Me.cmbParish.TabIndex = 250
         '
-        'TextBox5
+        'txtEmail
         '
-        Me.TextBox5.Location = New System.Drawing.Point(505, 151)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(320, 26)
-        Me.TextBox5.TabIndex = 249
+        Me.txtEmail.Location = New System.Drawing.Point(505, 151)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(320, 26)
+        Me.txtEmail.TabIndex = 249
         '
         'Label9
         '
@@ -232,33 +232,33 @@ Partial Class Frm_NewPatient
         Me.Label9.TabIndex = 248
         Me.Label9.Text = "Parish:"
         '
-        'TextBox4
+        'txtAddress
         '
-        Me.TextBox4.Location = New System.Drawing.Point(129, 151)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(274, 26)
-        Me.TextBox4.TabIndex = 247
+        Me.txtAddress.Location = New System.Drawing.Point(129, 151)
+        Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.Size = New System.Drawing.Size(274, 26)
+        Me.txtAddress.TabIndex = 247
         '
-        'TextBox3
+        'txtOthersNames
         '
-        Me.TextBox3.Location = New System.Drawing.Point(129, 114)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(274, 26)
-        Me.TextBox3.TabIndex = 246
+        Me.txtOthersNames.Location = New System.Drawing.Point(129, 114)
+        Me.txtOthersNames.Name = "txtOthersNames"
+        Me.txtOthersNames.Size = New System.Drawing.Size(274, 26)
+        Me.txtOthersNames.TabIndex = 246
         '
-        'TextBox2
+        'txtLastName
         '
-        Me.TextBox2.Location = New System.Drawing.Point(129, 77)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(274, 26)
-        Me.TextBox2.TabIndex = 245
+        Me.txtLastName.Location = New System.Drawing.Point(129, 77)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(274, 26)
+        Me.txtLastName.TabIndex = 245
         '
-        'TextBox1
+        'txtFirstName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(129, 40)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(274, 26)
-        Me.TextBox1.TabIndex = 244
+        Me.txtFirstName.Location = New System.Drawing.Point(129, 40)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(274, 26)
+        Me.txtFirstName.TabIndex = 244
         '
         'Label7
         '
@@ -384,29 +384,29 @@ Partial Class Frm_NewPatient
         Me.dgv1.Size = New System.Drawing.Size(1018, 553)
         Me.dgv1.TabIndex = 59
         '
-        'IconButton1
+        'ibtnCancel
         '
-        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton1.FlatAppearance.BorderSize = 2
-        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 30
-        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton1.Location = New System.Drawing.Point(860, 100)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(162, 49)
-        Me.IconButton1.TabIndex = 260
-        Me.IconButton1.Text = "Cancel"
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseVisualStyleBackColor = False
+        Me.ibtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnCancel.FlatAppearance.BorderSize = 2
+        Me.ibtnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnCancel.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.ibtnCancel.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnCancel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnCancel.IconSize = 30
+        Me.ibtnCancel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnCancel.Location = New System.Drawing.Point(860, 100)
+        Me.ibtnCancel.Name = "ibtnCancel"
+        Me.ibtnCancel.Size = New System.Drawing.Size(162, 49)
+        Me.ibtnCancel.TabIndex = 260
+        Me.ibtnCancel.Text = "Cancel"
+        Me.ibtnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnCancel.UseVisualStyleBackColor = False
         '
         'Label12
         '
@@ -446,17 +446,17 @@ Partial Class Frm_NewPatient
     Friend WithEvents Label11 As Label
     Friend WithEvents lblAge As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents txtPhone2 As TextBox
+    Friend WithEvents txtPhone1 As TextBox
     Friend WithEvents dtpDOB As DateTimePicker
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents cmbSex As ComboBox
+    Friend WithEvents cmbParish As ComboBox
+    Friend WithEvents txtEmail As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtAddress As TextBox
+    Friend WithEvents txtOthersNames As TextBox
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents txtFirstName As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label6 As Label
@@ -469,6 +469,6 @@ Partial Class Frm_NewPatient
     Friend WithEvents dgv1 As DataGridView
     Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
     Friend WithEvents chkFind As CheckBox
-    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents ibtnCancel As FontAwesome.Sharp.IconButton
     Friend WithEvents Label12 As Label
 End Class
