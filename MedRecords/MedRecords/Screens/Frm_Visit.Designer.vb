@@ -94,21 +94,21 @@ Partial Class Frm_Visit
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.lblSex = New System.Windows.Forms.Label()
         Me.lblAge = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.dtpDOB = New System.Windows.Forms.DateTimePicker()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.dtpDOB = New System.Windows.Forms.DateTimePicker()
+        Me.dtpDateVisit = New System.Windows.Forms.DateTimePicker()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chkNoHistory = New System.Windows.Forms.CheckBox()
         Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -660,22 +660,22 @@ Partial Class Frm_Visit
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox3.Controls.Add(Me.CheckBox1)
+        Me.GroupBox3.Controls.Add(Me.chkNoHistory)
         Me.GroupBox3.Controls.Add(Me.chkPaperRecord)
         Me.GroupBox3.Controls.Add(Me.IconButton1)
         Me.GroupBox3.Controls.Add(Me.GroupBox13)
         Me.GroupBox3.Controls.Add(Me.GroupBox1)
-        Me.GroupBox3.Controls.Add(Me.Label12)
+        Me.GroupBox3.Controls.Add(Me.lblSex)
         Me.GroupBox3.Controls.Add(Me.lblAge)
         Me.GroupBox3.Controls.Add(Me.Label10)
-        Me.GroupBox3.Controls.Add(Me.DateTimePicker1)
-        Me.GroupBox3.Controls.Add(Me.TextBox2)
-        Me.GroupBox3.Controls.Add(Me.TextBox1)
+        Me.GroupBox3.Controls.Add(Me.dtpDOB)
+        Me.GroupBox3.Controls.Add(Me.txtLastName)
+        Me.GroupBox3.Controls.Add(Me.txtFirstName)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Controls.Add(Me.Label4)
-        Me.GroupBox3.Controls.Add(Me.dtpDOB)
+        Me.GroupBox3.Controls.Add(Me.dtpDateVisit)
         Me.GroupBox3.Controls.Add(Me.Label15)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.Gainsboro
@@ -924,16 +924,16 @@ Partial Class Frm_Visit
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         '
-        'Label12
+        'lblSex
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label12.Location = New System.Drawing.Point(97, 187)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(36, 20)
-        Me.Label12.TabIndex = 276
-        Me.Label12.Text = "___"
+        Me.lblSex.AutoSize = True
+        Me.lblSex.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSex.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblSex.Location = New System.Drawing.Point(97, 187)
+        Me.lblSex.Name = "lblSex"
+        Me.lblSex.Size = New System.Drawing.Size(36, 20)
+        Me.lblSex.TabIndex = 276
+        Me.lblSex.Text = "___"
         '
         'lblAge
         '
@@ -957,33 +957,33 @@ Partial Class Frm_Visit
         Me.Label10.TabIndex = 274
         Me.Label10.Text = "Age:"
         '
-        'DateTimePicker1
+        'dtpDOB
         '
-        Me.DateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Honeydew
-        Me.DateTimePicker1.CustomFormat = "dd-MMM-yyyy"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(101, 151)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(134, 26)
-        Me.DateTimePicker1.TabIndex = 273
+        Me.dtpDOB.CalendarMonthBackground = System.Drawing.Color.Honeydew
+        Me.dtpDOB.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpDOB.Location = New System.Drawing.Point(101, 151)
+        Me.dtpDOB.Name = "dtpDOB"
+        Me.dtpDOB.Size = New System.Drawing.Size(134, 26)
+        Me.dtpDOB.TabIndex = 273
         '
-        'TextBox2
+        'txtLastName
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.Honeydew
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.Location = New System.Drawing.Point(101, 107)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(188, 26)
-        Me.TextBox2.TabIndex = 272
+        Me.txtLastName.BackColor = System.Drawing.Color.Honeydew
+        Me.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtLastName.Location = New System.Drawing.Point(101, 107)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(188, 26)
+        Me.txtLastName.TabIndex = 272
         '
-        'TextBox1
+        'txtFirstName
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.Honeydew
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(101, 70)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(188, 26)
-        Me.TextBox1.TabIndex = 271
+        Me.txtFirstName.BackColor = System.Drawing.Color.Honeydew
+        Me.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtFirstName.Location = New System.Drawing.Point(101, 70)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(188, 26)
+        Me.txtFirstName.TabIndex = 271
         '
         'Label6
         '
@@ -1029,14 +1029,14 @@ Partial Class Frm_Visit
         Me.Label4.TabIndex = 267
         Me.Label4.Text = "First Name:"
         '
-        'dtpDOB
+        'dtpDateVisit
         '
-        Me.dtpDOB.CustomFormat = "dd-MMM-yyyy"
-        Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDOB.Location = New System.Drawing.Point(101, 24)
-        Me.dtpDOB.Name = "dtpDOB"
-        Me.dtpDOB.Size = New System.Drawing.Size(134, 26)
-        Me.dtpDOB.TabIndex = 266
+        Me.dtpDateVisit.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpDateVisit.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpDateVisit.Location = New System.Drawing.Point(101, 24)
+        Me.dtpDateVisit.Name = "dtpDateVisit"
+        Me.dtpDateVisit.Size = New System.Drawing.Size(134, 26)
+        Me.dtpDateVisit.TabIndex = 266
         '
         'Label15
         '
@@ -1083,15 +1083,15 @@ Partial Class Frm_Visit
         Me.chkPaperRecord.Text = "Patient Clinic history in Paper"
         Me.chkPaperRecord.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'chkNoHistory
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(266, 213)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(142, 24)
-        Me.CheckBox1.TabIndex = 289
-        Me.CheckBox1.Text = "No Clinic History"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chkNoHistory.AutoSize = True
+        Me.chkNoHistory.Location = New System.Drawing.Point(266, 213)
+        Me.chkNoHistory.Name = "chkNoHistory"
+        Me.chkNoHistory.Size = New System.Drawing.Size(142, 24)
+        Me.chkNoHistory.TabIndex = 289
+        Me.chkNoHistory.Text = "No Clinic History"
+        Me.chkNoHistory.UseVisualStyleBackColor = True
         '
         'IconButton2
         '
@@ -1204,17 +1204,17 @@ Partial Class Frm_Visit
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Label12 As Label
+    Friend WithEvents lblSex As Label
     Friend WithEvents lblAge As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents dtpDOB As DateTimePicker
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents txtFirstName As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents dtpDOB As DateTimePicker
+    Friend WithEvents dtpDateVisit As DateTimePicker
     Friend WithEvents Label15 As Label
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents DataGridView5 As DataGridView
@@ -1246,7 +1246,7 @@ Partial Class Frm_Visit
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents Label24 As Label
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents chkNoHistory As CheckBox
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
 End Class

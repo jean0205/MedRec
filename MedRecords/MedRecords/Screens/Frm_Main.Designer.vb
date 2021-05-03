@@ -27,19 +27,19 @@ Partial Class Frm_Main
         Me.panelAddAppointment = New System.Windows.Forms.Panel()
         Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
         Me.gbNewAppointment = New System.Windows.Forms.GroupBox()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ibtnNewPatient = New FontAwesome.Sharp.IconButton()
+        Me.dgv2 = New System.Windows.Forms.DataGridView()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblTotalPaid = New System.Windows.Forms.Label()
+        Me.lblTotaltoPaid = New System.Windows.Forms.Label()
+        Me.lblTotalPatients = New System.Windows.Forms.Label()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.lblAge = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -56,14 +56,14 @@ Partial Class Frm_Main
         Me.ibtnServices = New FontAwesome.Sharp.IconButton()
         Me.ibtnPatients = New FontAwesome.Sharp.IconButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ibtnNew = New FontAwesome.Sharp.IconButton()
+        Me.ibtnNewAppointment = New FontAwesome.Sharp.IconButton()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.panelAddAppointment.SuspendLayout()
         Me.gbNewAppointment.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,10 +123,10 @@ Partial Class Frm_Main
         'gbNewAppointment
         '
         Me.gbNewAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
-        Me.gbNewAppointment.Controls.Add(Me.IconButton1)
-        Me.gbNewAppointment.Controls.Add(Me.DataGridView1)
-        Me.gbNewAppointment.Controls.Add(Me.TextBox2)
-        Me.gbNewAppointment.Controls.Add(Me.TextBox1)
+        Me.gbNewAppointment.Controls.Add(Me.ibtnNewPatient)
+        Me.gbNewAppointment.Controls.Add(Me.dgv2)
+        Me.gbNewAppointment.Controls.Add(Me.txtLastName)
+        Me.gbNewAppointment.Controls.Add(Me.txtFirstName)
         Me.gbNewAppointment.Controls.Add(Me.Label7)
         Me.gbNewAppointment.Controls.Add(Me.Label8)
         Me.gbNewAppointment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -140,60 +140,60 @@ Partial Class Frm_Main
         Me.gbNewAppointment.TabStop = False
         Me.gbNewAppointment.Text = "Search Patient:"
         '
-        'IconButton1
+        'ibtnNewPatient
         '
-        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
-        Me.IconButton1.FlatAppearance.BorderSize = 2
-        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
-        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 55
-        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton1.Location = New System.Drawing.Point(545, 27)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(162, 94)
-        Me.IconButton1.TabIndex = 85
-        Me.IconButton1.Text = "New Patient"
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseVisualStyleBackColor = False
+        Me.ibtnNewPatient.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
+        Me.ibtnNewPatient.FlatAppearance.BorderSize = 2
+        Me.ibtnNewPatient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnNewPatient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnNewPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnNewPatient.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnNewPatient.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnNewPatient.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
+        Me.ibtnNewPatient.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnNewPatient.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnNewPatient.IconSize = 55
+        Me.ibtnNewPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ibtnNewPatient.Location = New System.Drawing.Point(545, 27)
+        Me.ibtnNewPatient.Name = "ibtnNewPatient"
+        Me.ibtnNewPatient.Size = New System.Drawing.Size(162, 94)
+        Me.ibtnNewPatient.TabIndex = 85
+        Me.ibtnNewPatient.Text = "New Patient"
+        Me.ibtnNewPatient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnNewPatient.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'dgv2
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgv2.AllowUserToAddRows = False
+        Me.dgv2.AllowUserToDeleteRows = False
+        Me.dgv2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(7, 129)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowTemplate.Height = 32
-        Me.DataGridView1.Size = New System.Drawing.Size(701, 317)
-        Me.DataGridView1.TabIndex = 81
+        Me.dgv2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv2.Location = New System.Drawing.Point(7, 129)
+        Me.dgv2.Name = "dgv2"
+        Me.dgv2.ReadOnly = True
+        Me.dgv2.RowHeadersVisible = False
+        Me.dgv2.RowTemplate.Height = 32
+        Me.dgv2.Size = New System.Drawing.Size(701, 317)
+        Me.dgv2.TabIndex = 81
         '
-        'TextBox2
+        'txtLastName
         '
-        Me.TextBox2.ForeColor = System.Drawing.Color.Black
-        Me.TextBox2.Location = New System.Drawing.Point(112, 77)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(274, 26)
-        Me.TextBox2.TabIndex = 249
+        Me.txtLastName.ForeColor = System.Drawing.Color.Black
+        Me.txtLastName.Location = New System.Drawing.Point(112, 77)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(274, 26)
+        Me.txtLastName.TabIndex = 249
         '
-        'TextBox1
+        'txtFirstName
         '
-        Me.TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.TextBox1.Location = New System.Drawing.Point(112, 40)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(274, 26)
-        Me.TextBox1.TabIndex = 248
+        Me.txtFirstName.ForeColor = System.Drawing.Color.Black
+        Me.txtFirstName.Location = New System.Drawing.Point(112, 40)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(274, 26)
+        Me.txtFirstName.TabIndex = 248
         '
         'Label7
         '
@@ -261,9 +261,9 @@ Partial Class Frm_Main
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.lblTotalPaid)
+        Me.GroupBox1.Controls.Add(Me.lblTotaltoPaid)
+        Me.GroupBox1.Controls.Add(Me.lblTotalPatients)
         Me.GroupBox1.Controls.Add(Me.chkPaperRecord)
         Me.GroupBox1.Controls.Add(Me.lblAge)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -277,38 +277,38 @@ Partial Class Frm_Main
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Doctor Statistics:"
         '
-        'Label6
+        'lblTotalPaid
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label6.Location = New System.Drawing.Point(159, 102)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(108, 20)
-        Me.Label6.TabIndex = 261
-        Me.Label6.Text = "___________"
+        Me.lblTotalPaid.AutoSize = True
+        Me.lblTotalPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalPaid.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblTotalPaid.Location = New System.Drawing.Point(159, 102)
+        Me.lblTotalPaid.Name = "lblTotalPaid"
+        Me.lblTotalPaid.Size = New System.Drawing.Size(108, 20)
+        Me.lblTotalPaid.TabIndex = 261
+        Me.lblTotalPaid.Text = "___________"
         '
-        'Label5
+        'lblTotaltoPaid
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(159, 67)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(108, 20)
-        Me.Label5.TabIndex = 260
-        Me.Label5.Text = "___________"
+        Me.lblTotaltoPaid.AutoSize = True
+        Me.lblTotaltoPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotaltoPaid.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblTotaltoPaid.Location = New System.Drawing.Point(159, 67)
+        Me.lblTotaltoPaid.Name = "lblTotaltoPaid"
+        Me.lblTotaltoPaid.Size = New System.Drawing.Size(108, 20)
+        Me.lblTotaltoPaid.TabIndex = 260
+        Me.lblTotaltoPaid.Text = "___________"
         '
-        'Label3
+        'lblTotalPatients
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label3.Location = New System.Drawing.Point(159, 32)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(108, 20)
-        Me.Label3.TabIndex = 259
-        Me.Label3.Text = "___________"
+        Me.lblTotalPatients.AutoSize = True
+        Me.lblTotalPatients.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalPatients.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblTotalPatients.Location = New System.Drawing.Point(159, 32)
+        Me.lblTotalPatients.Name = "lblTotalPatients"
+        Me.lblTotalPatients.Size = New System.Drawing.Size(108, 20)
+        Me.lblTotalPatients.TabIndex = 259
+        Me.lblTotalPatients.Text = "___________"
         '
         'chkPaperRecord
         '
@@ -573,27 +573,27 @@ Partial Class Frm_Main
         '
         Me.Timer1.Enabled = True
         '
-        'ibtnNew
+        'ibtnNewAppointment
         '
-        Me.ibtnNew.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
-        Me.ibtnNew.FlatAppearance.BorderSize = 2
-        Me.ibtnNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnNew.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnNew.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
-        Me.ibtnNew.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnNew.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnNew.IconSize = 55
-        Me.ibtnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnNew.Location = New System.Drawing.Point(768, 44)
-        Me.ibtnNew.Name = "ibtnNew"
-        Me.ibtnNew.Size = New System.Drawing.Size(251, 94)
-        Me.ibtnNew.TabIndex = 84
-        Me.ibtnNew.Text = "New Walk In Appointment"
-        Me.ibtnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnNew.UseVisualStyleBackColor = False
+        Me.ibtnNewAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
+        Me.ibtnNewAppointment.FlatAppearance.BorderSize = 2
+        Me.ibtnNewAppointment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnNewAppointment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnNewAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnNewAppointment.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnNewAppointment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnNewAppointment.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
+        Me.ibtnNewAppointment.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnNewAppointment.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnNewAppointment.IconSize = 55
+        Me.ibtnNewAppointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ibtnNewAppointment.Location = New System.Drawing.Point(768, 44)
+        Me.ibtnNewAppointment.Name = "ibtnNewAppointment"
+        Me.ibtnNewAppointment.Size = New System.Drawing.Size(251, 94)
+        Me.ibtnNewAppointment.TabIndex = 84
+        Me.ibtnNewAppointment.Text = "New Walk In Appointment"
+        Me.ibtnNewAppointment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnNewAppointment.UseVisualStyleBackColor = False
         '
         'Label9
         '
@@ -635,7 +635,7 @@ Partial Class Frm_Main
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1408, 780)
-        Me.Controls.Add(Me.ibtnNew)
+        Me.Controls.Add(Me.ibtnNewAppointment)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.lblTime)
@@ -650,7 +650,7 @@ Partial Class Frm_Main
         Me.panelAddAppointment.ResumeLayout(False)
         Me.gbNewAppointment.ResumeLayout(False)
         Me.gbNewAppointment.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -665,9 +665,9 @@ Partial Class Frm_Main
     Private WithEvents lblDate As Label
     Private WithEvents lblTime As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblTotalPaid As Label
+    Friend WithEvents lblTotaltoPaid As Label
+    Friend WithEvents lblTotalPatients As Label
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents lblAge As Label
     Friend WithEvents Label2 As Label
@@ -684,12 +684,12 @@ Partial Class Frm_Main
     Friend WithEvents ibtnServices As FontAwesome.Sharp.IconButton
     Friend WithEvents ibtnPatients As FontAwesome.Sharp.IconButton
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents ibtnNew As FontAwesome.Sharp.IconButton
+    Friend WithEvents ibtnNewAppointment As FontAwesome.Sharp.IconButton
     Friend WithEvents gbNewAppointment As GroupBox
-    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ibtnNewPatient As FontAwesome.Sharp.IconButton
+    Friend WithEvents dgv2 As DataGridView
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents txtFirstName As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents panelAddAppointment As Panel

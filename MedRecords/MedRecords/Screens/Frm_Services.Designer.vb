@@ -28,9 +28,9 @@ Partial Class Frm_Services
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.lblAge = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtServiceCost = New System.Windows.Forms.TextBox()
+        Me.txtServiceDescription = New System.Windows.Forms.TextBox()
+        Me.txtServiceName = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -82,9 +82,9 @@ Partial Class Frm_Services
         Me.GroupBox1.Controls.Add(Me.ibtnSave)
         Me.GroupBox1.Controls.Add(Me.chkPaperRecord)
         Me.GroupBox1.Controls.Add(Me.lblAge)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.txtServiceCost)
+        Me.GroupBox1.Controls.Add(Me.txtServiceDescription)
+        Me.GroupBox1.Controls.Add(Me.txtServiceName)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -140,27 +140,27 @@ Partial Class Frm_Services
         Me.lblAge.TabIndex = 256
         Me.lblAge.Text = "___"
         '
-        'TextBox3
+        'txtServiceCost
         '
-        Me.TextBox3.Location = New System.Drawing.Point(156, 154)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(107, 26)
-        Me.TextBox3.TabIndex = 246
+        Me.txtServiceCost.Location = New System.Drawing.Point(156, 154)
+        Me.txtServiceCost.Name = "txtServiceCost"
+        Me.txtServiceCost.Size = New System.Drawing.Size(107, 26)
+        Me.txtServiceCost.TabIndex = 246
         '
-        'TextBox2
+        'txtServiceDescription
         '
-        Me.TextBox2.Location = New System.Drawing.Point(156, 80)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(274, 59)
-        Me.TextBox2.TabIndex = 245
+        Me.txtServiceDescription.Location = New System.Drawing.Point(156, 80)
+        Me.txtServiceDescription.Multiline = True
+        Me.txtServiceDescription.Name = "txtServiceDescription"
+        Me.txtServiceDescription.Size = New System.Drawing.Size(274, 59)
+        Me.txtServiceDescription.TabIndex = 245
         '
-        'TextBox1
+        'txtServiceName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(156, 32)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(274, 26)
-        Me.TextBox1.TabIndex = 244
+        Me.txtServiceName.Location = New System.Drawing.Point(156, 32)
+        Me.txtServiceName.Name = "txtServiceName"
+        Me.txtServiceName.Size = New System.Drawing.Size(274, 26)
+        Me.txtServiceName.TabIndex = 244
         '
         'Label2
         '
@@ -222,9 +222,9 @@ Partial Class Frm_Services
     Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents lblAge As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtServiceCost As TextBox
+    Friend WithEvents txtServiceDescription As TextBox
+    Friend WithEvents txtServiceName As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label4 As Label

@@ -21,11 +21,11 @@
         lblDate.Text = Now.ToLongDateString
     End Sub
 
-    Private Sub ibtnNew_Click(sender As Object, e As EventArgs) Handles ibtnNew.Click
+    Private Sub ibtnNew_Click(sender As Object, e As EventArgs) Handles ibtnNewAppointment.Click
         panelAddAppointment.Visible = True
     End Sub
 
-    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
+    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles ibtnNewPatient.Click
         Dim frm As New Frm_NewPatient
         frm.ShowDialog()
     End Sub
