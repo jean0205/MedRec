@@ -11,6 +11,7 @@
     Public Property Phone1 As String
     Public Property Phone2 As String
     Public Property Email As String
+    Public Property DoctorNotes As String
     Public Property PaperRecord As Boolean
     Public Property RegistrationDate As DateTime
 
