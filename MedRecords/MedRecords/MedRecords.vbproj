@@ -76,8 +76,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\Entities\Allergy.vb" />
+    <Compile Include="DataAccess\Entities\Contraceptive.vb" />
+    <Compile Include="DataAccess\Entities\FamilyHist.vb" />
+    <Compile Include="DataAccess\Entities\Habits.vb" />
+    <Compile Include="DataAccess\Entities\MedicalProblems.vb" />
+    <Compile Include="DataAccess\Entities\Medications.vb" />
     <Compile Include="DataAccess\Entities\PatientE.vb" />
     <Compile Include="DataAccess\Entities\PatientMedicalHistoryE.vb" />
+    <Compile Include="DataAccess\Entities\Pregnacy.vb" />
+    <Compile Include="DataAccess\Entities\Service.vb" />
+    <Compile Include="DataAccess\Entities\Surgery.vb" />
+    <Compile Include="DataAccess\Entities\TestComplement.vb" />
     <Compile Include="DataAccess\Entities\VisitE.vb" />
     <Compile Include="Screens\Form1.vb">
       <SubType>Form</SubType>

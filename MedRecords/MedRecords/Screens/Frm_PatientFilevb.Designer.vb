@@ -44,6 +44,7 @@ Partial Class Frm_PatientFilevb
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewButtonColumn1 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.dgvMedicalProblems = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -95,6 +96,8 @@ Partial Class Frm_PatientFilevb
         Me.dgvVisitsHistory = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.lblOustandingBill = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.lblAmountOfVisits = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -123,9 +126,7 @@ Partial Class Frm_PatientFilevb
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.lblOustandingBill = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -377,6 +378,17 @@ Partial Class Frm_PatientFilevb
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Medical Problems:"
         '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label22.Location = New System.Drawing.Point(111, 132)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(551, 20)
+        Me.Label22.TabIndex = 249
+        Me.Label22.Text = "hacer q laquery coja el nombre la columna como parametro de sql a modificar"
+        '
         'dgvMedicalProblems
         '
         Me.dgvMedicalProblems.AllowUserToAddRows = False
@@ -608,6 +620,7 @@ Partial Class Frm_PatientFilevb
         '
         Me.GroupBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox6.Controls.Add(Me.Label14)
         Me.GroupBox6.Controls.Add(Me.dgvTests)
         Me.GroupBox6.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox6.Location = New System.Drawing.Point(4, 6)
@@ -891,6 +904,28 @@ Partial Class Frm_PatientFilevb
         Me.GroupBox3.Size = New System.Drawing.Size(286, 215)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
+        '
+        'lblOustandingBill
+        '
+        Me.lblOustandingBill.AutoSize = True
+        Me.lblOustandingBill.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOustandingBill.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblOustandingBill.Location = New System.Drawing.Point(156, 147)
+        Me.lblOustandingBill.Name = "lblOustandingBill"
+        Me.lblOustandingBill.Size = New System.Drawing.Size(72, 20)
+        Me.lblOustandingBill.TabIndex = 267
+        Me.lblOustandingBill.Text = "_______"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label21.Location = New System.Drawing.Point(16, 147)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(119, 20)
+        Me.Label21.TabIndex = 266
+        Me.Label21.Text = "Oustanding Bill:"
         '
         'lblAmountOfVisits
         '
@@ -1182,38 +1217,16 @@ Partial Class Frm_PatientFilevb
         Me.Label4.TabIndex = 236
         Me.Label4.Text = "First Name:"
         '
-        'lblOustandingBill
+        'Label14
         '
-        Me.lblOustandingBill.AutoSize = True
-        Me.lblOustandingBill.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOustandingBill.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblOustandingBill.Location = New System.Drawing.Point(156, 147)
-        Me.lblOustandingBill.Name = "lblOustandingBill"
-        Me.lblOustandingBill.Size = New System.Drawing.Size(72, 20)
-        Me.lblOustandingBill.TabIndex = 267
-        Me.lblOustandingBill.Text = "_______"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label21.Location = New System.Drawing.Point(16, 147)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(119, 20)
-        Me.Label21.TabIndex = 266
-        Me.Label21.Text = "Oustanding Bill:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label22.Location = New System.Drawing.Point(111, 132)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(551, 20)
-        Me.Label22.TabIndex = 249
-        Me.Label22.Text = "hacer q laquery coja el nombre la columna como parametro de sql a modificar"
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label14.Location = New System.Drawing.Point(329, 249)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(299, 20)
+        Me.Label14.TabIndex = 249
+        Me.Label14.Text = "agregar boton para verl el archivo del test"
         '
         'Frm_PatientFilevb
         '
@@ -1246,6 +1259,7 @@ Partial Class Frm_PatientFilevb
         Me.GroupBox9.ResumeLayout(False)
         CType(Me.dgvPregnancies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         CType(Me.dgvTests, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.GroupBox13.ResumeLayout(False)
@@ -1367,4 +1381,5 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents lblOustandingBill As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label22 As Label
+    Friend WithEvents Label14 As Label
 End Class

@@ -42,16 +42,6 @@ Partial Class Frm_Visit
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.dgvOrdered = New System.Windows.Forms.DataGridView()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewButtonColumn1 = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.dgvPrescribed = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.txtPlan = New System.Windows.Forms.RichTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -110,16 +100,14 @@ Partial Class Frm_Visit
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtpDateVisit = New System.Windows.Forms.DateTimePicker()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox12.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        Me.GroupBox11.SuspendLayout()
-        CType(Me.dgvOrdered, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox10.SuspendLayout()
-        CType(Me.dgvPrescribed, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
@@ -144,7 +132,7 @@ Partial Class Frm_Visit
         Me.TabControl1.Location = New System.Drawing.Point(3, 247)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(857, 578)
+        Me.TabControl1.Size = New System.Drawing.Size(857, 629)
         Me.TabControl1.TabIndex = 280
         '
         'TabPage1
@@ -156,7 +144,7 @@ Partial Class Frm_Visit
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(849, 545)
+        Me.TabPage1.Size = New System.Drawing.Size(849, 596)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Vital Signs and Physical Exam"
         '
@@ -165,9 +153,9 @@ Partial Class Frm_Visit
         Me.GroupBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox5.Controls.Add(Me.txtPhysicalExam)
         Me.GroupBox5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox5.Location = New System.Drawing.Point(6, 268)
+        Me.GroupBox5.Location = New System.Drawing.Point(6, 274)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(835, 272)
+        Me.GroupBox5.Size = New System.Drawing.Size(835, 317)
         Me.GroupBox5.TabIndex = 285
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Physical Exam:"
@@ -176,7 +164,7 @@ Partial Class Frm_Visit
         '
         Me.txtPhysicalExam.Location = New System.Drawing.Point(6, 25)
         Me.txtPhysicalExam.Name = "txtPhysicalExam"
-        Me.txtPhysicalExam.Size = New System.Drawing.Size(819, 241)
+        Me.txtPhysicalExam.Size = New System.Drawing.Size(819, 286)
         Me.txtPhysicalExam.TabIndex = 0
         Me.txtPhysicalExam.Text = ""
         '
@@ -185,7 +173,7 @@ Partial Class Frm_Visit
         Me.GroupBox12.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox12.Controls.Add(Me.txtComplain)
         Me.GroupBox12.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox12.Location = New System.Drawing.Point(273, 10)
+        Me.GroupBox12.Location = New System.Drawing.Point(273, 11)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Size = New System.Drawing.Size(568, 257)
         Me.GroupBox12.TabIndex = 284
@@ -216,7 +204,7 @@ Partial Class Frm_Visit
         Me.GroupBox4.Controls.Add(Me.Label2)
         Me.GroupBox4.Controls.Add(Me.Label8)
         Me.GroupBox4.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox4.Location = New System.Drawing.Point(6, 10)
+        Me.GroupBox4.Location = New System.Drawing.Point(6, 11)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(261, 257)
         Me.GroupBox4.TabIndex = 281
@@ -334,124 +322,22 @@ Partial Class Frm_Visit
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.TabPage2.Controls.Add(Me.GroupBox11)
-        Me.TabPage2.Controls.Add(Me.GroupBox10)
         Me.TabPage2.Controls.Add(Me.GroupBox9)
         Me.TabPage2.Controls.Add(Me.GroupBox2)
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(849, 545)
+        Me.TabPage2.Size = New System.Drawing.Size(849, 596)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Diagnosis and Treatment"
-        '
-        'GroupBox11
-        '
-        Me.GroupBox11.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox11.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.GroupBox11.Controls.Add(Me.dgvOrdered)
-        Me.GroupBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox11.ForeColor = System.Drawing.Color.White
-        Me.GroupBox11.Location = New System.Drawing.Point(395, 402)
-        Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(448, 143)
-        Me.GroupBox11.TabIndex = 288
-        Me.GroupBox11.TabStop = False
-        Me.GroupBox11.Text = "Ordered Test:"
-        '
-        'dgvOrdered
-        '
-        Me.dgvOrdered.AllowUserToAddRows = False
-        Me.dgvOrdered.AllowUserToDeleteRows = False
-        Me.dgvOrdered.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvOrdered.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvOrdered.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvOrdered.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column5, Me.DataGridViewButtonColumn1})
-        Me.dgvOrdered.Location = New System.Drawing.Point(7, 25)
-        Me.dgvOrdered.Name = "dgvOrdered"
-        Me.dgvOrdered.ReadOnly = True
-        Me.dgvOrdered.RowHeadersVisible = False
-        Me.dgvOrdered.RowTemplate.Height = 32
-        Me.dgvOrdered.Size = New System.Drawing.Size(435, 112)
-        Me.dgvOrdered.TabIndex = 267
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Test"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'DataGridViewButtonColumn1
-        '
-        Me.DataGridViewButtonColumn1.HeaderText = "Delete"
-        Me.DataGridViewButtonColumn1.Name = "DataGridViewButtonColumn1"
-        Me.DataGridViewButtonColumn1.ReadOnly = True
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox10.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.GroupBox10.Controls.Add(Me.dgvPrescribed)
-        Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox10.ForeColor = System.Drawing.Color.White
-        Me.GroupBox10.Location = New System.Drawing.Point(6, 402)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(383, 143)
-        Me.GroupBox10.TabIndex = 287
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Prescribed Medications:"
-        '
-        'dgvPrescribed
-        '
-        Me.dgvPrescribed.AllowUserToAddRows = False
-        Me.dgvPrescribed.AllowUserToDeleteRows = False
-        Me.dgvPrescribed.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvPrescribed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvPrescribed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPrescribed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn7, Me.Column3, Me.Column4})
-        Me.dgvPrescribed.Location = New System.Drawing.Point(7, 25)
-        Me.dgvPrescribed.Name = "dgvPrescribed"
-        Me.dgvPrescribed.ReadOnly = True
-        Me.dgvPrescribed.RowHeadersVisible = False
-        Me.dgvPrescribed.RowTemplate.Height = 32
-        Me.dgvPrescribed.Size = New System.Drawing.Size(370, 112)
-        Me.dgvPrescribed.TabIndex = 267
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Medication"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Dosage"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Time"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Delete"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
         '
         'GroupBox9
         '
         Me.GroupBox9.Controls.Add(Me.txtPlan)
         Me.GroupBox9.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox9.Location = New System.Drawing.Point(6, 179)
+        Me.GroupBox9.Location = New System.Drawing.Point(6, 290)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(837, 217)
+        Me.GroupBox9.Size = New System.Drawing.Size(837, 301)
         Me.GroupBox9.TabIndex = 286
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Plan/ Treatment:"
@@ -460,7 +346,7 @@ Partial Class Frm_Visit
         '
         Me.txtPlan.Location = New System.Drawing.Point(6, 25)
         Me.txtPlan.Name = "txtPlan"
-        Me.txtPlan.Size = New System.Drawing.Size(825, 180)
+        Me.txtPlan.Size = New System.Drawing.Size(825, 270)
         Me.txtPlan.TabIndex = 0
         Me.txtPlan.Text = ""
         '
@@ -470,7 +356,7 @@ Partial Class Frm_Visit
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox2.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(837, 171)
+        Me.GroupBox2.Size = New System.Drawing.Size(837, 278)
         Me.GroupBox2.TabIndex = 285
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Diagnosis:"
@@ -479,7 +365,7 @@ Partial Class Frm_Visit
         '
         Me.txtDiagnosis.Location = New System.Drawing.Point(6, 25)
         Me.txtDiagnosis.Name = "txtDiagnosis"
-        Me.txtDiagnosis.Size = New System.Drawing.Size(825, 140)
+        Me.txtDiagnosis.Size = New System.Drawing.Size(825, 234)
         Me.txtDiagnosis.TabIndex = 0
         Me.txtDiagnosis.Text = ""
         '
@@ -490,7 +376,7 @@ Partial Class Frm_Visit
         Me.TabPage3.Location = New System.Drawing.Point(4, 29)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(849, 545)
+        Me.TabPage3.Size = New System.Drawing.Size(849, 596)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Previus Visits"
         '
@@ -510,12 +396,13 @@ Partial Class Frm_Visit
         '
         Me.GroupBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox6.Controls.Add(Me.Label13)
         Me.GroupBox6.Controls.Add(Me.dgvTest)
         Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox6.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox6.Location = New System.Drawing.Point(866, 454)
+        Me.GroupBox6.Location = New System.Drawing.Point(866, 615)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(653, 371)
+        Me.GroupBox6.Size = New System.Drawing.Size(653, 263)
         Me.GroupBox6.TabIndex = 280
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Screening/Diagnostic Tests:"
@@ -530,12 +417,12 @@ Partial Class Frm_Visit
         Me.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTest.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.Column10, Me.DataGridViewButtonColumn2})
-        Me.dgvTest.Location = New System.Drawing.Point(6, 25)
+        Me.dgvTest.Location = New System.Drawing.Point(6, 19)
         Me.dgvTest.Name = "dgvTest"
         Me.dgvTest.ReadOnly = True
         Me.dgvTest.RowHeadersVisible = False
         Me.dgvTest.RowTemplate.Height = 32
-        Me.dgvTest.Size = New System.Drawing.Size(641, 330)
+        Me.dgvTest.Size = New System.Drawing.Size(641, 233)
         Me.dgvTest.TabIndex = 61
         '
         'DataGridViewTextBoxColumn4
@@ -575,9 +462,9 @@ Partial Class Frm_Visit
         Me.GroupBox8.Controls.Add(Me.dgvAllergies)
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox8.ForeColor = System.Drawing.Color.White
-        Me.GroupBox8.Location = New System.Drawing.Point(866, 262)
+        Me.GroupBox8.Location = New System.Drawing.Point(866, 245)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(325, 191)
+        Me.GroupBox8.Size = New System.Drawing.Size(660, 178)
         Me.GroupBox8.TabIndex = 282
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Allergies:"
@@ -597,7 +484,7 @@ Partial Class Frm_Visit
         Me.dgvAllergies.ReadOnly = True
         Me.dgvAllergies.RowHeadersVisible = False
         Me.dgvAllergies.RowTemplate.Height = 32
-        Me.dgvAllergies.Size = New System.Drawing.Size(312, 160)
+        Me.dgvAllergies.Size = New System.Drawing.Size(647, 147)
         Me.dgvAllergies.TabIndex = 267
         '
         'Column8
@@ -616,12 +503,13 @@ Partial Class Frm_Visit
         '
         Me.GroupBox7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox7.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.GroupBox7.Controls.Add(Me.Label12)
         Me.GroupBox7.Controls.Add(Me.dgvMedications)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox7.ForeColor = System.Drawing.Color.White
-        Me.GroupBox7.Location = New System.Drawing.Point(1196, 262)
+        Me.GroupBox7.Location = New System.Drawing.Point(866, 429)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(325, 191)
+        Me.GroupBox7.Size = New System.Drawing.Size(654, 189)
         Me.GroupBox7.TabIndex = 283
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Active Medications:"
@@ -636,12 +524,12 @@ Partial Class Frm_Visit
         Me.dgvMedications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvMedications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvMedications.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
-        Me.dgvMedications.Location = New System.Drawing.Point(7, 25)
+        Me.dgvMedications.Location = New System.Drawing.Point(7, 22)
         Me.dgvMedications.Name = "dgvMedications"
         Me.dgvMedications.ReadOnly = True
         Me.dgvMedications.RowHeadersVisible = False
         Me.dgvMedications.RowTemplate.Height = 32
-        Me.dgvMedications.Size = New System.Drawing.Size(312, 160)
+        Me.dgvMedications.Size = New System.Drawing.Size(641, 158)
         Me.dgvMedications.TabIndex = 267
         '
         'DataGridViewTextBoxColumn1
@@ -774,9 +662,9 @@ Partial Class Frm_Visit
         Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton2.IconSize = 30
         Me.IconButton2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton2.Location = New System.Drawing.Point(538, 116)
+        Me.IconButton2.Location = New System.Drawing.Point(538, 84)
         Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Size = New System.Drawing.Size(160, 48)
+        Me.IconButton2.Size = New System.Drawing.Size(160, 80)
         Me.IconButton2.TabIndex = 294
         Me.IconButton2.Text = "calcelar par limpiar los campos delbill"
         Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -1117,12 +1005,34 @@ Partial Class Frm_Visit
         Me.Label15.TabIndex = 260
         Me.Label15.Text = "Visit Date:"
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label12.Location = New System.Drawing.Point(119, 111)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(425, 20)
+        Me.Label12.TabIndex = 275
+        Me.Label12.Text = "agregar los medicamentos nuevos y salvar el ide de la visita"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label13.Location = New System.Drawing.Point(55, 117)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(343, 20)
+        Me.Label13.TabIndex = 276
+        Me.Label13.Text = "agregar los ordered test y salvar el id de la visita"
+        '
         'Frm_Visit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1528, 830)
+        Me.ClientSize = New System.Drawing.Size(1528, 879)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox3)
@@ -1137,19 +1047,17 @@ Partial Class Frm_Visit
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
-        Me.GroupBox11.ResumeLayout(False)
-        CType(Me.dgvOrdered, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox10.ResumeLayout(False)
-        CType(Me.dgvPrescribed, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         CType(Me.dgvTest, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox8.ResumeLayout(False)
         CType(Me.dgvAllergies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
         CType(Me.dgvMedications, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -1216,18 +1124,8 @@ Partial Class Frm_Visit
     Friend WithEvents Label4 As Label
     Friend WithEvents dtpDateVisit As DateTimePicker
     Friend WithEvents Label15 As Label
-    Friend WithEvents GroupBox10 As GroupBox
-    Friend WithEvents dgvPrescribed As DataGridView
     Protected Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents txtPlan As RichTextBox
-    Friend WithEvents GroupBox11 As GroupBox
-    Friend WithEvents dgvOrdered As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewButtonColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewButtonColumn1 As DataGridViewButtonColumn
     Friend WithEvents Label16 As Label
     Friend WithEvents lblTotalServices As Label
     Friend WithEvents Label14 As Label
@@ -1249,4 +1147,6 @@ Partial Class Frm_Visit
     Friend WithEvents chkNoHistory As CheckBox
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label12 As Label
 End Class
