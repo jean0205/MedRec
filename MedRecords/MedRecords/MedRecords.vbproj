@@ -76,20 +76,34 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\Entities\Allergy.vb" />
-    <Compile Include="DataAccess\Entities\Appointment.vb" />
-    <Compile Include="DataAccess\Entities\Contraceptive.vb" />
-    <Compile Include="DataAccess\Entities\FamilyHist.vb" />
-    <Compile Include="DataAccess\Entities\Habits.vb" />
-    <Compile Include="DataAccess\Entities\MedicalProblems.vb" />
-    <Compile Include="DataAccess\Entities\Medications.vb" />
-    <Compile Include="DataAccess\Entities\PatientE.vb" />
-    <Compile Include="DataAccess\Entities\PatientMedicalHistoryE.vb" />
-    <Compile Include="DataAccess\Entities\Pregnacy.vb" />
-    <Compile Include="DataAccess\Entities\Service.vb" />
-    <Compile Include="DataAccess\Entities\Surgery.vb" />
-    <Compile Include="DataAccess\Entities\TestComplement.vb" />
-    <Compile Include="DataAccess\Entities\VisitE.vb" />
+    <Compile Include="DataAccess\AllergyDB.vb" />
+    <Compile Include="DataAccess\AppointmentDB.vb" />
+    <Compile Include="DataAccess\ContraceptiveDB.vb" />
+    <Compile Include="DataAccess\FamilyHistDB.vb" />
+    <Compile Include="DataAccess\HabitsDB.vb" />
+    <Compile Include="DataAccess\MedicalProblemsDB.vb" />
+    <Compile Include="DataAccess\MedicationsDB.vb" />
+    <Compile Include="DataAccess\PatientEDB.vb" />
+    <Compile Include="DataAccess\PatientMedicalHistoryDB.vb" />
+    <Compile Include="DataAccess\PregnacyDB.vb" />
+    <Compile Include="DataAccess\ServiceDB.vb" />
+    <Compile Include="DataAccess\SurgeryDB.vb" />
+    <Compile Include="DataAccess\TestComplementDB.vb" />
+    <Compile Include="DataAccess\VisitDB.vb" />
+    <Compile Include="Entities\Allergy.vb" />
+    <Compile Include="Entities\Appointment.vb" />
+    <Compile Include="Entities\Contraceptive.vb" />
+    <Compile Include="Entities\FamilyHist.vb" />
+    <Compile Include="Entities\Habits.vb" />
+    <Compile Include="Entities\MedicalProblems.vb" />
+    <Compile Include="Entities\Medications.vb" />
+    <Compile Include="Entities\PatientE.vb" />
+    <Compile Include="Entities\PatientMedicalHistoryE.vb" />
+    <Compile Include="Entities\Pregnacy.vb" />
+    <Compile Include="Entities\Service.vb" />
+    <Compile Include="Entities\Surgery.vb" />
+    <Compile Include="Entities\TestComplement.vb" />
+    <Compile Include="Entities\VisitE.vb" />
     <Compile Include="Screens\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
