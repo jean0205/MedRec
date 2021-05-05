@@ -74,7 +74,11 @@ Partial Class Frm_Visit
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.chkNoHistory = New System.Windows.Forms.CheckBox()
+        Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
+        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.txtOtherServices = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.lblOustanding = New System.Windows.Forms.Label()
@@ -106,10 +110,6 @@ Partial Class Frm_Visit
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtpDateVisit = New System.Windows.Forms.DateTimePicker()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
-        Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
-        Me.chkNoHistory = New System.Windows.Forms.CheckBox()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -685,6 +685,50 @@ Partial Class Frm_Visit
         Me.GroupBox3.TabIndex = 270
         Me.GroupBox3.TabStop = False
         '
+        'chkNoHistory
+        '
+        Me.chkNoHistory.AutoSize = True
+        Me.chkNoHistory.Location = New System.Drawing.Point(266, 213)
+        Me.chkNoHistory.Name = "chkNoHistory"
+        Me.chkNoHistory.Size = New System.Drawing.Size(142, 24)
+        Me.chkNoHistory.TabIndex = 289
+        Me.chkNoHistory.Text = "No Clinic History"
+        Me.chkNoHistory.UseVisualStyleBackColor = True
+        '
+        'chkPaperRecord
+        '
+        Me.chkPaperRecord.AutoSize = True
+        Me.chkPaperRecord.Location = New System.Drawing.Point(5, 213)
+        Me.chkPaperRecord.Name = "chkPaperRecord"
+        Me.chkPaperRecord.Size = New System.Drawing.Size(231, 24)
+        Me.chkPaperRecord.TabIndex = 288
+        Me.chkPaperRecord.Text = "Patient Clinic history in Paper"
+        Me.chkPaperRecord.UseVisualStyleBackColor = True
+        '
+        'IconButton1
+        '
+        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.IconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.IconButton1.FlatAppearance.BorderSize = 2
+        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 30
+        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.IconButton1.Location = New System.Drawing.Point(316, 17)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Size = New System.Drawing.Size(122, 57)
+        Me.IconButton1.TabIndex = 287
+        Me.IconButton1.Text = "Clinic History"
+        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton1.UseVisualStyleBackColor = False
+        '
         'GroupBox13
         '
         Me.GroupBox13.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -713,6 +757,30 @@ Partial Class Frm_Visit
         Me.GroupBox13.TabIndex = 286
         Me.GroupBox13.TabStop = False
         Me.GroupBox13.Text = "Billing Information:"
+        '
+        'IconButton2
+        '
+        Me.IconButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.IconButton2.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.IconButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.IconButton2.FlatAppearance.BorderSize = 2
+        Me.IconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.IconButton2.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton2.IconSize = 30
+        Me.IconButton2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.IconButton2.Location = New System.Drawing.Point(538, 116)
+        Me.IconButton2.Name = "IconButton2"
+        Me.IconButton2.Size = New System.Drawing.Size(160, 48)
+        Me.IconButton2.TabIndex = 294
+        Me.IconButton2.Text = "calcelar par limpiar los campos delbill"
+        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton2.UseVisualStyleBackColor = False
         '
         'txtOtherServices
         '
@@ -1048,74 +1116,6 @@ Partial Class Frm_Visit
         Me.Label15.Size = New System.Drawing.Size(82, 20)
         Me.Label15.TabIndex = 260
         Me.Label15.Text = "Visit Date:"
-        '
-        'IconButton1
-        '
-        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton1.FlatAppearance.BorderSize = 2
-        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 30
-        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton1.Location = New System.Drawing.Point(316, 17)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(122, 57)
-        Me.IconButton1.TabIndex = 287
-        Me.IconButton1.Text = "Clinic History"
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseVisualStyleBackColor = False
-        '
-        'chkPaperRecord
-        '
-        Me.chkPaperRecord.AutoSize = True
-        Me.chkPaperRecord.Location = New System.Drawing.Point(5, 213)
-        Me.chkPaperRecord.Name = "chkPaperRecord"
-        Me.chkPaperRecord.Size = New System.Drawing.Size(231, 24)
-        Me.chkPaperRecord.TabIndex = 288
-        Me.chkPaperRecord.Text = "Patient Clinic history in Paper"
-        Me.chkPaperRecord.UseVisualStyleBackColor = True
-        '
-        'chkNoHistory
-        '
-        Me.chkNoHistory.AutoSize = True
-        Me.chkNoHistory.Location = New System.Drawing.Point(266, 213)
-        Me.chkNoHistory.Name = "chkNoHistory"
-        Me.chkNoHistory.Size = New System.Drawing.Size(142, 24)
-        Me.chkNoHistory.TabIndex = 289
-        Me.chkNoHistory.Text = "No Clinic History"
-        Me.chkNoHistory.UseVisualStyleBackColor = True
-        '
-        'IconButton2
-        '
-        Me.IconButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton2.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton2.FlatAppearance.BorderSize = 2
-        Me.IconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.IconButton2.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton2.IconSize = 30
-        Me.IconButton2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton2.Location = New System.Drawing.Point(538, 116)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Size = New System.Drawing.Size(160, 48)
-        Me.IconButton2.TabIndex = 294
-        Me.IconButton2.Text = "calcelar par limpiar los campos delbill"
-        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton2.UseVisualStyleBackColor = False
         '
         'Frm_Visit
         '

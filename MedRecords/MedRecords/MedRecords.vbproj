@@ -76,6 +76,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\Entities\PatientE.vb" />
+    <Compile Include="DataAccess\Entities\PatientMedicalHistoryE.vb" />
+    <Compile Include="DataAccess\Entities\VisitE.vb" />
     <Compile Include="Screens\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -170,8 +173,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

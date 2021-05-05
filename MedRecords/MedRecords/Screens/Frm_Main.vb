@@ -1,6 +1,10 @@
 ﻿Public Class Frm_Main
     Dim util As New Util
 
+    Private Sub Frm_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' AddHandler txtFirstName.KeyPress, AddressOf util.txtOnlyNumber_KeyPress
+    End Sub
+
 #Region "Botones"
     Private Sub ibtnPatients_Click(sender As Object, e As EventArgs) Handles ibtnPatients.Click
         Dim frm As New Frm_NewPatient
@@ -48,6 +52,8 @@
     Private Sub Panel1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panelAddAppointment.MouseUp
         Panel1Captured = False
     End Sub
+
+
 #End Region
 
 End Class

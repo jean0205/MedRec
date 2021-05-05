@@ -24,6 +24,9 @@ Partial Class Frm_Main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.panelAddAppointment = New System.Windows.Forms.Panel()
         Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
         Me.gbNewAppointment = New System.Windows.Forms.GroupBox()
@@ -57,9 +60,6 @@ Partial Class Frm_Main
         Me.ibtnPatients = New FontAwesome.Sharp.IconButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ibtnNewAppointment = New FontAwesome.Sharp.IconButton()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.panelAddAppointment.SuspendLayout()
         Me.gbNewAppointment.SuspendLayout()
@@ -91,6 +91,40 @@ Partial Class Frm_Main
         Me.GroupBox2.TabIndex = 79
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Today Walk In/Appointment:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label11.Location = New System.Drawing.Point(701, 551)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(427, 60)
+        Me.Label11.TabIndex = 241
+        Me.Label11.Text = "si elpacientetiene historia elpapel marcar la fila de otro color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "poner leyenda e" &
+    "n laparte baja deldata grid" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label10.Location = New System.Drawing.Point(247, 576)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(418, 20)
+        Me.Label10.TabIndex = 240
+        Me.Label10.Text = "si elpaciente no tiene historia clinica marcar lafilde un color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label9.Location = New System.Drawing.Point(931, 209)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(501, 20)
+        Me.Label9.TabIndex = 239
+        Me.Label9.Text = "poner boton paralos detalles del paciente y otropara crear nueva visita"
         '
         'panelAddAppointment
         '
@@ -594,40 +628,6 @@ Partial Class Frm_Main
         Me.ibtnNewAppointment.Text = "New Walk In Appointment"
         Me.ibtnNewAppointment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnNewAppointment.UseVisualStyleBackColor = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label9.Location = New System.Drawing.Point(931, 209)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(501, 20)
-        Me.Label9.TabIndex = 239
-        Me.Label9.Text = "poner boton paralos detalles del paciente y otropara crear nueva visita"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label10.Location = New System.Drawing.Point(247, 576)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(418, 20)
-        Me.Label10.TabIndex = 240
-        Me.Label10.Text = "si elpaciente no tiene historia clinica marcar lafilde un color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label11.Location = New System.Drawing.Point(701, 551)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(427, 60)
-        Me.Label11.TabIndex = 241
-        Me.Label11.Text = "si elpacientetiene historia elpapel marcar la fila de otro color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "poner leyenda e" &
-    "n laparte baja deldata grid" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Frm_Main
         '
