@@ -5,4 +5,6 @@
     Public Property Reason As String
     Public Property Comments As String
     Public Property isGynecologic As Boolean
+    Public Property SavedBy As String
+    Public Property SavedTime As String
 End Class

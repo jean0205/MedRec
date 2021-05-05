@@ -7,4 +7,6 @@
     Public Property Reason As String
     Public Property Duration As String
     Public Property Active As Boolean
+    Public Property SavedBy As String
+    Public Property SavedTime As String
 End Class

@@ -7,7 +7,6 @@
     Public Property Parish As String
     Public Property Sex As String
     Public Property DatOB As Date
-    Public Property Age As Integer
     Public Property Phone1 As String
     Public Property Phone2 As String
     Public Property Email As String

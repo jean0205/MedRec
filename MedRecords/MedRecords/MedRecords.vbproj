@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\Entities\Allergy.vb" />
+    <Compile Include="DataAccess\Entities\Appointment.vb" />
     <Compile Include="DataAccess\Entities\Contraceptive.vb" />
     <Compile Include="DataAccess\Entities\FamilyHist.vb" />
     <Compile Include="DataAccess\Entities\Habits.vb" />
