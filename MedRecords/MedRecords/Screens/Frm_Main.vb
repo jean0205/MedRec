@@ -3,6 +3,8 @@
 
     Private Sub Frm_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' AddHandler txtFirstName.KeyPress, AddressOf util.txtOnlyNumber_KeyPress
+        Dim db As New AllergyDB
+        db.getReciprocalLetter()
     End Sub
 
 #Region "Botones"

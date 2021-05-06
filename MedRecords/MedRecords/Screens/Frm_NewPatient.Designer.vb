@@ -22,7 +22,8 @@ Partial Class Frm_NewPatient
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gbInfo = New System.Windows.Forms.GroupBox()
+        Me.ibtnCancel = New FontAwesome.Sharp.IconButton()
         Me.chkFind = New System.Windows.Forms.CheckBox()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
@@ -49,50 +50,73 @@ Partial Class Frm_NewPatient
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dgv1 = New System.Windows.Forms.DataGridView()
-        Me.ibtnCancel = New FontAwesome.Sharp.IconButton()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.GroupBox1.SuspendLayout()
+        Me.dgv1 = New System.Windows.Forms.DataGridView()
+        Me.gbInfo.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'GroupBox1
+        'gbInfo
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.gbInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.ibtnCancel)
-        Me.GroupBox1.Controls.Add(Me.chkFind)
-        Me.GroupBox1.Controls.Add(Me.ibtnSave)
-        Me.GroupBox1.Controls.Add(Me.chkPaperRecord)
-        Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.lblAge)
-        Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.txtPhone2)
-        Me.GroupBox1.Controls.Add(Me.txtPhone1)
-        Me.GroupBox1.Controls.Add(Me.dtpDOB)
-        Me.GroupBox1.Controls.Add(Me.cmbSex)
-        Me.GroupBox1.Controls.Add(Me.cmbParish)
-        Me.GroupBox1.Controls.Add(Me.txtEmail)
-        Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.txtAddress)
-        Me.GroupBox1.Controls.Add(Me.txtOthersNames)
-        Me.GroupBox1.Controls.Add(Me.txtLastName)
-        Me.GroupBox1.Controls.Add(Me.txtFirstName)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 1)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1032, 234)
-        Me.GroupBox1.TabIndex = 1
-        Me.GroupBox1.TabStop = False
+        Me.gbInfo.Controls.Add(Me.ibtnCancel)
+        Me.gbInfo.Controls.Add(Me.chkFind)
+        Me.gbInfo.Controls.Add(Me.ibtnSave)
+        Me.gbInfo.Controls.Add(Me.chkPaperRecord)
+        Me.gbInfo.Controls.Add(Me.Label11)
+        Me.gbInfo.Controls.Add(Me.lblAge)
+        Me.gbInfo.Controls.Add(Me.Label10)
+        Me.gbInfo.Controls.Add(Me.txtPhone2)
+        Me.gbInfo.Controls.Add(Me.txtPhone1)
+        Me.gbInfo.Controls.Add(Me.dtpDOB)
+        Me.gbInfo.Controls.Add(Me.cmbSex)
+        Me.gbInfo.Controls.Add(Me.cmbParish)
+        Me.gbInfo.Controls.Add(Me.txtEmail)
+        Me.gbInfo.Controls.Add(Me.Label9)
+        Me.gbInfo.Controls.Add(Me.txtAddress)
+        Me.gbInfo.Controls.Add(Me.txtOthersNames)
+        Me.gbInfo.Controls.Add(Me.txtLastName)
+        Me.gbInfo.Controls.Add(Me.txtFirstName)
+        Me.gbInfo.Controls.Add(Me.Label7)
+        Me.gbInfo.Controls.Add(Me.Label8)
+        Me.gbInfo.Controls.Add(Me.Label6)
+        Me.gbInfo.Controls.Add(Me.Label5)
+        Me.gbInfo.Controls.Add(Me.Label3)
+        Me.gbInfo.Controls.Add(Me.Label2)
+        Me.gbInfo.Controls.Add(Me.Label1)
+        Me.gbInfo.Controls.Add(Me.Label4)
+        Me.gbInfo.ForeColor = System.Drawing.Color.Gainsboro
+        Me.gbInfo.Location = New System.Drawing.Point(3, 1)
+        Me.gbInfo.Name = "gbInfo"
+        Me.gbInfo.Size = New System.Drawing.Size(1032, 234)
+        Me.gbInfo.TabIndex = 1
+        Me.gbInfo.TabStop = False
+        '
+        'ibtnCancel
+        '
+        Me.ibtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnCancel.FlatAppearance.BorderSize = 2
+        Me.ibtnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnCancel.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.ibtnCancel.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnCancel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnCancel.IconSize = 30
+        Me.ibtnCancel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnCancel.Location = New System.Drawing.Point(860, 100)
+        Me.ibtnCancel.Name = "ibtnCancel"
+        Me.ibtnCancel.Size = New System.Drawing.Size(162, 49)
+        Me.ibtnCancel.TabIndex = 260
+        Me.ibtnCancel.Text = "Cancel"
+        Me.ibtnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnCancel.UseVisualStyleBackColor = False
         '
         'chkFind
         '
@@ -367,6 +391,18 @@ Partial Class Frm_NewPatient
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Patients List:"
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label12.Location = New System.Drawing.Point(168, 182)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(769, 20)
+        Me.Label12.TabIndex = 244
+        Me.Label12.Text = "ordenar los pacientes por fecha de creacion y poner un boton a la vista de inform" &
+    "acion detallada delpaciente"
+        '
         'dgv1
         '
         Me.dgv1.AllowUserToAddRows = False
@@ -384,42 +420,6 @@ Partial Class Frm_NewPatient
         Me.dgv1.Size = New System.Drawing.Size(1018, 553)
         Me.dgv1.TabIndex = 59
         '
-        'ibtnCancel
-        '
-        Me.ibtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnCancel.FlatAppearance.BorderSize = 2
-        Me.ibtnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnCancel.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.ibtnCancel.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnCancel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnCancel.IconSize = 30
-        Me.ibtnCancel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnCancel.Location = New System.Drawing.Point(860, 100)
-        Me.ibtnCancel.Name = "ibtnCancel"
-        Me.ibtnCancel.Size = New System.Drawing.Size(162, 49)
-        Me.ibtnCancel.TabIndex = 260
-        Me.ibtnCancel.Text = "Cancel"
-        Me.ibtnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnCancel.UseVisualStyleBackColor = False
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label12.Location = New System.Drawing.Point(168, 182)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(769, 20)
-        Me.Label12.TabIndex = 244
-        Me.Label12.Text = "ordenar los pacientes por fecha de creacion y poner un boton a la vista de inform" &
-    "acion detallada delpaciente"
-        '
         'Frm_NewPatient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -427,13 +427,13 @@ Partial Class Frm_NewPatient
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1040, 824)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.gbInfo)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_NewPatient"
         Me.Text = "Register New Patient"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.gbInfo.ResumeLayout(False)
+        Me.gbInfo.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -441,7 +441,7 @@ Partial Class Frm_NewPatient
 
     End Sub
 
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents gbInfo As GroupBox
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents Label11 As Label
     Friend WithEvents lblAge As Label
