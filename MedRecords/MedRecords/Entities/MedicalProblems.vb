@@ -1,5 +1,6 @@
 ﻿Public Class MedicalProblems
     Public Property id As Integer
+    Public Property PatientId As Integer
     Public Property Name As String
     Public Property ProblemDate As Date
     Public Property Reason As String

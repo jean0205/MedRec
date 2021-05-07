@@ -44,12 +44,7 @@ Partial Class Frm_PatientFilevb
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewButtonColumn1 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Label22 = New System.Windows.Forms.Label()
         Me.dgvMedicalProblems = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox14 = New System.Windows.Forms.GroupBox()
         Me.dgvContraceptive = New System.Windows.Forms.DataGridView()
@@ -71,6 +66,7 @@ Partial Class Frm_PatientFilevb
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewButtonColumn3 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.dgvTests = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -94,7 +90,8 @@ Partial Class Frm_PatientFilevb
         Me.DataGridViewButtonColumn7 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.dgvVisitsHistory = New System.Windows.Forms.DataGridView()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.gbInfo = New System.Windows.Forms.GroupBox()
+        Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lblOustandingBill = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -104,8 +101,8 @@ Partial Class Frm_PatientFilevb
         Me.lblRegistrationDate = New System.Windows.Forms.Label()
         Me.lblId = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.lblParish = New System.Windows.Forms.Label()
+        Me.lblSex = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblAge = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -126,7 +123,6 @@ Partial Class Frm_PatientFilevb
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -155,7 +151,7 @@ Partial Class Frm_PatientFilevb
         CType(Me.dgvToxicHabits, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         CType(Me.dgvVisitsHistory, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
+        Me.gbInfo.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -165,7 +161,7 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.TabControl1)
-        Me.GroupBox1.Controls.Add(Me.GroupBox2)
+        Me.GroupBox1.Controls.Add(Me.gbInfo)
         Me.GroupBox1.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox1.Location = New System.Drawing.Point(4, 2)
         Me.GroupBox1.Name = "GroupBox1"
@@ -368,7 +364,6 @@ Partial Class Frm_PatientFilevb
         '
         Me.GroupBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox5.Controls.Add(Me.Label22)
         Me.GroupBox5.Controls.Add(Me.dgvMedicalProblems)
         Me.GroupBox5.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox5.Location = New System.Drawing.Point(6, 8)
@@ -377,17 +372,6 @@ Partial Class Frm_PatientFilevb
         Me.GroupBox5.TabIndex = 5
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Medical Problems:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label22.Location = New System.Drawing.Point(111, 132)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(551, 20)
-        Me.Label22.TabIndex = 249
-        Me.Label22.Text = "hacer q laquery coja el nombre la columna como parametro de sql a modificar"
         '
         'dgvMedicalProblems
         '
@@ -398,7 +382,6 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvMedicalProblems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvMedicalProblems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvMedicalProblems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4})
         Me.dgvMedicalProblems.Location = New System.Drawing.Point(6, 25)
         Me.dgvMedicalProblems.Name = "dgvMedicalProblems"
         Me.dgvMedicalProblems.ReadOnly = True
@@ -406,30 +389,6 @@ Partial Class Frm_PatientFilevb
         Me.dgvMedicalProblems.RowTemplate.Height = 32
         Me.dgvMedicalProblems.Size = New System.Drawing.Size(702, 237)
         Me.dgvMedicalProblems.TabIndex = 60
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Current or Past Medical Problems"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Dates"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Reasons"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Delete"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
         '
         'TabPage2
         '
@@ -629,6 +588,17 @@ Partial Class Frm_PatientFilevb
         Me.GroupBox6.TabIndex = 268
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Screening/Diagnostic Tests:"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label14.Location = New System.Drawing.Point(218, 214)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(299, 20)
+        Me.Label14.TabIndex = 249
+        Me.Label14.Text = "agregar boton para verl el archivo del test"
         '
         'dgvTests
         '
@@ -851,40 +821,52 @@ Partial Class Frm_PatientFilevb
         Me.dgvVisitsHistory.Size = New System.Drawing.Size(1426, 524)
         Me.dgvVisitsHistory.TabIndex = 62
         '
-        'GroupBox2
+        'gbInfo
         '
-        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.gbInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.GroupBox3)
-        Me.GroupBox2.Controls.Add(Me.Label13)
-        Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Controls.Add(Me.Label11)
-        Me.GroupBox2.Controls.Add(Me.lblAge)
-        Me.GroupBox2.Controls.Add(Me.Label10)
-        Me.GroupBox2.Controls.Add(Me.txtPhone2)
-        Me.GroupBox2.Controls.Add(Me.txtPhone1)
-        Me.GroupBox2.Controls.Add(Me.dtpDOB)
-        Me.GroupBox2.Controls.Add(Me.txtEmail)
-        Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Controls.Add(Me.txtAddress)
-        Me.GroupBox2.Controls.Add(Me.txtOthersNames)
-        Me.GroupBox2.Controls.Add(Me.txtLastName)
-        Me.GroupBox2.Controls.Add(Me.txtFirstName)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox2.Location = New System.Drawing.Point(8, 10)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1426, 234)
-        Me.GroupBox2.TabIndex = 3
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Patient Personal Information"
+        Me.gbInfo.Controls.Add(Me.chkPaperRecord)
+        Me.gbInfo.Controls.Add(Me.GroupBox3)
+        Me.gbInfo.Controls.Add(Me.lblParish)
+        Me.gbInfo.Controls.Add(Me.lblSex)
+        Me.gbInfo.Controls.Add(Me.Label11)
+        Me.gbInfo.Controls.Add(Me.lblAge)
+        Me.gbInfo.Controls.Add(Me.Label10)
+        Me.gbInfo.Controls.Add(Me.txtPhone2)
+        Me.gbInfo.Controls.Add(Me.txtPhone1)
+        Me.gbInfo.Controls.Add(Me.dtpDOB)
+        Me.gbInfo.Controls.Add(Me.txtEmail)
+        Me.gbInfo.Controls.Add(Me.Label9)
+        Me.gbInfo.Controls.Add(Me.txtAddress)
+        Me.gbInfo.Controls.Add(Me.txtOthersNames)
+        Me.gbInfo.Controls.Add(Me.txtLastName)
+        Me.gbInfo.Controls.Add(Me.txtFirstName)
+        Me.gbInfo.Controls.Add(Me.Label7)
+        Me.gbInfo.Controls.Add(Me.Label8)
+        Me.gbInfo.Controls.Add(Me.Label6)
+        Me.gbInfo.Controls.Add(Me.Label5)
+        Me.gbInfo.Controls.Add(Me.Label3)
+        Me.gbInfo.Controls.Add(Me.Label2)
+        Me.gbInfo.Controls.Add(Me.Label1)
+        Me.gbInfo.Controls.Add(Me.Label4)
+        Me.gbInfo.ForeColor = System.Drawing.Color.Gainsboro
+        Me.gbInfo.Location = New System.Drawing.Point(8, 10)
+        Me.gbInfo.Name = "gbInfo"
+        Me.gbInfo.Size = New System.Drawing.Size(1426, 234)
+        Me.gbInfo.TabIndex = 3
+        Me.gbInfo.TabStop = False
+        Me.gbInfo.Text = "Patient Personal Information"
+        '
+        'chkPaperRecord
+        '
+        Me.chkPaperRecord.AutoSize = True
+        Me.chkPaperRecord.Enabled = False
+        Me.chkPaperRecord.Location = New System.Drawing.Point(655, 45)
+        Me.chkPaperRecord.Name = "chkPaperRecord"
+        Me.chkPaperRecord.Size = New System.Drawing.Size(126, 24)
+        Me.chkPaperRecord.TabIndex = 260
+        Me.chkPaperRecord.Text = "Paper Record"
+        Me.chkPaperRecord.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -899,9 +881,9 @@ Partial Class Frm_PatientFilevb
         Me.GroupBox3.Controls.Add(Me.lblId)
         Me.GroupBox3.Controls.Add(Me.Label17)
         Me.GroupBox3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox3.Location = New System.Drawing.Point(1134, 10)
+        Me.GroupBox3.Location = New System.Drawing.Point(1047, 10)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(286, 215)
+        Me.GroupBox3.Size = New System.Drawing.Size(373, 215)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         '
@@ -910,7 +892,7 @@ Partial Class Frm_PatientFilevb
         Me.lblOustandingBill.AutoSize = True
         Me.lblOustandingBill.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOustandingBill.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblOustandingBill.Location = New System.Drawing.Point(156, 147)
+        Me.lblOustandingBill.Location = New System.Drawing.Point(141, 147)
         Me.lblOustandingBill.Name = "lblOustandingBill"
         Me.lblOustandingBill.Size = New System.Drawing.Size(72, 20)
         Me.lblOustandingBill.TabIndex = 267
@@ -932,7 +914,7 @@ Partial Class Frm_PatientFilevb
         Me.lblAmountOfVisits.AutoSize = True
         Me.lblAmountOfVisits.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAmountOfVisits.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblAmountOfVisits.Location = New System.Drawing.Point(156, 108)
+        Me.lblAmountOfVisits.Location = New System.Drawing.Point(141, 108)
         Me.lblAmountOfVisits.Name = "lblAmountOfVisits"
         Me.lblAmountOfVisits.Size = New System.Drawing.Size(72, 20)
         Me.lblAmountOfVisits.TabIndex = 265
@@ -965,7 +947,7 @@ Partial Class Frm_PatientFilevb
         Me.lblRegistrationDate.AutoSize = True
         Me.lblRegistrationDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRegistrationDate.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblRegistrationDate.Location = New System.Drawing.Point(156, 66)
+        Me.lblRegistrationDate.Location = New System.Drawing.Point(141, 66)
         Me.lblRegistrationDate.Name = "lblRegistrationDate"
         Me.lblRegistrationDate.Size = New System.Drawing.Size(72, 20)
         Me.lblRegistrationDate.TabIndex = 263
@@ -976,7 +958,7 @@ Partial Class Frm_PatientFilevb
         Me.lblId.AutoSize = True
         Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblId.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblId.Location = New System.Drawing.Point(156, 26)
+        Me.lblId.Location = New System.Drawing.Point(141, 26)
         Me.lblId.Name = "lblId"
         Me.lblId.Size = New System.Drawing.Size(63, 20)
         Me.lblId.TabIndex = 261
@@ -993,27 +975,27 @@ Partial Class Frm_PatientFilevb
         Me.Label17.TabIndex = 262
         Me.Label17.Text = "Registration Date:"
         '
-        'Label13
+        'lblParish
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label13.Location = New System.Drawing.Point(132, 194)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(198, 20)
-        Me.Label13.TabIndex = 259
-        Me.Label13.Text = "_____________________"
+        Me.lblParish.AutoSize = True
+        Me.lblParish.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblParish.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblParish.Location = New System.Drawing.Point(132, 194)
+        Me.lblParish.Name = "lblParish"
+        Me.lblParish.Size = New System.Drawing.Size(198, 20)
+        Me.lblParish.TabIndex = 259
+        Me.lblParish.Text = "_____________________"
         '
-        'Label12
+        'lblSex
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label12.Location = New System.Drawing.Point(493, 46)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(36, 20)
-        Me.Label12.TabIndex = 258
-        Me.Label12.Text = "___"
+        Me.lblSex.AutoSize = True
+        Me.lblSex.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSex.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblSex.Location = New System.Drawing.Point(493, 46)
+        Me.lblSex.Name = "lblSex"
+        Me.lblSex.Size = New System.Drawing.Size(36, 20)
+        Me.lblSex.TabIndex = 258
+        Me.lblSex.Text = "___"
         '
         'Label11
         '
@@ -1053,6 +1035,7 @@ Partial Class Frm_PatientFilevb
         Me.txtPhone2.BackColor = System.Drawing.Color.Honeydew
         Me.txtPhone2.Location = New System.Drawing.Point(655, 114)
         Me.txtPhone2.Name = "txtPhone2"
+        Me.txtPhone2.ReadOnly = True
         Me.txtPhone2.Size = New System.Drawing.Size(134, 26)
         Me.txtPhone2.TabIndex = 254
         '
@@ -1061,6 +1044,7 @@ Partial Class Frm_PatientFilevb
         Me.txtPhone1.BackColor = System.Drawing.Color.Honeydew
         Me.txtPhone1.Location = New System.Drawing.Point(491, 114)
         Me.txtPhone1.Name = "txtPhone1"
+        Me.txtPhone1.ReadOnly = True
         Me.txtPhone1.Size = New System.Drawing.Size(134, 26)
         Me.txtPhone1.TabIndex = 253
         '
@@ -1068,6 +1052,7 @@ Partial Class Frm_PatientFilevb
         '
         Me.dtpDOB.CalendarMonthBackground = System.Drawing.Color.Honeydew
         Me.dtpDOB.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpDOB.Enabled = False
         Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDOB.Location = New System.Drawing.Point(491, 77)
         Me.dtpDOB.Name = "dtpDOB"
@@ -1079,6 +1064,7 @@ Partial Class Frm_PatientFilevb
         Me.txtEmail.BackColor = System.Drawing.Color.Honeydew
         Me.txtEmail.Location = New System.Drawing.Point(491, 151)
         Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.ReadOnly = True
         Me.txtEmail.Size = New System.Drawing.Size(320, 26)
         Me.txtEmail.TabIndex = 249
         '
@@ -1099,6 +1085,7 @@ Partial Class Frm_PatientFilevb
         Me.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAddress.Location = New System.Drawing.Point(129, 151)
         Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.ReadOnly = True
         Me.txtAddress.Size = New System.Drawing.Size(274, 26)
         Me.txtAddress.TabIndex = 247
         '
@@ -1108,6 +1095,7 @@ Partial Class Frm_PatientFilevb
         Me.txtOthersNames.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtOthersNames.Location = New System.Drawing.Point(129, 114)
         Me.txtOthersNames.Name = "txtOthersNames"
+        Me.txtOthersNames.ReadOnly = True
         Me.txtOthersNames.Size = New System.Drawing.Size(274, 26)
         Me.txtOthersNames.TabIndex = 246
         '
@@ -1117,6 +1105,7 @@ Partial Class Frm_PatientFilevb
         Me.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtLastName.Location = New System.Drawing.Point(129, 77)
         Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.ReadOnly = True
         Me.txtLastName.Size = New System.Drawing.Size(274, 26)
         Me.txtLastName.TabIndex = 245
         '
@@ -1126,6 +1115,7 @@ Partial Class Frm_PatientFilevb
         Me.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtFirstName.Location = New System.Drawing.Point(129, 40)
         Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.ReadOnly = True
         Me.txtFirstName.Size = New System.Drawing.Size(274, 26)
         Me.txtFirstName.TabIndex = 244
         '
@@ -1217,17 +1207,6 @@ Partial Class Frm_PatientFilevb
         Me.Label4.TabIndex = 236
         Me.Label4.Text = "First Name:"
         '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label14.Location = New System.Drawing.Point(329, 249)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(299, 20)
-        Me.Label14.TabIndex = 249
-        Me.Label14.Text = "agregar boton para verl el archivo del test"
-        '
         'Frm_PatientFilevb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1249,7 +1228,6 @@ Partial Class Frm_PatientFilevb
         Me.GroupBox7.ResumeLayout(False)
         CType(Me.dgvSurgeries, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
         CType(Me.dgvMedicalProblems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.GroupBox14.ResumeLayout(False)
@@ -1269,8 +1247,8 @@ Partial Class Frm_PatientFilevb
         CType(Me.dgvToxicHabits, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         CType(Me.dgvVisitsHistory, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.gbInfo.ResumeLayout(False)
+        Me.gbInfo.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
@@ -1280,15 +1258,15 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents gbInfo As GroupBox
     Friend WithEvents lblAmountOfVisits As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents lblRegistrationDate As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents lblId As Label
     Friend WithEvents Label15 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label12 As Label
+    Friend WithEvents lblParish As Label
+    Friend WithEvents lblSex As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents lblAge As Label
     Friend WithEvents Label10 As Label
@@ -1326,10 +1304,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewButtonColumn1 As DataGridViewButtonColumn
     Friend WithEvents dgvMedicalProblems As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewButtonColumn
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents dgvGynProblems As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
@@ -1380,6 +1354,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents DataGridViewButtonColumn5 As DataGridViewButtonColumn
     Friend WithEvents lblOustandingBill As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents Label22 As Label
     Friend WithEvents Label14 As Label
+    Friend WithEvents chkPaperRecord As CheckBox
 End Class

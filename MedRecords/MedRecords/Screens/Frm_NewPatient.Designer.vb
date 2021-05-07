@@ -90,7 +90,7 @@ Partial Class Frm_NewPatient
         Me.gbInfo.ForeColor = System.Drawing.Color.Gainsboro
         Me.gbInfo.Location = New System.Drawing.Point(3, 1)
         Me.gbInfo.Name = "gbInfo"
-        Me.gbInfo.Size = New System.Drawing.Size(1032, 234)
+        Me.gbInfo.Size = New System.Drawing.Size(1074, 234)
         Me.gbInfo.TabIndex = 1
         Me.gbInfo.TabStop = False
         '
@@ -110,12 +110,11 @@ Partial Class Frm_NewPatient
         Me.ibtnCancel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnCancel.IconSize = 30
         Me.ibtnCancel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnCancel.Location = New System.Drawing.Point(860, 100)
+        Me.ibtnCancel.Location = New System.Drawing.Point(902, 175)
         Me.ibtnCancel.Name = "ibtnCancel"
         Me.ibtnCancel.Size = New System.Drawing.Size(162, 49)
         Me.ibtnCancel.TabIndex = 260
         Me.ibtnCancel.Text = "Cancel"
-        Me.ibtnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnCancel.UseVisualStyleBackColor = False
         '
         'chkFind
@@ -144,7 +143,7 @@ Partial Class Frm_NewPatient
         Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSave.IconSize = 30
         Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(860, 179)
+        Me.ibtnSave.Location = New System.Drawing.Point(905, 106)
         Me.ibtnSave.Name = "ibtnSave"
         Me.ibtnSave.Size = New System.Drawing.Size(162, 49)
         Me.ibtnSave.TabIndex = 61
@@ -155,7 +154,7 @@ Partial Class Frm_NewPatient
         'chkPaperRecord
         '
         Me.chkPaperRecord.AutoSize = True
-        Me.chkPaperRecord.Location = New System.Drawing.Point(896, 25)
+        Me.chkPaperRecord.Location = New System.Drawing.Point(669, 40)
         Me.chkPaperRecord.Name = "chkPaperRecord"
         Me.chkPaperRecord.Size = New System.Drawing.Size(126, 24)
         Me.chkPaperRecord.TabIndex = 258
@@ -222,7 +221,7 @@ Partial Class Frm_NewPatient
         '
         Me.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSex.FormattingEnabled = True
-        Me.cmbSex.Items.AddRange(New Object() {"Female", "Male"})
+        Me.cmbSex.Items.AddRange(New Object() {"FEMALE", "MALE"})
         Me.cmbSex.Location = New System.Drawing.Point(505, 38)
         Me.cmbSex.Name = "cmbSex"
         Me.cmbSex.Size = New System.Drawing.Size(80, 28)
@@ -386,7 +385,7 @@ Partial Class Frm_NewPatient
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox2.Size = New System.Drawing.Size(1032, 580)
+        Me.GroupBox2.Size = New System.Drawing.Size(1074, 580)
         Me.GroupBox2.TabIndex = 78
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Patients List:"
@@ -416,8 +415,9 @@ Partial Class Frm_NewPatient
         Me.dgv1.Name = "dgv1"
         Me.dgv1.ReadOnly = True
         Me.dgv1.RowHeadersVisible = False
+        Me.dgv1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgv1.RowTemplate.Height = 32
-        Me.dgv1.Size = New System.Drawing.Size(1018, 553)
+        Me.dgv1.Size = New System.Drawing.Size(1060, 553)
         Me.dgv1.TabIndex = 59
         '
         'Frm_NewPatient
@@ -425,7 +425,7 @@ Partial Class Frm_NewPatient
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1040, 824)
+        Me.ClientSize = New System.Drawing.Size(1082, 824)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.gbInfo)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

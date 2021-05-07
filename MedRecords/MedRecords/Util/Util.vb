@@ -142,6 +142,22 @@
                                                              MessageBoxDefaultButton.Button1)
         End Try
     End Sub
+    Public Sub hideDGVColumns(dgv As DataGridView, colList As List(Of Integer))
+        Try
+            For Each col As Integer In colList
+                dgv.Columns(col).Visible = False
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message,
+                                                 "Error",
+                                                      MessageBoxButtons.OK,
+                                                         MessageBoxIcon.Error,
+                                                             MessageBoxDefaultButton.Button1)
+        End Try
+    End Sub
+
+
+
 
 
 End Class

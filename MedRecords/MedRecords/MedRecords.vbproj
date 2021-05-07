@@ -157,6 +157,12 @@
     <Compile Include="Screens\Frm_Visit.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_MedicalProblems.Designer.vb">
+      <DependentUpon>Frm_MedicalProblems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_MedicalProblems.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Util\Util.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="Screens\Frm_Visit.resx">
       <DependentUpon>Frm_Visit.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\Frm_MedicalProblems.resx">
+      <DependentUpon>Frm_MedicalProblems.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
@@ -198,6 +207,17 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\delete-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medHistory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

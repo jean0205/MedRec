@@ -3,7 +3,7 @@
     Public Property Active As Boolean
     Public Property FirstName As String
     Public Property LastName As String
-    Public Property OthersName As String
+    Public Property OthersNames As String
     Public Property Address As String
     Public Property Parish As String
     Public Property Sex As String
