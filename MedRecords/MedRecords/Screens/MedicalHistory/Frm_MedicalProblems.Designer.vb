@@ -64,7 +64,6 @@ Partial Class Frm_MedicalProblems
         '
         Me.chkGynec.AutoSize = True
         Me.chkGynec.BackColor = System.Drawing.Color.CadetBlue
-        Me.chkGynec.Enabled = False
         Me.chkGynec.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.chkGynec.FlatAppearance.BorderSize = 2
         Me.chkGynec.Font = New System.Drawing.Font("NewsGoth Lt BT", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -79,7 +78,6 @@ Partial Class Frm_MedicalProblems
         '
         Me.dtpProblem.CalendarMonthBackground = System.Drawing.Color.Honeydew
         Me.dtpProblem.CustomFormat = "dd-MMM-yyyy"
-        Me.dtpProblem.Enabled = False
         Me.dtpProblem.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpProblem.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpProblem.Location = New System.Drawing.Point(607, 33)
@@ -100,7 +98,7 @@ Partial Class Frm_MedicalProblems
         '
         'txtComments
         '
-        Me.txtComments.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComments.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtComments.ForeColor = System.Drawing.Color.Black
         Me.txtComments.Location = New System.Drawing.Point(224, 120)
         Me.txtComments.Multiline = True
@@ -144,7 +142,7 @@ Partial Class Frm_MedicalProblems
         '
         'txtReason
         '
-        Me.txtReason.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReason.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtReason.ForeColor = System.Drawing.Color.Black
         Me.txtReason.Location = New System.Drawing.Point(224, 80)
         Me.txtReason.Name = "txtReason"
@@ -153,7 +151,7 @@ Partial Class Frm_MedicalProblems
         '
         'txtName
         '
-        Me.txtName.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtName.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.ForeColor = System.Drawing.Color.Black
         Me.txtName.Location = New System.Drawing.Point(224, 40)
         Me.txtName.Name = "txtName"

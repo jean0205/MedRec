@@ -3,16 +3,18 @@
 Public Class MedicalProblemsDB
     Dim conString As String = My.Settings.connectString
 
+    '########### SELETC PATIENT ####################
     Function GetIlnessList(patientId As Integer) As List(Of MedicalProblems)
         Dim ilnessList As New List(Of MedicalProblems)
         Dim query As String = "SELECT [Id],[PatientId],[Name],[ProblemDate],[Reason],[Comments],[Gynecologic]
                                       ,[SavedBy],[SavedTime]
                                   FROM [dbo].[MedicalProblems]
-                                    where PatientId=@PatientId"
+                                    where PatientId=@PatientId and Gynecologic=@Gynecologic"
 
         Using connection As New SqlConnection(conString)
             Dim command As New SqlCommand(query, connection)
             command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = patientId
+            command.Parameters.AddWithValue("@Gynecologic", SqlDbType.Bit).Value = False
             Try
                 connection.Open()
                 Dim reader As SqlDataReader = command.ExecuteReader()
@@ -25,22 +27,25 @@ Public Class MedicalProblemsDB
                         ilness.PatientId = reader(1)
                     End If
                     If Not reader.IsDBNull(2) Then
-                        ilness.ProblemDate = reader(2)
+                        ilness.Name = reader(2)
                     End If
                     If Not reader.IsDBNull(3) Then
-                        ilness.Reason = reader(3)
+                        ilness.ProblemDate = reader(3)
                     End If
                     If Not reader.IsDBNull(4) Then
-                        ilness.Comments = reader(4)
+                        ilness.Reason = reader(4)
                     End If
                     If Not reader.IsDBNull(5) Then
-                        ilness.isGynecologic = reader(5)
+                        ilness.Comments = reader(5)
                     End If
                     If Not reader.IsDBNull(6) Then
-                        ilness.SavedBy = reader(6)
+                        ilness.isGynecologic = reader(6)
                     End If
                     If Not reader.IsDBNull(7) Then
-                        ilness.SavedTime = reader(7)
+                        ilness.SavedBy = reader(7)
+                    End If
+                    If Not reader.IsDBNull(8) Then
+                        ilness.SavedTime = reader(8)
                     End If
                     ilnessList.Add(ilness)
                 End While
@@ -71,22 +76,25 @@ Public Class MedicalProblemsDB
                         ilness.PatientId = reader(1)
                     End If
                     If Not reader.IsDBNull(2) Then
-                        ilness.ProblemDate = reader(2)
+                        ilness.Name = reader(2)
                     End If
                     If Not reader.IsDBNull(3) Then
-                        ilness.Reason = reader(3)
+                        ilness.ProblemDate = reader(3)
                     End If
                     If Not reader.IsDBNull(4) Then
-                        ilness.Comments = reader(4)
+                        ilness.Reason = reader(4)
                     End If
                     If Not reader.IsDBNull(5) Then
-                        ilness.isGynecologic = reader(5)
+                        ilness.Comments = reader(5)
                     End If
                     If Not reader.IsDBNull(6) Then
-                        ilness.SavedBy = reader(6)
+                        ilness.isGynecologic = reader(6)
                     End If
                     If Not reader.IsDBNull(7) Then
-                        ilness.SavedTime = reader(7)
+                        ilness.SavedBy = reader(7)
+                    End If
+                    If Not reader.IsDBNull(8) Then
+                        ilness.SavedTime = reader(8)
                     End If
                 End While
             Catch ex As Exception
@@ -127,13 +135,13 @@ Public Class MedicalProblemsDB
     '########### UPDATE PATIENT ####################
     Sub updateIlness(ByVal ilness As MedicalProblems)
         Dim query As String = "UPDATE [dbo].[MedicalProblems]
-                                   SET [PatientId] = @PatientId, [Name] = @Name, [ProblemDate] = @ProblemDate, [Reason] = @Reason, 
+                                   SET [Name] = @Name, [ProblemDate] = @ProblemDate, [Reason] = @Reason, 
                                       [Comments] = @Comments, [Gynecologic] = @Gynecologic, [SavedBy] = @SavedBy, [SavedTime] = @SavedTime
                                  WHERE 
                                  Id=@Id"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = ilness.PatientId
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = ilness.id
                 command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = ilness.Name
                 command.Parameters.AddWithValue("@ProblemDate", SqlDbType.Date).Value = ilness.ProblemDate
                 command.Parameters.AddWithValue("@Reason", SqlDbType.VarChar).Value = ilness.Reason
@@ -152,6 +160,7 @@ Public Class MedicalProblemsDB
         End Using
     End Sub
 
+    '########### DELETE PATIENT ####################
     Sub DeleteIlness(ByVal id As Integer)
         Dim query As String = "DELETE FROM [dbo].[MedicalProblems]
                                WHERE Id= @Id"

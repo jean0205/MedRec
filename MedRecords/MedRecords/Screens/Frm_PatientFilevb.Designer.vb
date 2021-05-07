@@ -27,9 +27,6 @@ Partial Class Frm_PatientFilevb
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.dgvAllergies = New System.Windows.Forms.DataGridView()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewButtonColumn4 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgvMedications = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -217,7 +214,6 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvAllergies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvAllergies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAllergies.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column9, Me.DataGridViewButtonColumn4})
         Me.dgvAllergies.Location = New System.Drawing.Point(7, 25)
         Me.dgvAllergies.Name = "dgvAllergies"
         Me.dgvAllergies.ReadOnly = True
@@ -226,28 +222,11 @@ Partial Class Frm_PatientFilevb
         Me.dgvAllergies.Size = New System.Drawing.Size(690, 237)
         Me.dgvAllergies.TabIndex = 267
         '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Medication Food Cosmetic"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Nature of Reaction"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        '
-        'DataGridViewButtonColumn4
-        '
-        Me.DataGridViewButtonColumn4.HeaderText = "Delete"
-        Me.DataGridViewButtonColumn4.Name = "DataGridViewButtonColumn4"
-        Me.DataGridViewButtonColumn4.ReadOnly = True
-        '
         'GroupBox4
         '
         Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(18, Byte), Integer))
         Me.GroupBox4.Controls.Add(Me.dgvMedications)
         Me.GroupBox4.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox4.Location = New System.Drawing.Point(726, 282)
@@ -386,6 +365,7 @@ Partial Class Frm_PatientFilevb
         Me.dgvMedicalProblems.Name = "dgvMedicalProblems"
         Me.dgvMedicalProblems.ReadOnly = True
         Me.dgvMedicalProblems.RowHeadersVisible = False
+        Me.dgvMedicalProblems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvMedicalProblems.RowTemplate.Height = 32
         Me.dgvMedicalProblems.Size = New System.Drawing.Size(702, 237)
         Me.dgvMedicalProblems.TabIndex = 60
@@ -1292,9 +1272,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox8 As GroupBox
     Friend WithEvents dgvAllergies As DataGridView
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewButtonColumn4 As DataGridViewButtonColumn
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents dgvMedications As DataGridView
     Friend WithEvents GroupBox7 As GroupBox

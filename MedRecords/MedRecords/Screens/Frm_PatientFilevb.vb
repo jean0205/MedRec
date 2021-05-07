@@ -19,10 +19,9 @@ Public Class Frm_PatientFilevb
         InitializeComponent()
         Me.patient = patient
         patientBasicInfo()
-
     End Sub
     Private Sub Frm_PatientFilevb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        loadMedicalProblems()
     End Sub
 
 #Region "Metodos"
@@ -49,25 +48,47 @@ Public Class Frm_PatientFilevb
         End Try
     End Sub
     '########### MEDICAL PROBLEMS ###############
-
     Sub loadMedicalProblems()
         Try
+            dgvMedicalProblems.Columns.Clear()
             dgvMedicalProblems.DataSource = dbMedicalProblems.GetIlnessList(patient.Id).
                                                 OrderByDescending(Function(r) r.ProblemDate).ToList
             util.paintDGVRows(dgvMedicalProblems, Color.Beige, Color.Bisque)
             util.addBottomColumns(dgvMedicalProblems, "DetailsCol", "Details")
             util.addBottomColumns(dgvMedicalProblems, "DeleteCol", "Delete")
-            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 7, 8})
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 6, 7, 8})
             util.hideDGVColumns(dgvMedicalProblems, indexList)
+            dgvMedicalProblems.Columns(2).HeaderText = "Medical Problem"
+            dgvMedicalProblems.Columns(3).HeaderText = "Date"
+            dgvMedicalProblems.Columns("DetailsCol").Width = 60
+            dgvMedicalProblems.Columns("DeleteCol").Width = 60
+            addContextMenu(dgvMedicalProblems, "New Medical Problem")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+
 #End Region
 
 
 
 #Region "Eventos"
+    Sub addContextMenu(dgv As DataGridView, item As String)
+        Dim _contextmenu As New ContextMenuStrip
+        _contextmenu.Items.Add(item)
+        AddHandler _contextmenu.ItemClicked, AddressOf contextmenu_click
+        dgv.ContextMenuStrip = _contextmenu
+    End Sub
+    Private Sub contextmenu_click(ByVal sender As System.Object,
+                                 ByVal e As ToolStripItemClickedEventArgs)
+        Select Case e.ClickedItem.Text
+            Case "New Medical Problem"
+                Dim frm As New Frm_MedicalProblems(patient.Id)
+                frm.ShowDialog()
+                loadMedicalProblems()
+
+        End Select
+    End Sub
     Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvMedicalProblems.CellPainting
         Try
             Dim senderGrid As DataGridView = CType(sender, DataGridView)
@@ -116,8 +137,9 @@ Public Class Frm_PatientFilevb
                     End If
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Then
-                    Dim frm As New Frm_MedicalProblems(patient.Id, True)
+                    Dim frm As New Frm_MedicalProblems(problemId, True)
                     frm.ShowDialog()
+                    loadMedicalProblems()
                 End If
             End If
         Catch ex As Exception
