@@ -118,7 +118,7 @@ Public Class Frm_PatientFilevb
             Case "New Allergy"
                 Dim frm As New Frm_Allergy(patient.Id)
                 frm.ShowDialog()
-                loadMedicalProblems()
+                loadAllergies()
 
         End Select
     End Sub

@@ -24,6 +24,9 @@
             loadAllergies()
         End If
     End Sub
+    Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
+        saveUpdateAllergy()
+    End Sub
 
     Sub loadAllergies()
         Try
@@ -36,23 +39,30 @@
     End Sub
     Sub saveUpdateAllergy()
         Try
-            Dim allery As New Allergy
-            allery.id = allergyId
-            allergy.Name = txtName.Text.ToUpper
-            allergy.NatureOfReaction = cmbReaction.SelectedItem
-            allery.SavedBy = "jcsoto"
-            allery.SavedTime = Today
+            Dim newAllergy As New Allergy
+            newAllergy.id = allergyId
+            newAllergy.Name = txtName.Text.ToUpper
+            newAllergy.NatureOfReaction = cmbReaction.SelectedItem
+            newAllergy.SavedBy = "jcsoto"
+            newAllergy.SavedTime = Today
             If updating Then
-                dbAllergy.up(allery)
+                dbAllergy.updateAllergy(newAllergy)
             Else
-                allery.PatientId = patientId
-                medProblemDB.insertIlness(allery)
+                newAllergy.Patientid = patientId
+                dbAllergy.insertAllergy(newAllergy)
                 updating = False
             End If
-            util.InformationMessage("Medical Problem/Ilness successfully saved", "Medical Problem/Ilness")
+            util.InformationMessage("Allergy successfully saved", "Allergy")
             cleanAfterInsert()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+
+    Private Sub cleanAfterInsert()
+        txtName.Clear()
+        cmbReaction.SelectedItem = Nothing
+    End Sub
+
+
 End Class
