@@ -13,7 +13,6 @@ Public Class Frm_MedicalProblems
         InitializeComponent()
         Me.patientId = patientId
         Me.updating = False
-
     End Sub
     Sub New(ilnessId As Integer, updating As Boolean)
 
@@ -21,7 +20,6 @@ Public Class Frm_MedicalProblems
         InitializeComponent()
         Me.ilnessId = ilnessId
         Me.updating = updating
-
     End Sub
     Private Sub Frm_MedicalProblems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If updating Then

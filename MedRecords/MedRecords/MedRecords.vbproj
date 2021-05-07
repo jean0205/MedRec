@@ -157,6 +157,12 @@
     <Compile Include="Screens\Frm_Visit.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Allergy.Designer.vb">
+      <DependentUpon>Frm_Allergy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Allergy.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Screens\MedicalHistory\Frm_MedicalProblems.Designer.vb">
       <DependentUpon>Frm_MedicalProblems.vb</DependentUpon>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Frm_Visit.resx">
       <DependentUpon>Frm_Visit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\Frm_Allergy.resx">
+      <DependentUpon>Frm_Allergy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_MedicalProblems.resx">
       <DependentUpon>Frm_MedicalProblems.vb</DependentUpon>

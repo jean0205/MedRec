@@ -3,6 +3,7 @@ Public Class Frm_PatientFilevb
     Dim util As New Util
     Dim dbPatient As New PatientEDB
     Dim dbMedicalProblems As New MedicalProblemsDB
+    Dim dbAllergy As New AllergyDB
     Dim patient As New PatientE
 
     Sub New()
@@ -22,6 +23,7 @@ Public Class Frm_PatientFilevb
     End Sub
     Private Sub Frm_PatientFilevb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadMedicalProblems()
+        loadAllergies()
     End Sub
 
 #Region "Metodos"
@@ -67,6 +69,33 @@ Public Class Frm_PatientFilevb
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+    '########### Allergiews ###############
+    Sub loadAllergies()
+        Try
+            dgvAllergies.Columns.Clear()
+            dgvAllergies.DataSource = dbAllergy.GetallergiesList(patient.Id).
+                                                OrderBy(Function(r) r.NatureOfReaction).ToList
+            dgvAllergies.RowsDefaultCellStyle.BackColor = Color.Beige
+            For Each row As DataGridViewRow In dgvAllergies.Rows.Cast(Of DataGridViewRow).
+                        Where(Function(r) r.Cells("Nature Of Reaction").Value = "MODERATE").ToList
+                row.DefaultCellStyle.BackColor = Color.Bisque
+            Next
+            For Each row As DataGridViewRow In dgvAllergies.Rows.Cast(Of DataGridViewRow).
+                        Where(Function(r) r.Cells("Nature Of Reaction").Value = "SEVERE").ToList
+                row.DefaultCellStyle.BackColor = Color.Salmon
+            Next
+            util.addBottomColumns(dgvAllergies, "DetailsColAllergy", "Details")
+            util.addBottomColumns(dgvAllergies, "DeleteColAllergy", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 4, 5})
+            util.hideDGVColumns(dgvAllergies, indexList)
+            dgvAllergies.Columns(2).HeaderText = "Allergen"
+            dgvAllergies.Columns("DetailsColAllergy").Width = 60
+            dgvAllergies.Columns("DeleteColAllergy").Width = 60
+            addContextMenu(dgvAllergies, "New Allergy")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 
 #End Region
 
@@ -84,6 +113,10 @@ Public Class Frm_PatientFilevb
         Select Case e.ClickedItem.Text
             Case "New Medical Problem"
                 Dim frm As New Frm_MedicalProblems(patient.Id)
+                frm.ShowDialog()
+                loadMedicalProblems()
+            Case "New Allergy"
+                Dim frm As New Frm_Allergy(patient.Id)
                 frm.ShowDialog()
                 loadMedicalProblems()
 
