@@ -157,7 +157,6 @@ Partial Class FrmSurgery
         '
         Me.dtpDate.CalendarMonthBackground = System.Drawing.Color.Honeydew
         Me.dtpDate.CustomFormat = "dd-MMM-yyyy"
-        Me.dtpDate.Enabled = False
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDate.Location = New System.Drawing.Point(206, 82)
         Me.dtpDate.Name = "dtpDate"

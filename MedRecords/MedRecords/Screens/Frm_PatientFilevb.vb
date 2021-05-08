@@ -7,6 +7,7 @@ Public Class Frm_PatientFilevb
     Dim dbAllergy As New AllergyDB
     Dim dbMedications As New MedicationsDB
     Dim dbSurgery As New SurgeryDB
+    Dim dbTest As New TestComplementDB
 
     Dim patient As New PatientE
 
@@ -30,6 +31,7 @@ Public Class Frm_PatientFilevb
         loadAllergies()
         loadMedications()
         loadSurgeries()
+        loadTest()
     End Sub
 
 #Region "Metodos"
@@ -151,6 +153,28 @@ Public Class Frm_PatientFilevb
         End Try
     End Sub
 
+    '########### Test complementarios ###############
+    Sub loadTest()
+        Try
+            dgvTests.Columns.Clear()
+            dgvTests.DataSource = dbTest.GetTestList(patient.Id).
+                                                OrderByDescending(Function(r) r.TestDate).ToList
+            dgvTests.RowsDefaultCellStyle.BackColor = Color.Beige
+            util.addBottomColumns(dgvTests, "DetailsColTest", "Details")
+            util.addBottomColumns(dgvTests, "FileColTest", "File")
+            util.addBottomColumns(dgvTests, "DeleteColTest", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9})
+            util.hideDGVColumns(dgvTests, indexList)
+            dgvTests.Columns("TestDate").HeaderText = "Date"
+            dgvTests.Columns("DetailsColTest").Width = 60
+            dgvTests.Columns("FileColTest").Width = 60
+            dgvTests.Columns("DeleteColTest").Width = 60
+            addContextMenu(dgvTests, "New Test/Complementary")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
 #End Region
 
 
@@ -180,11 +204,15 @@ Public Class Frm_PatientFilevb
             Case "New Surgery"
                 Dim frm As New FrmSurgery(patient.Id)
                 frm.ShowDialog()
-                loadMedications()
+                loadSurgeries()
+            Case "New Test/Complementary"
+                Dim frm As New Frm_Test(patient.Id)
+                frm.ShowDialog()
+                loadTest()
         End Select
     End Sub
     Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvMedicalProblems.CellPainting, dgvAllergies.CellPainting,
-             dgvMedications.CellPainting
+             dgvMedications.CellPainting, dgvSurgeries.CellPainting, dgvTests.CellPainting
         Try
             Dim senderGrid As DataGridView = CType(sender, DataGridView)
             If e.RowIndex < 0 Then
@@ -192,7 +220,8 @@ Public Class Frm_PatientFilevb
             End If
             If e.ColumnIndex >= 0 Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColAllergy" Or
-                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColSurg" Then
+                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColSurg" Or
+                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColTest" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.delete.Width
                     Dim h = My.Resources.delete.Height
@@ -202,7 +231,8 @@ Public Class Frm_PatientFilevb
                     e.Handled = True
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColAllergy" Or
-                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColSurg" Then
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColSurg" Or
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColTest" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.medHistory.Width
                     Dim h = My.Resources.medHistory.Height
@@ -218,7 +248,7 @@ Public Class Frm_PatientFilevb
     End Sub
 
     Private Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMedicalProblems.CellContentClick, dgvAllergies.CellContentClick,
-            dgvMedications.CellContentClick
+            dgvMedications.CellContentClick, dgvSurgeries.CellContentClick, dgvTests.CellContentClick
         Try
             If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
                 Exit Sub
@@ -284,6 +314,21 @@ Public Class Frm_PatientFilevb
                     Dim frm As New FrmSurgery(rowId, True)
                     frm.ShowDialog()
                     loadSurgeries()
+                End If
+            End If
+            'Test 
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteColTest" Then
+                    If util.yesOrNot("Do you want to delete the selected Test", "Delete Test") Then
+                        dbTest.DeleteTest(rowId)
+                        util.InformationMessage("Test successfully deleted", "Test Deleted")
+                        loadTest()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColTest" Then
+                    Dim frm As New Frm_Test(rowId, True)
+                    frm.ShowDialog()
+                    loadTest()
                 End If
             End If
         Catch ex As Exception

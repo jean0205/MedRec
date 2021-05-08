@@ -24,9 +24,9 @@ Partial Class Frm_Main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.panelAddAppointment = New System.Windows.Forms.Panel()
         Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
         Me.gbNewAppointment = New System.Windows.Forms.GroupBox()
@@ -92,6 +92,17 @@ Partial Class Frm_Main
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Today Walk In/Appointment:"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label9.Location = New System.Drawing.Point(911, 174)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(501, 20)
+        Me.Label9.TabIndex = 239
+        Me.Label9.Text = "poner boton paralos detalles del paciente y otropara crear nueva visita"
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -115,25 +126,14 @@ Partial Class Frm_Main
         Me.Label10.TabIndex = 240
         Me.Label10.Text = "si elpaciente no tiene historia clinica marcar lafilde un color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label9.Location = New System.Drawing.Point(911, 174)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(501, 20)
-        Me.Label9.TabIndex = 239
-        Me.Label9.Text = "poner boton paralos detalles del paciente y otropara crear nueva visita"
-        '
         'panelAddAppointment
         '
         Me.panelAddAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.panelAddAppointment.Controls.Add(Me.ibtnClosePanel)
         Me.panelAddAppointment.Controls.Add(Me.gbNewAppointment)
-        Me.panelAddAppointment.Location = New System.Drawing.Point(168, 45)
+        Me.panelAddAppointment.Location = New System.Drawing.Point(59, 45)
         Me.panelAddAppointment.Name = "panelAddAppointment"
-        Me.panelAddAppointment.Size = New System.Drawing.Size(737, 494)
+        Me.panelAddAppointment.Size = New System.Drawing.Size(957, 494)
         Me.panelAddAppointment.TabIndex = 81
         Me.panelAddAppointment.Visible = False
         '
@@ -148,7 +148,7 @@ Partial Class Frm_Main
         Me.ibtnClosePanel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnClosePanel.IconSize = 30
         Me.ibtnClosePanel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ibtnClosePanel.Location = New System.Drawing.Point(705, 2)
+        Me.ibtnClosePanel.Location = New System.Drawing.Point(925, 2)
         Me.ibtnClosePanel.Name = "ibtnClosePanel"
         Me.ibtnClosePanel.Size = New System.Drawing.Size(30, 30)
         Me.ibtnClosePanel.TabIndex = 97
@@ -169,7 +169,7 @@ Partial Class Frm_Main
         Me.gbNewAppointment.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.gbNewAppointment.Name = "gbNewAppointment"
         Me.gbNewAppointment.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.gbNewAppointment.Size = New System.Drawing.Size(715, 454)
+        Me.gbNewAppointment.Size = New System.Drawing.Size(942, 454)
         Me.gbNewAppointment.TabIndex = 80
         Me.gbNewAppointment.TabStop = False
         Me.gbNewAppointment.Text = "Search Patient:"
@@ -188,7 +188,7 @@ Partial Class Frm_Main
         Me.ibtnNewPatient.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnNewPatient.IconSize = 55
         Me.ibtnNewPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnNewPatient.Location = New System.Drawing.Point(545, 27)
+        Me.ibtnNewPatient.Location = New System.Drawing.Point(773, 27)
         Me.ibtnNewPatient.Name = "ibtnNewPatient"
         Me.ibtnNewPatient.Size = New System.Drawing.Size(162, 94)
         Me.ibtnNewPatient.TabIndex = 85
@@ -209,8 +209,9 @@ Partial Class Frm_Main
         Me.dgv2.Name = "dgv2"
         Me.dgv2.ReadOnly = True
         Me.dgv2.RowHeadersVisible = False
+        Me.dgv2.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgv2.RowTemplate.Height = 32
-        Me.dgv2.Size = New System.Drawing.Size(701, 317)
+        Me.dgv2.Size = New System.Drawing.Size(928, 317)
         Me.dgv2.TabIndex = 81
         '
         'txtLastName
@@ -609,6 +610,7 @@ Partial Class Frm_Main
         '
         'ibtnNewAppointment
         '
+        Me.ibtnNewAppointment.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ibtnNewAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
         Me.ibtnNewAppointment.FlatAppearance.BorderSize = 2
         Me.ibtnNewAppointment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))

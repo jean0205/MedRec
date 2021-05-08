@@ -81,6 +81,7 @@
     <Compile Include="DataAccess\ContraceptiveDB.vb" />
     <Compile Include="DataAccess\FamilyHistDB.vb" />
     <Compile Include="DataAccess\HabitsDB.vb" />
+    <Compile Include="DataAccess\MainDB.vb" />
     <Compile Include="DataAccess\MedicalProblemsDB.vb" />
     <Compile Include="DataAccess\MedicationsDB.vb" />
     <Compile Include="DataAccess\PatientEDB.vb" />
@@ -181,6 +182,12 @@
     <Compile Include="Screens\MedicalHistory\Frm_Medications.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Test.Designer.vb">
+      <DependentUpon>Frm_Test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Test.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Util\Util.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_Medications.resx">
       <DependentUpon>Frm_Medications.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\Frm_Test.resx">
+      <DependentUpon>Frm_Test.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

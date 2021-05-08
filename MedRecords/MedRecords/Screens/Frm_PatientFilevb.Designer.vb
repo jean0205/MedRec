@@ -56,11 +56,6 @@ Partial Class Frm_PatientFilevb
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.dgvTests = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewButtonColumn2 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         Me.dgvFamilyHistory = New System.Windows.Forms.DataGridView()
@@ -527,44 +522,14 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvTests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvTests.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.Column10, Me.DataGridViewButtonColumn2})
         Me.dgvTests.Location = New System.Drawing.Point(6, 25)
         Me.dgvTests.Name = "dgvTests"
         Me.dgvTests.ReadOnly = True
         Me.dgvTests.RowHeadersVisible = False
+        Me.dgvTests.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvTests.RowTemplate.Height = 32
         Me.dgvTests.Size = New System.Drawing.Size(702, 478)
         Me.dgvTests.TabIndex = 61
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Test"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Dates"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Results"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "File"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        '
-        'DataGridViewButtonColumn2
-        '
-        Me.DataGridViewButtonColumn2.HeaderText = "Delete"
-        Me.DataGridViewButtonColumn2.Name = "DataGridViewButtonColumn2"
-        Me.DataGridViewButtonColumn2.ReadOnly = True
         '
         'TabPage3
         '
@@ -1230,11 +1195,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents DataGridViewButtonColumn3 As DataGridViewButtonColumn
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents dgvTests As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewButtonColumn2 As DataGridViewButtonColumn
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents GroupBox13 As GroupBox
     Friend WithEvents dgvFamilyHistory As DataGridView

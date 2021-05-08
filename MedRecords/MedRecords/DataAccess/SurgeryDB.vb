@@ -8,8 +8,7 @@ Public Class SurgeryDB
     '########### SELETC SURGERY ####################
     Function GetSurgeryList(patientId As Integer) As List(Of Surgery)
         Dim surgeryList As New List(Of Surgery)
-        Dim query As String = "SELECT [Id],[PatientId],[Name],[Reason],[Date],[Comments],[Done By Me]
-                                  ,[Cost],[SavedBy],[SavedTime]
+        Dim query As String = "SELECT *
                               FROM [dbo].[Surgery]
                               WHERE PatientId=@PatientId"
 
@@ -38,8 +37,7 @@ Public Class SurgeryDB
     End Function
     Function GetSurgeryById(id As Integer) As Surgery
         Dim surgery As New Surgery
-        Dim query As String = "SELECT [Id],[PatientId],[Name],[Reason],[Date],[Comments],[Done By Me]
-                                  ,[Cost],[SavedBy],[SavedTime]
+        Dim query As String = "SELECT *
                               FROM [dbo].[Surgery]
                               WHERE Id=@Id"
         Using connection As New SqlConnection(conString)
