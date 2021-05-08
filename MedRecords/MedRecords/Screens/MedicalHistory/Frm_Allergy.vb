@@ -12,11 +12,11 @@
         Me.patientId = patientId
         Me.updating = False
     End Sub
-    Sub New(ilnessId As Integer, updating As Boolean)
+    Sub New(allergyId As Integer, updating As Boolean)
 
         ' This call is required by the designer.
         InitializeComponent()
-        Me.allergyId = ilnessId
+        Me.allergyId = allergyId
         Me.updating = updating
     End Sub
     Private Sub Frm_Allergy_Load(sender As Object, e As EventArgs) Handles MyBase.Load

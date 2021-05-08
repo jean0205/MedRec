@@ -432,6 +432,7 @@ Partial Class Frm_NewPatient
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_NewPatient"
         Me.Text = "Register New Patient"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

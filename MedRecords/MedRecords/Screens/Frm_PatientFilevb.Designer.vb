@@ -29,17 +29,8 @@ Partial Class Frm_PatientFilevb
         Me.dgvAllergies = New System.Windows.Forms.DataGridView()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgvMedications = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.DataGridViewButtonColumn5 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.dgvSurgeries = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewButtonColumn1 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.dgvMedicalProblems = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -218,6 +209,7 @@ Partial Class Frm_PatientFilevb
         Me.dgvAllergies.Name = "dgvAllergies"
         Me.dgvAllergies.ReadOnly = True
         Me.dgvAllergies.RowHeadersVisible = False
+        Me.dgvAllergies.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvAllergies.RowTemplate.Height = 32
         Me.dgvAllergies.Size = New System.Drawing.Size(690, 237)
         Me.dgvAllergies.TabIndex = 267
@@ -245,44 +237,14 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvMedications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvMedications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvMedications.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.Column14, Me.DataGridViewButtonColumn5})
         Me.dgvMedications.Location = New System.Drawing.Point(6, 25)
         Me.dgvMedications.Name = "dgvMedications"
         Me.dgvMedications.ReadOnly = True
         Me.dgvMedications.RowHeadersVisible = False
+        Me.dgvMedications.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvMedications.RowTemplate.Height = 32
         Me.dgvMedications.Size = New System.Drawing.Size(691, 212)
         Me.dgvMedications.TabIndex = 60
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Medication Suplements"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Dosage Frequency"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Contition Reason"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        '
-        'Column14
-        '
-        Me.Column14.HeaderText = "Active"
-        Me.Column14.Name = "Column14"
-        Me.Column14.ReadOnly = True
-        '
-        'DataGridViewButtonColumn5
-        '
-        Me.DataGridViewButtonColumn5.HeaderText = "Delete"
-        Me.DataGridViewButtonColumn5.Name = "DataGridViewButtonColumn5"
-        Me.DataGridViewButtonColumn5.ReadOnly = True
         '
         'GroupBox7
         '
@@ -306,38 +268,14 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvSurgeries.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvSurgeries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSurgeries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewButtonColumn1})
         Me.dgvSurgeries.Location = New System.Drawing.Point(6, 25)
         Me.dgvSurgeries.Name = "dgvSurgeries"
         Me.dgvSurgeries.ReadOnly = True
         Me.dgvSurgeries.RowHeadersVisible = False
+        Me.dgvSurgeries.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvSurgeries.RowTemplate.Height = 32
         Me.dgvSurgeries.Size = New System.Drawing.Size(702, 212)
         Me.dgvSurgeries.TabIndex = 60
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Surgeries"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Dates"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Reasons"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewButtonColumn1
-        '
-        Me.DataGridViewButtonColumn1.HeaderText = "Delete"
-        Me.DataGridViewButtonColumn1.Name = "DataGridViewButtonColumn1"
-        Me.DataGridViewButtonColumn1.ReadOnly = True
         '
         'GroupBox5
         '
@@ -1276,10 +1214,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents dgvMedications As DataGridView
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents dgvSurgeries As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewButtonColumn1 As DataGridViewButtonColumn
     Friend WithEvents dgvMedicalProblems As DataGridView
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents dgvGynProblems As DataGridView
@@ -1324,11 +1258,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewButtonColumn9 As DataGridViewButtonColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewCheckBoxColumn
-    Friend WithEvents DataGridViewButtonColumn5 As DataGridViewButtonColumn
     Friend WithEvents lblOustandingBill As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label14 As Label

@@ -157,6 +157,12 @@
     <Compile Include="Screens\Frm_Visit.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Screens\MedicalHistory\FrmSurgery.Designer.vb">
+      <DependentUpon>FrmSurgery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\FrmSurgery.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Screens\MedicalHistory\Frm_Allergy.Designer.vb">
       <DependentUpon>Frm_Allergy.vb</DependentUpon>
     </Compile>
@@ -167,6 +173,12 @@
       <DependentUpon>Frm_MedicalProblems.vb</DependentUpon>
     </Compile>
     <Compile Include="Screens\MedicalHistory\Frm_MedicalProblems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Medications.Designer.vb">
+      <DependentUpon>Frm_Medications.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Medications.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Util\Util.vb" />
@@ -196,11 +208,17 @@
     <EmbeddedResource Include="Screens\Frm_Visit.resx">
       <DependentUpon>Frm_Visit.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\FrmSurgery.resx">
+      <DependentUpon>FrmSurgery.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_Allergy.resx">
       <DependentUpon>Frm_Allergy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_MedicalProblems.resx">
       <DependentUpon>Frm_MedicalProblems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\Frm_Medications.resx">
+      <DependentUpon>Frm_Medications.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -95,8 +95,8 @@ Public Class AllergyDB
                 command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = allergy.Patientid
                 command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = allergy.Name
                 command.Parameters.AddWithValue("@NatureOfReaction", SqlDbType.VarChar).Value = allergy.NatureOfReaction
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.Date).Value = allergy.SavedBy
-                command.Parameters.AddWithValue("@SavedTime", SqlDbType.VarChar).Value = allergy.SavedTime
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = allergy.SavedBy
+                command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = allergy.SavedTime
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
@@ -111,16 +111,16 @@ Public Class AllergyDB
     '########### UPDATE PATIENT ####################
     Sub updateAllergy(ByVal allergy As Allergy)
         Dim query As String = "UPDATE [dbo].[Allergy]
-                                   SET [PatientId] =PatientId, [Name] = Name, [Nature Of Reaction] = NatureOfReaction, 
-                                        [SavedBy] = SavedBy, [SavedTime] = SavedTime
+                                   SET  [Name] = @Name, [Nature Of Reaction] = @NatureOfReaction, 
+                                        [SavedBy] = @SavedBy, [SavedTime] = @SavedTime
 		                                WHERE Id=@Id"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = allergy.id
                 command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = allergy.Name
                 command.Parameters.AddWithValue("@NatureOfReaction", SqlDbType.VarChar).Value = allergy.NatureOfReaction
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.Date).Value = allergy.SavedBy
-                command.Parameters.AddWithValue("@SavedTime", SqlDbType.VarChar).Value = allergy.SavedTime
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = allergy.SavedBy
+                command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = allergy.SavedTime
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()

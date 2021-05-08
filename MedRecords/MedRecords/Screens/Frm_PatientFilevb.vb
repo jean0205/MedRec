@@ -1,9 +1,13 @@
 ﻿Imports System.Reflection
 Public Class Frm_PatientFilevb
     Dim util As New Util
+    'DB OBJECTS
     Dim dbPatient As New PatientEDB
     Dim dbMedicalProblems As New MedicalProblemsDB
     Dim dbAllergy As New AllergyDB
+    Dim dbMedications As New MedicationsDB
+    Dim dbSurgery As New SurgeryDB
+
     Dim patient As New PatientE
 
     Sub New()
@@ -24,6 +28,8 @@ Public Class Frm_PatientFilevb
     Private Sub Frm_PatientFilevb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadMedicalProblems()
         loadAllergies()
+        loadMedications()
+        loadSurgeries()
     End Sub
 
 #Region "Metodos"
@@ -74,14 +80,14 @@ Public Class Frm_PatientFilevb
         Try
             dgvAllergies.Columns.Clear()
             dgvAllergies.DataSource = dbAllergy.GetallergiesList(patient.Id).
-                                                OrderBy(Function(r) r.NatureOfReaction).ToList
+                                                OrderByDescending(Function(r) r.NatureOfReaction).ToList
             dgvAllergies.RowsDefaultCellStyle.BackColor = Color.Beige
             For Each row As DataGridViewRow In dgvAllergies.Rows.Cast(Of DataGridViewRow).
-                        Where(Function(r) r.Cells("Nature Of Reaction").Value = "MODERATE").ToList
+                        Where(Function(r) r.Cells("NatureOfReaction").Value = "MODERATE").ToList
                 row.DefaultCellStyle.BackColor = Color.Bisque
             Next
             For Each row As DataGridViewRow In dgvAllergies.Rows.Cast(Of DataGridViewRow).
-                        Where(Function(r) r.Cells("Nature Of Reaction").Value = "SEVERE").ToList
+                        Where(Function(r) r.Cells("NatureOfReaction").Value = "SEVERE").ToList
                 row.DefaultCellStyle.BackColor = Color.Salmon
             Next
             util.addBottomColumns(dgvAllergies, "DetailsColAllergy", "Details")
@@ -92,6 +98,54 @@ Public Class Frm_PatientFilevb
             dgvAllergies.Columns("DetailsColAllergy").Width = 60
             dgvAllergies.Columns("DeleteColAllergy").Width = 60
             addContextMenu(dgvAllergies, "New Allergy")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
+    '########### MEDICATIONS ###############
+    Sub loadMedications()
+        Try
+            dgvMedications.Columns.Clear()
+            dgvMedications.DataSource = dbMedications.GetMedicationsList(patient.Id).
+                                                OrderByDescending(Function(r) r.id).ToList
+            dgvMedications.RowsDefaultCellStyle.BackColor = Color.Beige
+            For Each row As DataGridViewRow In dgvMedications.Rows.Cast(Of DataGridViewRow).
+                        Where(Function(r) r.Cells("Active").Value = True).ToList
+                row.DefaultCellStyle.BackColor = Color.Salmon
+            Next
+            util.addBottomColumns(dgvMedications, "DetailsColMedi", "Details")
+            util.addBottomColumns(dgvMedications, "DeleteColMedi", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9})
+            util.hideDGVColumns(dgvMedications, indexList)
+            'dgvMedications.Columns(2).HeaderText = "Allergen"
+            dgvMedications.Columns("DetailsColMedi").Width = 60
+            dgvMedications.Columns("DeleteColMedi").Width = 60
+            addContextMenu(dgvMedications, "New Medication")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
+    '########### SURGERY ###############
+    Sub loadSurgeries()
+        Try
+            dgvSurgeries.Columns.Clear()
+            dgvSurgeries.DataSource = dbSurgery.GetSurgeryList(patient.Id).
+                                                OrderByDescending(Function(r) r.SurgeryDate).ToList
+            dgvSurgeries.RowsDefaultCellStyle.BackColor = Color.Beige
+            For Each row As DataGridViewRow In dgvSurgeries.Rows.Cast(Of DataGridViewRow).
+                        Where(Function(r) r.Cells("DoneByMe").Value = True).ToList
+                row.DefaultCellStyle.BackColor = Color.Salmon
+            Next
+            util.addBottomColumns(dgvSurgeries, "DetailsColSurg", "Details")
+            util.addBottomColumns(dgvSurgeries, "DeleteColSurg", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 6, 7, 8, 9})
+            util.hideDGVColumns(dgvSurgeries, indexList)
+            dgvSurgeries.Columns("SurgeryDate").HeaderText = "Date"
+            dgvSurgeries.Columns("DetailsColSurg").Width = 60
+            dgvSurgeries.Columns("DeleteColSurg").Width = 60
+            addContextMenu(dgvSurgeries, "New Surgery")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -119,17 +173,26 @@ Public Class Frm_PatientFilevb
                 Dim frm As New Frm_Allergy(patient.Id)
                 frm.ShowDialog()
                 loadAllergies()
-
+            Case "New Medication"
+                Dim frm As New Frm_Medications(patient.Id, 0)
+                frm.ShowDialog()
+                loadMedications()
+            Case "New Surgery"
+                Dim frm As New FrmSurgery(patient.Id)
+                frm.ShowDialog()
+                loadMedications()
         End Select
     End Sub
-    Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvMedicalProblems.CellPainting
+    Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvMedicalProblems.CellPainting, dgvAllergies.CellPainting,
+             dgvMedications.CellPainting
         Try
             Dim senderGrid As DataGridView = CType(sender, DataGridView)
             If e.RowIndex < 0 Then
                 Exit Sub
             End If
             If e.ColumnIndex >= 0 Then
-                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColAllergy" Or
+                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColSurg" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.delete.Width
                     Dim h = My.Resources.delete.Height
@@ -138,7 +201,8 @@ Public Class Frm_PatientFilevb
                     e.Graphics.DrawImage(My.Resources.delete, New Rectangle(x, y, w, h))
                     e.Handled = True
                 End If
-                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColAllergy" Or
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColSurg" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.medHistory.Width
                     Dim h = My.Resources.medHistory.Height
@@ -153,26 +217,73 @@ Public Class Frm_PatientFilevb
         End Try
     End Sub
 
-    Private Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMedicalProblems.CellContentClick
+    Private Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMedicalProblems.CellContentClick, dgvAllergies.CellContentClick,
+            dgvMedications.CellContentClick
         Try
             If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
                 Exit Sub
             End If
             Dim senderGrid = DirectCast(sender, DataGridView)
-            Dim problemId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("Id").Value)
+            Dim rowId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("Id").Value)
             'buttom Form
+            'medical problems
             If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
                     If util.yesOrNot("Do you want to delete the selected Medical Problem/Ilness", "Delete Medical Problem") Then
-                        dbMedicalProblems.DeleteIlness(problemId)
-                        util.InformationMessage("Medical Problem/Ilness successfully deleted", "Medical Problem/Ilness Daleted")
+                        dbMedicalProblems.DeleteIlness(rowId)
+                        util.InformationMessage("Medical Problem/Ilness successfully deleted", "Medical Problem/Ilness Deleted")
                         loadMedicalProblems()
                     End If
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Then
-                    Dim frm As New Frm_MedicalProblems(problemId, True)
+                    Dim frm As New Frm_MedicalProblems(rowId, True)
                     frm.ShowDialog()
                     loadMedicalProblems()
+                End If
+            End If
+            'ALLERGIES
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteColAllergy" Then
+                    If util.yesOrNot("Do you want to delete the selected Allergy", "Delete Allergy") Then
+                        dbAllergy.DeleteIAllergy(rowId)
+                        util.InformationMessage("Allergy successfully deleted", "Allergy Deleted")
+                        loadAllergies()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColAllergy" Then
+                    Dim frm As New Frm_Allergy(rowId, True)
+                    frm.ShowDialog()
+                    loadAllergies()
+                End If
+            End If
+            'MEDICATIONS
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteColMedi" Then
+                    If util.yesOrNot("Do you want to delete the selected Medication", "Delete Medication") Then
+                        dbMedications.DeleteMedication(rowId)
+                        util.InformationMessage("Medication successfully deleted", "Medication Deleted")
+                        loadMedications()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Then
+                    Dim frm As New Frm_Medications(rowId, True)
+                    frm.ShowDialog()
+                    loadMedications()
+                End If
+            End If
+            'SURGERY
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteColSurg" Then
+                    If util.yesOrNot("Do you want to delete the selected Surgery", "Delete Surgery") Then
+                        dbSurgery.DeleteSurgery(rowId)
+                        util.InformationMessage("Surgery successfully deleted", "Surgery Deleted")
+                        loadSurgeries()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColSurg" Then
+                    Dim frm As New FrmSurgery(rowId, True)
+                    frm.ShowDialog()
+                    loadSurgeries()
                 End If
             End If
         Catch ex As Exception
