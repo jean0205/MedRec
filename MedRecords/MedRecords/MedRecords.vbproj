@@ -170,6 +170,12 @@
     <Compile Include="Screens\MedicalHistory\Frm_Allergy.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_FileViewer.Designer.vb">
+      <DependentUpon>Frm_FileViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_FileViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Screens\MedicalHistory\Frm_MedicalProblems.Designer.vb">
       <DependentUpon>Frm_MedicalProblems.vb</DependentUpon>
     </Compile>
@@ -180,6 +186,12 @@
       <DependentUpon>Frm_Medications.vb</DependentUpon>
     </Compile>
     <Compile Include="Screens\MedicalHistory\Frm_Medications.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Pregnancy.Designer.vb">
+      <DependentUpon>Frm_Pregnancy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Pregnancy.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\MedicalHistory\Frm_Test.Designer.vb">
@@ -221,11 +233,17 @@
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_Allergy.resx">
       <DependentUpon>Frm_Allergy.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\Frm_FileViewer.resx">
+      <DependentUpon>Frm_FileViewer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_MedicalProblems.resx">
       <DependentUpon>Frm_MedicalProblems.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_Medications.resx">
       <DependentUpon>Frm_Medications.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\Frm_Pregnancy.resx">
+      <DependentUpon>Frm_Pregnancy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_Test.resx">
       <DependentUpon>Frm_Test.vb</DependentUpon>

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmSurgery
+Partial Class Frm_Pregnancy
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,90 +24,54 @@ Partial Class FrmSurgery
     Private Sub InitializeComponent()
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
-        Me.txtReason = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtComments = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
-        Me.txtName = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.rbtnNormal = New System.Windows.Forms.RadioButton()
+        Me.rbtnCsection = New System.Windows.Forms.RadioButton()
+        Me.rbtnMisscarriage = New System.Windows.Forms.RadioButton()
         Me.gbInfo.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'gbInfo
         '
         Me.gbInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
+        Me.gbInfo.Controls.Add(Me.GroupBox1)
         Me.gbInfo.Controls.Add(Me.dtpDate)
-        Me.gbInfo.Controls.Add(Me.txtReason)
         Me.gbInfo.Controls.Add(Me.Label3)
-        Me.gbInfo.Controls.Add(Me.txtComments)
-        Me.gbInfo.Controls.Add(Me.Label1)
         Me.gbInfo.Controls.Add(Me.ibtnSave)
-        Me.gbInfo.Controls.Add(Me.txtName)
-        Me.gbInfo.Controls.Add(Me.Label7)
-        Me.gbInfo.Controls.Add(Me.Label8)
         Me.gbInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbInfo.ForeColor = System.Drawing.Color.White
-        Me.gbInfo.Location = New System.Drawing.Point(6, 6)
+        Me.gbInfo.Location = New System.Drawing.Point(6, 4)
         Me.gbInfo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.gbInfo.Name = "gbInfo"
         Me.gbInfo.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.gbInfo.Size = New System.Drawing.Size(776, 278)
-        Me.gbInfo.TabIndex = 83
+        Me.gbInfo.Size = New System.Drawing.Size(558, 278)
+        Me.gbInfo.TabIndex = 84
         Me.gbInfo.TabStop = False
-        Me.gbInfo.Text = "Surgery Information:"
+        Me.gbInfo.Text = "Pregnancy Information:"
         '
         'dtpDate
         '
         Me.dtpDate.CalendarMonthBackground = System.Drawing.Color.Honeydew
         Me.dtpDate.CustomFormat = "dd-MMM-yyyy"
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDate.Location = New System.Drawing.Point(206, 82)
+        Me.dtpDate.Location = New System.Drawing.Point(204, 45)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(175, 26)
         Me.dtpDate.TabIndex = 264
-        '
-        'txtReason
-        '
-        Me.txtReason.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtReason.ForeColor = System.Drawing.Color.Black
-        Me.txtReason.Location = New System.Drawing.Point(203, 123)
-        Me.txtReason.Name = "txtReason"
-        Me.txtReason.Size = New System.Drawing.Size(375, 27)
-        Me.txtReason.TabIndex = 263
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(139, 85)
+        Me.Label3.Location = New System.Drawing.Point(22, 45)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(58, 22)
+        Me.Label3.Size = New System.Drawing.Size(159, 22)
         Me.Label3.TabIndex = 262
-        Me.Label3.Text = "Date:"
-        '
-        'txtComments
-        '
-        Me.txtComments.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComments.ForeColor = System.Drawing.Color.Black
-        Me.txtComments.Location = New System.Drawing.Point(203, 165)
-        Me.txtComments.Multiline = True
-        Me.txtComments.Name = "txtComments"
-        Me.txtComments.Size = New System.Drawing.Size(375, 86)
-        Me.txtComments.TabIndex = 251
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(88, 169)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 22)
-        Me.Label1.TabIndex = 250
-        Me.Label1.Text = "Comments:"
+        Me.Label3.Text = "Pregnancy Date:"
         '
         'ibtnSave
         '
@@ -123,7 +87,7 @@ Partial Class FrmSurgery
         Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSave.IconSize = 35
         Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(630, 228)
+        Me.ibtnSave.Location = New System.Drawing.Point(411, 228)
         Me.ibtnSave.Name = "ibtnSave"
         Me.ibtnSave.Size = New System.Drawing.Size(139, 42)
         Me.ibtnSave.TabIndex = 85
@@ -132,60 +96,76 @@ Partial Class FrmSurgery
         Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnSave.UseVisualStyleBackColor = False
         '
-        'txtName
+        'GroupBox1
         '
-        Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.ForeColor = System.Drawing.Color.Black
-        Me.txtName.Location = New System.Drawing.Point(203, 39)
-        Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(375, 27)
-        Me.txtName.TabIndex = 248
+        Me.GroupBox1.Controls.Add(Me.rbtnMisscarriage)
+        Me.GroupBox1.Controls.Add(Me.rbtnCsection)
+        Me.GroupBox1.Controls.Add(Me.rbtnNormal)
+        Me.GroupBox1.Location = New System.Drawing.Point(26, 100)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(331, 158)
+        Me.GroupBox1.TabIndex = 265
+        Me.GroupBox1.TabStop = False
         '
-        'Label7
+        'rbtnNormal
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(113, 127)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(84, 22)
-        Me.Label7.TabIndex = 247
-        Me.Label7.Text = "Reason:"
+        Me.rbtnNormal.AutoSize = True
+        Me.rbtnNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnNormal.Location = New System.Drawing.Point(8, 36)
+        Me.rbtnNormal.Name = "rbtnNormal"
+        Me.rbtnNormal.Size = New System.Drawing.Size(167, 29)
+        Me.rbtnNormal.TabIndex = 0
+        Me.rbtnNormal.TabStop = True
+        Me.rbtnNormal.Text = "Normal Delivery"
+        Me.rbtnNormal.UseVisualStyleBackColor = True
         '
-        'Label8
+        'rbtnCsection
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(13, 43)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(184, 22)
-        Me.Label8.TabIndex = 246
-        Me.Label8.Text = "Surgery/Procedure:"
+        Me.rbtnCsection.AutoSize = True
+        Me.rbtnCsection.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnCsection.Location = New System.Drawing.Point(8, 76)
+        Me.rbtnCsection.Name = "rbtnCsection"
+        Me.rbtnCsection.Size = New System.Drawing.Size(123, 29)
+        Me.rbtnCsection.TabIndex = 1
+        Me.rbtnCsection.TabStop = True
+        Me.rbtnCsection.Text = "C- Section"
+        Me.rbtnCsection.UseVisualStyleBackColor = True
         '
-        'FrmSurgery
+        'rbtnMisscarriage
+        '
+        Me.rbtnMisscarriage.AutoSize = True
+        Me.rbtnMisscarriage.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnMisscarriage.Location = New System.Drawing.Point(8, 116)
+        Me.rbtnMisscarriage.Name = "rbtnMisscarriage"
+        Me.rbtnMisscarriage.Size = New System.Drawing.Size(141, 29)
+        Me.rbtnMisscarriage.TabIndex = 2
+        Me.rbtnMisscarriage.TabStop = True
+        Me.rbtnMisscarriage.Text = "Misscarriage"
+        Me.rbtnMisscarriage.UseVisualStyleBackColor = True
+        '
+        'Frm_Pregnancy
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(788, 298)
+        Me.ClientSize = New System.Drawing.Size(576, 295)
         Me.Controls.Add(Me.gbInfo)
-        Me.Name = "FrmSurgery"
-        Me.Text = "FrmSurgery"
+        Me.Name = "Frm_Pregnancy"
+        Me.Text = "Frm_Pregnancy"
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents gbInfo As GroupBox
-    Friend WithEvents txtReason As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents txtComments As TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
-    Friend WithEvents txtName As TextBox
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents dtpDate As DateTimePicker
+    Friend WithEvents Label3 As Label
+    Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents rbtnMisscarriage As RadioButton
+    Friend WithEvents rbtnCsection As RadioButton
+    Friend WithEvents rbtnNormal As RadioButton
 End Class

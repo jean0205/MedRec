@@ -14,6 +14,10 @@
         Dim frm As New Frm_NewPatient
         frm.ShowDialog()
     End Sub
+    Private Sub ibtnVisits_Click(sender As Object, e As EventArgs) Handles ibtnVisits.Click
+        Dim frm As New Frm_Visit
+        frm.ShowDialog()
+    End Sub
 
     Private Sub ibtnServices_Click(sender As Object, e As EventArgs) Handles ibtnServices.Click
         Dim frm As New Frm_Services
@@ -48,6 +52,7 @@
     Sub loadPatientsTuSearch()
         Try
             dgv2.Columns.Clear()
+            dgv2.DataSource = Nothing
             dgv2.DataSource = dtPatients
             util.paintDGVRows(dgv2, Color.Beige, Color.Bisque)
             util.addBottomColumns(dgv2, "SetVisit", "Schedule Visit")
@@ -116,6 +121,10 @@
     Private Sub Panel1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panelAddAppointment.MouseUp
         Panel1Captured = False
     End Sub
+
+
+
+
 
 
 

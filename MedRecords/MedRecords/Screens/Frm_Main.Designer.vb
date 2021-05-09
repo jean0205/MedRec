@@ -24,9 +24,6 @@ Partial Class Frm_Main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.panelAddAppointment = New System.Windows.Forms.Panel()
         Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
         Me.gbNewAppointment = New System.Windows.Forms.GroupBox()
@@ -36,6 +33,9 @@ Partial Class Frm_Main
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
@@ -50,6 +50,7 @@ Partial Class Frm_Main
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panel2 = New System.Windows.Forms.Panel()
+        Me.ibtnVisits = New FontAwesome.Sharp.IconButton()
         Me.ibtnRestore = New FontAwesome.Sharp.IconButton()
         Me.ibtnBackup = New FontAwesome.Sharp.IconButton()
         Me.ibtnSams = New FontAwesome.Sharp.IconButton()
@@ -76,10 +77,10 @@ Partial Class Frm_Main
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.panelAddAppointment)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Controls.Add(Me.Label10)
-        Me.GroupBox2.Controls.Add(Me.panelAddAppointment)
         Me.GroupBox2.Controls.Add(Me.dgv1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
@@ -91,40 +92,6 @@ Partial Class Frm_Main
         Me.GroupBox2.TabIndex = 79
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Today Walk In/Appointment:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label9.Location = New System.Drawing.Point(911, 174)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(501, 20)
-        Me.Label9.TabIndex = 239
-        Me.Label9.Text = "poner boton paralos detalles del paciente y otropara crear nueva visita"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label11.Location = New System.Drawing.Point(701, 551)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(427, 60)
-        Me.Label11.TabIndex = 241
-        Me.Label11.Text = "si elpacientetiene historia elpapel marcar la fila de otro color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "poner leyenda e" &
-    "n laparte baja deldata grid" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label10.Location = New System.Drawing.Point(247, 576)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(418, 20)
-        Me.Label10.TabIndex = 240
-        Me.Label10.Text = "si elpaciente no tiene historia clinica marcar lafilde un color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'panelAddAppointment
         '
@@ -251,6 +218,40 @@ Partial Class Frm_Main
         Me.Label8.Size = New System.Drawing.Size(90, 20)
         Me.Label8.TabIndex = 246
         Me.Label8.Text = "First Name:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label9.Location = New System.Drawing.Point(911, 174)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(501, 20)
+        Me.Label9.TabIndex = 239
+        Me.Label9.Text = "poner boton paralos detalles del paciente y otropara crear nueva visita"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label11.Location = New System.Drawing.Point(701, 551)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(427, 60)
+        Me.Label11.TabIndex = 241
+        Me.Label11.Text = "si elpacientetiene historia elpapel marcar la fila de otro color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "poner leyenda e" &
+    "n laparte baja deldata grid" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label10.Location = New System.Drawing.Point(247, 576)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(418, 20)
+        Me.Label10.TabIndex = 240
+        Me.Label10.Text = "si elpaciente no tiene historia clinica marcar lafilde un color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'dgv1
         '
@@ -411,6 +412,7 @@ Partial Class Frm_Main
         'panel2
         '
         Me.panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.panel2.Controls.Add(Me.ibtnVisits)
         Me.panel2.Controls.Add(Me.ibtnRestore)
         Me.panel2.Controls.Add(Me.ibtnBackup)
         Me.panel2.Controls.Add(Me.ibtnSams)
@@ -425,6 +427,28 @@ Partial Class Frm_Main
         Me.panel2.Name = "panel2"
         Me.panel2.Size = New System.Drawing.Size(202, 780)
         Me.panel2.TabIndex = 41
+        '
+        'ibtnVisits
+        '
+        Me.ibtnVisits.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.ibtnVisits.FlatAppearance.BorderSize = 0
+        Me.ibtnVisits.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.ibtnVisits.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnVisits.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnVisits.ForeColor = System.Drawing.Color.Gainsboro
+        Me.ibtnVisits.IconChar = FontAwesome.Sharp.IconChar.VoteYea
+        Me.ibtnVisits.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.ibtnVisits.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnVisits.IconSize = 40
+        Me.ibtnVisits.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ibtnVisits.Location = New System.Drawing.Point(3, 327)
+        Me.ibtnVisits.Name = "ibtnVisits"
+        Me.ibtnVisits.Size = New System.Drawing.Size(202, 53)
+        Me.ibtnVisits.TabIndex = 240
+        Me.ibtnVisits.Text = "Visits"
+        Me.ibtnVisits.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ibtnVisits.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnVisits.UseVisualStyleBackColor = True
         '
         'ibtnRestore
         '
@@ -595,7 +619,7 @@ Partial Class Frm_Main
         Me.ibtnPatients.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnPatients.IconSize = 40
         Me.ibtnPatients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnPatients.Location = New System.Drawing.Point(0, 327)
+        Me.ibtnPatients.Location = New System.Drawing.Point(3, 268)
         Me.ibtnPatients.Name = "ibtnPatients"
         Me.ibtnPatients.Size = New System.Drawing.Size(202, 53)
         Me.ibtnPatients.TabIndex = 232
@@ -699,4 +723,5 @@ Partial Class Frm_Main
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents ibtnVisits As FontAwesome.Sharp.IconButton
 End Class

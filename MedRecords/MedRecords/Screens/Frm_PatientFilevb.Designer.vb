@@ -48,11 +48,6 @@ Partial Class Frm_PatientFilevb
         Me.DataGridViewButtonColumn6 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.dgvPregnancies = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewButtonColumn3 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.dgvTests = New System.Windows.Forms.DataGridView()
@@ -449,7 +444,6 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvPregnancies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvPregnancies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPregnancies.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn8, Me.Column5, Me.Column6, Me.Column7, Me.DataGridViewButtonColumn3})
         Me.dgvPregnancies.Location = New System.Drawing.Point(6, 25)
         Me.dgvPregnancies.Name = "dgvPregnancies"
         Me.dgvPregnancies.ReadOnly = True
@@ -457,36 +451,6 @@ Partial Class Frm_PatientFilevb
         Me.dgvPregnancies.RowTemplate.Height = 32
         Me.dgvPregnancies.Size = New System.Drawing.Size(422, 198)
         Me.dgvPregnancies.TabIndex = 266
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Dates"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Normal Delivery"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "C-Section"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Miscarriage"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'DataGridViewButtonColumn3
-        '
-        Me.DataGridViewButtonColumn3.HeaderText = "Delete"
-        Me.DataGridViewButtonColumn3.Name = "DataGridViewButtonColumn3"
-        Me.DataGridViewButtonColumn3.ReadOnly = True
         '
         'GroupBox6
         '
@@ -1188,11 +1152,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents DataGridViewButtonColumn6 As DataGridViewButtonColumn
     Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents dgvPregnancies As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewButtonColumn3 As DataGridViewButtonColumn
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents dgvTests As DataGridView
     Friend WithEvents TabPage3 As TabPage

@@ -34,7 +34,7 @@ Public Class Frm_PatientFilevb
         loadTest()
     End Sub
 
-#Region "Metodos"
+#Region "CargandoHistoria"
     Sub patientBasicInfo()
         Try
             Dim properties As List(Of PropertyInfo) = patient.GetType().GetProperties().ToList
@@ -175,8 +175,31 @@ Public Class Frm_PatientFilevb
         End Try
     End Sub
 
-#End Region
+    '########### PREGNANCIES ###############
+    Sub loadPregnancies()
+        Try
+            dgvPregnancies.Columns.Clear()
+            dgvPregnancies.DataSource = dbTest.GetTestList(patient.Id).
+                                                OrderByDescending(Function(r) r.TestDate).ToList
+            dgvPregnancies.RowsDefaultCellStyle.BackColor = Color.Beige
+            util.addBottomColumns(dgvPregnancies, "DetailsColTest", "Details")
+            util.addBottomColumns(dgvPregnancies, "DeleteColTest", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9})
+            util.hideDGVColumns(dgvPregnancies, indexList)
+            dgvPregnancies.Columns("TestDate").HeaderText = "Date"
+            dgvPregnancies.Columns("DetailsColTest").Width = 60
+            dgvPregnancies.Columns("FileColTest").Width = 60
+            dgvPregnancies.Columns("DeleteColTest").Width = 60
+            addContextMenu(dgvPregnancies, "New Pregnancy")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 
+#End Region
+#Region "Otros Metodos"
+
+#End Region
 
 
 #Region "Eventos"
@@ -329,6 +352,10 @@ Public Class Frm_PatientFilevb
                     Dim frm As New Frm_Test(rowId, True)
                     frm.ShowDialog()
                     loadTest()
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "FileColTest" Then
+                    Dim frm As New Frm_FileViewer(rowId)
+                    frm.Show()
                 End If
             End If
         Catch ex As Exception
