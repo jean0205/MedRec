@@ -38,7 +38,7 @@ Public Class PregnacyDB
     Function GetPregnancyById(id As Integer) As Pregnacy
         Dim pregnancy As New Pregnacy
         Dim query As String = "SELECT *
-                              FROM [dbo].[Surgery]
+                              FROM [dbo].[Pregnacy]
                               WHERE Id=@Id"
         Using connection As New SqlConnection(conString)
             Dim command As New SqlCommand(query, connection)
@@ -89,7 +89,7 @@ Public Class PregnacyDB
     End Sub
 
     '########### UPDATE SURGERY ####################
-    Sub updateSurgery(ByVal pregnancy As Pregnacy)
+    Sub updatePregnancy(ByVal pregnancy As Pregnacy)
         Dim query As String = "UPDATE [dbo].[Pregnacy]
                                SET [PregnancyDate] = @PregnancyDate, [Normal] = @Normal, [CSection] = @CSection, 
                                     [Miscarriage] = @Miscarriage, 
@@ -116,7 +116,7 @@ Public Class PregnacyDB
     End Sub
 
     '########### DELETE SURGERY ####################
-    Sub DeleteSurgery(ByVal id As Integer)
+    Sub DeletePregnancy(ByVal id As Integer)
         Dim query As String = "DELETE FROM [dbo].[Pregnacy]
                                WHERE Id= @Id"
         Using connection As New SqlConnection(conString)

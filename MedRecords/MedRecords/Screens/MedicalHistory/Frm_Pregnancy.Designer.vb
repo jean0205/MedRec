@@ -23,13 +23,13 @@ Partial Class Frm_Pregnancy
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gbInfo = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.rbtnMisscarriage = New System.Windows.Forms.RadioButton()
+        Me.rbtnCsection = New System.Windows.Forms.RadioButton()
+        Me.rbtnNormal = New System.Windows.Forms.RadioButton()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.rbtnNormal = New System.Windows.Forms.RadioButton()
-        Me.rbtnCsection = New System.Windows.Forms.RadioButton()
-        Me.rbtnMisscarriage = New System.Windows.Forms.RadioButton()
         Me.gbInfo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -51,6 +51,53 @@ Partial Class Frm_Pregnancy
         Me.gbInfo.TabIndex = 84
         Me.gbInfo.TabStop = False
         Me.gbInfo.Text = "Pregnancy Information:"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.rbtnMisscarriage)
+        Me.GroupBox1.Controls.Add(Me.rbtnCsection)
+        Me.GroupBox1.Controls.Add(Me.rbtnNormal)
+        Me.GroupBox1.Location = New System.Drawing.Point(26, 100)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(331, 158)
+        Me.GroupBox1.TabIndex = 265
+        Me.GroupBox1.TabStop = False
+        '
+        'rbtnMisscarriage
+        '
+        Me.rbtnMisscarriage.AutoSize = True
+        Me.rbtnMisscarriage.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnMisscarriage.Location = New System.Drawing.Point(8, 116)
+        Me.rbtnMisscarriage.Name = "rbtnMisscarriage"
+        Me.rbtnMisscarriage.Size = New System.Drawing.Size(141, 29)
+        Me.rbtnMisscarriage.TabIndex = 2
+        Me.rbtnMisscarriage.TabStop = True
+        Me.rbtnMisscarriage.Text = "Misscarriage"
+        Me.rbtnMisscarriage.UseVisualStyleBackColor = True
+        '
+        'rbtnCsection
+        '
+        Me.rbtnCsection.AutoSize = True
+        Me.rbtnCsection.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnCsection.Location = New System.Drawing.Point(8, 76)
+        Me.rbtnCsection.Name = "rbtnCsection"
+        Me.rbtnCsection.Size = New System.Drawing.Size(123, 29)
+        Me.rbtnCsection.TabIndex = 1
+        Me.rbtnCsection.TabStop = True
+        Me.rbtnCsection.Text = "C- Section"
+        Me.rbtnCsection.UseVisualStyleBackColor = True
+        '
+        'rbtnNormal
+        '
+        Me.rbtnNormal.AutoSize = True
+        Me.rbtnNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnNormal.Location = New System.Drawing.Point(8, 36)
+        Me.rbtnNormal.Name = "rbtnNormal"
+        Me.rbtnNormal.Size = New System.Drawing.Size(167, 29)
+        Me.rbtnNormal.TabIndex = 0
+        Me.rbtnNormal.TabStop = True
+        Me.rbtnNormal.Text = "Normal Delivery"
+        Me.rbtnNormal.UseVisualStyleBackColor = True
         '
         'dtpDate
         '
@@ -95,53 +142,6 @@ Partial Class Frm_Pregnancy
         Me.ibtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnSave.UseVisualStyleBackColor = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.rbtnMisscarriage)
-        Me.GroupBox1.Controls.Add(Me.rbtnCsection)
-        Me.GroupBox1.Controls.Add(Me.rbtnNormal)
-        Me.GroupBox1.Location = New System.Drawing.Point(26, 100)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(331, 158)
-        Me.GroupBox1.TabIndex = 265
-        Me.GroupBox1.TabStop = False
-        '
-        'rbtnNormal
-        '
-        Me.rbtnNormal.AutoSize = True
-        Me.rbtnNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtnNormal.Location = New System.Drawing.Point(8, 36)
-        Me.rbtnNormal.Name = "rbtnNormal"
-        Me.rbtnNormal.Size = New System.Drawing.Size(167, 29)
-        Me.rbtnNormal.TabIndex = 0
-        Me.rbtnNormal.TabStop = True
-        Me.rbtnNormal.Text = "Normal Delivery"
-        Me.rbtnNormal.UseVisualStyleBackColor = True
-        '
-        'rbtnCsection
-        '
-        Me.rbtnCsection.AutoSize = True
-        Me.rbtnCsection.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtnCsection.Location = New System.Drawing.Point(8, 76)
-        Me.rbtnCsection.Name = "rbtnCsection"
-        Me.rbtnCsection.Size = New System.Drawing.Size(123, 29)
-        Me.rbtnCsection.TabIndex = 1
-        Me.rbtnCsection.TabStop = True
-        Me.rbtnCsection.Text = "C- Section"
-        Me.rbtnCsection.UseVisualStyleBackColor = True
-        '
-        'rbtnMisscarriage
-        '
-        Me.rbtnMisscarriage.AutoSize = True
-        Me.rbtnMisscarriage.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtnMisscarriage.Location = New System.Drawing.Point(8, 116)
-        Me.rbtnMisscarriage.Name = "rbtnMisscarriage"
-        Me.rbtnMisscarriage.Size = New System.Drawing.Size(141, 29)
-        Me.rbtnMisscarriage.TabIndex = 2
-        Me.rbtnMisscarriage.TabStop = True
-        Me.rbtnMisscarriage.Text = "Misscarriage"
-        Me.rbtnMisscarriage.UseVisualStyleBackColor = True
         '
         'Frm_Pregnancy
         '

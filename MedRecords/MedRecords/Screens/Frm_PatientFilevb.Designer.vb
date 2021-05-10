@@ -448,6 +448,7 @@ Partial Class Frm_PatientFilevb
         Me.dgvPregnancies.Name = "dgvPregnancies"
         Me.dgvPregnancies.ReadOnly = True
         Me.dgvPregnancies.RowHeadersVisible = False
+        Me.dgvPregnancies.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvPregnancies.RowTemplate.Height = 32
         Me.dgvPregnancies.Size = New System.Drawing.Size(422, 198)
         Me.dgvPregnancies.TabIndex = 266

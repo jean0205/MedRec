@@ -8,6 +8,7 @@ Public Class Frm_PatientFilevb
     Dim dbMedications As New MedicationsDB
     Dim dbSurgery As New SurgeryDB
     Dim dbTest As New TestComplementDB
+    Dim dbPregnancy As New PregnacyDB
 
     Dim patient As New PatientE
 
@@ -32,6 +33,7 @@ Public Class Frm_PatientFilevb
         loadMedications()
         loadSurgeries()
         loadTest()
+        loadPregnancies()
     End Sub
 
 #Region "CargandoHistoria"
@@ -179,17 +181,16 @@ Public Class Frm_PatientFilevb
     Sub loadPregnancies()
         Try
             dgvPregnancies.Columns.Clear()
-            dgvPregnancies.DataSource = dbTest.GetTestList(patient.Id).
-                                                OrderByDescending(Function(r) r.TestDate).ToList
+            dgvPregnancies.DataSource = dbPregnancy.GetPregnancyList(patient.Id).
+                                                OrderByDescending(Function(r) r.PregnancyDate).ToList
             dgvPregnancies.RowsDefaultCellStyle.BackColor = Color.Beige
-            util.addBottomColumns(dgvPregnancies, "DetailsColTest", "Details")
-            util.addBottomColumns(dgvPregnancies, "DeleteColTest", "Delete")
-            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9})
+            util.addBottomColumns(dgvPregnancies, "DetailsColPreg", "Details")
+            util.addBottomColumns(dgvPregnancies, "DeleteColPreg", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 6, 7})
             util.hideDGVColumns(dgvPregnancies, indexList)
-            dgvPregnancies.Columns("TestDate").HeaderText = "Date"
-            dgvPregnancies.Columns("DetailsColTest").Width = 60
-            dgvPregnancies.Columns("FileColTest").Width = 60
-            dgvPregnancies.Columns("DeleteColTest").Width = 60
+            dgvPregnancies.Columns("PregnancyDate").HeaderText = "Date"
+            dgvPregnancies.Columns("DetailsColPreg").Width = 60
+            dgvPregnancies.Columns("DeleteColPreg").Width = 60
             addContextMenu(dgvPregnancies, "New Pregnancy")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -232,10 +233,14 @@ Public Class Frm_PatientFilevb
                 Dim frm As New Frm_Test(patient.Id)
                 frm.ShowDialog()
                 loadTest()
+            Case "New Pregnancy"
+                Dim frm As New Frm_Pregnancy(patient.Id)
+                frm.ShowDialog()
+                loadPregnancies()
         End Select
     End Sub
     Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvMedicalProblems.CellPainting, dgvAllergies.CellPainting,
-             dgvMedications.CellPainting, dgvSurgeries.CellPainting, dgvTests.CellPainting
+             dgvMedications.CellPainting, dgvSurgeries.CellPainting, dgvTests.CellPainting, dgvPregnancies.CellPainting
         Try
             Dim senderGrid As DataGridView = CType(sender, DataGridView)
             If e.RowIndex < 0 Then
@@ -244,7 +249,7 @@ Public Class Frm_PatientFilevb
             If e.ColumnIndex >= 0 Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColAllergy" Or
                      senderGrid.Columns(e.ColumnIndex).Name = "DeleteColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColSurg" Or
-                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColTest" Then
+                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColPreg" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.delete.Width
                     Dim h = My.Resources.delete.Height
@@ -255,7 +260,7 @@ Public Class Frm_PatientFilevb
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColAllergy" Or
                     senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColSurg" Or
-                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColTest" Then
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColPreg" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.medHistory.Width
                     Dim h = My.Resources.medHistory.Height
@@ -271,7 +276,7 @@ Public Class Frm_PatientFilevb
     End Sub
 
     Private Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMedicalProblems.CellContentClick, dgvAllergies.CellContentClick,
-            dgvMedications.CellContentClick, dgvSurgeries.CellContentClick, dgvTests.CellContentClick
+            dgvMedications.CellContentClick, dgvSurgeries.CellContentClick, dgvTests.CellContentClick, dgvPregnancies.CellContentClick
         Try
             If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
                 Exit Sub
@@ -356,6 +361,21 @@ Public Class Frm_PatientFilevb
                 If senderGrid.Columns(e.ColumnIndex).Name = "FileColTest" Then
                     Dim frm As New Frm_FileViewer(rowId)
                     frm.Show()
+                End If
+            End If
+            'PREGNANCY
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteColPreg" Then
+                    If util.yesOrNot("Do you want to delete the selected Pregnancy", "Delete Pregnancy") Then
+                        dbPregnancy.DeletePregnancy(rowId)
+                        util.InformationMessage("Pregnancy successfully deleted", "Pregnancy Deleted")
+                        loadPregnancies()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColPreg" Then
+                    Dim frm As New Frm_Pregnancy(rowId, True)
+                    frm.ShowDialog()
+                    loadPregnancies()
                 End If
             End If
         Catch ex As Exception
