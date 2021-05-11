@@ -184,7 +184,7 @@ Partial Class Frm_Visit
         Me.txtComplain.Name = "txtComplain"
         Me.txtComplain.Size = New System.Drawing.Size(552, 221)
         Me.txtComplain.TabIndex = 0
-        Me.txtComplain.Text = ""
+        Me.txtComplain.Text = "poner botopara navegr para atras a las ultimas visitas"
         '
         'GroupBox4
         '
@@ -596,7 +596,6 @@ Partial Class Frm_Visit
         'chkNoHistory
         '
         Me.chkNoHistory.AutoSize = True
-        Me.chkNoHistory.Enabled = False
         Me.chkNoHistory.Location = New System.Drawing.Point(266, 213)
         Me.chkNoHistory.Name = "chkNoHistory"
         Me.chkNoHistory.Size = New System.Drawing.Size(142, 24)
@@ -607,7 +606,6 @@ Partial Class Frm_Visit
         'chkPaperRecord
         '
         Me.chkPaperRecord.AutoSize = True
-        Me.chkPaperRecord.Enabled = False
         Me.chkPaperRecord.Location = New System.Drawing.Point(5, 213)
         Me.chkPaperRecord.Name = "chkPaperRecord"
         Me.chkPaperRecord.Size = New System.Drawing.Size(231, 24)
