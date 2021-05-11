@@ -49,6 +49,7 @@ Partial Class Frm_Visit
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.dgvTest = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,6 +61,7 @@ Partial Class Frm_Visit
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.dgvMedications = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -86,22 +88,18 @@ Partial Class Frm_Visit
         Me.txtOSCgarges = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.dgvservices = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblSex = New System.Windows.Forms.Label()
         Me.lblAge = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.dtpDOB = New System.Windows.Forms.DateTimePicker()
-        Me.txtLastName = New System.Windows.Forms.TextBox()
-        Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtpDateVisit = New System.Windows.Forms.DateTimePicker()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.lblFirstName = New System.Windows.Forms.Label()
+        Me.lblLastName = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -407,6 +405,17 @@ Partial Class Frm_Visit
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Screening/Diagnostic Tests:"
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label13.Location = New System.Drawing.Point(55, 117)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(343, 20)
+        Me.Label13.TabIndex = 276
+        Me.Label13.Text = "agregar los ordered test y salvar el id de la visita"
+        '
         'dgvTest
         '
         Me.dgvTest.AllowUserToAddRows = False
@@ -514,6 +523,17 @@ Partial Class Frm_Visit
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Active Medications:"
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label12.Location = New System.Drawing.Point(119, 111)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(425, 20)
+        Me.Label12.TabIndex = 275
+        Me.Label12.Text = "agregar los medicamentos nuevos y salvar el ide de la visita"
+        '
         'dgvMedications
         '
         Me.dgvMedications.AllowUserToAddRows = False
@@ -548,6 +568,8 @@ Partial Class Frm_Visit
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.lblLastName)
+        Me.GroupBox3.Controls.Add(Me.lblFirstName)
         Me.GroupBox3.Controls.Add(Me.chkNoHistory)
         Me.GroupBox3.Controls.Add(Me.chkPaperRecord)
         Me.GroupBox3.Controls.Add(Me.IconButton1)
@@ -557,8 +579,6 @@ Partial Class Frm_Visit
         Me.GroupBox3.Controls.Add(Me.lblAge)
         Me.GroupBox3.Controls.Add(Me.Label10)
         Me.GroupBox3.Controls.Add(Me.dtpDOB)
-        Me.GroupBox3.Controls.Add(Me.txtLastName)
-        Me.GroupBox3.Controls.Add(Me.txtFirstName)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.Label1)
@@ -576,6 +596,7 @@ Partial Class Frm_Visit
         'chkNoHistory
         '
         Me.chkNoHistory.AutoSize = True
+        Me.chkNoHistory.Enabled = False
         Me.chkNoHistory.Location = New System.Drawing.Point(266, 213)
         Me.chkNoHistory.Name = "chkNoHistory"
         Me.chkNoHistory.Size = New System.Drawing.Size(142, 24)
@@ -586,6 +607,7 @@ Partial Class Frm_Visit
         'chkPaperRecord
         '
         Me.chkPaperRecord.AutoSize = True
+        Me.chkPaperRecord.Enabled = False
         Me.chkPaperRecord.Location = New System.Drawing.Point(5, 213)
         Me.chkPaperRecord.Name = "chkPaperRecord"
         Me.chkPaperRecord.Size = New System.Drawing.Size(231, 24)
@@ -859,33 +881,20 @@ Partial Class Frm_Visit
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvservices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvservices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvservices.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         Me.dgvservices.Location = New System.Drawing.Point(6, 25)
         Me.dgvservices.Name = "dgvservices"
-        Me.dgvservices.ReadOnly = True
         Me.dgvservices.RowHeadersVisible = False
+        Me.dgvservices.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvservices.RowTemplate.Height = 32
         Me.dgvservices.Size = New System.Drawing.Size(355, 209)
         Me.dgvservices.TabIndex = 267
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Service"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Price"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
         '
         'lblSex
         '
         Me.lblSex.AutoSize = True
         Me.lblSex.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSex.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblSex.Location = New System.Drawing.Point(97, 187)
+        Me.lblSex.Location = New System.Drawing.Point(97, 185)
         Me.lblSex.Name = "lblSex"
         Me.lblSex.Size = New System.Drawing.Size(36, 20)
         Me.lblSex.TabIndex = 276
@@ -894,11 +903,11 @@ Partial Class Frm_Visit
         'lblAge
         '
         Me.lblAge.AutoSize = True
-        Me.lblAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAge.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblAge.Location = New System.Drawing.Point(291, 156)
+        Me.lblAge.Location = New System.Drawing.Point(312, 152)
         Me.lblAge.Name = "lblAge"
-        Me.lblAge.Size = New System.Drawing.Size(36, 20)
+        Me.lblAge.Size = New System.Drawing.Size(39, 20)
         Me.lblAge.TabIndex = 275
         Me.lblAge.Text = "___"
         '
@@ -907,7 +916,7 @@ Partial Class Frm_Visit
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label10.Location = New System.Drawing.Point(250, 156)
+        Me.Label10.Location = New System.Drawing.Point(271, 152)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(42, 20)
         Me.Label10.TabIndex = 274
@@ -917,36 +926,19 @@ Partial Class Frm_Visit
         '
         Me.dtpDOB.CalendarMonthBackground = System.Drawing.Color.Honeydew
         Me.dtpDOB.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpDOB.Enabled = False
         Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDOB.Location = New System.Drawing.Point(101, 151)
+        Me.dtpDOB.Location = New System.Drawing.Point(101, 147)
         Me.dtpDOB.Name = "dtpDOB"
         Me.dtpDOB.Size = New System.Drawing.Size(134, 26)
         Me.dtpDOB.TabIndex = 273
-        '
-        'txtLastName
-        '
-        Me.txtLastName.BackColor = System.Drawing.Color.Honeydew
-        Me.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtLastName.Location = New System.Drawing.Point(101, 107)
-        Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(188, 26)
-        Me.txtLastName.TabIndex = 272
-        '
-        'txtFirstName
-        '
-        Me.txtFirstName.BackColor = System.Drawing.Color.Honeydew
-        Me.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtFirstName.Location = New System.Drawing.Point(101, 70)
-        Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(188, 26)
-        Me.txtFirstName.TabIndex = 271
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label6.Location = New System.Drawing.Point(37, 157)
+        Me.Label6.Location = New System.Drawing.Point(37, 153)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(60, 20)
         Me.Label6.TabIndex = 270
@@ -957,7 +949,7 @@ Partial Class Frm_Visit
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(51, 187)
+        Me.Label5.Location = New System.Drawing.Point(51, 185)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(40, 20)
         Me.Label5.TabIndex = 269
@@ -968,7 +960,7 @@ Partial Class Frm_Visit
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label1.Location = New System.Drawing.Point(8, 113)
+        Me.Label1.Location = New System.Drawing.Point(10, 107)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(90, 20)
         Me.Label1.TabIndex = 268
@@ -979,7 +971,7 @@ Partial Class Frm_Visit
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label4.Location = New System.Drawing.Point(8, 76)
+        Me.Label4.Location = New System.Drawing.Point(10, 70)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(90, 20)
         Me.Label4.TabIndex = 267
@@ -1005,27 +997,27 @@ Partial Class Frm_Visit
         Me.Label15.TabIndex = 260
         Me.Label15.Text = "Visit Date:"
         '
-        'Label12
+        'lblFirstName
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label12.Location = New System.Drawing.Point(119, 111)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(425, 20)
-        Me.Label12.TabIndex = 275
-        Me.Label12.Text = "agregar los medicamentos nuevos y salvar el ide de la visita"
+        Me.lblFirstName.AutoSize = True
+        Me.lblFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFirstName.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblFirstName.Location = New System.Drawing.Point(106, 70)
+        Me.lblFirstName.Name = "lblFirstName"
+        Me.lblFirstName.Size = New System.Drawing.Size(159, 20)
+        Me.lblFirstName.TabIndex = 290
+        Me.lblFirstName.Text = "_______________"
         '
-        'Label13
+        'lblLastName
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label13.Location = New System.Drawing.Point(55, 117)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(343, 20)
-        Me.Label13.TabIndex = 276
-        Me.Label13.Text = "agregar los ordered test y salvar el id de la visita"
+        Me.lblLastName.AutoSize = True
+        Me.lblLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLastName.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblLastName.Location = New System.Drawing.Point(106, 107)
+        Me.lblLastName.Name = "lblLastName"
+        Me.lblLastName.Size = New System.Drawing.Size(159, 20)
+        Me.lblLastName.TabIndex = 291
+        Me.lblLastName.Text = "_______________"
         '
         'Frm_Visit
         '
@@ -1110,14 +1102,10 @@ Partial Class Frm_Visit
     Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvservices As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents lblSex As Label
     Friend WithEvents lblAge As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents dtpDOB As DateTimePicker
-    Friend WithEvents txtLastName As TextBox
-    Friend WithEvents txtFirstName As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label1 As Label
@@ -1149,4 +1137,6 @@ Partial Class Frm_Visit
     Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
+    Friend WithEvents lblFirstName As Label
+    Friend WithEvents lblLastName As Label
 End Class

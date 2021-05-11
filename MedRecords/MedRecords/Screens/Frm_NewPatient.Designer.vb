@@ -23,7 +23,6 @@ Partial Class Frm_NewPatient
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gbInfo = New System.Windows.Forms.GroupBox()
-        Me.ibtnCancel = New FontAwesome.Sharp.IconButton()
         Me.chkFind = New System.Windows.Forms.CheckBox()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
@@ -61,7 +60,6 @@ Partial Class Frm_NewPatient
         '
         Me.gbInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbInfo.Controls.Add(Me.ibtnCancel)
         Me.gbInfo.Controls.Add(Me.chkFind)
         Me.gbInfo.Controls.Add(Me.ibtnSave)
         Me.gbInfo.Controls.Add(Me.chkPaperRecord)
@@ -94,29 +92,6 @@ Partial Class Frm_NewPatient
         Me.gbInfo.TabIndex = 1
         Me.gbInfo.TabStop = False
         '
-        'ibtnCancel
-        '
-        Me.ibtnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnCancel.FlatAppearance.BorderSize = 2
-        Me.ibtnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnCancel.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.ibtnCancel.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnCancel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnCancel.IconSize = 30
-        Me.ibtnCancel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnCancel.Location = New System.Drawing.Point(902, 175)
-        Me.ibtnCancel.Name = "ibtnCancel"
-        Me.ibtnCancel.Size = New System.Drawing.Size(162, 49)
-        Me.ibtnCancel.TabIndex = 260
-        Me.ibtnCancel.Text = "Cancel"
-        Me.ibtnCancel.UseVisualStyleBackColor = False
-        '
         'chkFind
         '
         Me.chkFind.AutoSize = True
@@ -143,7 +118,7 @@ Partial Class Frm_NewPatient
         Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSave.IconSize = 30
         Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(905, 106)
+        Me.ibtnSave.Location = New System.Drawing.Point(905, 175)
         Me.ibtnSave.Name = "ibtnSave"
         Me.ibtnSave.Size = New System.Drawing.Size(162, 49)
         Me.ibtnSave.TabIndex = 61
@@ -429,6 +404,7 @@ Partial Class Frm_NewPatient
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.gbInfo)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_NewPatient"
         Me.Text = "Register New Patient"
@@ -470,6 +446,5 @@ Partial Class Frm_NewPatient
     Friend WithEvents dgv1 As DataGridView
     Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
     Friend WithEvents chkFind As CheckBox
-    Friend WithEvents ibtnCancel As FontAwesome.Sharp.IconButton
     Friend WithEvents Label12 As Label
 End Class

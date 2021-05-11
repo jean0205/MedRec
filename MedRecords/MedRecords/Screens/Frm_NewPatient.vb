@@ -25,9 +25,8 @@ Public Class Frm_NewPatient
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
         savePatient(updating)
     End Sub
-    Private Sub ibtnCancel_Click(sender As Object, e As EventArgs) Handles ibtnCancel.Click
+    Private Sub ibtnCancel_Click(sender As Object, e As EventArgs)
         cleanAfterInsert()
-
     End Sub
 
 #Region "Metodos"
@@ -209,6 +208,11 @@ Public Class Frm_NewPatient
     Private Sub txtFirstName_KeyUp(sender As Object, e As KeyEventArgs) Handles txtOthersNames.KeyUp, txtLastName.KeyUp, txtFirstName.KeyUp
         If chkFind.Checked Then
 
+        End If
+    End Sub
+    Private Sub Escape(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
+        If e.KeyChar = Chr(27) Then
+            cleanAfterInsert()
         End If
     End Sub
 

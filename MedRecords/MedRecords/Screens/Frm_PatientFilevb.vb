@@ -35,6 +35,10 @@ Public Class Frm_PatientFilevb
         loadTest()
         loadPregnancies()
     End Sub
+    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
+        Dim frm As New Frm_Visit(patient.Id)
+        frm.ShowDialog()
+    End Sub
 
 #Region "CargandoHistoria"
     Sub patientBasicInfo()
@@ -382,5 +386,7 @@ Public Class Frm_PatientFilevb
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+
+
 #End Region
 End Class

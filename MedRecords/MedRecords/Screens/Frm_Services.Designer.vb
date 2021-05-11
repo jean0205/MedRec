@@ -24,7 +24,7 @@ Partial Class Frm_Services
     Private Sub InitializeComponent()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.lblAge = New System.Windows.Forms.Label()
@@ -36,7 +36,7 @@ Partial Class Frm_Services
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
+        Me.gbInfo.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -71,29 +71,30 @@ Partial Class Frm_Services
         Me.dgv1.Name = "dgv1"
         Me.dgv1.ReadOnly = True
         Me.dgv1.RowHeadersVisible = False
+        Me.dgv1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgv1.RowTemplate.Height = 32
         Me.dgv1.Size = New System.Drawing.Size(623, 406)
         Me.dgv1.TabIndex = 59
         '
-        'GroupBox1
+        'gbInfo
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.gbInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.ibtnSave)
-        Me.GroupBox1.Controls.Add(Me.chkPaperRecord)
-        Me.GroupBox1.Controls.Add(Me.lblAge)
-        Me.GroupBox1.Controls.Add(Me.txtServiceCost)
-        Me.GroupBox1.Controls.Add(Me.txtServiceDescription)
-        Me.GroupBox1.Controls.Add(Me.txtServiceName)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 0)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(628, 200)
-        Me.GroupBox1.TabIndex = 80
-        Me.GroupBox1.TabStop = False
+        Me.gbInfo.Controls.Add(Me.ibtnSave)
+        Me.gbInfo.Controls.Add(Me.chkPaperRecord)
+        Me.gbInfo.Controls.Add(Me.lblAge)
+        Me.gbInfo.Controls.Add(Me.txtServiceCost)
+        Me.gbInfo.Controls.Add(Me.txtServiceDescription)
+        Me.gbInfo.Controls.Add(Me.txtServiceName)
+        Me.gbInfo.Controls.Add(Me.Label2)
+        Me.gbInfo.Controls.Add(Me.Label1)
+        Me.gbInfo.Controls.Add(Me.Label4)
+        Me.gbInfo.ForeColor = System.Drawing.Color.Gainsboro
+        Me.gbInfo.Location = New System.Drawing.Point(3, 0)
+        Me.gbInfo.Name = "gbInfo"
+        Me.gbInfo.Size = New System.Drawing.Size(628, 200)
+        Me.gbInfo.TabIndex = 80
+        Me.gbInfo.TabStop = False
         '
         'ibtnSave
         '
@@ -201,7 +202,7 @@ Partial Class Frm_Services
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(638, 664)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.gbInfo)
         Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -210,15 +211,15 @@ Partial Class Frm_Services
         Me.Text = "Frm_Services"
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.gbInfo.ResumeLayout(False)
+        Me.gbInfo.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dgv1 As DataGridView
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents gbInfo As GroupBox
     Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents lblAge As Label
