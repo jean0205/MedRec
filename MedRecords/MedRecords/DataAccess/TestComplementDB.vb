@@ -24,6 +24,36 @@ Public Class TestComplementDB
                 While reader.Read
                     test = New TestComplement
                     For Each prop As PropertyInfo In properties
+                        If prop.Name <> "File" AndAlso prop.Name <> "VisitDate" AndAlso Not reader.IsDBNull(reader.GetOrdinal(prop.Name)) Then
+                            prop.SetValue(test, reader(prop.Name))
+                        End If
+                    Next
+                    testList.Add(test)
+                End While
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return testList
+    End Function
+    Function GetTestListVisitView(patientId As Integer) As List(Of TestComplement)
+        Dim testList As New List(Of TestComplement)
+        Dim query As String = "SELECT T.Id, T.PatientId,[VisitId], V.VisitDate,[Name],[Result],[TestDate]
+                                  ,[Comments],[SavedBy],[SavedTime]
+                              FROM [dbo].[TestComplementariy] T full join Visit V on T.VisitId=V.Id
+                              WHERE T.PatientId=@PatientId"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = patientId
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                Dim test As New TestComplement
+                Dim properties As List(Of PropertyInfo) = test.GetType().GetProperties().ToList
+                While reader.Read
+                    test = New TestComplement
+                    For Each prop As PropertyInfo In properties
                         If prop.Name <> "File" AndAlso Not reader.IsDBNull(reader.GetOrdinal(prop.Name)) Then
                             prop.SetValue(test, reader(prop.Name))
                         End If
@@ -51,7 +81,7 @@ Public Class TestComplementDB
                 While reader.Read
                     test = New TestComplement
                     For Each prop As PropertyInfo In properties
-                        If Not reader.IsDBNull(properties.IndexOf(prop)) Then
+                        If prop.Name <> "VisitDate" AndAlso Not reader.IsDBNull(reader.GetOrdinal(prop.Name)) Then
                             prop.SetValue(test, reader(prop.Name))
                         End If
                     Next

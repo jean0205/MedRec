@@ -124,7 +124,7 @@ Public Class Frm_PatientFilevb
             Next
             util.addBottomColumns(dgvMedications, "DetailsColMedi", "Details")
             util.addBottomColumns(dgvMedications, "DeleteColMedi", "Delete")
-            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9})
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9, 10})
             util.hideDGVColumns(dgvMedications, indexList)
             'dgvMedications.Columns(2).HeaderText = "Allergen"
             dgvMedications.Columns("DetailsColMedi").Width = 60
@@ -169,7 +169,7 @@ Public Class Frm_PatientFilevb
             util.addBottomColumns(dgvTests, "DetailsColTest", "Details")
             util.addBottomColumns(dgvTests, "FileColTest", "File")
             util.addBottomColumns(dgvTests, "DeleteColTest", "Delete")
-            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9})
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9, 10})
             util.hideDGVColumns(dgvTests, indexList)
             dgvTests.Columns("TestDate").HeaderText = "Date"
             dgvTests.Columns("DetailsColTest").Width = 60
@@ -234,7 +234,7 @@ Public Class Frm_PatientFilevb
                 frm.ShowDialog()
                 loadSurgeries()
             Case "New Test/Complementary"
-                Dim frm As New Frm_Test(patient.Id)
+                Dim frm As New Frm_Test(patient.Id, 0)
                 frm.ShowDialog()
                 loadTest()
             Case "New Pregnancy"

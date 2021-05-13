@@ -38,7 +38,7 @@ Partial Class Frm_Visit
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtHeartRate = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtRespiratoryRaye = New System.Windows.Forms.TextBox()
+        Me.txtRespiratoryRate = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -187,7 +187,7 @@ Partial Class Frm_Visit
         Me.GroupBox4.Controls.Add(Me.Label7)
         Me.GroupBox4.Controls.Add(Me.txtHeartRate)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Controls.Add(Me.txtRespiratoryRaye)
+        Me.GroupBox4.Controls.Add(Me.txtRespiratoryRate)
         Me.GroupBox4.Controls.Add(Me.Label2)
         Me.GroupBox4.Controls.Add(Me.Label8)
         Me.GroupBox4.ForeColor = System.Drawing.Color.Gainsboro
@@ -277,12 +277,12 @@ Partial Class Frm_Visit
         Me.Label3.TabIndex = 270
         Me.Label3.Text = "Heart Rate:"
         '
-        'txtRespiratoryRaye
+        'txtRespiratoryRate
         '
-        Me.txtRespiratoryRaye.Location = New System.Drawing.Point(141, 24)
-        Me.txtRespiratoryRaye.Name = "txtRespiratoryRaye"
-        Me.txtRespiratoryRaye.Size = New System.Drawing.Size(82, 26)
-        Me.txtRespiratoryRaye.TabIndex = 269
+        Me.txtRespiratoryRate.Location = New System.Drawing.Point(141, 24)
+        Me.txtRespiratoryRate.Name = "txtRespiratoryRate"
+        Me.txtRespiratoryRate.Size = New System.Drawing.Size(82, 26)
+        Me.txtRespiratoryRate.TabIndex = 269
         '
         'Label2
         '
@@ -984,7 +984,7 @@ Partial Class Frm_Visit
     Friend WithEvents Label7 As Label
     Friend WithEvents txtHeartRate As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtRespiratoryRaye As TextBox
+    Friend WithEvents txtRespiratoryRate As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents TabPage2 As TabPage

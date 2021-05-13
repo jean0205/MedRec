@@ -7,13 +7,15 @@ Public Class Frm_Test
     Dim dbTest As New TestComplementDB
     Dim patientId As Integer
     Dim testId As Integer
+    Dim visitId As Integer = 0
     Dim updating As Boolean = False
     Dim test As New TestComplement
 
-    Sub New(patientId As Integer)
+    Sub New(patientId As Integer, visitId As Integer)
         ' This call is required by the designer.
         InitializeComponent()
         Me.patientId = patientId
+        Me.visitId = visitId
         Me.updating = False
     End Sub
     Sub New(testId As Integer, updating As Boolean)
@@ -60,6 +62,7 @@ Public Class Frm_Test
         Try
             Dim newTest As New TestComplement
             newTest.Id = testId
+            newTest.VisitId = visitId
             Dim properties As List(Of PropertyInfo) = newTest.GetType().GetProperties().ToList
             For Each txt As TextBox In gbInfo.Controls.OfType(Of TextBox)
                 If properties.Where(Function(r) r.Name = txt.Name.Replace("txt", String.Empty)).Any Then

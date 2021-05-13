@@ -5,7 +5,7 @@ Public Class MedicationsDB
     Dim conString As String = My.Settings.connectString
 
 
-    '########### SELETC PATIENT ####################
+    '########### SELETC MEDICATIONS ####################
     Function GetMedicationsList(patientId As Integer) As List(Of Medications)
         Dim medicationList As New List(Of Medications)
         Dim query As String = "SELECT [Id],[PatientId],[VisitId],[Name],[Dosis],[Reason],[Duration]
@@ -39,9 +39,6 @@ Public Class MedicationsDB
                     If Not reader.IsDBNull(5) Then
                         medication.Reason = reader(5)
                     End If
-                    If Not reader.IsDBNull(5) Then
-                        medication.Reason = reader(5)
-                    End If
                     If Not reader.IsDBNull(6) Then
                         medication.Duration = reader(6)
                     End If
@@ -53,6 +50,62 @@ Public Class MedicationsDB
                     End If
                     If Not reader.IsDBNull(9) Then
                         medication.SavedTime = reader(9)
+                    End If
+                    medicationList.Add(medication)
+                End While
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return medicationList
+    End Function
+    Function GetMedicationsListVisitView(patientId As Integer) As List(Of Medications)
+        Dim medicationList As New List(Of Medications)
+        Dim query As String = "SELECT M.Id ,M.PatientId, [VisitId], V.VisitDate,[Name],[Dosis],[Reason],[Duration]
+                                      ,[Active],[SavedBy],[SavedTime]
+                                  FROM [dbo].[Medications] M full join Visit V on M.VisitId=V.Id
+                                  WHERE M.PatientId=@PatientId"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = patientId
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                While reader.Read
+                    Dim medication As New Medications
+                    If Not reader.IsDBNull(0) Then
+                        medication.id = reader(0)
+                    End If
+                    If Not reader.IsDBNull(1) Then
+                        medication.PatientId = reader(1)
+                    End If
+                    If Not reader.IsDBNull(2) Then
+                        medication.VisitId = reader(2)
+                    End If
+                    If Not reader.IsDBNull(3) Then
+                        medication.VisitDate = reader(3)
+                    End If
+                    If Not reader.IsDBNull(4) Then
+                        medication.Name = reader(4)
+                    End If
+                    If Not reader.IsDBNull(5) Then
+                        medication.Dosis = reader(5)
+                    End If
+                    If Not reader.IsDBNull(6) Then
+                        medication.Reason = reader(6)
+                    End If
+                    If Not reader.IsDBNull(7) Then
+                        medication.Duration = reader(7)
+                    End If
+                    If Not reader.IsDBNull(8) Then
+                        medication.Active = reader(8)
+                    End If
+                    If Not reader.IsDBNull(9) Then
+                        medication.SavedBy = reader(9)
+                    End If
+                    If Not reader.IsDBNull(10) Then
+                        medication.SavedTime = reader(10)
                     End If
                     medicationList.Add(medication)
                 End While

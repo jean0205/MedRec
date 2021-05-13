@@ -2,6 +2,7 @@
     Public Property Id As Integer
     Public Property PatientId As Integer
     Public Property VisitId As Integer
+    Public Property VisitDate As DateTime
     Public Property Name As String
     Public Property Result As String
     Public Property TestDate As Date
