@@ -1,7 +1,7 @@
 ﻿Public Class VisitE
     Public Property Id As Integer
     Public Property PatientId As Integer
-    Public Property ServicesId As List(Of Integer)
+    Public Property ServicesId As String
 
     Public Property VisitDate As DateTime
 

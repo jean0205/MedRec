@@ -156,7 +156,31 @@
         End Try
     End Sub
 
-
+    'devolver una lista con todos los textbox de un formulario, busca recursivamente
+    Public Function FindAllTextBoxIterative(ByRef parent As Control) As List(Of TextBox)
+        Dim list As New List(Of TextBox)
+        Dim ContainerStack As New Stack(Of Control)
+        ContainerStack.Push(parent)
+        While ContainerStack.Count > 0
+            For Each child As Control In ContainerStack.Pop().Controls
+                If child.HasChildren Then ContainerStack.Push(child)
+                If child.GetType Is GetType(TextBox) Then list.Add(child)
+            Next
+        End While
+        Return list
+    End Function
+    Public Function FindAllTextRichBoxIterative(ByRef parent As Control) As List(Of RichTextBox)
+        Dim list As New List(Of RichTextBox)
+        Dim ContainerStack As New Stack(Of Control)
+        ContainerStack.Push(parent)
+        While ContainerStack.Count > 0
+            For Each child As Control In ContainerStack.Pop().Controls
+                If child.HasChildren Then ContainerStack.Push(child)
+                If child.GetType Is GetType(RichTextBox) Then list.Add(child)
+            Next
+        End While
+        Return list
+    End Function
 
 
 

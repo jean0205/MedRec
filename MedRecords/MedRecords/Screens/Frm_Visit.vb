@@ -2,9 +2,12 @@
     Dim util As New Util
     Dim patientId As Integer
     Dim visitId As Integer = 0
-
+    Dim outstanding As Decimal = 0
+    Dim savedVisit As Boolean = False
+    Dim visitNumber As Integer = 0
     Dim patient As New PatientE
     Dim visit As New VisitE
+    Dim visitList As New List(Of VisitE)
 
     'database objects
     Dim dbService As New ServiceDB
@@ -41,6 +44,8 @@
         ' Add any initialization after the InitializeComponent() call.
         Me.patientId = patientId
         Me.patient = dbPatient.GetPatientById(patientId)
+
+
     End Sub
     Private Sub Frm_Visit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AddHandler txtSpo2.KeyPress, AddressOf util.txtOnlyIntegersNumber_KeyPress
@@ -57,21 +62,116 @@
         If visitId = 0 Then
             dbVisit.createVisit(patientId)
             Me.visitId = dbVisit.GetVisitId
+        Else
+
         End If
-        loadPatientInfo()
-        loadServices()
-        loadAllergies()
-        LoadTest()
-        LoadMedications()
+        loadAll()
+        outstanding = dbVisit.GetPatientOutstanding(patientId)
+        lblOustanding.Text = outstanding.ToString("C2")
+        lblOustanding.ForeColor = If(outstanding > 0, Color.Red, Color.Yellow)
+
+        'leyendo lalista de visitas del[aciente
+        visitList = dbVisit.GetPatientVisitList(patientId)
+        visitNumber = visitList.Count
+        lblTotalVisits.Text = visitNumber
     End Sub
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
         updatedVisit()
+    End Sub
+    Private Sub IconButton2_Click(sender As Object, e As EventArgs) Handles IconButton2.Click
+        If visitNumber > 1 Then
+            visitNumber -= 1
+            loadVisit(visitList(visitNumber - 1))
+
+            lblCurrentVisit.Text = visitNumber
+            visitInterface(False)
+            If visitNumber = visitList.Count Then
+                visitInterface(True)
+            End If
+        End If
+
+    End Sub
+
+    Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
+        If visitNumber < visitList.Count Then
+            visitNumber += 1
+            loadVisit(visitList(visitNumber - 1))
+
+            lblCurrentVisit.Text = visitNumber
+            visitInterface(False)
+            If visitNumber = visitList.Count Then
+                visitInterface(True)
+            End If
+        End If
     End Sub
 
 
 
 
 #Region "Metodos argando Datos del paciente"
+    Sub visitInterface(readOnl As Boolean)
+        Try
+            ibtnSave.Visible = readOnl
+            ibtnEditVisit.Visible = Not readOnl
+            dtpDateVisit.Enabled = readOnl
+            For Each txt As TextBox In util.FindAllTextBoxIterative(Me)
+                txt.ReadOnly = Not readOnl
+            Next
+            For Each Rtxt As RichTextBox In util.FindAllTextRichBoxIterative(Me)
+                Rtxt.ReadOnly = Not readOnl
+            Next
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
+    Sub loadAll()
+        Try
+            loadPatientInfo()
+            loadServices()
+            loadAllergies()
+            LoadTest()
+            LoadMedications()
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
+    Sub loadVisit(visit As VisitE)
+        Try
+            visitId = visit.Id
+            loadAll()
+            dtpDateVisit.Value = visit.VisitDate
+            txtRespiratoryRate.Text = visit.RespiratoryRate
+            txtHeartRate.Text = visit.HeartRate
+            txtPressure1.Text = visit.BloodPAlta
+            txtPressure2.Text = visit.BloodPBaja
+            txtSpo2.Text = visit.SpO2
+            txtTemperature.Text = visit.Temperature
+            txtComplain.Text = visit.PatientComplain
+            txtPhysicalExam.Text = visit.PhysicalExam
+            txtDiagnosis.Text = visit.Diagnosis
+            txtPlan.Text = visit.Plan
+            lblTotalServices.Text = visit.ServiceTotal.ToString("C2")
+            txtOtherServices.Text = visit.otherServices
+            txtOSCgarges.Text = visit.OSCharges.ToString("C2")
+            txtDisscount.Text = visit.Disscount.ToString("C2")
+            txtPaid.Text = visit.Paid.ToString("C2")
+            lblOustanding.Text = visit.Oustanding.ToString("C2")
+            lblToPay.Text = visit.ToPay.ToString("C2")
+            If Not IsNothing(visit.ServicesId) Then
+                For Each row As DataGridViewRow In dgvservices.Rows
+                    If visit.ServicesId.Split(",").ToList.Contains(row.Cells("Id").Value) Then
+                        row.Cells("Select").Value = True
+                        row.DefaultCellStyle.BackColor = Color.Salmon
+                    End If
+                Next
+
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
     Sub loadPatientInfo()
         Try
             lblFirstName.Text = patient.FirstName
@@ -97,6 +197,7 @@
             dgvservices.Columns("Cost").DefaultCellStyle.Format = "C2"
             dgvservices.Columns(1).ReadOnly = True
             dgvservices.Columns(3).ReadOnly = True
+            addContextMenu(dgvservices, "Reset")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -137,6 +238,10 @@
                         Where(Function(r) r.Cells("Active").Value = True).ToList
                 row.DefaultCellStyle.BackColor = Color.Salmon
             Next
+            For Each row As DataGridViewRow In dgvMedications.Rows.Cast(Of DataGridViewRow).
+                        Where(Function(r) r.Cells("VisitId").Value = visitId).ToList
+                row.DefaultCellStyle.ForeColor = Color.Blue
+            Next
             util.addBottomColumns(dgvMedications, "DetailsColMedi", "Details")
             util.addBottomColumns(dgvMedications, "DeleteColMedi", "Delete")
             Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 8, 9, 10})
@@ -175,6 +280,10 @@
                     row.Cells("VisitDate").Style.Format = "dd-MMM-yyyy"
                 End If
             Next
+            For Each row As DataGridViewRow In dgvTests.Rows.Cast(Of DataGridViewRow).
+                        Where(Function(r) r.Cells("VisitId").Value = visitId).ToList
+                row.DefaultCellStyle.ForeColor = Color.Blue
+            Next
             addContextMenu(dgvTests, "New Test/Complementary")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -183,16 +292,36 @@
 
     Sub updatedVisit()
         Try
+            Dim oustanding As Decimal = CDec(lblOustanding.Text)
+            If CDec(txtOSCgarges.Text) > 0 AndAlso txtOtherServices.TextLength = 0 Then
+                util.InformationMessage("Please enter the other services for wich you are charging $" & CDec(txtOSCgarges.Text), "Other services")
+                Exit Sub
+            End If
+            If oustanding > 0 Then
+                If Not util.yesOrNot("The Patient have an outstanding amount of: $" & oustanding & " Do you want to save the visit anyway?", "Outstanding") Then
+                    Exit Sub
+                End If
+            End If
+            If CDec(lblTotalServices.Text) = 0 Then
+                If Not util.yesOrNot("You have no services selected. Do you want to save the visit anyway?", "No Services") Then
+                    Exit Sub
+                End If
+            End If
+            If CDec(txtPaid.Text) = 0 Then
+                If Not util.yesOrNot("You have no paid amount. Do you want to save the visit anyway?", "No Paid") Then
+                    Exit Sub
+                End If
+            End If
             visit = New VisitE
             visit.Id = visitId
-            visit.ServicesId = getServicesId()
+            visit.ServicesId = String.Join(",", getServicesId)
             visit.VisitDate = dtpDateVisit.Value
-            visit.RespiratoryRate = txtRespiratoryRate.Text
-            visit.HeartRate = txtHeartRate.Text
-            visit.BloodPAlta = txtPressure1.Text
-            visit.BloodPBaja = txtPressure2.Text
-            visit.SpO2 = txtSpo2.Text
-            visit.Temperature = txtTemperature.Text
+            visit.RespiratoryRate = If(txtRespiratoryRate.TextLength > 0, txtRespiratoryRate.Text, 0)
+            visit.HeartRate = If(txtHeartRate.TextLength > 0, txtHeartRate.Text, 0)
+            visit.BloodPAlta = If(txtPressure1.TextLength > 0, txtPressure1.Text, 0)
+            visit.BloodPBaja = If(txtPressure2.TextLength > 0, txtPressure2.Text, 0)
+            visit.SpO2 = If(txtSpo2.TextLength > 0, txtSpo2.Text, 0)
+            visit.Temperature = If(txtTemperature.TextLength > 0, txtTemperature.Text, 0.00)
             visit.PatientComplain = txtComplain.Text.ToUpper
             visit.PhysicalExam = txtPhysicalExam.Text.ToUpper
             visit.Diagnosis = txtDiagnosis.Text.ToUpper
@@ -203,10 +332,10 @@
             visit.Disscount = txtDisscount.Text
             visit.ToPay = lblToPay.Text
             visit.Paid = txtPaid.Text
-            visit.Oustanding = lblOustanding.Text
-
-
-
+            visit.Oustanding = CDec(lblOustanding.Text) - outstanding
+            dbVisit.updateVisit(visit)
+            savedVisit = True
+            util.InformationMessage("The visit was Sucessfully Saved", "Visit Saved")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -215,7 +344,6 @@
         Dim idList As New List(Of Integer)
         Try
             idList = dgvservices.Rows.Cast(Of DataGridViewRow).Where(Function(q) q.Cells(4).Value = True).Select(Function(r) CInt(r.Cells("Id").Value)).ToList
-
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -245,6 +373,8 @@
                 Dim frm As New Frm_Test(patient.Id, visitId)
                 frm.ShowDialog()
                 LoadTest()
+            Case "Reset"
+                ResetServices()
         End Select
     End Sub
 #End Region
@@ -355,21 +485,100 @@
                 Exit Sub
             End If
             Dim senderGrid = DirectCast(sender, DataGridView)
-            Dim rowId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("Id").Value)
+            Dim rowId As Integer = e.RowIndex
             If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewCheckBoxColumn Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "Select" Then
-                    Dim serviceTotal As Decimal = dgvservices.Rows.Cast(Of DataGridViewRow).Where(Function(r) r.Cells("Id").Value = True).Sum(Function(q) CDec(q.Cells("").Value))
+                    senderGrid.Update()
+                    senderGrid.Refresh()
+                    senderGrid.Rows(rowId).Cells("Select").Value = Not senderGrid.Rows(rowId).Cells("Select").Value
+                    getFeesCalculations()
                 End If
             End If
-
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
 
+    Private Sub txtOSCgarges_KeyUp(sender As Object, e As KeyEventArgs) Handles txtOSCgarges.KeyUp, txtDisscount.KeyUp
+        Try
+            getFeesCalculations()
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Private Sub txtOSCgarges_MouseEnter(sender As Object, e As EventArgs) Handles txtOSCgarges.MouseEnter, txtDisscount.MouseEnter, txtPaid.MouseEnter
+        Try
+            Dim txt As TextBox = CType(sender, TextBox)
+            If txt.Text = "0.00" Then
+                txt.Clear()
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Private Sub txtOSCgarges_MouseLeave(sender As Object, e As EventArgs) Handles txtOSCgarges.MouseLeave, txtDisscount.MouseLeave, txtPaid.MouseLeave
+        Try
+            Dim txt As TextBox = CType(sender, TextBox)
+            If txt.TextLength = 0 Then
+                txt.Text = "0.00"
+            Else
+                txt.Text = CDec(txt.Text).ToString("N2")
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Private Sub txtPaid_KeyUp(sender As Object, e As KeyEventArgs) Handles txtPaid.KeyUp
+        Try
+            getFeesCalculations()
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Sub getFeesCalculations()
+        Try
+            Dim serviceTotal As Decimal = dgvservices.Rows.Cast(Of DataGridViewRow).
+                       Where(Function(r) r.Cells("Select").Value = True).
+                       Sum(Function(q) CDec(q.Cells("Cost").Value))
+            lblTotalServices.Text = serviceTotal.ToString("C2")
+            Dim osCharges As Decimal = If(txtOSCgarges.TextLength = 0, 0.00, CDec(txtOSCgarges.Text))
+            Dim toDisscount As Decimal = If(txtDisscount.TextLength = 0, 0.00, CDec(txtDisscount.Text))
+            Dim toPaid As Decimal = serviceTotal + (osCharges - toDisscount)
+            lblToPay.Text = toPaid.ToString("C2")
+            Dim paid As Decimal = If(txtPaid.TextLength = 0, 0.00, CDec(txtPaid.Text))
+            Dim outanding As Decimal = CDec(lblToPay.Text) - paid + outstanding
+            lblOustanding.Text = outanding.ToString("C2")
+            lblOustanding.ForeColor = If(outanding > 0, Color.Red, Color.Yellow)
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Sub ResetServices()
+        Try
+            For Each row As DataGridViewRow In dgvservices.Rows
+                row.Cells("Select").Value = False
+            Next
+            dgvservices.Update()
+            getFeesCalculations()
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 
+    Private Sub Frm_Visit_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Try
 
-
+            If Not savedVisit Then
+                If util.yesOrNot("This visit have not been saved and will be deleted if you close this screen. Do you want To continue?", "Delete Visit") Then
+                    dbVisit.DeleteVisit(visitId)
+                Else
+                    e.Cancel = True
+                End If
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 #End Region
 
 End Class
