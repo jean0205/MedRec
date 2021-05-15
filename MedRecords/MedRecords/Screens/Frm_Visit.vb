@@ -349,6 +349,24 @@
         End Try
     End Sub
 
+    Private Sub dgvservices_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvservices.CellContentClick
+        Try
+            If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
+                Exit Sub
+            End If
+            Dim senderGrid = DirectCast(sender, DataGridView)
+            Dim rowId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("Id").Value)
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewCheckBoxColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "Select" Then
+                    Dim serviceTotal As Decimal = dgvservices.Rows.Cast(Of DataGridViewRow).Where(Function(r) r.Cells("Id").Value = True).Sum(Function(q) CDec(q.Cells("").Value))
+                End If
+            End If
+
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
 
 
 
