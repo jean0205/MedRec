@@ -66,9 +66,7 @@
 
         End If
         loadAll()
-        outstanding = dbVisit.GetPatientOutstanding(patientId)
-        lblOustanding.Text = outstanding.ToString("C2")
-        lblOustanding.ForeColor = If(outstanding > 0, Color.Red, Color.Yellow)
+
 
         'leyendo lalista de visitas del[aciente
         visitList = dbVisit.GetPatientVisitList(patientId)
@@ -151,12 +149,12 @@
             visitId = visit.Id
             loadAll()
             dtpDateVisit.Value = visit.VisitDate
-            txtRespiratoryRate.Text = visit.RespiratoryRate
-            txtHeartRate.Text = visit.HeartRate
-            txtPressure1.Text = visit.BloodPAlta
-            txtPressure2.Text = visit.BloodPBaja
-            txtSpo2.Text = visit.SpO2
-            txtTemperature.Text = visit.Temperature
+            txtRespiratoryRate.Text = If(visit.RespiratoryRate > 0, visit.RespiratoryRate, String.Empty)
+            txtHeartRate.Text = If(visit.HeartRate > 0, visit.HeartRate, String.Empty)
+            txtPressure1.Text = If(visit.BloodPAlta > 0, visit.BloodPAlta, String.Empty)
+            txtPressure2.Text = If(visit.BloodPBaja > 0, visit.BloodPBaja, String.Empty)
+            txtSpo2.Text = If(visit.SpO2 > 0, visit.SpO2, String.Empty)
+            txtTemperature.Text = If(visit.Temperature > 0, visit.Temperature, String.Empty)
             txtComplain.Text = visit.PatientComplain
             txtPhysicalExam.Text = visit.PhysicalExam
             txtDiagnosis.Text = visit.Diagnosis
@@ -518,7 +516,7 @@
     Private Sub txtOSCgarges_MouseEnter(sender As Object, e As EventArgs) Handles txtOSCgarges.MouseEnter, txtDisscount.MouseEnter, txtPaid.MouseEnter
         Try
             Dim txt As TextBox = CType(sender, TextBox)
-            If txt.Text = "0.00" Then
+            If txt.Text = "0.00" Or txt.Text = "$0.00" Then
                 txt.Clear()
             End If
         Catch ex As Exception
