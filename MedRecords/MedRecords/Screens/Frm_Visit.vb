@@ -96,13 +96,21 @@
         If visitNumber < visitList.Count Then
             visitNumber += 1
             loadVisit(visitList(visitNumber - 1))
-
             lblCurrentVisit.Text = visitNumber
             visitInterface(False)
             If visitNumber = visitList.Count Then
                 visitInterface(True)
             End If
         End If
+    End Sub
+    Private Sub ibtnEditVisit_Click(sender As Object, e As EventArgs) Handles ibtnEditVisit.Click
+        Try
+            If util.yesOrNot("Do you want to change a past Visit?", "Change past Visit") Then
+                visitInterface(True)
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
     End Sub
 
 
@@ -120,6 +128,7 @@
             For Each Rtxt As RichTextBox In util.FindAllTextRichBoxIterative(Me)
                 Rtxt.ReadOnly = Not readOnl
             Next
+            savedVisit = readOnl
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -579,6 +588,8 @@
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+
+
 #End Region
 
 End Class
