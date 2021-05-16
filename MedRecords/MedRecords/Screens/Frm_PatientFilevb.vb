@@ -9,6 +9,8 @@ Public Class Frm_PatientFilevb
     Dim dbSurgery As New SurgeryDB
     Dim dbTest As New TestComplementDB
     Dim dbPregnancy As New PregnacyDB
+    Dim dbVisits As New VisitDB
+    Dim dbServices As New ServiceDB
 
     Dim patient As New PatientE
 
@@ -34,6 +36,7 @@ Public Class Frm_PatientFilevb
         loadSurgeries()
         loadTest()
         loadPregnancies()
+        loadVisitHistory()
     End Sub
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
         Dim frm As New Frm_Visit(patient.Id)
@@ -58,7 +61,10 @@ Public Class Frm_PatientFilevb
             End If
             lblAge.Text = util.CalculateAge(Today, patient.DatOB)
             lblId.Text = patient.Id
-            lblRegistrationDate.Text = patient.RegistrationDate.ToString("dd-MMM-yyyy:hh:mm")
+            lblRegistrationDate.Text = patient.RegistrationDate.ToString("dd-MMM-yyyy  (hh:mm)")
+            Dim oustanding As Decimal = dbVisits.GetPatientOutstanding(patient.Id)
+            lblOustandingBill.Text = oustanding.ToString("C2")
+            lblOustandingBill.ForeColor = If(CDec(oustanding) > 0, Color.Yellow, Color.Gainsboro)
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -201,6 +207,27 @@ Public Class Frm_PatientFilevb
         End Try
     End Sub
 
+    Sub loadVisitHistory()
+        Try
+            dgvVisitsHistory.Columns.Clear()
+            dgvVisitsHistory.DataSource = dbVisits.GetPatientVisitList(patient.Id).
+                                                OrderByDescending(Function(r) r.VisitDate).ToList
+            lblAmountOfVisits.Text = dgvVisitsHistory.Rows.Count
+            util.paintDGVRows(dgvVisitsHistory, Color.Beige, Color.Bisque)
+            util.addBottomColumns(dgvVisitsHistory, "DetailsColHist", "Details")
+            util.insertTextColumn(dgvVisitsHistory, "ServicesCol", "Services", 4)
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14})
+            util.hideDGVColumns(dgvVisitsHistory, indexList)
+            dgvVisitsHistory.Columns(3).HeaderText = "Visit Time"
+            dgvVisitsHistory.Columns(3).DefaultCellStyle.Format = "dd-MMM-yyyy  (hh:mm)"
+            dgvVisitsHistory.Columns("DetailsColHist").Width = 60
+            addContextMenu(dgvMedicalProblems, "New Visit")
+
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
 #End Region
 #Region "Otros Metodos"
 
@@ -241,10 +268,16 @@ Public Class Frm_PatientFilevb
                 Dim frm As New Frm_Pregnancy(patient.Id)
                 frm.ShowDialog()
                 loadPregnancies()
+            Case "New Pregnancy"
+                Dim frm As New Frm_Visit(patient.Id)
+                frm.ShowDialog()
+                loadVisitHistory()
+                getServicesName()
         End Select
     End Sub
     Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvMedicalProblems.CellPainting, dgvAllergies.CellPainting,
-             dgvMedications.CellPainting, dgvSurgeries.CellPainting, dgvTests.CellPainting, dgvPregnancies.CellPainting
+             dgvMedications.CellPainting, dgvSurgeries.CellPainting, dgvTests.CellPainting, dgvPregnancies.CellPainting,
+             dgvVisitsHistory.CellPainting
         Try
             Dim senderGrid As DataGridView = CType(sender, DataGridView)
             If e.RowIndex < 0 Then
@@ -264,7 +297,8 @@ Public Class Frm_PatientFilevb
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColAllergy" Or
                     senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColSurg" Or
-                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColPreg" Then
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColPreg" Or
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColHist" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.medHistory.Width
                     Dim h = My.Resources.medHistory.Height
@@ -280,7 +314,8 @@ Public Class Frm_PatientFilevb
     End Sub
 
     Private Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMedicalProblems.CellContentClick, dgvAllergies.CellContentClick,
-            dgvMedications.CellContentClick, dgvSurgeries.CellContentClick, dgvTests.CellContentClick, dgvPregnancies.CellContentClick
+            dgvMedications.CellContentClick, dgvSurgeries.CellContentClick, dgvTests.CellContentClick, dgvPregnancies.CellContentClick,
+            dgvVisitsHistory.CellContentClick
         Try
             If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
                 Exit Sub
@@ -382,11 +417,101 @@ Public Class Frm_PatientFilevb
                     loadPregnancies()
                 End If
             End If
+            'Visit History
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColHist" Then
+                    Dim patientId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("PatientId").Value)
+                    Dim frm As New Frm_Visit(rowId, patientId)
+                    frm.ShowDialog()
+                    loadVisitHistory()
+                    getServicesName()
+                End If
+            End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
 
+    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        Try
+            If TabControl1.SelectedIndex = 3 Then
+                getServicesName()
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Sub getServicesName()
+        Try
+            'getting services names
+            Dim serviceList As New List(Of Service)
+            serviceList = dbServices.GetSeriveList
+            For Each row As DataGridViewRow In dgvVisitsHistory.Rows
+                Dim idList As New List(Of String)
+                If Not IsNothing(row.Cells("ServicesId").Value) Then
+                    idList = row.Cells("ServicesId").Value.ToString.Split(",").ToList
+                    For Each id As Integer In idList
+                        row.Cells("ServicesCol").Value &= serviceList.Where(Function(r) r.Id = id).Select(Function(q) q.Name).First
+                        If idList.IndexOf(id) < idList.Count - 1 Then
+                            row.Cells("ServicesCol").Value &= " / "
+                        End If
+                    Next
+                End If
+                If CDec(row.Cells("Oustanding").Value) > 0 Then
+                    row.DefaultCellStyle.ForeColor = Color.Red
+                ElseIf CDec(row.Cells("Oustanding").Value) < 0 Then
+                    row.DefaultCellStyle.ForeColor = Color.Blue
+                Else
+                    row.DefaultCellStyle.ForeColor = Color.Black
+                End If
+            Next
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 
 #End Region
+
+    Private Sub _SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
+        If Me.WindowState = FormWindowState.Minimized Then
+            Exit Sub
+        End If
+        manualSizes()
+    End Sub
+    Private Sub _SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+
+        manualSizes()
+
+    End Sub
+
+    Sub manualSizes()
+        gbLeft1.Size = New Size(Me.Size.Width * 0.69, TabControl1.Size.Height * 0.5)
+        dgvMedicalProblems.Size = New Size(gbLeft1.Size.Width - 10, gbLeft1.Height - 30)
+        gbRight1.Location = New Point(gbLeft1.Location.X + gbLeft1.Size.Width + 5, gbRight1.Location.Y)
+        gbRight1.Size = New Size(Me.Size.Width * 0.28, TabControl1.Size.Height * 0.5)
+        dgvAllergies.Size = New Size(gbRight1.Size.Width - 10, gbRight1.Height - 30)
+
+        gbLeft2.Location = New Point(gbLeft1.Location.X, gbLeft1.Location.Y + gbLeft1.Size.Height + 5)
+        gbLeft2.Size = New Size(Me.Size.Width * 0.4855, TabControl1.Size.Height * 0.42)
+        dgvSurgeries.Size = New Size(gbLeft2.Size.Width - 10, gbLeft2.Size.Height - 30)
+        GbRight2.Location = New Point(gbLeft2.Location.X + gbLeft2.Size.Width + 5, gbLeft2.Location.Y)
+        GbRight2.Size = New Size(Me.Size.Width * 0.4855, TabControl1.Size.Height * 0.42)
+        dgvMedications.Size = New Size(GbRight2.Size.Width - 10, GbRight2.Size.Height - 30)
+
+        gbtest.Size = New Size(Me.Size.Width * 0.49, TabControl1.Size.Height - 45)
+        dgvTests.Size = New Size(gbtest.Size.Width - 10, gbtest.Size.Height - 30)
+
+        gbpregnancy.Size = New Size(dgvTests.Size.Width / 2, gbpregnancy.Size.Height)
+        gbAnticoncept.Size = New Size(dgvTests.Size.Width / 2, gbAnticoncept.Size.Height)
+
+        gbpregnancy.Location = New Point(gbtest.Location.X + gbtest.Size.Width + 1, gbtest.Location.Y)
+        gbAnticoncept.Location = New Point(gbpregnancy.Location.X + gbpregnancy.Size.Width + 1, gbpregnancy.Location.Y)
+
+        dgvPregnancies.Size = New Size(gbpregnancy.Size.Width - 10, gbpregnancy.Size.Height - 30)
+        dgvContraceptive.Size = New Size(gbAnticoncept.Size.Width - 10, gbAnticoncept.Size.Height - 30)
+
+
+        gbgynecol.Location = New Point(gbtest.Location.X + gbtest.Size.Width + 1, gbgynecol.Location.Y)
+        gbgynecol.Size = New Size(Me.Size.Width * 0.49, gbtest.Size.Height - gbpregnancy.Size.Height - 5)
+    End Sub
 End Class

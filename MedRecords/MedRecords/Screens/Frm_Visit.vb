@@ -26,7 +26,7 @@
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
-    Sub New(patientId As Integer, visitId As Integer)
+    Sub New(visitId As Integer, patientId As Integer)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -44,8 +44,6 @@
         ' Add any initialization after the InitializeComponent() call.
         Me.patientId = patientId
         Me.patient = dbPatient.GetPatientById(patientId)
-
-
     End Sub
     Private Sub Frm_Visit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AddHandler txtSpo2.KeyPress, AddressOf util.txtOnlyIntegersNumber_KeyPress
@@ -62,49 +60,56 @@
         If visitId = 0 Then
             dbVisit.createVisit(patientId)
             Me.visitId = dbVisit.GetVisitId
+            'leyendo lalista de visitas del[aciente
+            visitList = dbVisit.GetPatientVisitList(patientId)
+            visitNumber = visitList.Count
+            lblTotalVisits.Text = visitNumber
+            'leyendo outstandings
+            outstanding = dbVisit.GetPatientOutstanding(patientId)
+            lblOustanding.Text = outstanding.ToString("C2")
+            loadAll()
         Else
-
+            loadVisit(dbVisit.GetVisitById(visitId))
+            gbVisits.Visible = False
+            EnableChanges(False)
+            savedVisit = True
+            ibtnEditVisit.Visible = True
+            ibtnSave.Visible = False
         End If
-        loadAll()
 
 
-        'leyendo lalista de visitas del[aciente
-        visitList = dbVisit.GetPatientVisitList(patientId)
-        visitNumber = visitList.Count
-        lblTotalVisits.Text = visitNumber
     End Sub
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
         updatedVisit()
+
     End Sub
-    Private Sub IconButton2_Click(sender As Object, e As EventArgs) Handles IconButton2.Click
+    Private Sub IconButton2_Click(sender As Object, e As EventArgs) Handles ibtnFoward.Click
         If visitNumber > 1 Then
             visitNumber -= 1
             loadVisit(visitList(visitNumber - 1))
-
             lblCurrentVisit.Text = visitNumber
-            visitInterface(False)
+            EnableChanges(False)
             If visitNumber = visitList.Count Then
-                visitInterface(True)
+                EnableChanges(True)
             End If
         End If
-
     End Sub
 
-    Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
+    Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles ibtnBack.Click
         If visitNumber < visitList.Count Then
             visitNumber += 1
             loadVisit(visitList(visitNumber - 1))
             lblCurrentVisit.Text = visitNumber
-            visitInterface(False)
+            EnableChanges(False)
             If visitNumber = visitList.Count Then
-                visitInterface(True)
+                EnableChanges(True)
             End If
         End If
     End Sub
     Private Sub ibtnEditVisit_Click(sender As Object, e As EventArgs) Handles ibtnEditVisit.Click
         Try
             If util.yesOrNot("Do you want to change a past Visit?", "Change past Visit") Then
-                visitInterface(True)
+                EnableChanges(True)
             End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -115,18 +120,27 @@
 
 
 #Region "Metodos argando Datos del paciente"
-    Sub visitInterface(readOnl As Boolean)
+    Sub EnableChanges(change As Boolean)
         Try
-            ibtnSave.Visible = readOnl
-            ibtnEditVisit.Visible = Not readOnl
-            dtpDateVisit.Enabled = readOnl
+            ibtnSave.Visible = change
+            dtpDateVisit.Enabled = change
             For Each txt As TextBox In util.FindAllTextBoxIterative(Me)
-                txt.ReadOnly = Not readOnl
+                txt.Enabled = change
             Next
             For Each Rtxt As RichTextBox In util.FindAllTextRichBoxIterative(Me)
-                Rtxt.ReadOnly = Not readOnl
+                Rtxt.Enabled = change
             Next
-            savedVisit = readOnl
+            If change = False Then
+                gbVisits.BackColor = Color.FromArgb(210, 44, 44)
+                ibtnBack.BackColor = Color.FromArgb(210, 44, 44)
+                ibtnFoward.BackColor = Color.FromArgb(210, 44, 44)
+            Else
+                ibtnBack.BackColor = Color.FromArgb(28, 33, 53)
+                ibtnFoward.BackColor = Color.FromArgb(28, 33, 53)
+                gbVisits.BackColor = Color.FromArgb(28, 33, 53)
+                lblOustanding.Text = outstanding.ToString("C2")
+            End If
+            dgvservices.Enabled = change
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -485,7 +499,6 @@
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
-
     Private Sub dgvservices_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvservices.CellContentClick
         Try
             If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
@@ -505,7 +518,6 @@
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
-
     Private Sub txtOSCgarges_KeyUp(sender As Object, e As KeyEventArgs) Handles txtOSCgarges.KeyUp, txtDisscount.KeyUp
         Try
             getFeesCalculations()
@@ -571,7 +583,6 @@
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
-
     Private Sub Frm_Visit_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
 
@@ -579,6 +590,9 @@
                 If util.yesOrNot("This visit have not been saved and will be deleted if you close this screen. Do you want To continue?", "Delete Visit") Then
                     dbVisit.DeleteVisit(visitId)
                 Else
+                    loadVisit(visitList(visitList.Count - 1))
+                    EnableChanges(True)
+                    lblCurrentVisit.Text = visitList.Count
                     e.Cancel = True
                 End If
             End If

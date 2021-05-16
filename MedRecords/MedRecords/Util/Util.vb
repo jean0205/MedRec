@@ -129,6 +129,22 @@
                                                              MessageBoxDefaultButton.Button1)
         End Try
     End Sub
+    Public Sub insertTextColumn(dgv As DataGridView, colName As String, colText As String, colIndex As Integer)
+        Try
+            If Not dgv.Columns.Contains(colName) Then
+                Dim btnOForm As New DataGridViewTextBoxColumn
+                btnOForm.HeaderText = colText
+                btnOForm.Name = colName
+                dgv.Columns.Insert(colIndex, btnOForm)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message,
+                                                 "Error",
+                                                      MessageBoxButtons.OK,
+                                                         MessageBoxIcon.Error,
+                                                             MessageBoxDefaultButton.Button1)
+        End Try
+    End Sub
 
     Public Sub paintDGVRows(dgv As DataGridView, color1 As Color, color2 As Color)
         Try

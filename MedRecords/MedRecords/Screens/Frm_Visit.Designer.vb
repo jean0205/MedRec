@@ -46,8 +46,6 @@ Partial Class Frm_Visit
         Me.txtPlan = New System.Windows.Forms.RichTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtDiagnosis = New System.Windows.Forms.RichTextBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Label24 = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.dgvTests = New System.Windows.Forms.DataGridView()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
@@ -55,12 +53,20 @@ Partial Class Frm_Visit
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.dgvMedications = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.gbVisits = New System.Windows.Forms.GroupBox()
+        Me.ibtnBack = New FontAwesome.Sharp.IconButton()
+        Me.ibtnFoward = New FontAwesome.Sharp.IconButton()
+        Me.lblCurrentVisit = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.lblTotalVisits = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.lblLastName = New System.Windows.Forms.Label()
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.chkNoHistory = New System.Windows.Forms.CheckBox()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
+        Me.gbBilling = New System.Windows.Forms.GroupBox()
+        Me.ibtnEditVisit = New FontAwesome.Sharp.IconButton()
         Me.txtOtherServices = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.lblOustanding = New System.Windows.Forms.Label()
@@ -88,14 +94,6 @@ Partial Class Frm_Visit
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtpDateVisit = New System.Windows.Forms.DateTimePicker()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.lblTotalVisits = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.lblCurrentVisit = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
-        Me.ibtnEditVisit = New FontAwesome.Sharp.IconButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -104,7 +102,6 @@ Partial Class Frm_Visit
         Me.TabPage2.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.dgvTests, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox8.SuspendLayout()
@@ -112,17 +109,19 @@ Partial Class Frm_Visit
         Me.GroupBox7.SuspendLayout()
         CType(Me.dgvMedications, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBox13.SuspendLayout()
+        Me.gbVisits.SuspendLayout()
+        Me.gbBilling.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvservices, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox10.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
         '
+        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(3, 247)
         Me.TabControl1.Name = "TabControl1"
@@ -145,7 +144,9 @@ Partial Class Frm_Visit
         '
         'GroupBox5
         '
-        Me.GroupBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox5.Controls.Add(Me.txtPhysicalExam)
         Me.GroupBox5.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox5.Location = New System.Drawing.Point(6, 274)
@@ -157,6 +158,9 @@ Partial Class Frm_Visit
         '
         'txtPhysicalExam
         '
+        Me.txtPhysicalExam.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPhysicalExam.Location = New System.Drawing.Point(6, 25)
         Me.txtPhysicalExam.Name = "txtPhysicalExam"
         Me.txtPhysicalExam.Size = New System.Drawing.Size(819, 286)
@@ -165,7 +169,8 @@ Partial Class Frm_Visit
         '
         'GroupBox12
         '
-        Me.GroupBox12.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox12.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox12.Controls.Add(Me.txtComplain)
         Me.GroupBox12.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox12.Location = New System.Drawing.Point(273, 11)
@@ -177,15 +182,16 @@ Partial Class Frm_Visit
         '
         'txtComplain
         '
+        Me.txtComplain.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtComplain.Location = New System.Drawing.Point(6, 25)
         Me.txtComplain.Name = "txtComplain"
         Me.txtComplain.Size = New System.Drawing.Size(552, 221)
         Me.txtComplain.TabIndex = 0
-        Me.txtComplain.Text = "poner botopara navegr para atras a las ultimas visitas"
+        Me.txtComplain.Text = ""
         '
         'gbVitals
         '
-        Me.gbVitals.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.gbVitals.Controls.Add(Me.txtTemperature)
         Me.gbVitals.Controls.Add(Me.Label11)
         Me.gbVitals.Controls.Add(Me.txtSpo2)
@@ -328,6 +334,9 @@ Partial Class Frm_Visit
         '
         'GroupBox9
         '
+        Me.GroupBox9.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox9.Controls.Add(Me.txtPlan)
         Me.GroupBox9.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox9.Location = New System.Drawing.Point(6, 290)
@@ -339,6 +348,9 @@ Partial Class Frm_Visit
         '
         'txtPlan
         '
+        Me.txtPlan.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPlan.Location = New System.Drawing.Point(6, 25)
         Me.txtPlan.Name = "txtPlan"
         Me.txtPlan.Size = New System.Drawing.Size(825, 270)
@@ -347,6 +359,8 @@ Partial Class Frm_Visit
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.txtDiagnosis)
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
         Me.GroupBox2.Location = New System.Drawing.Point(6, 6)
@@ -358,45 +372,24 @@ Partial Class Frm_Visit
         '
         'txtDiagnosis
         '
+        Me.txtDiagnosis.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtDiagnosis.Location = New System.Drawing.Point(6, 25)
         Me.txtDiagnosis.Name = "txtDiagnosis"
         Me.txtDiagnosis.Size = New System.Drawing.Size(825, 234)
         Me.txtDiagnosis.TabIndex = 0
         Me.txtDiagnosis.Text = ""
         '
-        'TabPage3
-        '
-        Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.TabPage3.Controls.Add(Me.Label24)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(849, 596)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Previus Visits"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label24.Location = New System.Drawing.Point(379, 275)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(412, 40)
-        Me.Label24.TabIndex = 268
-        Me.Label24.Text = "poner aqui la lista de visitas anteriores en un datagridview" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "y con un boton de d" &
-    "etalles para acada una" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
         'GroupBox6
         '
-        Me.GroupBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.GroupBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox6.Controls.Add(Me.dgvTests)
         Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox6.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox6.Location = New System.Drawing.Point(866, 615)
+        Me.GroupBox6.Location = New System.Drawing.Point(866, 637)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(653, 263)
+        Me.GroupBox6.Size = New System.Drawing.Size(660, 239)
         Me.GroupBox6.TabIndex = 280
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Screening/Diagnostic Tests:"
@@ -416,7 +409,7 @@ Partial Class Frm_Visit
         Me.dgvTests.RowHeadersVisible = False
         Me.dgvTests.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvTests.RowTemplate.Height = 32
-        Me.dgvTests.Size = New System.Drawing.Size(641, 233)
+        Me.dgvTests.Size = New System.Drawing.Size(648, 209)
         Me.dgvTests.TabIndex = 61
         '
         'GroupBox8
@@ -426,7 +419,7 @@ Partial Class Frm_Visit
         Me.GroupBox8.Controls.Add(Me.dgvAllergies)
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox8.ForeColor = System.Drawing.Color.White
-        Me.GroupBox8.Location = New System.Drawing.Point(866, 245)
+        Me.GroupBox8.Location = New System.Drawing.Point(866, 243)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(660, 178)
         Me.GroupBox8.TabIndex = 282
@@ -458,9 +451,9 @@ Partial Class Frm_Visit
         Me.GroupBox7.Controls.Add(Me.dgvMedications)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox7.ForeColor = System.Drawing.Color.White
-        Me.GroupBox7.Location = New System.Drawing.Point(866, 429)
+        Me.GroupBox7.Location = New System.Drawing.Point(866, 427)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(660, 178)
+        Me.GroupBox7.Size = New System.Drawing.Size(660, 204)
         Me.GroupBox7.TabIndex = 283
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Active Medications:"
@@ -480,20 +473,20 @@ Partial Class Frm_Visit
         Me.dgvMedications.RowHeadersVisible = False
         Me.dgvMedications.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvMedications.RowTemplate.Height = 32
-        Me.dgvMedications.Size = New System.Drawing.Size(647, 147)
+        Me.dgvMedications.Size = New System.Drawing.Size(647, 173)
         Me.dgvMedications.TabIndex = 267
         '
         'GroupBox3
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox3.Controls.Add(Me.GroupBox10)
+        Me.GroupBox3.Controls.Add(Me.gbVisits)
         Me.GroupBox3.Controls.Add(Me.lblLastName)
         Me.GroupBox3.Controls.Add(Me.lblFirstName)
         Me.GroupBox3.Controls.Add(Me.chkNoHistory)
         Me.GroupBox3.Controls.Add(Me.chkPaperRecord)
         Me.GroupBox3.Controls.Add(Me.IconButton1)
-        Me.GroupBox3.Controls.Add(Me.GroupBox13)
+        Me.GroupBox3.Controls.Add(Me.gbBilling)
         Me.GroupBox3.Controls.Add(Me.GroupBox1)
         Me.GroupBox3.Controls.Add(Me.lblSex)
         Me.GroupBox3.Controls.Add(Me.lblAge)
@@ -512,6 +505,116 @@ Partial Class Frm_Visit
         Me.GroupBox3.Size = New System.Drawing.Size(1524, 240)
         Me.GroupBox3.TabIndex = 270
         Me.GroupBox3.TabStop = False
+        '
+        'gbVisits
+        '
+        Me.gbVisits.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbVisits.Controls.Add(Me.ibtnBack)
+        Me.gbVisits.Controls.Add(Me.ibtnFoward)
+        Me.gbVisits.Controls.Add(Me.lblCurrentVisit)
+        Me.gbVisits.Controls.Add(Me.Label22)
+        Me.gbVisits.Controls.Add(Me.lblTotalVisits)
+        Me.gbVisits.Controls.Add(Me.Label13)
+        Me.gbVisits.ForeColor = System.Drawing.Color.White
+        Me.gbVisits.Location = New System.Drawing.Point(389, 74)
+        Me.gbVisits.Name = "gbVisits"
+        Me.gbVisits.Size = New System.Drawing.Size(194, 133)
+        Me.gbVisits.TabIndex = 292
+        Me.gbVisits.TabStop = False
+        Me.gbVisits.Text = "Visits:"
+        '
+        'ibtnBack
+        '
+        Me.ibtnBack.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnBack.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnBack.FlatAppearance.BorderSize = 0
+        Me.ibtnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnBack.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnBack.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
+        Me.ibtnBack.IconColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnBack.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnBack.IconSize = 40
+        Me.ibtnBack.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnBack.Location = New System.Drawing.Point(139, 89)
+        Me.ibtnBack.Name = "ibtnBack"
+        Me.ibtnBack.Rotation = 180.0R
+        Me.ibtnBack.Size = New System.Drawing.Size(51, 41)
+        Me.ibtnBack.TabIndex = 289
+        Me.ibtnBack.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.ibtnBack.UseVisualStyleBackColor = False
+        '
+        'ibtnFoward
+        '
+        Me.ibtnFoward.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnFoward.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnFoward.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnFoward.FlatAppearance.BorderSize = 0
+        Me.ibtnFoward.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnFoward.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnFoward.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnFoward.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnFoward.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnFoward.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
+        Me.ibtnFoward.IconColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnFoward.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnFoward.IconSize = 40
+        Me.ibtnFoward.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnFoward.Location = New System.Drawing.Point(3, 90)
+        Me.ibtnFoward.Name = "ibtnFoward"
+        Me.ibtnFoward.Size = New System.Drawing.Size(51, 41)
+        Me.ibtnFoward.TabIndex = 288
+        Me.ibtnFoward.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnFoward.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.ibtnFoward.UseVisualStyleBackColor = False
+        '
+        'lblCurrentVisit
+        '
+        Me.lblCurrentVisit.AutoSize = True
+        Me.lblCurrentVisit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentVisit.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblCurrentVisit.Location = New System.Drawing.Point(107, 52)
+        Me.lblCurrentVisit.Name = "lblCurrentVisit"
+        Me.lblCurrentVisit.Size = New System.Drawing.Size(39, 20)
+        Me.lblCurrentVisit.TabIndex = 279
+        Me.lblCurrentVisit.Text = "___"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label22.Location = New System.Drawing.Point(6, 52)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(100, 20)
+        Me.Label22.TabIndex = 278
+        Me.Label22.Text = "Current Visit:"
+        '
+        'lblTotalVisits
+        '
+        Me.lblTotalVisits.AutoSize = True
+        Me.lblTotalVisits.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalVisits.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblTotalVisits.Location = New System.Drawing.Point(107, 27)
+        Me.lblTotalVisits.Name = "lblTotalVisits"
+        Me.lblTotalVisits.Size = New System.Drawing.Size(39, 20)
+        Me.lblTotalVisits.TabIndex = 277
+        Me.lblTotalVisits.Text = "___"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label13.Location = New System.Drawing.Point(16, 27)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(90, 20)
+        Me.Label13.TabIndex = 276
+        Me.Label13.Text = "Total Visits:"
         '
         'lblLastName
         '
@@ -579,34 +682,58 @@ Partial Class Frm_Visit
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton1.UseVisualStyleBackColor = False
         '
-        'GroupBox13
+        'gbBilling
         '
-        Me.GroupBox13.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox13.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.GroupBox13.Controls.Add(Me.ibtnEditVisit)
-        Me.GroupBox13.Controls.Add(Me.txtOtherServices)
-        Me.GroupBox13.Controls.Add(Me.Label23)
-        Me.GroupBox13.Controls.Add(Me.lblOustanding)
-        Me.GroupBox13.Controls.Add(Me.ibtnSave)
-        Me.GroupBox13.Controls.Add(Me.Label21)
-        Me.GroupBox13.Controls.Add(Me.Label20)
-        Me.GroupBox13.Controls.Add(Me.txtPaid)
-        Me.GroupBox13.Controls.Add(Me.lblToPay)
-        Me.GroupBox13.Controls.Add(Me.Label18)
-        Me.GroupBox13.Controls.Add(Me.Label14)
-        Me.GroupBox13.Controls.Add(Me.txtDisscount)
-        Me.GroupBox13.Controls.Add(Me.lblTotalServices)
-        Me.GroupBox13.Controls.Add(Me.Label17)
-        Me.GroupBox13.Controls.Add(Me.Label16)
-        Me.GroupBox13.Controls.Add(Me.txtOSCgarges)
-        Me.GroupBox13.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox13.Location = New System.Drawing.Point(955, 0)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(569, 240)
-        Me.GroupBox13.TabIndex = 286
-        Me.GroupBox13.TabStop = False
-        Me.GroupBox13.Text = "Billing Information:"
+        Me.gbBilling.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbBilling.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.gbBilling.Controls.Add(Me.ibtnEditVisit)
+        Me.gbBilling.Controls.Add(Me.txtOtherServices)
+        Me.gbBilling.Controls.Add(Me.Label23)
+        Me.gbBilling.Controls.Add(Me.lblOustanding)
+        Me.gbBilling.Controls.Add(Me.ibtnSave)
+        Me.gbBilling.Controls.Add(Me.Label21)
+        Me.gbBilling.Controls.Add(Me.Label20)
+        Me.gbBilling.Controls.Add(Me.txtPaid)
+        Me.gbBilling.Controls.Add(Me.lblToPay)
+        Me.gbBilling.Controls.Add(Me.Label18)
+        Me.gbBilling.Controls.Add(Me.Label14)
+        Me.gbBilling.Controls.Add(Me.txtDisscount)
+        Me.gbBilling.Controls.Add(Me.lblTotalServices)
+        Me.gbBilling.Controls.Add(Me.Label17)
+        Me.gbBilling.Controls.Add(Me.Label16)
+        Me.gbBilling.Controls.Add(Me.txtOSCgarges)
+        Me.gbBilling.ForeColor = System.Drawing.Color.Gainsboro
+        Me.gbBilling.Location = New System.Drawing.Point(955, 0)
+        Me.gbBilling.Name = "gbBilling"
+        Me.gbBilling.Size = New System.Drawing.Size(569, 240)
+        Me.gbBilling.TabIndex = 286
+        Me.gbBilling.TabStop = False
+        Me.gbBilling.Text = "Billing Information:"
+        '
+        'ibtnEditVisit
+        '
+        Me.ibtnEditVisit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnEditVisit.BackColor = System.Drawing.Color.Red
+        Me.ibtnEditVisit.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnEditVisit.FlatAppearance.BorderSize = 2
+        Me.ibtnEditVisit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnEditVisit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnEditVisit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnEditVisit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnEditVisit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnEditVisit.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.ibtnEditVisit.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnEditVisit.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnEditVisit.IconSize = 30
+        Me.ibtnEditVisit.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnEditVisit.Location = New System.Drawing.Point(403, 128)
+        Me.ibtnEditVisit.Name = "ibtnEditVisit"
+        Me.ibtnEditVisit.Size = New System.Drawing.Size(160, 48)
+        Me.ibtnEditVisit.TabIndex = 294
+        Me.ibtnEditVisit.Text = "Change"
+        Me.ibtnEditVisit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnEditVisit.UseVisualStyleBackColor = False
+        Me.ibtnEditVisit.Visible = False
         '
         'txtOtherServices
         '
@@ -916,140 +1043,6 @@ Partial Class Frm_Visit
         Me.Label15.TabIndex = 260
         Me.Label15.Text = "Visit Date:"
         '
-        'GroupBox10
-        '
-        Me.GroupBox10.Controls.Add(Me.IconButton3)
-        Me.GroupBox10.Controls.Add(Me.IconButton2)
-        Me.GroupBox10.Controls.Add(Me.lblCurrentVisit)
-        Me.GroupBox10.Controls.Add(Me.Label22)
-        Me.GroupBox10.Controls.Add(Me.lblTotalVisits)
-        Me.GroupBox10.Controls.Add(Me.Label13)
-        Me.GroupBox10.ForeColor = System.Drawing.Color.White
-        Me.GroupBox10.Location = New System.Drawing.Point(389, 74)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(194, 133)
-        Me.GroupBox10.TabIndex = 292
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Visits:"
-        '
-        'lblTotalVisits
-        '
-        Me.lblTotalVisits.AutoSize = True
-        Me.lblTotalVisits.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalVisits.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblTotalVisits.Location = New System.Drawing.Point(107, 27)
-        Me.lblTotalVisits.Name = "lblTotalVisits"
-        Me.lblTotalVisits.Size = New System.Drawing.Size(39, 20)
-        Me.lblTotalVisits.TabIndex = 277
-        Me.lblTotalVisits.Text = "___"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label13.Location = New System.Drawing.Point(16, 27)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(90, 20)
-        Me.Label13.TabIndex = 276
-        Me.Label13.Text = "Total Visits:"
-        '
-        'lblCurrentVisit
-        '
-        Me.lblCurrentVisit.AutoSize = True
-        Me.lblCurrentVisit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentVisit.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblCurrentVisit.Location = New System.Drawing.Point(107, 52)
-        Me.lblCurrentVisit.Name = "lblCurrentVisit"
-        Me.lblCurrentVisit.Size = New System.Drawing.Size(39, 20)
-        Me.lblCurrentVisit.TabIndex = 279
-        Me.lblCurrentVisit.Text = "___"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label22.Location = New System.Drawing.Point(6, 52)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(100, 20)
-        Me.Label22.TabIndex = 278
-        Me.Label22.Text = "Current Visit:"
-        '
-        'IconButton2
-        '
-        Me.IconButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton2.FlatAppearance.BorderSize = 0
-        Me.IconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
-        Me.IconButton2.IconColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton2.IconSize = 40
-        Me.IconButton2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton2.Location = New System.Drawing.Point(3, 90)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Size = New System.Drawing.Size(51, 41)
-        Me.IconButton2.TabIndex = 288
-        Me.IconButton2.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.IconButton2.UseVisualStyleBackColor = False
-        '
-        'IconButton3
-        '
-        Me.IconButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton3.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton3.FlatAppearance.BorderSize = 0
-        Me.IconButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
-        Me.IconButton3.IconColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton3.IconSize = 40
-        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton3.Location = New System.Drawing.Point(139, 89)
-        Me.IconButton3.Name = "IconButton3"
-        Me.IconButton3.Rotation = 180.0R
-        Me.IconButton3.Size = New System.Drawing.Size(51, 41)
-        Me.IconButton3.TabIndex = 289
-        Me.IconButton3.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.IconButton3.UseVisualStyleBackColor = False
-        '
-        'ibtnEditVisit
-        '
-        Me.ibtnEditVisit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnEditVisit.BackColor = System.Drawing.Color.Red
-        Me.ibtnEditVisit.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnEditVisit.FlatAppearance.BorderSize = 2
-        Me.ibtnEditVisit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnEditVisit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnEditVisit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnEditVisit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnEditVisit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnEditVisit.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.ibtnEditVisit.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnEditVisit.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnEditVisit.IconSize = 30
-        Me.ibtnEditVisit.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnEditVisit.Location = New System.Drawing.Point(403, 128)
-        Me.ibtnEditVisit.Name = "ibtnEditVisit"
-        Me.ibtnEditVisit.Size = New System.Drawing.Size(160, 48)
-        Me.ibtnEditVisit.TabIndex = 294
-        Me.ibtnEditVisit.Text = "Change"
-        Me.ibtnEditVisit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnEditVisit.UseVisualStyleBackColor = False
-        Me.ibtnEditVisit.Visible = False
-        '
         'Frm_Visit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1072,8 +1065,6 @@ Partial Class Frm_Visit
         Me.TabPage2.ResumeLayout(False)
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         CType(Me.dgvTests, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox8.ResumeLayout(False)
@@ -1082,12 +1073,12 @@ Partial Class Frm_Visit
         CType(Me.dgvMedications, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox13.ResumeLayout(False)
-        Me.GroupBox13.PerformLayout()
+        Me.gbVisits.ResumeLayout(False)
+        Me.gbVisits.PerformLayout()
+        Me.gbBilling.ResumeLayout(False)
+        Me.gbBilling.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.dgvservices, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1142,7 +1133,7 @@ Partial Class Frm_Visit
     Friend WithEvents txtDisscount As TextBox
     Friend WithEvents Label17 As Label
     Friend WithEvents txtOSCgarges As TextBox
-    Friend WithEvents GroupBox13 As GroupBox
+    Friend WithEvents gbBilling As GroupBox
     Friend WithEvents lblOustanding As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label20 As Label
@@ -1151,16 +1142,14 @@ Partial Class Frm_Visit
     Friend WithEvents Label18 As Label
     Friend WithEvents txtOtherServices As TextBox
     Friend WithEvents Label23 As Label
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents Label24 As Label
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
     Friend WithEvents chkNoHistory As CheckBox
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents lblFirstName As Label
     Friend WithEvents lblLastName As Label
-    Friend WithEvents GroupBox10 As GroupBox
-    Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
-    Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
+    Friend WithEvents gbVisits As GroupBox
+    Friend WithEvents ibtnBack As FontAwesome.Sharp.IconButton
+    Friend WithEvents ibtnFoward As FontAwesome.Sharp.IconButton
     Friend WithEvents lblCurrentVisit As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents lblTotalVisits As Label

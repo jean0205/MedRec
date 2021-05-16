@@ -38,6 +38,37 @@ Public Class VisitDB
         Return visitLis
     End Function
 
+    'GET VISIT BY ID
+    Function GetVisitById(visitId As Integer) As VisitE
+        Dim visit As New VisitE
+        Dim query As String = "SELECT [Id],[PatientId],[ServicesId],[VisitDate],[RespiratoryRate],[HeartRate]
+                                  ,[BloodPAlta],[BloodPBaja],[SpO2],[Temperature],[PhysicalExam],[PatientComplain]
+                                  ,[Diagnosis],[Plan],[ServiceTotal],[OtherServices],[OSCharges],[Disscount],[ToPay],
+                                   [Paid],[Oustanding]
+                              FROM [dbo].[Visit]
+                                  where Id =@Id"
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = visitId
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                Dim properties As List(Of PropertyInfo) = visit.GetType().GetProperties().ToList
+                If reader.Read Then
+                    visit = New VisitE
+                    For Each prop As PropertyInfo In properties
+                        If Not reader.IsDBNull(properties.IndexOf(prop)) Then
+                            prop.SetValue(visit, reader(properties.IndexOf(prop)))
+                        End If
+                    Next
+                End If
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return visit
+    End Function
+
     '########### CREATE VISIT FIRST TIME ####################
     Sub createVisit(patientId As Integer)
         Dim query As String = "INSERT INTO [dbo].[Visit]
