@@ -126,6 +126,11 @@
 
     End Sub
 
+    Private Sub dgv2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv2.CellContentClick
+        Dim frm As New Frm_Appoitment
+        frm.Show()
+    End Sub
+
 
 
 

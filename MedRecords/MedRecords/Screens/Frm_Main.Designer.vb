@@ -25,9 +25,7 @@ Partial Class Frm_Main
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.panelAddAppointment = New System.Windows.Forms.Panel()
-        Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
         Me.gbNewAppointment = New System.Windows.Forms.GroupBox()
-        Me.ibtnNewPatient = New FontAwesome.Sharp.IconButton()
         Me.dgv2 = New System.Windows.Forms.DataGridView()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
@@ -48,8 +46,11 @@ Partial Class Frm_Main
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.pictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panel2 = New System.Windows.Forms.Panel()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ibtnNewAppointment = New FontAwesome.Sharp.IconButton()
+        Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
+        Me.ibtnNewPatient = New FontAwesome.Sharp.IconButton()
         Me.ibtnVisits = New FontAwesome.Sharp.IconButton()
         Me.ibtnRestore = New FontAwesome.Sharp.IconButton()
         Me.ibtnBackup = New FontAwesome.Sharp.IconButton()
@@ -59,16 +60,15 @@ Partial Class Frm_Main
         Me.ibtnSurgeries = New FontAwesome.Sharp.IconButton()
         Me.ibtnServices = New FontAwesome.Sharp.IconButton()
         Me.ibtnPatients = New FontAwesome.Sharp.IconButton()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ibtnNewAppointment = New FontAwesome.Sharp.IconButton()
+        Me.pictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2.SuspendLayout()
         Me.panelAddAppointment.SuspendLayout()
         Me.gbNewAppointment.SuspendLayout()
         CType(Me.dgv2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel2.SuspendLayout()
+        CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -78,7 +78,6 @@ Partial Class Frm_Main
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.GroupBox2.Controls.Add(Me.panelAddAppointment)
-        Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.dgv1)
@@ -98,32 +97,16 @@ Partial Class Frm_Main
         Me.panelAddAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.panelAddAppointment.Controls.Add(Me.ibtnClosePanel)
         Me.panelAddAppointment.Controls.Add(Me.gbNewAppointment)
-        Me.panelAddAppointment.Location = New System.Drawing.Point(59, 45)
+        Me.panelAddAppointment.Location = New System.Drawing.Point(71, 45)
         Me.panelAddAppointment.Name = "panelAddAppointment"
         Me.panelAddAppointment.Size = New System.Drawing.Size(957, 494)
         Me.panelAddAppointment.TabIndex = 81
         Me.panelAddAppointment.Visible = False
         '
-        'ibtnClosePanel
-        '
-        Me.ibtnClosePanel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnClosePanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnClosePanel.FlatAppearance.BorderSize = 0
-        Me.ibtnClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnClosePanel.IconChar = FontAwesome.Sharp.IconChar.WindowClose
-        Me.ibtnClosePanel.IconColor = System.Drawing.Color.White
-        Me.ibtnClosePanel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnClosePanel.IconSize = 30
-        Me.ibtnClosePanel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ibtnClosePanel.Location = New System.Drawing.Point(925, 2)
-        Me.ibtnClosePanel.Name = "ibtnClosePanel"
-        Me.ibtnClosePanel.Size = New System.Drawing.Size(30, 30)
-        Me.ibtnClosePanel.TabIndex = 97
-        Me.ibtnClosePanel.UseVisualStyleBackColor = False
-        '
         'gbNewAppointment
         '
         Me.gbNewAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
+        Me.gbNewAppointment.Controls.Add(Me.Label9)
         Me.gbNewAppointment.Controls.Add(Me.ibtnNewPatient)
         Me.gbNewAppointment.Controls.Add(Me.dgv2)
         Me.gbNewAppointment.Controls.Add(Me.txtLastName)
@@ -140,28 +123,6 @@ Partial Class Frm_Main
         Me.gbNewAppointment.TabIndex = 80
         Me.gbNewAppointment.TabStop = False
         Me.gbNewAppointment.Text = "Search Patient:"
-        '
-        'ibtnNewPatient
-        '
-        Me.ibtnNewPatient.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
-        Me.ibtnNewPatient.FlatAppearance.BorderSize = 2
-        Me.ibtnNewPatient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnNewPatient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnNewPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnNewPatient.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnNewPatient.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnNewPatient.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
-        Me.ibtnNewPatient.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnNewPatient.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnNewPatient.IconSize = 55
-        Me.ibtnNewPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnNewPatient.Location = New System.Drawing.Point(773, 27)
-        Me.ibtnNewPatient.Name = "ibtnNewPatient"
-        Me.ibtnNewPatient.Size = New System.Drawing.Size(162, 94)
-        Me.ibtnNewPatient.TabIndex = 85
-        Me.ibtnNewPatient.Text = "New Patient"
-        Me.ibtnNewPatient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnNewPatient.UseVisualStyleBackColor = False
         '
         'dgv2
         '
@@ -224,7 +185,7 @@ Partial Class Frm_Main
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label9.Location = New System.Drawing.Point(911, 174)
+        Me.Label9.Location = New System.Drawing.Point(387, 195)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(501, 20)
         Me.Label9.TabIndex = 239
@@ -400,15 +361,6 @@ Partial Class Frm_Main
         Me.Label4.TabIndex = 236
         Me.Label4.Text = "Today Patients:"
         '
-        'pictureBox1
-        '
-        Me.pictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.pictureBox1.Name = "pictureBox1"
-        Me.pictureBox1.Size = New System.Drawing.Size(202, 120)
-        Me.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pictureBox1.TabIndex = 0
-        Me.pictureBox1.TabStop = False
-        '
         'panel2
         '
         Me.panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
@@ -427,6 +379,72 @@ Partial Class Frm_Main
         Me.panel2.Name = "panel2"
         Me.panel2.Size = New System.Drawing.Size(202, 780)
         Me.panel2.TabIndex = 41
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        '
+        'ibtnNewAppointment
+        '
+        Me.ibtnNewAppointment.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnNewAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
+        Me.ibtnNewAppointment.FlatAppearance.BorderSize = 2
+        Me.ibtnNewAppointment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnNewAppointment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnNewAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnNewAppointment.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnNewAppointment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnNewAppointment.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
+        Me.ibtnNewAppointment.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnNewAppointment.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnNewAppointment.IconSize = 55
+        Me.ibtnNewAppointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ibtnNewAppointment.Location = New System.Drawing.Point(768, 44)
+        Me.ibtnNewAppointment.Name = "ibtnNewAppointment"
+        Me.ibtnNewAppointment.Size = New System.Drawing.Size(251, 94)
+        Me.ibtnNewAppointment.TabIndex = 84
+        Me.ibtnNewAppointment.Text = "New Walk In Appointment"
+        Me.ibtnNewAppointment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnNewAppointment.UseVisualStyleBackColor = False
+        '
+        'ibtnClosePanel
+        '
+        Me.ibtnClosePanel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnClosePanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnClosePanel.FlatAppearance.BorderSize = 0
+        Me.ibtnClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnClosePanel.IconChar = FontAwesome.Sharp.IconChar.WindowClose
+        Me.ibtnClosePanel.IconColor = System.Drawing.Color.White
+        Me.ibtnClosePanel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnClosePanel.IconSize = 30
+        Me.ibtnClosePanel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ibtnClosePanel.Location = New System.Drawing.Point(925, 2)
+        Me.ibtnClosePanel.Name = "ibtnClosePanel"
+        Me.ibtnClosePanel.Size = New System.Drawing.Size(30, 30)
+        Me.ibtnClosePanel.TabIndex = 97
+        Me.ibtnClosePanel.UseVisualStyleBackColor = False
+        '
+        'ibtnNewPatient
+        '
+        Me.ibtnNewPatient.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
+        Me.ibtnNewPatient.FlatAppearance.BorderSize = 2
+        Me.ibtnNewPatient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnNewPatient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnNewPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnNewPatient.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnNewPatient.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnNewPatient.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
+        Me.ibtnNewPatient.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnNewPatient.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnNewPatient.IconSize = 55
+        Me.ibtnNewPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ibtnNewPatient.Location = New System.Drawing.Point(773, 27)
+        Me.ibtnNewPatient.Name = "ibtnNewPatient"
+        Me.ibtnNewPatient.Size = New System.Drawing.Size(162, 94)
+        Me.ibtnNewPatient.TabIndex = 85
+        Me.ibtnNewPatient.Text = "New Patient"
+        Me.ibtnNewPatient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnNewPatient.UseVisualStyleBackColor = False
         '
         'ibtnVisits
         '
@@ -628,32 +646,14 @@ Partial Class Frm_Main
         Me.ibtnPatients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnPatients.UseVisualStyleBackColor = True
         '
-        'Timer1
+        'pictureBox1
         '
-        Me.Timer1.Enabled = True
-        '
-        'ibtnNewAppointment
-        '
-        Me.ibtnNewAppointment.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnNewAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
-        Me.ibtnNewAppointment.FlatAppearance.BorderSize = 2
-        Me.ibtnNewAppointment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnNewAppointment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnNewAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnNewAppointment.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnNewAppointment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnNewAppointment.IconChar = FontAwesome.Sharp.IconChar.HospitalUser
-        Me.ibtnNewAppointment.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnNewAppointment.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnNewAppointment.IconSize = 55
-        Me.ibtnNewAppointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnNewAppointment.Location = New System.Drawing.Point(768, 44)
-        Me.ibtnNewAppointment.Name = "ibtnNewAppointment"
-        Me.ibtnNewAppointment.Size = New System.Drawing.Size(251, 94)
-        Me.ibtnNewAppointment.TabIndex = 84
-        Me.ibtnNewAppointment.Text = "New Walk In Appointment"
-        Me.ibtnNewAppointment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnNewAppointment.UseVisualStyleBackColor = False
+        Me.pictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.pictureBox1.Name = "pictureBox1"
+        Me.pictureBox1.Size = New System.Drawing.Size(202, 120)
+        Me.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pictureBox1.TabIndex = 0
+        Me.pictureBox1.TabStop = False
         '
         'Frm_Main
         '
@@ -680,8 +680,8 @@ Partial Class Frm_Main
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel2.ResumeLayout(False)
+        CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
