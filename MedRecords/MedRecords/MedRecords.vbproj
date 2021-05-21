@@ -93,6 +93,7 @@
     <Compile Include="DataAccess\VisitDB.vb" />
     <Compile Include="Entities\Allergy.vb" />
     <Compile Include="Entities\Appointment.vb" />
+    <Compile Include="Entities\Appoitmets.vb" />
     <Compile Include="Entities\Contraceptive.vb" />
     <Compile Include="Entities\FamilyHist.vb" />
     <Compile Include="Entities\Habits.vb" />

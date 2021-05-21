@@ -372,22 +372,22 @@ Partial Class Frm_Main
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(31, 102)
+        Me.Label2.Location = New System.Drawing.Point(86, 102)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(130, 20)
+        Me.Label2.Size = New System.Drawing.Size(75, 20)
         Me.Label2.TabIndex = 238
-        Me.Label2.Text = "Today Total Paid:"
+        Me.Label2.Text = "Walk-Ins:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label1.Location = New System.Drawing.Point(9, 67)
+        Me.Label1.Location = New System.Drawing.Point(58, 67)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(152, 20)
+        Me.Label1.Size = New System.Drawing.Size(103, 20)
         Me.Label1.TabIndex = 237
-        Me.Label1.Text = "Today Total To Paid:"
+        Me.Label1.Text = "Appoitments:"
         '
         'Label4
         '
