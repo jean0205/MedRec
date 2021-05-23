@@ -2,6 +2,7 @@
     Dim util As New Util
     Dim patientId As Integer
     Dim visitId As Integer = 0
+    Dim appoitmentId As Integer = 0
     Dim outstanding As Decimal = 0
     Dim savedVisit As Boolean = False
     Dim visitNumber As Integer = 0
@@ -16,6 +17,7 @@
     Dim dbMedications As New MedicationsDB
     Dim dbTest As New TestComplementDB
     Dim dbVisit As New VisitDB
+    Dim dbAppoitment As New AppointmentDB
 
 
     Sub New()
@@ -43,6 +45,16 @@
 
         ' Add any initialization after the InitializeComponent() call.
         Me.patientId = patientId
+        Me.patient = dbPatient.GetPatientById(patientId)
+    End Sub
+    Sub New(patientId As Integer, appoitmentId As Integer, app As Boolean)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        Me.patientId = patientId
+        Me.appoitmentId = appoitmentId
         Me.patient = dbPatient.GetPatientById(patientId)
     End Sub
     Private Sub Frm_Visit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -114,6 +126,10 @@
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
+    End Sub
+    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
+        Dim frm As New Frm_PatientFilevb(patient)
+        frm.ShowDialog()
     End Sub
 
 
@@ -356,7 +372,9 @@
             visit.Oustanding = CDec(lblOustanding.Text) - outstanding
             dbVisit.updateVisit(visit)
             savedVisit = True
+            dbAppoitment.updateAppoitmentVisitId(appoitmentId, visitId)
             util.InformationMessage("The visit was Sucessfully Saved", "Visit Saved")
+
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -600,6 +618,8 @@
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+
+
 
 
 #End Region
