@@ -27,15 +27,12 @@ Partial Class Frm_Main
         Me.panelAddAppointment = New System.Windows.Forms.Panel()
         Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
         Me.gbNewAppointment = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.ibtnNewPatient = New FontAwesome.Sharp.IconButton()
         Me.dgv2 = New System.Windows.Forms.DataGridView()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
@@ -63,8 +60,9 @@ Partial Class Frm_Main
         Me.ibtnNewAppointment = New FontAwesome.Sharp.IconButton()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.IconButton2 = New FontAwesome.Sharp.IconButton()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
         Me.GroupBox2.SuspendLayout()
         Me.panelAddAppointment.SuspendLayout()
         Me.gbNewAppointment.SuspendLayout()
@@ -83,8 +81,6 @@ Partial Class Frm_Main
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.GroupBox2.Controls.Add(Me.panelAddAppointment)
-        Me.GroupBox2.Controls.Add(Me.Label11)
-        Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.dgv1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
@@ -128,7 +124,6 @@ Partial Class Frm_Main
         'gbNewAppointment
         '
         Me.gbNewAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
-        Me.gbNewAppointment.Controls.Add(Me.Label9)
         Me.gbNewAppointment.Controls.Add(Me.ibtnNewPatient)
         Me.gbNewAppointment.Controls.Add(Me.dgv2)
         Me.gbNewAppointment.Controls.Add(Me.txtLastName)
@@ -145,17 +140,6 @@ Partial Class Frm_Main
         Me.gbNewAppointment.TabIndex = 80
         Me.gbNewAppointment.TabStop = False
         Me.gbNewAppointment.Text = "Search Patient:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label9.Location = New System.Drawing.Point(387, 195)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(501, 20)
-        Me.Label9.TabIndex = 239
-        Me.Label9.Text = "poner boton paralos detalles del paciente y otropara crear nueva visita"
         '
         'ibtnNewPatient
         '
@@ -235,29 +219,6 @@ Partial Class Frm_Main
         Me.Label8.TabIndex = 246
         Me.Label8.Text = "First Name:"
         '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label11.Location = New System.Drawing.Point(701, 551)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(427, 60)
-        Me.Label11.TabIndex = 241
-        Me.Label11.Text = "si elpacientetiene historia elpapel marcar la fila de otro color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "poner leyenda e" &
-    "n laparte baja deldata grid" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label10.Location = New System.Drawing.Point(247, 576)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(418, 20)
-        Me.Label10.TabIndex = 240
-        Me.Label10.Text = "si elpaciente no tiene historia clinica marcar lafilde un color" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
         'dgv1
         '
         Me.dgv1.AllowUserToAddRows = False
@@ -273,7 +234,7 @@ Partial Class Frm_Main
         Me.dgv1.RowHeadersVisible = False
         Me.dgv1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgv1.RowTemplate.Height = 32
-        Me.dgv1.Size = New System.Drawing.Size(1183, 560)
+        Me.dgv1.Size = New System.Drawing.Size(1183, 536)
         Me.dgv1.TabIndex = 59
         '
         'lblDate
@@ -324,7 +285,7 @@ Partial Class Frm_Main
         Me.lblTotalPaid.AutoSize = True
         Me.lblTotalPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalPaid.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblTotalPaid.Location = New System.Drawing.Point(159, 102)
+        Me.lblTotalPaid.Location = New System.Drawing.Point(197, 102)
         Me.lblTotalPaid.Name = "lblTotalPaid"
         Me.lblTotalPaid.Size = New System.Drawing.Size(108, 20)
         Me.lblTotalPaid.TabIndex = 261
@@ -335,7 +296,7 @@ Partial Class Frm_Main
         Me.lblTotaltoPaid.AutoSize = True
         Me.lblTotaltoPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotaltoPaid.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblTotaltoPaid.Location = New System.Drawing.Point(159, 67)
+        Me.lblTotaltoPaid.Location = New System.Drawing.Point(197, 67)
         Me.lblTotaltoPaid.Name = "lblTotaltoPaid"
         Me.lblTotaltoPaid.Size = New System.Drawing.Size(108, 20)
         Me.lblTotaltoPaid.TabIndex = 260
@@ -346,7 +307,7 @@ Partial Class Frm_Main
         Me.lblTotalPatients.AutoSize = True
         Me.lblTotalPatients.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalPatients.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblTotalPatients.Location = New System.Drawing.Point(159, 32)
+        Me.lblTotalPatients.Location = New System.Drawing.Point(197, 32)
         Me.lblTotalPatients.Name = "lblTotalPatients"
         Me.lblTotalPatients.Size = New System.Drawing.Size(108, 20)
         Me.lblTotalPatients.TabIndex = 259
@@ -378,37 +339,38 @@ Partial Class Frm_Main
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(86, 102)
+        Me.Label2.Location = New System.Drawing.Point(67, 102)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 20)
+        Me.Label2.Size = New System.Drawing.Size(124, 20)
         Me.Label2.TabIndex = 238
-        Me.Label2.Text = "Walk-Ins:"
+        Me.Label2.Text = "Patients waiting:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label1.Location = New System.Drawing.Point(58, 67)
+        Me.Label1.Location = New System.Drawing.Point(52, 67)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(103, 20)
+        Me.Label1.Size = New System.Drawing.Size(139, 20)
         Me.Label1.TabIndex = 237
-        Me.Label1.Text = "Appoitments:"
+        Me.Label1.Text = "Patients attended:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label4.Location = New System.Drawing.Point(43, 32)
+        Me.Label4.Location = New System.Drawing.Point(13, 32)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(118, 20)
+        Me.Label4.Size = New System.Drawing.Size(178, 20)
         Me.Label4.TabIndex = 236
-        Me.Label4.Text = "Today Patients:"
+        Me.Label4.Text = "Appointments for today:"
         '
         'panel2
         '
         Me.panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.panel2.Controls.Add(Me.IconButton3)
         Me.panel2.Controls.Add(Me.ibtnVisits)
         Me.panel2.Controls.Add(Me.ibtnRestore)
         Me.panel2.Controls.Add(Me.ibtnBackup)
@@ -427,6 +389,7 @@ Partial Class Frm_Main
         '
         'ibtnVisits
         '
+        Me.ibtnVisits.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnVisits.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnVisits.FlatAppearance.BorderSize = 0
         Me.ibtnVisits.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
@@ -438,7 +401,7 @@ Partial Class Frm_Main
         Me.ibtnVisits.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnVisits.IconSize = 40
         Me.ibtnVisits.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnVisits.Location = New System.Drawing.Point(3, 327)
+        Me.ibtnVisits.Location = New System.Drawing.Point(3, 289)
         Me.ibtnVisits.Name = "ibtnVisits"
         Me.ibtnVisits.Size = New System.Drawing.Size(202, 53)
         Me.ibtnVisits.TabIndex = 240
@@ -449,6 +412,7 @@ Partial Class Frm_Main
         '
         'ibtnRestore
         '
+        Me.ibtnRestore.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnRestore.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.ibtnRestore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnRestore.FlatAppearance.BorderSize = 0
@@ -457,11 +421,11 @@ Partial Class Frm_Main
         Me.ibtnRestore.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnRestore.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnRestore.IconChar = FontAwesome.Sharp.IconChar.Server
-        Me.ibtnRestore.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.ibtnRestore.IconColor = System.Drawing.Color.GhostWhite
         Me.ibtnRestore.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnRestore.IconSize = 30
         Me.ibtnRestore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnRestore.Location = New System.Drawing.Point(0, 732)
+        Me.ibtnRestore.Location = New System.Drawing.Point(0, 733)
         Me.ibtnRestore.Name = "ibtnRestore"
         Me.ibtnRestore.Size = New System.Drawing.Size(199, 45)
         Me.ibtnRestore.TabIndex = 239
@@ -472,6 +436,7 @@ Partial Class Frm_Main
         '
         'ibtnBackup
         '
+        Me.ibtnBackup.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnBackup.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.ibtnBackup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnBackup.FlatAppearance.BorderSize = 0
@@ -480,11 +445,11 @@ Partial Class Frm_Main
         Me.ibtnBackup.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnBackup.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnBackup.IconChar = FontAwesome.Sharp.IconChar.Database
-        Me.ibtnBackup.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.ibtnBackup.IconColor = System.Drawing.Color.GhostWhite
         Me.ibtnBackup.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnBackup.IconSize = 30
         Me.ibtnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnBackup.Location = New System.Drawing.Point(0, 687)
+        Me.ibtnBackup.Location = New System.Drawing.Point(0, 688)
         Me.ibtnBackup.Name = "ibtnBackup"
         Me.ibtnBackup.Size = New System.Drawing.Size(199, 45)
         Me.ibtnBackup.TabIndex = 238
@@ -495,6 +460,7 @@ Partial Class Frm_Main
         '
         'ibtnSams
         '
+        Me.ibtnSams.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnSams.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnSams.FlatAppearance.BorderSize = 0
         Me.ibtnSams.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
@@ -506,7 +472,7 @@ Partial Class Frm_Main
         Me.ibtnSams.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSams.IconSize = 40
         Me.ibtnSams.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnSams.Location = New System.Drawing.Point(0, 622)
+        Me.ibtnSams.Location = New System.Drawing.Point(0, 584)
         Me.ibtnSams.Name = "ibtnSams"
         Me.ibtnSams.Size = New System.Drawing.Size(202, 53)
         Me.ibtnSams.TabIndex = 237
@@ -517,6 +483,7 @@ Partial Class Frm_Main
         '
         'ibtnReports
         '
+        Me.ibtnReports.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnReports.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnReports.FlatAppearance.BorderSize = 0
         Me.ibtnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
@@ -528,7 +495,7 @@ Partial Class Frm_Main
         Me.ibtnReports.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnReports.IconSize = 40
         Me.ibtnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnReports.Location = New System.Drawing.Point(0, 563)
+        Me.ibtnReports.Location = New System.Drawing.Point(0, 525)
         Me.ibtnReports.Name = "ibtnReports"
         Me.ibtnReports.Size = New System.Drawing.Size(202, 53)
         Me.ibtnReports.TabIndex = 236
@@ -539,6 +506,7 @@ Partial Class Frm_Main
         '
         'ibtnExpenses
         '
+        Me.ibtnExpenses.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnExpenses.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnExpenses.FlatAppearance.BorderSize = 0
         Me.ibtnExpenses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
@@ -550,7 +518,7 @@ Partial Class Frm_Main
         Me.ibtnExpenses.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnExpenses.IconSize = 40
         Me.ibtnExpenses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnExpenses.Location = New System.Drawing.Point(0, 504)
+        Me.ibtnExpenses.Location = New System.Drawing.Point(0, 466)
         Me.ibtnExpenses.Name = "ibtnExpenses"
         Me.ibtnExpenses.Size = New System.Drawing.Size(202, 53)
         Me.ibtnExpenses.TabIndex = 235
@@ -561,6 +529,7 @@ Partial Class Frm_Main
         '
         'ibtnSurgeries
         '
+        Me.ibtnSurgeries.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnSurgeries.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnSurgeries.FlatAppearance.BorderSize = 0
         Me.ibtnSurgeries.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
@@ -572,7 +541,7 @@ Partial Class Frm_Main
         Me.ibtnSurgeries.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSurgeries.IconSize = 40
         Me.ibtnSurgeries.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnSurgeries.Location = New System.Drawing.Point(0, 445)
+        Me.ibtnSurgeries.Location = New System.Drawing.Point(0, 407)
         Me.ibtnSurgeries.Name = "ibtnSurgeries"
         Me.ibtnSurgeries.Size = New System.Drawing.Size(202, 53)
         Me.ibtnSurgeries.TabIndex = 234
@@ -583,6 +552,7 @@ Partial Class Frm_Main
         '
         'ibtnServices
         '
+        Me.ibtnServices.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnServices.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnServices.FlatAppearance.BorderSize = 0
         Me.ibtnServices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
@@ -594,7 +564,7 @@ Partial Class Frm_Main
         Me.ibtnServices.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnServices.IconSize = 40
         Me.ibtnServices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnServices.Location = New System.Drawing.Point(0, 386)
+        Me.ibtnServices.Location = New System.Drawing.Point(0, 348)
         Me.ibtnServices.Name = "ibtnServices"
         Me.ibtnServices.Size = New System.Drawing.Size(202, 53)
         Me.ibtnServices.TabIndex = 233
@@ -605,6 +575,7 @@ Partial Class Frm_Main
         '
         'ibtnPatients
         '
+        Me.ibtnPatients.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ibtnPatients.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ibtnPatients.FlatAppearance.BorderSize = 0
         Me.ibtnPatients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
@@ -616,7 +587,7 @@ Partial Class Frm_Main
         Me.ibtnPatients.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnPatients.IconSize = 40
         Me.ibtnPatients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnPatients.Location = New System.Drawing.Point(3, 268)
+        Me.ibtnPatients.Location = New System.Drawing.Point(3, 230)
         Me.ibtnPatients.Name = "ibtnPatients"
         Me.ibtnPatients.Size = New System.Drawing.Size(202, 53)
         Me.ibtnPatients.TabIndex = 232
@@ -686,27 +657,6 @@ Partial Class Frm_Main
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Appoitments by:"
         '
-        'IconButton1
-        '
-        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton1.FlatAppearance.BorderSize = 2
-        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
-        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 30
-        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.IconButton1.Location = New System.Drawing.Point(8, 30)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(46, 37)
-        Me.IconButton1.TabIndex = 250
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseVisualStyleBackColor = False
-        '
         'IconButton2
         '
         Me.IconButton2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -729,6 +679,51 @@ Partial Class Frm_Main
         Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton2.UseVisualStyleBackColor = False
         '
+        'IconButton1
+        '
+        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton1.FlatAppearance.BorderSize = 2
+        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
+        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 30
+        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.IconButton1.Location = New System.Drawing.Point(8, 30)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Size = New System.Drawing.Size(46, 37)
+        Me.IconButton1.TabIndex = 250
+        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton1.UseVisualStyleBackColor = False
+        '
+        'IconButton3
+        '
+        Me.IconButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.IconButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.IconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.IconButton3.FlatAppearance.BorderSize = 0
+        Me.IconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton3.ForeColor = System.Drawing.Color.Gainsboro
+        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.AddressBook
+        Me.IconButton3.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton3.IconSize = 30
+        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton3.Location = New System.Drawing.Point(3, 643)
+        Me.IconButton3.Name = "IconButton3"
+        Me.IconButton3.Size = New System.Drawing.Size(199, 45)
+        Me.IconButton3.TabIndex = 241
+        Me.IconButton3.Text = "Users"
+        Me.IconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton3.UseVisualStyleBackColor = False
+        '
         'Frm_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -747,7 +742,6 @@ Partial Class Frm_Main
         Me.Name = "Frm_Main"
         Me.Text = "Frm_Main"
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.panelAddAppointment.ResumeLayout(False)
         Me.gbNewAppointment.ResumeLayout(False)
         Me.gbNewAppointment.PerformLayout()
@@ -796,12 +790,10 @@ Partial Class Frm_Main
     Friend WithEvents Label8 As Label
     Friend WithEvents panelAddAppointment As Panel
     Friend WithEvents ibtnClosePanel As FontAwesome.Sharp.IconButton
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label9 As Label
     Friend WithEvents ibtnVisits As FontAwesome.Sharp.IconButton
     Friend WithEvents dtpDate As DateTimePicker
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
 End Class
