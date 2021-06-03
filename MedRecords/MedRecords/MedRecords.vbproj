@@ -90,6 +90,7 @@
     <Compile Include="DataAccess\ServiceDB.vb" />
     <Compile Include="DataAccess\SurgeryDB.vb" />
     <Compile Include="DataAccess\TestComplementDB.vb" />
+    <Compile Include="DataAccess\UserDB.vb" />
     <Compile Include="DataAccess\VisitDB.vb" />
     <Compile Include="Entities\Allergy.vb" />
     <Compile Include="Entities\Appoitmets.vb" />
@@ -104,6 +105,7 @@
     <Compile Include="Entities\Service.vb" />
     <Compile Include="Entities\Surgery.vb" />
     <Compile Include="Entities\TestComplement.vb" />
+    <Compile Include="Entities\Users.vb" />
     <Compile Include="Entities\VisitE.vb" />
     <Compile Include="Screens\Form1.vb">
       <SubType>Form</SubType>

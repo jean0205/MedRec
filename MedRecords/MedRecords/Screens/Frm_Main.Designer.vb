@@ -46,6 +46,7 @@ Partial Class Frm_Main
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.panel2 = New System.Windows.Forms.Panel()
+        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
         Me.ibtnVisits = New FontAwesome.Sharp.IconButton()
         Me.ibtnRestore = New FontAwesome.Sharp.IconButton()
         Me.ibtnBackup = New FontAwesome.Sharp.IconButton()
@@ -62,7 +63,6 @@ Partial Class Frm_Main
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
         Me.GroupBox2.SuspendLayout()
         Me.panelAddAppointment.SuspendLayout()
         Me.gbNewAppointment.SuspendLayout()
@@ -387,6 +387,30 @@ Partial Class Frm_Main
         Me.panel2.Size = New System.Drawing.Size(202, 780)
         Me.panel2.TabIndex = 41
         '
+        'IconButton3
+        '
+        Me.IconButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.IconButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.IconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.IconButton3.FlatAppearance.BorderSize = 0
+        Me.IconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton3.ForeColor = System.Drawing.Color.Gainsboro
+        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.AddressBook
+        Me.IconButton3.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton3.IconSize = 30
+        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton3.Location = New System.Drawing.Point(3, 643)
+        Me.IconButton3.Name = "IconButton3"
+        Me.IconButton3.Size = New System.Drawing.Size(199, 45)
+        Me.IconButton3.TabIndex = 241
+        Me.IconButton3.Text = "Users"
+        Me.IconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton3.UseVisualStyleBackColor = False
+        '
         'ibtnVisits
         '
         Me.ibtnVisits.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -699,30 +723,6 @@ Partial Class Frm_Main
         Me.IconButton1.TabIndex = 250
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton1.UseVisualStyleBackColor = False
-        '
-        'IconButton3
-        '
-        Me.IconButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.IconButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.IconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(71, Byte), Integer))
-        Me.IconButton3.FlatAppearance.BorderSize = 0
-        Me.IconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(7, Byte), Integer), CType(CType(11, Byte), Integer))
-        Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.AddressBook
-        Me.IconButton3.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
-        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton3.IconSize = 30
-        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton3.Location = New System.Drawing.Point(3, 643)
-        Me.IconButton3.Name = "IconButton3"
-        Me.IconButton3.Size = New System.Drawing.Size(199, 45)
-        Me.IconButton3.TabIndex = 241
-        Me.IconButton3.Text = "Users"
-        Me.IconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton3.UseVisualStyleBackColor = False
         '
         'Frm_Main
         '

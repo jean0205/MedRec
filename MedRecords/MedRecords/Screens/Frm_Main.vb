@@ -317,6 +317,11 @@
         dtpDate.Value = dtpDate.Value.AddDays(-1)
     End Sub
 
+    Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
+        Dim frm As New Frm_Users
+        frm.Show()
+    End Sub
+
 
 
 
