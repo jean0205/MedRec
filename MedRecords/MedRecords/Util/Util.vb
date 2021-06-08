@@ -1,5 +1,6 @@
 ﻿Public Class Util
 
+
     'yes or not message
     Function yesOrNot(message As String, title As String) As Boolean
         Dim response As Boolean = False

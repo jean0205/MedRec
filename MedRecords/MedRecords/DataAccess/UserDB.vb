@@ -68,6 +68,82 @@ Public Class UserDB
         End Using
         Return userList
     End Function
+    Function GetUserById(id As Integer) As Users
+        Dim user As New Users
+        Dim query As String = "SELECT [Id],[Name],[User],[Password],[Users],[PatientFile],[Visits]
+                                  ,[Services],[Surgeries],[Expenses],[Reports],[Sams],[Backup],[Restore]
+                              FROM [dbo].[UserAccess]
+                                Where Id =@Id"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                Dim properties As List(Of PropertyInfo) = user.GetType().GetProperties().ToList
+                While reader.Read
+                    user = New Users
+                    For Each prop As PropertyInfo In properties
+                        If Not reader.IsDBNull(properties.IndexOf(prop)) Then
+                            prop.SetValue(user, reader(properties.IndexOf(prop)))
+                        End If
+                    Next
+                End While
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return user
+    End Function
+    Function GetUserByUserName(userName As String) As Users
+        Dim user As New Users
+        Dim query As String = "SELECT [Id],[Name],[User],[Password],[Users],[PatientFile],[Visits]
+                                  ,[Services],[Surgeries],[Expenses],[Reports],[Sams],[Backup],[Restore]
+                              FROM [dbo].[UserAccess]
+                                Where [User] =@User"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@User", SqlDbType.VarChar).Value = userName
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                Dim properties As List(Of PropertyInfo) = user.GetType().GetProperties().ToList
+                While reader.Read
+                    user = New Users
+                    For Each prop As PropertyInfo In properties
+                        If Not reader.IsDBNull(properties.IndexOf(prop)) Then
+                            prop.SetValue(user, reader(properties.IndexOf(prop)))
+                        End If
+                    Next
+                End While
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return user
+    End Function
+    Function validLoging(user As String, pasword As String) As Boolean
+        Dim resul As Boolean = False
+        Dim query As String = "SELECT *
+                              FROM [dbo].[UserAccess]
+                                Where [User] =@User and Password=@Password"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@User", SqlDbType.VarChar).Value = user
+            command.Parameters.AddWithValue("@Password", SqlDbType.VarChar).Value = pasword
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                resul = reader.Read
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return resul
+    End Function
 
     Sub updateUserandPassword(id As Integer, name As String, user As String, password As String)
         Dim query As String = "UPDATE [dbo].[UserAccess]
@@ -75,6 +151,7 @@ Public Class UserDB
 	                               WHERE Id=@Id"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
+
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
                 command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = name
                 command.Parameters.AddWithValue("@User", SqlDbType.VarChar).Value = user
@@ -92,7 +169,7 @@ Public Class UserDB
     Sub updateUserAccess(user As Users)
         Dim query As String = "UPDATE [dbo].[UserAccess]
                                    SET [Users] = @Users, [PatientFile] = @PatientFile, [Visits] = @Visits,
-                                   [Services] = @Services,[Surgeries]=@Surgeries [Expenses] = @Expenses, [Reports] = @Reports
+                                   [Services] = @Services,[Surgeries]=@Surgeries, [Expenses] = @Expenses, [Reports] = @Reports,
                                    [Sams] = @Sams, [Backup] = @Backup, [Restore] = @Restore
 	                               WHERE Id=@Id"
         Using connection As New SqlConnection(conString)

@@ -5,6 +5,17 @@
     Dim dbAppoitments As New AppointmentDB
     Dim appoitmentList As New List(Of Appoitmets)
 
+    Public Property user As New Users
+
+    Sub New(user As Users)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        Me.user = user
+    End Sub
+
     Private Async Sub Frm_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'AddHandler txtFirstName.KeyPress, AddressOf util.txtOnlyIntegersNumber_KeyPress
         Await getPatientList()
@@ -318,8 +329,17 @@
     End Sub
 
     Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
-        Dim frm As New Frm_Users
+        Dim frm As New Frm_Users(user)
         frm.Show()
+    End Sub
+
+    Private Sub Frm_Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If My.Application.OpenForms.Cast(Of Form).Any Then
+            My.Application.OpenForms.Cast(Of Form).Except({Me}) _
+           .ToList() _
+           .ForEach(Sub(form) form.Close())
+        End If
+
     End Sub
 
 

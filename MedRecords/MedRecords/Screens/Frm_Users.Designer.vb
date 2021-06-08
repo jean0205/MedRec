@@ -40,7 +40,8 @@ Partial Class Frm_Users
         '
         'gbInfo
         '
-        Me.gbInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbInfo.Controls.Add(Me.ibtnSave)
         Me.gbInfo.Controls.Add(Me.txtPassword)
         Me.gbInfo.Controls.Add(Me.txtUserName)
@@ -179,7 +180,6 @@ Partial Class Frm_Users
         Me.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv1.Location = New System.Drawing.Point(6, 27)
         Me.dgv1.Name = "dgv1"
-        Me.dgv1.ReadOnly = True
         Me.dgv1.RowHeadersVisible = False
         Me.dgv1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgv1.RowTemplate.Height = 32
