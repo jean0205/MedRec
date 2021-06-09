@@ -5,6 +5,6 @@
     Public Property Frequency As String
     Public Property FromD As Date
     Public Property SavedBy As String
-    Public Property SavedTime As String
+    Public Property SavedTime As DateTime
 
 End Class

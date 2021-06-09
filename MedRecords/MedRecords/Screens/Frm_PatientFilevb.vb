@@ -13,6 +13,8 @@ Public Class Frm_PatientFilevb
     Dim dbServices As New ServiceDB
     Dim dbContraceptive As New ContraceptiveDB
     Dim dbFamily As New FamilyHistDB
+    Dim dbHabits As New HabitsDB
+    Dim notesExist As Boolean = False
 
     Dim patient As New PatientE
 
@@ -41,6 +43,9 @@ Public Class Frm_PatientFilevb
         loadVisitHistory()
         loadContraceptive()
         loadFamily()
+        loadHabits()
+        txtNotes.Text = dbPatient.getNotes(patient.Id)
+        notesExist = dbPatient.noteExist(patient.Id)
     End Sub
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
         Dim frm As New Frm_Visit(patient.Id)
@@ -263,6 +268,23 @@ Public Class Frm_PatientFilevb
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+    Sub loadHabits()
+        Try
+            dgvToxicHabits.Columns.Clear()
+            dgvToxicHabits.DataSource = dbHabits.GetHabitsList(patient.Id).
+                                                OrderByDescending(Function(r) r.SavedTime).ToList
+            dgvToxicHabits.RowsDefaultCellStyle.BackColor = Color.Beige
+            util.addBottomColumns(dgvToxicHabits, "DetailsColH", "Details")
+            util.addBottomColumns(dgvToxicHabits, "DeleteColH", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 5, 6})
+            util.hideDGVColumns(dgvToxicHabits, indexList)
+            dgvToxicHabits.Columns("DetailsColH").Width = 60
+            dgvToxicHabits.Columns("DeleteColH").Width = 60
+            addContextMenu(dgvToxicHabits, "New Toxic Habit")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 
     Sub loadVisitHistory()
         Try
@@ -339,7 +361,10 @@ Public Class Frm_PatientFilevb
                 Dim frm As New Frm_Family(patient.Id)
                 frm.ShowDialog()
                 loadFamily()
-
+            Case "New Toxic Habit"
+                Dim frm As New Frm_Habits(patient.Id)
+                frm.ShowDialog()
+                loadHabits()
 
                 'loadVisitHistory()
                 'getServicesName()
@@ -347,7 +372,7 @@ Public Class Frm_PatientFilevb
     End Sub
     Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvMedicalProblems.CellPainting, dgvAllergies.CellPainting,
              dgvMedications.CellPainting, dgvSurgeries.CellPainting, dgvTests.CellPainting, dgvPregnancies.CellPainting,
-             dgvVisitsHistory.CellPainting, dgvGynProblems.CellPainting, dgvContraceptive.CellPainting, dgvFamilyHistory.CellPainting
+             dgvVisitsHistory.CellPainting, dgvGynProblems.CellPainting, dgvContraceptive.CellPainting, dgvFamilyHistory.CellPainting, dgvToxicHabits.CellPainting
         Try
             Dim senderGrid As DataGridView = CType(sender, DataGridView)
             If e.RowIndex < 0 Then
@@ -358,7 +383,7 @@ Public Class Frm_PatientFilevb
                      senderGrid.Columns(e.ColumnIndex).Name = "DeleteColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColSurg" Or
                      senderGrid.Columns(e.ColumnIndex).Name = "DeleteColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColPreg" Or
                      senderGrid.Columns(e.ColumnIndex).Name = "DeleteGCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColC" Or
-                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColF" Then
+                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColF" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColH" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.delete.Width
                     Dim h = My.Resources.delete.Height
@@ -371,7 +396,8 @@ Public Class Frm_PatientFilevb
                     senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColSurg" Or
                     senderGrid.Columns(e.ColumnIndex).Name = "DetailsColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColPreg" Or
                     senderGrid.Columns(e.ColumnIndex).Name = "DetailsColHist" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsGCol" Or
-                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColC" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColF" Then
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColC" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColF" Or
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColH" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.medHistory.Width
                     Dim h = My.Resources.medHistory.Height
@@ -388,7 +414,7 @@ Public Class Frm_PatientFilevb
 
     Private Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMedicalProblems.CellContentClick, dgvAllergies.CellContentClick,
             dgvMedications.CellContentClick, dgvSurgeries.CellContentClick, dgvTests.CellContentClick, dgvPregnancies.CellContentClick,
-            dgvVisitsHistory.CellContentClick, dgvGynProblems.CellContentClick, dgvContraceptive.CellContentClick, dgvFamilyHistory.CellContentClick
+            dgvVisitsHistory.CellContentClick, dgvGynProblems.CellContentClick, dgvContraceptive.CellContentClick, dgvFamilyHistory.CellContentClick, dgvToxicHabits.CellContentClick
         Try
             If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
                 Exit Sub
@@ -525,6 +551,21 @@ Public Class Frm_PatientFilevb
                     loadFamily()
                 End If
             End If
+            'TOXIC HABITS
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteColH" Then
+                    If util.yesOrNot("Do you want to delete the selected Toxic Habit", "Delete Toxic Habit") Then
+                        dbHabits.DeleteHabit(rowId)
+                        util.InformationMessage("Toxic Habit successfully deleted", "Toxic Habit Deleted")
+                        loadHabits()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColH" Then
+                    Dim frm As New Frm_Habits(rowId, True)
+                    frm.ShowDialog()
+                    loadHabits()
+                End If
+            End If
             'Visit History
             If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColHist" Then
@@ -534,6 +575,19 @@ Public Class Frm_PatientFilevb
                     loadVisitHistory()
                     getServicesName()
                 End If
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Private Sub txtNotes_KeyUp(sender As Object, e As KeyEventArgs) Handles txtNotes.KeyUp
+        Try
+            Dim notes As String = txtNotes.Text.ToUpper
+            If notesExist Then
+                dbPatient.UpdatePatientNotes(patient.Id, notes)
+            Else
+                dbPatient.insertPatientNotes(patient.Id, notes)
+                notesExist = True
             End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -622,4 +676,6 @@ Public Class Frm_PatientFilevb
         gbgynecol.Location = New Point(gbtest.Location.X + gbtest.Size.Width + 1, gbgynecol.Location.Y)
         gbgynecol.Size = New Size(Me.Size.Width * 0.49, gbtest.Size.Height - gbpregnancy.Size.Height - 5)
     End Sub
+
+
 End Class

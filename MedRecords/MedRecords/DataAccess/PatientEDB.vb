@@ -235,7 +235,84 @@ Public Class PatientEDB
         End Using
     End Sub
 
-    'PATIENT OUTSTANDING
+    'Patient Notes
 
+    '########### INSERT PATIENT ####################
+    Sub insertPatientNotes(patienId As Integer, comment As String)
+        Dim query As String = "INSERT INTO [dbo].[PatientNotes]
+                                   ([PatientId],[Coments])
+                             VALUES
+                                   (@PatientId, @Coments)"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = patienId
+                command.Parameters.AddWithValue("@Coments", SqlDbType.VarChar).Value = comment
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+    End Sub
+    Sub UpdatePatientNotes(Id As Integer, comment As String)
+        Dim query As String = "UPDATE [dbo].[PatientNotes]
+                                 SET [Coments] = @Coments
+	                              WHERE PatientId=@PatientId"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = Id
+                command.Parameters.AddWithValue("@Coments", SqlDbType.VarChar).Value = comment
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+    End Sub
+    Function noteExist(patientId As Integer) As Boolean
+        Dim query As String = "SELECT [Id]
+	                          FROM [dbo].[PatientNotes]
+	                          WHERE  PatientId=@PatientId"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = patientId
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                Return reader.Read
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return False
+    End Function
+    Function getNotes(patientId As Integer) As String
+        Dim notes As String = String.Empty
+        Dim query As String = "SELECT [Coments]
+	                          FROM [dbo].[PatientNotes]
+	                          WHERE  PatientId=@PatientId"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = patientId
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                If reader.Read Then
+                    notes = reader.GetString(0)
+                End If
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return notes
+    End Function
 
 End Class
