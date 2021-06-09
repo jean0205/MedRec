@@ -42,7 +42,7 @@ Public Class UserDB
     Function GetUserList() As List(Of Users)
         Dim userList As New List(Of Users)
         Dim query As String = "SELECT [Id],[Name],[User],[Password],[Users],[PatientFile],[Visits]
-                                  ,[Services],[Surgeries],[Expenses],[Reports],[Sams],[Backup],[Restore]
+                                  ,[Services],[Expenses],[Surgeries],[Reports],[Sams],[Backup],[Restore]
                               FROM [dbo].[UserAccess]"
 
         Using connection As New SqlConnection(conString)
@@ -71,7 +71,7 @@ Public Class UserDB
     Function GetUserById(id As Integer) As Users
         Dim user As New Users
         Dim query As String = "SELECT [Id],[Name],[User],[Password],[Users],[PatientFile],[Visits]
-                                  ,[Services],[Surgeries],[Expenses],[Reports],[Sams],[Backup],[Restore]
+                                  ,[Services],[Expenses],[Surgeries],[Reports],[Sams],[Backup],[Restore]
                               FROM [dbo].[UserAccess]
                                 Where Id =@Id"
 
@@ -99,7 +99,7 @@ Public Class UserDB
     Function GetUserByUserName(userName As String) As Users
         Dim user As New Users
         Dim query As String = "SELECT [Id],[Name],[User],[Password],[Users],[PatientFile],[Visits]
-                                  ,[Services],[Surgeries],[Expenses],[Reports],[Sams],[Backup],[Restore]
+                                  ,[Services],[Expenses],[Surgeries],[Reports],[Sams],[Backup],[Restore]
                               FROM [dbo].[UserAccess]
                                 Where [User] =@User"
 

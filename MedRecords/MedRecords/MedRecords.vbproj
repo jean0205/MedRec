@@ -187,6 +187,18 @@
     <Compile Include="Screens\MedicalHistory\Frm_Allergy.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Contraceptive.Designer.vb">
+      <DependentUpon>Frm_Contraceptive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Contraceptive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Family.Designer.vb">
+      <DependentUpon>Frm_Family.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MedicalHistory\Frm_Family.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Screens\MedicalHistory\Frm_FileViewer.Designer.vb">
       <DependentUpon>Frm_FileViewer.vb</DependentUpon>
     </Compile>
@@ -255,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_Allergy.resx">
       <DependentUpon>Frm_Allergy.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\Frm_Contraceptive.resx">
+      <DependentUpon>Frm_Contraceptive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MedicalHistory\Frm_Family.resx">
+      <DependentUpon>Frm_Family.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MedicalHistory\Frm_FileViewer.resx">
       <DependentUpon>Frm_FileViewer.vb</DependentUpon>

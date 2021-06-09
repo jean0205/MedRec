@@ -5,5 +5,5 @@
     Public Property Disease As String
     Public Property Alive As Boolean
     Public Property SavedBy As String
-    Public Property SavedTime As String
+    Public Property SavedTime As DateTime
 End Class

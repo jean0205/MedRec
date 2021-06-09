@@ -116,6 +116,7 @@
                         db.DeleteUser(rowId)
                         util.InformationMessage("User sucessfully deleted", "Delete User")
                         userId = 0
+                        loadUsersList()
                     End If
 
                 End If

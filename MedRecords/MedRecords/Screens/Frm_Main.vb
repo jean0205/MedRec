@@ -1,10 +1,13 @@
-﻿Public Class Frm_Main
+﻿Imports System.Reflection
+
+Public Class Frm_Main
     Dim util As New Util
     Dim dbMain As New MainDB
     Dim dtPatients As New DataTable
     Dim dbAppoitments As New AppointmentDB
+    Dim dbUsers As New UserDB
     Dim appoitmentList As New List(Of Appoitmets)
-
+    Dim userId As Integer = 0
     Public Property user As New Users
 
     Sub New(user As Users)
@@ -13,7 +16,7 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        Me.user = user
+        Me.userId = user.id
     End Sub
 
     Private Async Sub Frm_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -25,23 +28,38 @@
 
 #Region "Botones"
     Private Sub ibtnPatients_Click(sender As Object, e As EventArgs) Handles ibtnPatients.Click
+
         Dim frm As New Frm_NewPatient
         frm.ShowDialog()
     End Sub
     Private Sub ibtnVisits_Click(sender As Object, e As EventArgs) Handles ibtnVisits.Click
+        If Not checkAccess("Visits") Then
+            Exit Sub
+        End If
         Dim frm As New Frm_Visit
         frm.ShowDialog()
     End Sub
 
     Private Sub ibtnServices_Click(sender As Object, e As EventArgs) Handles ibtnServices.Click
+        If Not checkAccess("Services") Then
+            Exit Sub
+        End If
         Dim frm As New Frm_Services
         frm.ShowDialog()
     End Sub
 
     Private Sub ibtnSurgeries_Click(sender As Object, e As EventArgs) Handles ibtnSurgeries.Click
-
+        If Not checkAccess("Surgeries") Then
+            Exit Sub
+        End If
     End Sub
-
+    Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
+        If Not checkAccess("Users") Then
+            Exit Sub
+        End If
+        Dim frm As New Frm_Users(user)
+        frm.Show()
+    End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblTime.Text = Now.ToLongTimeString
         lblDate.Text = Now.ToLongDateString
@@ -63,6 +81,20 @@
 #End Region
 
 #Region "Metodos"
+
+    Function checkAccess(field As String) As Boolean
+        Try
+            user = New Users
+            user = dbUsers.GetUserById(userId)
+            If Not user.GetType().GetProperties().Where(Function(r) r.Name = field).First.GetValue(user) Then
+                util.ErrorMessage("You have not access to this feature in the application." & vbLf & " Please contact your system administrator", "No Access")
+                Return False
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+        Return True
+    End Function
     Sub loadAppoitmentsByDate()
         Try
             appoitmentList = New List(Of Appoitmets)
@@ -328,10 +360,7 @@
         dtpDate.Value = dtpDate.Value.AddDays(-1)
     End Sub
 
-    Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
-        Dim frm As New Frm_Users(user)
-        frm.Show()
-    End Sub
+
 
     Private Sub Frm_Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If My.Application.OpenForms.Cast(Of Form).Any Then

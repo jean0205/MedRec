@@ -55,6 +55,57 @@ Public Class MedicalProblemsDB
         End Using
         Return ilnessList
     End Function
+    Function GetGynecroblemsList(patientId As Integer) As List(Of MedicalProblems)
+        Dim ilnessList As New List(Of MedicalProblems)
+        Dim query As String = "SELECT [Id],[PatientId],[Name],[ProblemDate],[Reason],[Comments],[Gynecologic]
+                                      ,[SavedBy],[SavedTime]
+                                  FROM [dbo].[MedicalProblems]
+                                    where PatientId=@PatientId and Gynecologic=@Gynecologic"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = patientId
+            command.Parameters.AddWithValue("@Gynecologic", SqlDbType.Bit).Value = True
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                While reader.Read
+                    Dim ilness As New MedicalProblems
+                    If Not reader.IsDBNull(0) Then
+                        ilness.id = reader(0)
+                    End If
+                    If Not reader.IsDBNull(1) Then
+                        ilness.PatientId = reader(1)
+                    End If
+                    If Not reader.IsDBNull(2) Then
+                        ilness.Name = reader(2)
+                    End If
+                    If Not reader.IsDBNull(3) Then
+                        ilness.ProblemDate = reader(3)
+                    End If
+                    If Not reader.IsDBNull(4) Then
+                        ilness.Reason = reader(4)
+                    End If
+                    If Not reader.IsDBNull(5) Then
+                        ilness.Comments = reader(5)
+                    End If
+                    If Not reader.IsDBNull(6) Then
+                        ilness.isGynecologic = reader(6)
+                    End If
+                    If Not reader.IsDBNull(7) Then
+                        ilness.SavedBy = reader(7)
+                    End If
+                    If Not reader.IsDBNull(8) Then
+                        ilness.SavedTime = reader(8)
+                    End If
+                    ilnessList.Add(ilness)
+                End While
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return ilnessList
+    End Function
     Function GetIlnessById(id As Integer) As MedicalProblems
         Dim ilness As New MedicalProblems
         Dim query As String = "SELECT [Id],[PatientId],[Name],[ProblemDate],[Reason],[Comments],[Gynecologic]

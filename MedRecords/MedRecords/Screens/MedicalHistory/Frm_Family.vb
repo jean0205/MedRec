@@ -1,78 +1,70 @@
 ﻿Imports System.Reflection
 
-Public Class Frm_MedicalProblems
-    Dim medProblemDB As New MedicalProblemsDB
+Public Class Frm_Family
+    Dim familiDB As New FamilyHistDB
     Dim util As New Util
     Dim patientId As Integer
-    Dim ilnessId As Integer
+    Dim familyId As Integer
     Dim updating As Boolean = False
-    Dim gynec As Boolean = False
-    Dim ilness As New MedicalProblems
-    Sub New(patientId As Integer, gynec As Boolean)
-
+    Dim family As New FamilyHist
+    Sub New(patientId As Integer)
         ' This call is required by the designer.
         InitializeComponent()
         Me.patientId = patientId
         Me.updating = False
-        Me.gynec = gynec
     End Sub
-    Sub New(ilnessId As Integer, updating As Boolean, gynec As Boolean)
-
+    Sub New(ilnessId As Integer, updating As Boolean)
         ' This call is required by the designer.
         InitializeComponent()
-        Me.ilnessId = ilnessId
+        Me.familyId = ilnessId
         Me.updating = updating
-        Me.gynec = gynec
     End Sub
     Private Sub Frm_MedicalProblems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If updating Then
-            loadMedicalProblem()
+            loadFamily()
         End If
-        chkGynec.Checked = gynec
     End Sub
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
-        saveUpdateMedicalProblem()
+        saveUpdateFamily()
     End Sub
 
-    Sub loadMedicalProblem()
+    Sub loadFamily()
         Try
-            ilness = medProblemDB.GetIlnessById(ilnessId)
-            Dim properties As List(Of PropertyInfo) = ilness.GetType().GetProperties().ToList
+            family = familiDB.GetFamilyById(familyId)
+            Dim properties As List(Of PropertyInfo) = family.GetType().GetProperties().ToList
             For Each txt As TextBox In gbInfo.Controls.OfType(Of TextBox)
                 If properties.Where(Function(r) r.Name = txt.Name.Replace("txt", String.Empty)).Any Then
                     txt.Text = properties.Where(Function(r) r.Name = txt.Name.Replace("txt", String.Empty)).
-                        First.GetValue(ilness).ToString.ToUpper
+                        First.GetValue(family).ToString.ToUpper
                 End If
             Next
-            dtpProblem.Value = ilness.ProblemDate
-            chkGynec.Checked = ilness.isGynecologic
+            chkAlive.Checked = family.Alive
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
 
-    Sub saveUpdateMedicalProblem()
+    Sub saveUpdateFamily()
         Try
-            Dim newIlness As New MedicalProblems
-            newIlness.id = ilnessId
-            Dim properties As List(Of PropertyInfo) = newIlness.GetType().GetProperties().ToList
+            Dim newFamily As New FamilyHist
+            newFamily.Id = familyId
+            Dim properties As List(Of PropertyInfo) = newFamily.GetType().GetProperties().ToList
             For Each txt As TextBox In gbInfo.Controls.OfType(Of TextBox)
                 If properties.Where(Function(r) r.Name = txt.Name.Replace("txt", String.Empty)).Any Then
-                    properties.Where(Function(r) r.Name = txt.Name.Replace("txt", String.Empty)).First.SetValue(newIlness, txt.Text.ToUpper)
+                    properties.Where(Function(r) r.Name = txt.Name.Replace("txt", String.Empty)).First.SetValue(newFamily, txt.Text.ToUpper)
                 End If
             Next
-            newIlness.ProblemDate = dtpProblem.Value
-            newIlness.isGynecologic = chkGynec.Checked
-            newIlness.SavedBy = "jcsoto"
-            newIlness.SavedTime = Today
+            newFamily.Alive = chkAlive.Checked
+            newFamily.SavedBy = "jcsoto"
+            newFamily.SavedTime = Today
             If updating Then
-                medProblemDB.updateIlness(newIlness)
+                familiDB.updateFamily(newFamily)
             Else
-                newIlness.PatientId = patientId
-                medProblemDB.insertIlness(newIlness)
+                newFamily.PatientId = patientId
+                familiDB.insertFamily(newFamily)
                 updating = False
             End If
-            util.InformationMessage("Medical Problem/Ilness successfully saved", "Medical Problem/Ilness")
+            util.InformationMessage("Family history successfully saved", "Family history")
             cleanAfterInsert()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -84,13 +76,9 @@ Public Class Frm_MedicalProblems
             For Each txt As TextBox In gbInfo.Controls.OfType(Of TextBox)
                 txt.Clear()
             Next
-            dtpProblem.Value = Today
-            chkGynec.Checked = False
-
+            chkAlive.Checked = False
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
-
-
 End Class

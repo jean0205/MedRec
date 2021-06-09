@@ -11,6 +11,8 @@ Public Class Frm_PatientFilevb
     Dim dbPregnancy As New PregnacyDB
     Dim dbVisits As New VisitDB
     Dim dbServices As New ServiceDB
+    Dim dbContraceptive As New ContraceptiveDB
+    Dim dbFamily As New FamilyHistDB
 
     Dim patient As New PatientE
 
@@ -37,6 +39,8 @@ Public Class Frm_PatientFilevb
         loadTest()
         loadPregnancies()
         loadVisitHistory()
+        loadContraceptive()
+        loadFamily()
     End Sub
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
         Dim frm As New Frm_Visit(patient.Id)
@@ -85,6 +89,23 @@ Public Class Frm_PatientFilevb
             dgvMedicalProblems.Columns("DetailsCol").Width = 60
             dgvMedicalProblems.Columns("DeleteCol").Width = 60
             addContextMenu(dgvMedicalProblems, "New Medical Problem")
+
+
+            '########## gynecologicalproblems
+
+            dgvGynProblems.Columns.Clear()
+            dgvGynProblems.DataSource = dbMedicalProblems.GetGynecroblemsList(patient.Id).
+                                                OrderByDescending(Function(r) r.ProblemDate).ToList
+            util.paintDGVRows(dgvGynProblems, Color.Beige, Color.Bisque)
+            util.addBottomColumns(dgvGynProblems, "DetailsGCol", "Details")
+            util.addBottomColumns(dgvGynProblems, "DeleteGCol", "Delete")
+            Dim indexList2 As New List(Of Integer)(New Integer() {0, 1, 6, 7, 8})
+            util.hideDGVColumns(dgvGynProblems, indexList2)
+            dgvGynProblems.Columns(2).HeaderText = "Gynecological Problem"
+            dgvGynProblems.Columns(3).HeaderText = "Date"
+            dgvGynProblems.Columns("DetailsGCol").Width = 60
+            dgvGynProblems.Columns("DeleteGCol").Width = 60
+            addContextMenu(dgvGynProblems, "New Gynecologycal Problem")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -206,6 +227,42 @@ Public Class Frm_PatientFilevb
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+    Sub loadContraceptive()
+        Try
+            dgvContraceptive.Columns.Clear()
+            dgvContraceptive.DataSource = dbContraceptive.GetContraceptiveList(patient.Id).
+                                                OrderByDescending(Function(r) r.FromD).ToList
+            dgvContraceptive.RowsDefaultCellStyle.BackColor = Color.Beige
+            util.addBottomColumns(dgvContraceptive, "DetailsColC", "Details")
+            util.addBottomColumns(dgvContraceptive, "DeleteColC", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 6, 7})
+            util.hideDGVColumns(dgvContraceptive, indexList)
+            dgvContraceptive.Columns("FromD").HeaderText = "From"
+            dgvContraceptive.Columns("ToDate").HeaderText = "To"
+            dgvContraceptive.Columns("DetailsColC").Width = 60
+            dgvContraceptive.Columns("DeleteColC").Width = 60
+            addContextMenu(dgvContraceptive, "New Contraceptive")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Sub loadFamily()
+        Try
+            dgvFamilyHistory.Columns.Clear()
+            dgvFamilyHistory.DataSource = dbFamily.GetFamiliyList(patient.Id).
+                                                OrderByDescending(Function(r) r.SavedTime).ToList
+            dgvFamilyHistory.RowsDefaultCellStyle.BackColor = Color.Beige
+            util.addBottomColumns(dgvFamilyHistory, "DetailsColF", "Details")
+            util.addBottomColumns(dgvFamilyHistory, "DeleteColF", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 5, 6})
+            util.hideDGVColumns(dgvFamilyHistory, indexList)
+            dgvFamilyHistory.Columns("DetailsColF").Width = 60
+            dgvFamilyHistory.Columns("DeleteColF").Width = 60
+            addContextMenu(dgvFamilyHistory, "New Family History")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 
     Sub loadVisitHistory()
         Try
@@ -221,7 +278,7 @@ Public Class Frm_PatientFilevb
             dgvVisitsHistory.Columns(3).HeaderText = "Visit Time"
             dgvVisitsHistory.Columns(3).DefaultCellStyle.Format = "dd-MMM-yyyy  (hh:mm)"
             dgvVisitsHistory.Columns("DetailsColHist").Width = 60
-            addContextMenu(dgvMedicalProblems, "New Visit")
+            addContextMenu(dgvVisitsHistory, "New Visit")
 
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -245,7 +302,11 @@ Public Class Frm_PatientFilevb
                                  ByVal e As ToolStripItemClickedEventArgs)
         Select Case e.ClickedItem.Text
             Case "New Medical Problem"
-                Dim frm As New Frm_MedicalProblems(patient.Id)
+                Dim frm As New Frm_MedicalProblems(patient.Id, False)
+                frm.ShowDialog()
+                loadMedicalProblems()
+            Case "New Gynecologycal Problem"
+                Dim frm As New Frm_MedicalProblems(patient.Id, True)
                 frm.ShowDialog()
                 loadMedicalProblems()
             Case "New Allergy"
@@ -268,16 +329,25 @@ Public Class Frm_PatientFilevb
                 Dim frm As New Frm_Pregnancy(patient.Id)
                 frm.ShowDialog()
                 loadPregnancies()
-            Case "New Pregnancy"
-                Dim frm As New Frm_Visit(patient.Id)
+
+            Case "New Contraceptive"
+                Dim frm As New Frm_Contraceptive(patient.Id)
                 frm.ShowDialog()
-                loadVisitHistory()
-                getServicesName()
+                loadContraceptive()
+
+            Case "New Family History"
+                Dim frm As New Frm_Family(patient.Id)
+                frm.ShowDialog()
+                loadFamily()
+
+
+                'loadVisitHistory()
+                'getServicesName()
         End Select
     End Sub
     Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvMedicalProblems.CellPainting, dgvAllergies.CellPainting,
              dgvMedications.CellPainting, dgvSurgeries.CellPainting, dgvTests.CellPainting, dgvPregnancies.CellPainting,
-             dgvVisitsHistory.CellPainting
+             dgvVisitsHistory.CellPainting, dgvGynProblems.CellPainting, dgvContraceptive.CellPainting, dgvFamilyHistory.CellPainting
         Try
             Dim senderGrid As DataGridView = CType(sender, DataGridView)
             If e.RowIndex < 0 Then
@@ -286,7 +356,9 @@ Public Class Frm_PatientFilevb
             If e.ColumnIndex >= 0 Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColAllergy" Or
                      senderGrid.Columns(e.ColumnIndex).Name = "DeleteColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColSurg" Or
-                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColPreg" Then
+                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColPreg" Or
+                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteGCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteColC" Or
+                     senderGrid.Columns(e.ColumnIndex).Name = "DeleteColF" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.delete.Width
                     Dim h = My.Resources.delete.Height
@@ -298,7 +370,8 @@ Public Class Frm_PatientFilevb
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColAllergy" Or
                     senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColSurg" Or
                     senderGrid.Columns(e.ColumnIndex).Name = "DetailsColTest" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColPreg" Or
-                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColHist" Then
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColHist" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsGCol" Or
+                    senderGrid.Columns(e.ColumnIndex).Name = "DetailsColC" Or senderGrid.Columns(e.ColumnIndex).Name = "DetailsColF" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
                     Dim w = My.Resources.medHistory.Width
                     Dim h = My.Resources.medHistory.Height
@@ -315,7 +388,7 @@ Public Class Frm_PatientFilevb
 
     Private Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMedicalProblems.CellContentClick, dgvAllergies.CellContentClick,
             dgvMedications.CellContentClick, dgvSurgeries.CellContentClick, dgvTests.CellContentClick, dgvPregnancies.CellContentClick,
-            dgvVisitsHistory.CellContentClick
+            dgvVisitsHistory.CellContentClick, dgvGynProblems.CellContentClick, dgvContraceptive.CellContentClick, dgvFamilyHistory.CellContentClick
         Try
             If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
                 Exit Sub
@@ -325,15 +398,20 @@ Public Class Frm_PatientFilevb
             'buttom Form
             'medical problems
             If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
-                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
-                    If util.yesOrNot("Do you want to delete the selected Medical Problem/Ilness", "Delete Medical Problem") Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Or senderGrid.Columns(e.ColumnIndex).Name = "DeleteGCol" Then
+                    If util.yesOrNot("Do you want to delete the selected Medical/Gynecological Problem/Ilness", "Delete Medical/Gynecological Problem") Then
                         dbMedicalProblems.DeleteIlness(rowId)
-                        util.InformationMessage("Medical Problem/Ilness successfully deleted", "Medical Problem/Ilness Deleted")
+                        util.InformationMessage("Medical/Gynecological Problem/Ilness successfully deleted", "Medical/Gynecological Problem/Ilness Deleted")
                         loadMedicalProblems()
                     End If
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsCol" Then
-                    Dim frm As New Frm_MedicalProblems(rowId, True)
+                    Dim frm As New Frm_MedicalProblems(rowId, True, False)
+                    frm.ShowDialog()
+                    loadMedicalProblems()
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsGCol" Then
+                    Dim frm As New Frm_MedicalProblems(rowId, True, True)
                     frm.ShowDialog()
                     loadMedicalProblems()
                 End If
@@ -415,6 +493,36 @@ Public Class Frm_PatientFilevb
                     Dim frm As New Frm_Pregnancy(rowId, True)
                     frm.ShowDialog()
                     loadPregnancies()
+                End If
+            End If
+            'Contraceptive
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteColC" Then
+                    If util.yesOrNot("Do you want to delete the selected Contraceptive", "Delete Contraceptive") Then
+                        dbContraceptive.DeleteContraceptive(rowId)
+                        util.InformationMessage("Contraceptive successfully deleted", "Contraceptive Deleted")
+                        loadContraceptive()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColC" Then
+                    Dim frm As New Frm_Contraceptive(rowId, True)
+                    frm.ShowDialog()
+                    loadContraceptive()
+                End If
+            End If
+            'Family
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteColF" Then
+                    If util.yesOrNot("Do you want to delete the selected Family History", "Delete Family History") Then
+                        dbFamily.DeleteFamily(rowId)
+                        util.InformationMessage("Family History successfully deleted", "Family History Deleted")
+                        loadFamily()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColF" Then
+                    Dim frm As New Frm_Family(rowId, True)
+                    frm.ShowDialog()
+                    loadFamily()
                 End If
             End If
             'Visit History

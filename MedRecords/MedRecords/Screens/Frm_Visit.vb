@@ -608,9 +608,9 @@
                 If util.yesOrNot("This visit have not been saved and will be deleted if you close this screen. Do you want To continue?", "Delete Visit") Then
                     dbVisit.DeleteVisit(visitId)
                 Else
-                    loadVisit(visitList(visitList.Count - 1))
-                    EnableChanges(True)
-                    lblCurrentVisit.Text = visitList.Count
+                    'loadVisit(visitList(visitList.Count - 1))
+                    'EnableChanges(True)
+                    'lblCurrentVisit.Text = visitList.Count
                     e.Cancel = True
                 End If
             End If

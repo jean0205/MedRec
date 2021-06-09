@@ -29,9 +29,9 @@ Partial Class Form1
         Me.button1 = New System.Windows.Forms.Button()
         Me.txtuser = New System.Windows.Forms.TextBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.txtpass = New System.Windows.Forms.TextBox()
-        Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -110,6 +110,15 @@ Partial Class Form1
         Me.ShapeContainer1.TabIndex = 16
         Me.ShapeContainer1.TabStop = False
         '
+        'LineShape2
+        '
+        Me.LineShape2.BorderColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LineShape2.Name = "LineShape2"
+        Me.LineShape2.X1 = 318
+        Me.LineShape2.X2 = 648
+        Me.LineShape2.Y1 = 178
+        Me.LineShape2.Y2 = 178
+        '
         'LineShape1
         '
         Me.LineShape1.BorderColor = System.Drawing.SystemColors.ControlLightLight
@@ -131,15 +140,6 @@ Partial Class Form1
         Me.txtpass.TabIndex = 17
         Me.txtpass.Text = "Password"
         Me.txtpass.UseSystemPasswordChar = True
-        '
-        'LineShape2
-        '
-        Me.LineShape2.BorderColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LineShape2.Name = "LineShape2"
-        Me.LineShape2.X1 = 318
-        Me.LineShape2.X2 = 648
-        Me.LineShape2.Y1 = 178
-        Me.LineShape2.Y2 = 178
         '
         'Form1
         '

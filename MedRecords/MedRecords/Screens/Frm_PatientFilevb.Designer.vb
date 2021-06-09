@@ -42,10 +42,6 @@ Partial Class Frm_PatientFilevb
         Me.DataGridViewButtonColumn9 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.gbgynecol = New System.Windows.Forms.GroupBox()
         Me.dgvGynProblems = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewButtonColumn6 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.gbpregnancy = New System.Windows.Forms.GroupBox()
         Me.dgvPregnancies = New System.Windows.Forms.DataGridView()
         Me.gbtest = New System.Windows.Forms.GroupBox()
@@ -392,38 +388,14 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvGynProblems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvGynProblems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvGynProblems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewButtonColumn6})
         Me.dgvGynProblems.Location = New System.Drawing.Point(5, 20)
         Me.dgvGynProblems.Name = "dgvGynProblems"
         Me.dgvGynProblems.ReadOnly = True
         Me.dgvGynProblems.RowHeadersVisible = False
+        Me.dgvGynProblems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvGynProblems.RowTemplate.Height = 32
         Me.dgvGynProblems.Size = New System.Drawing.Size(705, 253)
         Me.dgvGynProblems.TabIndex = 60
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Current or Past Medical Problems"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Dates"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Reasons"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        '
-        'DataGridViewButtonColumn6
-        '
-        Me.DataGridViewButtonColumn6.HeaderText = "Delete"
-        Me.DataGridViewButtonColumn6.Name = "DataGridViewButtonColumn6"
-        Me.DataGridViewButtonColumn6.ReadOnly = True
         '
         'gbpregnancy
         '
@@ -1178,10 +1150,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents dgvMedicalProblems As DataGridView
     Friend WithEvents gbgynecol As GroupBox
     Friend WithEvents dgvGynProblems As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewButtonColumn6 As DataGridViewButtonColumn
     Friend WithEvents gbpregnancy As GroupBox
     Friend WithEvents dgvPregnancies As DataGridView
     Friend WithEvents gbtest As GroupBox

@@ -43,4 +43,8 @@
             button1.PerformClick()
         End If
     End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtuser.Select()
+    End Sub
 End Class
