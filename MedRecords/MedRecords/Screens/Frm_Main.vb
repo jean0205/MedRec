@@ -36,8 +36,8 @@ Public Class Frm_Main
         If Not checkAccess("Visits") Then
             Exit Sub
         End If
-        Dim frm As New Frm_Visit
-        frm.ShowDialog()
+        Dim frm As New Frm_VisitHistory
+        frm.Show()
     End Sub
 
     Private Sub ibtnServices_Click(sender As Object, e As EventArgs) Handles ibtnServices.Click

@@ -195,4 +195,29 @@ Public Class VisitDB
         End Using
     End Sub
 
+
+    'VISIT REPORTS
+
+    '########### Get PATIENT VISIT LIST ####################
+    Async Function GetVisitTable() As Task(Of DataTable)
+        Dim query As String = "SELECT V.Id,[PatientId],concat (P.[First Name],' ',P.[Last Name]),[VisitDate],[ServicesId],
+                                    [ServiceTotal],[OtherServices],[OSCharges],[Disscount],[ToPay],[Paid],[Oustanding]
+                              FROM [dbo].[Visit] V inner join Patient P on V.PatientId=p.Id"
+        Dim table As New DataTable
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = Await command.ExecuteReaderAsync()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                    command.Dispose()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+        Return table
+    End Function
 End Class
