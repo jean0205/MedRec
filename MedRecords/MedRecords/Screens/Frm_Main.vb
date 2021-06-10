@@ -53,6 +53,13 @@ Public Class Frm_Main
             Exit Sub
         End If
     End Sub
+    Private Sub ibtnSams_Click(sender As Object, e As EventArgs) Handles ibtnSams.Click
+        If Not checkAccess("Sams") Then
+            Exit Sub
+        End If
+        Dim frm As New Frm_Sams()
+        frm.Show()
+    End Sub
     Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
         If Not checkAccess("Users") Then
             Exit Sub
@@ -370,6 +377,8 @@ Public Class Frm_Main
         End If
 
     End Sub
+
+
 
 
 

@@ -523,7 +523,7 @@ Partial Class Frm_Main
         Me.ibtnReports.Name = "ibtnReports"
         Me.ibtnReports.Size = New System.Drawing.Size(202, 53)
         Me.ibtnReports.TabIndex = 236
-        Me.ibtnReports.Text = "Reports"
+        Me.ibtnReports.Text = "Dash-Board"
         Me.ibtnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ibtnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnReports.UseVisualStyleBackColor = True

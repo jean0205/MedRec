@@ -94,6 +94,7 @@
     <Compile Include="DataAccess\PatientEDB.vb" />
     <Compile Include="DataAccess\PatientMedicalHistoryDB.vb" />
     <Compile Include="DataAccess\PregnacyDB.vb" />
+    <Compile Include="DataAccess\SamsDB.vb" />
     <Compile Include="DataAccess\ServiceDB.vb" />
     <Compile Include="DataAccess\SurgeryDB.vb" />
     <Compile Include="DataAccess\TestComplementDB.vb" />
@@ -165,6 +166,12 @@
       <DependentUpon>Frm_PatientFilevb.vb</DependentUpon>
     </Compile>
     <Compile Include="Screens\Frm_PatientFilevb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Frm_Sams.Designer.vb">
+      <DependentUpon>Frm_Sams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Frm_Sams.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\Frm_Services.Designer.vb">
@@ -277,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Frm_PatientFilevb.resx">
       <DependentUpon>Frm_PatientFilevb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Frm_Sams.resx">
+      <DependentUpon>Frm_Sams.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Frm_Services.resx">
       <DependentUpon>Frm_Services.vb</DependentUpon>
