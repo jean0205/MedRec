@@ -52,6 +52,8 @@ Public Class Frm_Main
         If Not checkAccess("Surgeries") Then
             Exit Sub
         End If
+        Dim frm As New Frm_Surgeries()
+        frm.Show()
     End Sub
     Private Sub ibtnSams_Click(sender As Object, e As EventArgs) Handles ibtnSams.Click
         If Not checkAccess("Sams") Then

@@ -1,4 +1,4 @@
-﻿Public Class Frm_Sams
+﻿Public Class Frm_Surgeries
     Dim util As New Util
     Dim db As New SamsDB
     Dim dtAll As New DataTable
@@ -7,9 +7,9 @@
         AddHandler txtPatientName.KeyPress, AddressOf util.txtOnlyLetters_KeyPress
         AddHandler txtService.KeyPress, AddressOf util.txtOnlyLetters_KeyPress
         AddHandler txtCost.KeyPress, AddressOf util.txtOnlyDecimalNumber_KeyPress
-        dtAll = Await db.GetPatientsSamsTableAll()
+        dtAll = Await db.GetSurgerySamsTableAll()
         loadPatients(dtAll)
-        dtMonth = Await db.GetPatientsSamsTableMonth(Today)
+        dtMonth = Await db.GetSamsSurgeryTableMonth(Today)
     End Sub
 
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
@@ -28,7 +28,7 @@
             dgv1.Columns(3).DefaultCellStyle.Format = "dd-MMM-yyyy"
             dgv1.Columns(4).DefaultCellStyle.Format = "C2"
             lblServices.Text = dt.Rows.Count.ToString("N0")
-            lblTotal.Text = dt.AsEnumerable.Sum(Function(r) CDec(r("Cost"))).ToString("C2")
+            lblTotal.Text = dt.AsEnumerable.Sum(Function(r) CDec(r("Paid"))).ToString("C2")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -43,10 +43,10 @@
                     Exit Sub
                 End If
             Next
-            db.insertPatientSams(txtPatientName.Text.ToUpper, txtService.Text.ToUpper, dtpDate.Value.Date, txtCost.Text)
+            db.insertSurgerySams(txtPatientName.Text.ToUpper, txtService.Text.ToUpper, dtpDate.Value.Date, txtCost.Text)
             util.InformationMessage("Information successfully saved", "Saved")
             dtMonth = New DataTable
-            dtMonth = Await db.GetPatientsSamsTableMonth(dtpDate.Value.Date)
+            dtMonth = Await db.GetSamsSurgeryTableMonth(dtpDate.Value.Date)
             loadPatients(dtMonth)
             clean()
         Catch ex As Exception
@@ -72,9 +72,9 @@
             If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
                     If util.yesOrNot("Do you want to delete the selected patient", "Delete patient") Then
-                        db.DeletePatientSams(rowId)
+                        db.DeleteSurgerySams(rowId)
                         util.InformationMessage("Patient sucessfully deleted", "Delete Patient")
-                        loadPatients(Await db.GetPatientsSamsTableMonth(Today))
+                        loadPatients(Await db.GetSamsSurgeryTableMonth(Today))
                     End If
                 End If
             End If
@@ -109,7 +109,7 @@
     Private Async Sub dtpDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpDate.ValueChanged
         Try
             dtMonth = New DataTable
-            dtMonth = Await db.GetPatientsSamsTableMonth(dtpDate.Value.Date)
+            dtMonth = Await db.GetSamsSurgeryTableMonth(dtpDate.Value.Date)
             loadPatients(dtMonth)
 
         Catch ex As Exception
@@ -120,7 +120,7 @@
     Private Async Sub dtpPeriod_ValueChanged_1(sender As Object, e As EventArgs) Handles dtpPeriod1.ValueChanged, dtpPeriod2.ValueChanged
         Try
             Dim dtPeriod = New DataTable
-            dtPeriod = Await db.GetPatientsSamsTablePeriod(dtpPeriod1.Value.Date, dtpPeriod2.Value.Date)
+            dtPeriod = Await db.GetSurgerySamsTablePeriod(dtpPeriod1.Value.Date, dtpPeriod2.Value.Date)
             loadPatients(dtPeriod)
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")

@@ -180,6 +180,12 @@
     <Compile Include="Screens\Frm_Services.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Screens\Frm_Surgeries.Designer.vb">
+      <DependentUpon>Frm_Surgeries.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Frm_Surgeries.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Screens\Frm_Users.Designer.vb">
       <DependentUpon>Frm_Users.vb</DependentUpon>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Frm_Services.resx">
       <DependentUpon>Frm_Services.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Frm_Surgeries.resx">
+      <DependentUpon>Frm_Surgeries.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Frm_Users.resx">
       <DependentUpon>Frm_Users.vb</DependentUpon>
