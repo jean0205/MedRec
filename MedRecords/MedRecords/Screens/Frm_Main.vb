@@ -62,6 +62,13 @@ Public Class Frm_Main
         Dim frm As New Frm_Sams()
         frm.Show()
     End Sub
+    Private Sub ibtnExpenses_Click(sender As Object, e As EventArgs) Handles ibtnExpenses.Click
+        If Not checkAccess("Expenses") Then
+            Exit Sub
+        End If
+        Dim frm As New Frm_Expenses()
+        frm.Show()
+    End Sub
     Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
         If Not checkAccess("Users") Then
             Exit Sub
@@ -379,6 +386,8 @@ Public Class Frm_Main
         End If
 
     End Sub
+
+
 
 
 

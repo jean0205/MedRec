@@ -1,4 +1,5 @@
-﻿Public Class Util
+﻿Imports Microsoft.Office.Interop
+Public Class Util
 
 
     'yes or not message
@@ -199,6 +200,29 @@
         Return list
     End Function
 
-
+    '***********************Export to Excel********************
+    Sub exportToExcel(dt As DataTable)
+        Dim _excel As New Excel.Application
+        Dim wBook As Excel.Workbook
+        Dim wSheet As Excel.Worksheet
+        wBook = _excel.Workbooks.Add()
+        wSheet = wBook.ActiveSheet()
+        Dim dc As System.Data.DataColumn
+        Dim colIndex As Integer = 0
+        Dim rowIndex As Integer = 0
+        'Nombre de mesures
+        Dim Nbligne As Integer = dt.Rows.Count
+        'Ecriture des entêtes de colonne et des mesures
+        '(Write column headers and data)
+        For Each dc In dt.Columns
+            colIndex = colIndex + 1
+            'Entête de colonnes (column headers)
+            wSheet.Cells(1, colIndex) = dc.ColumnName
+            'Données(data)
+            'You can use CDbl instead of Cobj If your data is of type Double
+            wSheet.Cells(2, colIndex).Resize(Nbligne, ).Value = _excel.Application.transpose(dt.Rows.OfType(Of DataRow)().[Select](Function(k) k(dc.ColumnName).ToString).ToArray())
+        Next
+        _excel.Application.Visible = True
+    End Sub
 
 End Class

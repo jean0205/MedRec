@@ -10,6 +10,13 @@
         dtAll = Await db.GetSurgerySamsTableAll()
         loadPatients(dtAll)
         dtMonth = Await db.GetSamsSurgeryTableMonth(Today)
+
+        'autocomplete
+        txtService.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+        txtService.AutoCompleteSource = AutoCompleteSource.CustomSource
+        Dim Collection As AutoCompleteStringCollection = New AutoCompleteStringCollection()
+        Collection.AddRange(dtAll.AsEnumerable.Select(Function(r) r("Surgery").ToString.TrimEnd.ToUpper).Distinct.ToArray)
+        txtService.AutoCompleteCustomSource = Collection
     End Sub
 
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
@@ -49,6 +56,12 @@
             dtMonth = Await db.GetSamsSurgeryTableMonth(dtpDate.Value.Date)
             loadPatients(dtMonth)
             clean()
+            'autocomplete surgery
+            dtAll = New DataTable
+            dtAll = Await db.GetSurgerySamsTableAll()
+            Dim Collection As AutoCompleteStringCollection = New AutoCompleteStringCollection()
+            Collection.AddRange(dtAll.AsEnumerable.Select(Function(r) r("Surgery").ToString.TrimEnd.ToUpper).Distinct.ToArray)
+            txtService.AutoCompleteCustomSource = Collection
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -58,7 +71,7 @@
         For Each txt As TextBox In gbInfo.Controls.OfType(Of TextBox)
             txt.Clear()
         Next
-        dtpDate.Value = Today
+        ' dtpDate.Value = Today
     End Sub
 
     Private Async Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv1.CellContentClick
@@ -74,7 +87,7 @@
                     If util.yesOrNot("Do you want to delete the selected patient", "Delete patient") Then
                         db.DeleteSurgerySams(rowId)
                         util.InformationMessage("Patient sucessfully deleted", "Delete Patient")
-                        loadPatients(Await db.GetSamsSurgeryTableMonth(Today))
+                        loadPatients(Await db.GetSamsSurgeryTableMonth(dtpDate.Value.Date))
                     End If
                 End If
             End If
@@ -125,5 +138,8 @@
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
+    End Sub
+    Private Sub IconButton8_Click(sender As Object, e As EventArgs) Handles IconButton8.Click
+        util.exportToExcel(dgv1.DataSource)
     End Sub
 End Class
