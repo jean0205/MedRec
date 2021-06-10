@@ -23,6 +23,7 @@ Partial Class Frm_Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Main))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.panelAddAppointment = New System.Windows.Forms.Panel()
         Me.ibtnClosePanel = New FontAwesome.Sharp.IconButton()
@@ -56,13 +57,14 @@ Partial Class Frm_Main
         Me.ibtnSurgeries = New FontAwesome.Sharp.IconButton()
         Me.ibtnServices = New FontAwesome.Sharp.IconButton()
         Me.ibtnPatients = New FontAwesome.Sharp.IconButton()
-        Me.pictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ibtnNewAppointment = New FontAwesome.Sharp.IconButton()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.panelAddAppointment.SuspendLayout()
         Me.gbNewAppointment.SuspendLayout()
@@ -70,8 +72,8 @@ Partial Class Frm_Main
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.panel2.SuspendLayout()
-        CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -370,6 +372,8 @@ Partial Class Frm_Main
         'panel2
         '
         Me.panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.panel2.Controls.Add(Me.Label3)
+        Me.panel2.Controls.Add(Me.PictureBox2)
         Me.panel2.Controls.Add(Me.IconButton3)
         Me.panel2.Controls.Add(Me.ibtnVisits)
         Me.panel2.Controls.Add(Me.ibtnRestore)
@@ -380,7 +384,6 @@ Partial Class Frm_Main
         Me.panel2.Controls.Add(Me.ibtnSurgeries)
         Me.panel2.Controls.Add(Me.ibtnServices)
         Me.panel2.Controls.Add(Me.ibtnPatients)
-        Me.panel2.Controls.Add(Me.pictureBox1)
         Me.panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.panel2.Location = New System.Drawing.Point(0, 0)
         Me.panel2.Name = "panel2"
@@ -398,7 +401,7 @@ Partial Class Frm_Main
         Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton3.ForeColor = System.Drawing.Color.Gainsboro
         Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.AddressBook
-        Me.IconButton3.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.IconButton3.IconColor = System.Drawing.Color.OrangeRed
         Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton3.IconSize = 30
         Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -425,7 +428,7 @@ Partial Class Frm_Main
         Me.ibtnVisits.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnVisits.IconSize = 40
         Me.ibtnVisits.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnVisits.Location = New System.Drawing.Point(3, 289)
+        Me.ibtnVisits.Location = New System.Drawing.Point(3, 292)
         Me.ibtnVisits.Name = "ibtnVisits"
         Me.ibtnVisits.Size = New System.Drawing.Size(202, 53)
         Me.ibtnVisits.TabIndex = 240
@@ -445,7 +448,7 @@ Partial Class Frm_Main
         Me.ibtnRestore.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnRestore.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnRestore.IconChar = FontAwesome.Sharp.IconChar.Server
-        Me.ibtnRestore.IconColor = System.Drawing.Color.GhostWhite
+        Me.ibtnRestore.IconColor = System.Drawing.Color.OrangeRed
         Me.ibtnRestore.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnRestore.IconSize = 30
         Me.ibtnRestore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -469,7 +472,7 @@ Partial Class Frm_Main
         Me.ibtnBackup.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnBackup.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnBackup.IconChar = FontAwesome.Sharp.IconChar.Database
-        Me.ibtnBackup.IconColor = System.Drawing.Color.GhostWhite
+        Me.ibtnBackup.IconColor = System.Drawing.Color.OrangeRed
         Me.ibtnBackup.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnBackup.IconSize = 30
         Me.ibtnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -492,11 +495,11 @@ Partial Class Frm_Main
         Me.ibtnSams.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnSams.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnSams.IconChar = FontAwesome.Sharp.IconChar.HospitalAlt
-        Me.ibtnSams.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.ibtnSams.IconColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.ibtnSams.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSams.IconSize = 40
         Me.ibtnSams.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnSams.Location = New System.Drawing.Point(0, 584)
+        Me.ibtnSams.Location = New System.Drawing.Point(0, 524)
         Me.ibtnSams.Name = "ibtnSams"
         Me.ibtnSams.Size = New System.Drawing.Size(202, 53)
         Me.ibtnSams.TabIndex = 237
@@ -519,7 +522,7 @@ Partial Class Frm_Main
         Me.ibtnReports.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnReports.IconSize = 40
         Me.ibtnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnReports.Location = New System.Drawing.Point(0, 525)
+        Me.ibtnReports.Location = New System.Drawing.Point(0, 408)
         Me.ibtnReports.Name = "ibtnReports"
         Me.ibtnReports.Size = New System.Drawing.Size(202, 53)
         Me.ibtnReports.TabIndex = 236
@@ -538,7 +541,7 @@ Partial Class Frm_Main
         Me.ibtnExpenses.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnExpenses.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnExpenses.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckAlt
-        Me.ibtnExpenses.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.ibtnExpenses.IconColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.ibtnExpenses.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnExpenses.IconSize = 40
         Me.ibtnExpenses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -561,11 +564,11 @@ Partial Class Frm_Main
         Me.ibtnSurgeries.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ibtnSurgeries.ForeColor = System.Drawing.Color.Gainsboro
         Me.ibtnSurgeries.IconChar = FontAwesome.Sharp.IconChar.UserNurse
-        Me.ibtnSurgeries.IconColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.ibtnSurgeries.IconColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.ibtnSurgeries.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnSurgeries.IconSize = 40
         Me.ibtnSurgeries.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnSurgeries.Location = New System.Drawing.Point(0, 407)
+        Me.ibtnSurgeries.Location = New System.Drawing.Point(0, 582)
         Me.ibtnSurgeries.Name = "ibtnSurgeries"
         Me.ibtnSurgeries.Size = New System.Drawing.Size(202, 53)
         Me.ibtnSurgeries.TabIndex = 234
@@ -588,7 +591,7 @@ Partial Class Frm_Main
         Me.ibtnServices.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnServices.IconSize = 40
         Me.ibtnServices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnServices.Location = New System.Drawing.Point(0, 348)
+        Me.ibtnServices.Location = New System.Drawing.Point(0, 350)
         Me.ibtnServices.Name = "ibtnServices"
         Me.ibtnServices.Size = New System.Drawing.Size(202, 53)
         Me.ibtnServices.TabIndex = 233
@@ -611,7 +614,7 @@ Partial Class Frm_Main
         Me.ibtnPatients.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnPatients.IconSize = 40
         Me.ibtnPatients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnPatients.Location = New System.Drawing.Point(3, 230)
+        Me.ibtnPatients.Location = New System.Drawing.Point(3, 234)
         Me.ibtnPatients.Name = "ibtnPatients"
         Me.ibtnPatients.Size = New System.Drawing.Size(202, 53)
         Me.ibtnPatients.TabIndex = 232
@@ -619,15 +622,6 @@ Partial Class Frm_Main
         Me.ibtnPatients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ibtnPatients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnPatients.UseVisualStyleBackColor = True
-        '
-        'pictureBox1
-        '
-        Me.pictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.pictureBox1.Name = "pictureBox1"
-        Me.pictureBox1.Size = New System.Drawing.Size(202, 120)
-        Me.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pictureBox1.TabIndex = 0
-        Me.pictureBox1.TabStop = False
         '
         'Timer1
         '
@@ -724,6 +718,29 @@ Partial Class Frm_Main
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton1.UseVisualStyleBackColor = False
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(202, 185)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 242
+        Me.PictureBox2.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label3.Font = New System.Drawing.Font("Monotype Corsiva", 26.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label3.Location = New System.Drawing.Point(0, 185)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(202, 50)
+        Me.Label3.TabIndex = 243
+        Me.Label3.Text = "Dra. Hurtado"
+        '
         'Frm_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -750,8 +767,8 @@ Partial Class Frm_Main
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.panel2.ResumeLayout(False)
-        CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -769,7 +786,6 @@ Partial Class Frm_Main
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label4 As Label
-    Private WithEvents pictureBox1 As PictureBox
     Private WithEvents panel2 As Panel
     Friend WithEvents ibtnRestore As FontAwesome.Sharp.IconButton
     Friend WithEvents ibtnBackup As FontAwesome.Sharp.IconButton
@@ -796,4 +812,6 @@ Partial Class Frm_Main
     Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
+    Private WithEvents Label3 As Label
+    Private WithEvents PictureBox2 As PictureBox
 End Class
