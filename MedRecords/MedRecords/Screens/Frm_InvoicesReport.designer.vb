@@ -36,6 +36,13 @@ Partial Class Frm_InvoicesReport
         Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_InvoicesReport))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -49,6 +56,7 @@ Partial Class Frm_InvoicesReport
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ChartTotals = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.dtp1 = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ibtnBack = New FontAwesome.Sharp.IconButton()
@@ -57,15 +65,8 @@ Partial Class Frm_InvoicesReport
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.ChartBreakDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -74,7 +75,6 @@ Partial Class Frm_InvoicesReport
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -99,6 +99,104 @@ Partial Class Frm_InvoicesReport
         Me.GroupBox1.Size = New System.Drawing.Size(1411, 841)
         Me.GroupBox1.TabIndex = 67
         Me.GroupBox1.TabStop = False
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox5.Controls.Add(Me.DateTimePicker3)
+        Me.GroupBox5.Controls.Add(Me.Label1)
+        Me.GroupBox5.Controls.Add(Me.IconButton1)
+        Me.GroupBox5.Controls.Add(Me.IconButton2)
+        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox5.ForeColor = System.Drawing.Color.Gainsboro
+        Me.GroupBox5.Location = New System.Drawing.Point(1148, 511)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(251, 78)
+        Me.GroupBox5.TabIndex = 332
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Month:"
+        '
+        'DateTimePicker3
+        '
+        Me.DateTimePicker3.CustomFormat = "   MMM-yyyy"
+        Me.DateTimePicker3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker3.Location = New System.Drawing.Point(87, 48)
+        Me.DateTimePicker3.Name = "DateTimePicker3"
+        Me.DateTimePicker3.Size = New System.Drawing.Size(127, 27)
+        Me.DateTimePicker3.TabIndex = 319
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(52, 23)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(66, 24)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Label1"
+        '
+        'IconButton1
+        '
+        Me.IconButton1.FlatAppearance.BorderSize = 0
+        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(121, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(135, Byte), Integer))
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
+        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.ForeColor = System.Drawing.Color.Gainsboro
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
+        Me.IconButton1.IconColor = System.Drawing.Color.Gainsboro
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 30
+        Me.IconButton1.Location = New System.Drawing.Point(4, 19)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.IconButton1.Size = New System.Drawing.Size(45, 35)
+        Me.IconButton1.TabIndex = 7
+        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton1.UseMnemonic = False
+        Me.IconButton1.UseVisualStyleBackColor = True
+        '
+        'IconButton2
+        '
+        Me.IconButton2.FlatAppearance.BorderSize = 0
+        Me.IconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(121, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(135, Byte), Integer))
+        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton2.ForeColor = System.Drawing.Color.Gainsboro
+        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
+        Me.IconButton2.IconColor = System.Drawing.Color.Gainsboro
+        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton2.IconSize = 30
+        Me.IconButton2.Location = New System.Drawing.Point(200, 19)
+        Me.IconButton2.Name = "IconButton2"
+        Me.IconButton2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.IconButton2.Size = New System.Drawing.Size(45, 35)
+        Me.IconButton2.TabIndex = 6
+        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton2.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label5.Location = New System.Drawing.Point(1355, 819)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(44, 13)
+        Me.Label5.TabIndex = 327
+        Me.Label5.Text = "Money"
+        '
+        'Panel2
+        '
+        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Panel2.BackColor = System.Drawing.Color.MediumAquamarine
+        Me.Panel2.Location = New System.Drawing.Point(1319, 817)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(34, 17)
+        Me.Panel2.TabIndex = 326
         '
         'Label4
         '
@@ -331,6 +429,16 @@ Partial Class Frm_InvoicesReport
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Period"
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "   MMM-yyyy"
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(270, 54)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(141, 30)
+        Me.DateTimePicker1.TabIndex = 320
+        '
         'dtp1
         '
         Me.dtp1.CustomFormat = "   MMM-yyyy"
@@ -508,114 +616,6 @@ Partial Class Frm_InvoicesReport
         Me.Chart3.TabIndex = 330
         Me.Chart3.Text = "top te vendors"
         '
-        'Panel2
-        '
-        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.Panel2.BackColor = System.Drawing.Color.MediumAquamarine
-        Me.Panel2.Location = New System.Drawing.Point(1319, 817)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(34, 17)
-        Me.Panel2.TabIndex = 326
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(1355, 819)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(44, 13)
-        Me.Label5.TabIndex = 327
-        Me.Label5.Text = "Money"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.CustomFormat = "   MMM-yyyy"
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(270, 54)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(141, 30)
-        Me.DateTimePicker1.TabIndex = 320
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox5.Controls.Add(Me.DateTimePicker3)
-        Me.GroupBox5.Controls.Add(Me.Label1)
-        Me.GroupBox5.Controls.Add(Me.IconButton1)
-        Me.GroupBox5.Controls.Add(Me.IconButton2)
-        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox5.Location = New System.Drawing.Point(1148, 511)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(251, 78)
-        Me.GroupBox5.TabIndex = 332
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Month:"
-        '
-        'DateTimePicker3
-        '
-        Me.DateTimePicker3.CustomFormat = "   MMM-yyyy"
-        Me.DateTimePicker3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker3.Location = New System.Drawing.Point(87, 48)
-        Me.DateTimePicker3.Name = "DateTimePicker3"
-        Me.DateTimePicker3.Size = New System.Drawing.Size(127, 27)
-        Me.DateTimePicker3.TabIndex = 319
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(52, 23)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 24)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Label1"
-        '
-        'IconButton1
-        '
-        Me.IconButton1.FlatAppearance.BorderSize = 0
-        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(121, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(135, Byte), Integer))
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
-        Me.IconButton1.IconColor = System.Drawing.Color.Gainsboro
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 30
-        Me.IconButton1.Location = New System.Drawing.Point(4, 19)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.IconButton1.Size = New System.Drawing.Size(45, 35)
-        Me.IconButton1.TabIndex = 7
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseMnemonic = False
-        Me.IconButton1.UseVisualStyleBackColor = True
-        '
-        'IconButton2
-        '
-        Me.IconButton2.FlatAppearance.BorderSize = 0
-        Me.IconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(121, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(135, Byte), Integer))
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
-        Me.IconButton2.IconColor = System.Drawing.Color.Gainsboro
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton2.IconSize = 30
-        Me.IconButton2.Location = New System.Drawing.Point(200, 19)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.IconButton2.Size = New System.Drawing.Size(45, 35)
-        Me.IconButton2.TabIndex = 6
-        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton2.UseVisualStyleBackColor = True
-        '
         'Frm_InvoicesReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -630,6 +630,8 @@ Partial Class Frm_InvoicesReport
         Me.Text = "Invoice Report and Dash-Board"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.ChartBreakDown, System.ComponentModel.ISupportInitialize).EndInit()
@@ -641,8 +643,6 @@ Partial Class Frm_InvoicesReport
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

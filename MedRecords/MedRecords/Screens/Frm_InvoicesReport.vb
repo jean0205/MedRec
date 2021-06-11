@@ -1,6 +1,9 @@
 ﻿Imports System.IO
 
 Public Class Frm_InvoicesReport
+    Private Sub Frm_InvoicesReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
     '    Dim db As New InvoiceDB
     '    Dim invoice As New Invoice
     '    Dim helper As New UtilAndRecurrent
