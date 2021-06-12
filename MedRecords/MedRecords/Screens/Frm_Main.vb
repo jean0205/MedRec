@@ -387,6 +387,11 @@ Public Class Frm_Main
 
     End Sub
 
+    Private Sub ibtnReports_Click(sender As Object, e As EventArgs) Handles ibtnReports.Click
+        Dim frm As New Frm_InvoicesReport
+        frm.Show()
+    End Sub
+
 
 
 

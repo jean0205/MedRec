@@ -21,12 +21,17 @@
     End Sub
 
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
+        For Each txt As TextBox In gbInfo.Controls.OfType(Of TextBox)
+            If txt.TextLength = 0 Then
+                util.ErrorMessage("Please enter UserName, Name and Password beforetosabe the user", "Missing Information")
+                Exit Sub
+            End If
+        Next
         If Not updating Then
             insertUser()
         Else
             updateUser(userId)
         End If
-
         cleanInterface()
         loadUsersList()
     End Sub

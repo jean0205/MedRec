@@ -224,27 +224,6 @@ Public Class VisitDB
     'VISIT DASHBOARD
 
     '########### Get PATIENT VISIT LIST ####################
-    Async Function GetVisitTable() As Task(Of DataTable)
-        Dim query As String = "SELECT [PatientId],concat (P.[First Name],' ',P.[Last Name]), P.[Date OB],P.[Paper Record],p.[Registration Date] ,V.Id,[VisitDate],[ServicesId],
-                                    [ServiceTotal],[OtherServices],[OSCharges],[Disscount],[ToPay],[Paid],[Oustanding]
-                              FROM [dbo].[Visit] V inner join Patient P on V.PatientId=p.Id"
-        Dim table As New DataTable
-        Using connection As New SqlConnection(conString)
-            Using command As New SqlCommand(query, connection)
-                Try
-                    connection.Open()
-                    Dim reader As SqlDataReader = Await command.ExecuteReaderAsync()
-                    table.Load(reader)
-                    reader.Close()
-                    connection.Close()
-                    command.Dispose()
-                Catch ex As Exception
-                    Throw ex
-                End Try
-            End Using
-        End Using
-        Return table
-    End Function
     Async Function GetVisitTabledASH() As Task(Of DataTable)
         Dim query As String = "SELECT [PatientId],concat (P.[First Name],' ',P.[Last Name]), P.[Date OB],P.[Paper Record],
                                         p.[Registration Date] ,V.Id,[VisitDate],[ServicesId],
@@ -267,5 +246,76 @@ Public Class VisitDB
             End Using
         End Using
         Return table
+    End Function
+
+
+    Async Function GetPatientListAsync(active As Boolean) As Task(Of List(Of PatientE))
+        Dim patientList As New List(Of PatientE)
+        Dim query As String = "SELECT [Id],[First Name],[Last Name],[Others Name],[Address],[Parish]
+                              ,[Sex],[Date OB],[Phone1],[Phone2],[Email],[Paper Record]
+                              ,[Registration Date],[SavedBy],[SavedTime]
+	                          FROM [dbo].[Patient]
+	                          WHERE ACTIVE =@ACTIVE"
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@ACTIVE", SqlDbType.Bit).Value = active
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = Await command.ExecuteReaderAsync()
+                While reader.Read
+                    Dim patient As New PatientE
+                    If Not reader.IsDBNull(0) Then
+                        patient.Id = reader(0)
+                    End If
+                    If Not reader.IsDBNull(1) Then
+                        patient.FirstName = reader(1)
+                    End If
+                    If Not reader.IsDBNull(2) Then
+                        patient.LastName = reader(2)
+                    End If
+                    If Not reader.IsDBNull(3) Then
+                        patient.OthersNames = reader(3)
+                    End If
+                    If Not reader.IsDBNull(4) Then
+                        patient.Address = reader(4)
+                    End If
+                    If Not reader.IsDBNull(5) Then
+                        patient.Parish = reader(5)
+                    End If
+                    If Not reader.IsDBNull(6) Then
+                        patient.Sex = reader(6)
+                    End If
+                    If Not reader.IsDBNull(7) Then
+                        patient.DatOB = reader(7)
+                    End If
+                    If Not reader.IsDBNull(8) Then
+                        patient.Phone1 = reader(8)
+                    End If
+                    If Not reader.IsDBNull(9) Then
+                        patient.Phone2 = reader(9)
+                    End If
+                    If Not reader.IsDBNull(10) Then
+                        patient.Email = reader(10)
+                    End If
+                    If Not reader.IsDBNull(11) Then
+                        patient.PaperRecord = reader(11)
+                    End If
+                    If Not reader.IsDBNull(12) Then
+                        patient.RegistrationDate = reader(12)
+                    End If
+                    If Not reader.IsDBNull(13) Then
+                        patient.SavedBy = reader(13)
+                    End If
+                    If Not reader.IsDBNull(14) Then
+                        patient.SavedTime = reader(14)
+                    End If
+                    patientList.Add(patient)
+                End While
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return patientList
     End Function
 End Class
