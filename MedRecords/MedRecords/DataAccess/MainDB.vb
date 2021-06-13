@@ -55,5 +55,30 @@ Public Class MainDB
             End Using
         End Using
     End Sub
+    Sub RestoreDatabase(ByVal path As String)
+
+        Dim query As String = "USE master
+                                Alter database MedicalRecords  Set offline With rollback immediate 
+                RESTORE DATABASE MedicalRecords FROM DISK ='" + path + "' WITH REPLACE alter database MedicalRecords set online"
+
+        Dim query2 As String = "Declare @BackupFile varchar(100)" +
+                " Set @BackupFile = 'C:\\Database\\Clinic_' +" +
+                " REPLACE(convert(nvarchar(20), GetDate(), 120), ':', '-') + " +
+                "'.BAK' " +
+                "BACKUP DATABASE MedicalRecords to disk = @BackupFile"
+
+
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+    End Sub
 
 End Class

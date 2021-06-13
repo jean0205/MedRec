@@ -90,7 +90,13 @@ Public Class Frm_Main
         If Not checkAccess("Backup") Then
             Exit Sub
         End If
-        SelectFile()
+        SaveBackup()
+    End Sub
+    Private Sub ibtnRestore_Click(sender As Object, e As EventArgs) Handles ibtnRestore.Click
+        If Not checkAccess("Restore") Then
+            Exit Sub
+        End If
+        RestoreDataBase()
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblTime.Text = Now.ToLongTimeString
@@ -113,12 +119,12 @@ Public Class Frm_Main
 #End Region
 
 #Region "Metodos"
-    Sub SelectFile()
+    Sub SaveBackup()
         Try
             Dim ofd As SaveFileDialog = New SaveFileDialog
             ofd.DefaultExt = "bak"
             ofd.FileName = "BackUp" & Now.ToString("dd-MMMM-yyyy-hh-mm-ss")
-            'ofd.InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads")
+
             ofd.Filter = "All files|*.*|BAK files|*.BAK"
             ofd.Title = "Select Folder"
             If ofd.ShowDialog() <> DialogResult.Cancel Then
@@ -131,6 +137,29 @@ Public Class Frm_Main
                 backupPath = backupPath.Insert(0, "'")
                 backupPath = backupPath & "'"
                 dbMain.backupDatabase(backupPath)
+                util.InformationMessage("Back-Up successfully done", "Data base Back-up")
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Sub RestoreDataBase()
+        Try
+            If util.yesOrNot("Are you sure you want to restore the Data Base?", "Data base Restore") Then
+                Dim ofd As OpenFileDialog = New OpenFileDialog
+                ofd.DefaultExt = "bak"
+                ofd.Filter = "All files|*.*|BAK files|*.BAK"
+                ofd.Title = "Select Folder"
+                If ofd.ShowDialog() <> DialogResult.Cancel Then
+                    Dim fdirectory As New FileInfo(ofd.FileName)
+                    Dim fName As New FileInfo(ofd.FileName)
+                    Dim folder As String = fdirectory.Directory.ToString()
+                    Dim name As String = fName.Name
+                    Dim ext As String = fName.Extension
+                    backupPath = fName.ToString.Replace("\", "\\")
+                    dbMain.RestoreDatabase(backupPath)
+                    util.InformationMessage("Data Base successfully restored", "Data base Restored")
+                End If
             End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -424,6 +453,8 @@ Public Class Frm_Main
         End If
 
     End Sub
+
+
 
 
 

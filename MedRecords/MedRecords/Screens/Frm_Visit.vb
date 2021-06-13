@@ -449,6 +449,15 @@
                     e.Graphics.DrawImage(My.Resources.medHistory, New Rectangle(x, y, w, h))
                     e.Handled = True
                 End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "FileColTest" Then
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All)
+                    Dim w = My.Resources.pdf.Width
+                    Dim h = My.Resources.pdf.Height
+                    Dim x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2
+                    Dim y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2
+                    e.Graphics.DrawImage(My.Resources.pdf, New Rectangle(x, y, w, h))
+                    e.Handled = True
+                End If
             End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")

@@ -2,6 +2,7 @@
     Dim user As New Users
     Dim db As New UserDB
     Dim util As New Util
+    Dim dbMain As New MainDB
 
     Private Sub txtpass_MouseEnter(sender As Object, e As EventArgs) Handles txtuser.MouseEnter, txtpass.MouseEnter
         Dim txt As TextBox = CType(sender, TextBox)
@@ -47,4 +48,12 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtuser.Select()
     End Sub
+
+    'Private Sub ibtnRestore_Click(sender As Object, e As EventArgs) Handles ibtnRestore.Click
+    '    If Not checkAccess("Restore") Then
+    '        Exit Sub
+    '    End If
+    '    RestoreDataBase()
+    'End Sub
+
 End Class

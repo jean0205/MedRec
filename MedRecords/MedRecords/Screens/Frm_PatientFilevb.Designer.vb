@@ -45,7 +45,6 @@ Partial Class Frm_PatientFilevb
         Me.gbpregnancy = New System.Windows.Forms.GroupBox()
         Me.dgvPregnancies = New System.Windows.Forms.DataGridView()
         Me.gbtest = New System.Windows.Forms.GroupBox()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.dgvTests = New System.Windows.Forms.DataGridView()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
@@ -65,6 +64,7 @@ Partial Class Frm_PatientFilevb
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.dgvVisitsHistory = New System.Windows.Forms.DataGridView()
         Me.gbInfo = New System.Windows.Forms.GroupBox()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lblOustandingBill = New System.Windows.Forms.Label()
@@ -97,7 +97,6 @@ Partial Class Frm_PatientFilevb
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -431,7 +430,6 @@ Partial Class Frm_PatientFilevb
         '
         Me.gbtest.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbtest.Controls.Add(Me.Label14)
         Me.gbtest.Controls.Add(Me.dgvTests)
         Me.gbtest.ForeColor = System.Drawing.Color.Gainsboro
         Me.gbtest.Location = New System.Drawing.Point(4, 6)
@@ -440,17 +438,6 @@ Partial Class Frm_PatientFilevb
         Me.gbtest.TabIndex = 268
         Me.gbtest.TabStop = False
         Me.gbtest.Text = "Screening/Diagnostic Tests:"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label14.Location = New System.Drawing.Point(218, 214)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(299, 20)
-        Me.Label14.TabIndex = 249
-        Me.Label14.Text = "agregar boton para verl el archivo del test"
         '
         'dgvTests
         '
@@ -685,6 +672,30 @@ Partial Class Frm_PatientFilevb
         Me.gbInfo.TabIndex = 3
         Me.gbInfo.TabStop = False
         Me.gbInfo.Text = "Patient Personal Information"
+        '
+        'IconButton1
+        '
+        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.IconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.IconButton1.FlatAppearance.BorderSize = 2
+        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 30
+        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.IconButton1.Location = New System.Drawing.Point(907, 168)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Size = New System.Drawing.Size(134, 57)
+        Me.IconButton1.TabIndex = 288
+        Me.IconButton1.Text = "New Visit"
+        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton1.UseVisualStyleBackColor = False
         '
         'chkPaperRecord
         '
@@ -1035,30 +1046,6 @@ Partial Class Frm_PatientFilevb
         Me.Label4.TabIndex = 236
         Me.Label4.Text = "First Name:"
         '
-        'IconButton1
-        '
-        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton1.FlatAppearance.BorderSize = 2
-        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 30
-        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton1.Location = New System.Drawing.Point(907, 168)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(134, 57)
-        Me.IconButton1.TabIndex = 288
-        Me.IconButton1.Text = "New Visit"
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseVisualStyleBackColor = False
-        '
         'Frm_PatientFilevb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1089,7 +1076,6 @@ Partial Class Frm_PatientFilevb
         Me.gbpregnancy.ResumeLayout(False)
         CType(Me.dgvPregnancies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbtest.ResumeLayout(False)
-        Me.gbtest.PerformLayout()
         CType(Me.dgvTests, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.GroupBox13.ResumeLayout(False)
@@ -1180,7 +1166,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents DataGridViewButtonColumn9 As DataGridViewButtonColumn
     Friend WithEvents lblOustandingBill As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents Label14 As Label
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
 End Class

@@ -218,7 +218,7 @@
             End If
             If senderGrid.Columns(e.ColumnIndex).Name = "Restore" Then
                 senderGrid.Rows(e.RowIndex).Cells("Restore").Value = Not senderGrid.Rows(e.RowIndex).Cells("Restore").Value
-                selectedUser.Reports = senderGrid.Rows(e.RowIndex).Cells("Restore").Value
+                selectedUser.Restore = senderGrid.Rows(e.RowIndex).Cells("Restore").Value
             End If
             db.updateUserAccess(selectedUser)
             loadUsersList()

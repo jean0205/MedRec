@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Frm_NewPatient
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Frm_NewPatient
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.chkFind = New System.Windows.Forms.CheckBox()
@@ -49,7 +49,6 @@ Partial Class Frm_NewPatient
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.gbInfo.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -352,7 +351,6 @@ Partial Class Frm_NewPatient
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.dgv1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
@@ -364,18 +362,6 @@ Partial Class Frm_NewPatient
         Me.GroupBox2.TabIndex = 78
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Patients List:"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label12.Location = New System.Drawing.Point(168, 182)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(769, 20)
-        Me.Label12.TabIndex = 244
-        Me.Label12.Text = "ordenar los pacientes por fecha de creacion y poner un boton a la vista de inform" &
-    "acion detallada delpaciente"
         '
         'dgv1
         '
@@ -412,7 +398,6 @@ Partial Class Frm_NewPatient
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -446,5 +431,4 @@ Partial Class Frm_NewPatient
     Friend WithEvents dgv1 As DataGridView
     Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton
     Friend WithEvents chkFind As CheckBox
-    Friend WithEvents Label12 As Label
 End Class
