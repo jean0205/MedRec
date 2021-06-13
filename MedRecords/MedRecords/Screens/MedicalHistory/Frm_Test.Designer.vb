@@ -23,9 +23,11 @@ Partial Class Frm_Test
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gbInfo = New System.Windows.Forms.GroupBox()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ibtnImportFile = New FontAwesome.Sharp.IconButton()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.txtResult = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.txtComments = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
@@ -33,9 +35,6 @@ Partial Class Frm_Test
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.wb1 = New System.Windows.Forms.WebBrowser()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.ibtnImportFile = New FontAwesome.Sharp.IconButton()
         Me.gbInfo.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
@@ -47,7 +46,6 @@ Partial Class Frm_Test
         Me.gbInfo.Controls.Add(Me.Label2)
         Me.gbInfo.Controls.Add(Me.dtpDate)
         Me.gbInfo.Controls.Add(Me.txtResult)
-        Me.gbInfo.Controls.Add(Me.Label3)
         Me.gbInfo.Controls.Add(Me.txtComments)
         Me.gbInfo.Controls.Add(Me.Label1)
         Me.gbInfo.Controls.Add(Me.ibtnSave)
@@ -64,133 +62,6 @@ Partial Class Frm_Test
         Me.gbInfo.TabIndex = 84
         Me.gbInfo.TabStop = False
         Me.gbInfo.Text = "Surgery Information:"
-        '
-        'dtpDate
-        '
-        Me.dtpDate.CalendarMonthBackground = System.Drawing.Color.Honeydew
-        Me.dtpDate.CustomFormat = "dd-MMM-yyyy"
-        Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDate.Location = New System.Drawing.Point(214, 124)
-        Me.dtpDate.Name = "dtpDate"
-        Me.dtpDate.Size = New System.Drawing.Size(175, 26)
-        Me.dtpDate.TabIndex = 264
-        '
-        'txtResult
-        '
-        Me.txtResult.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtResult.ForeColor = System.Drawing.Color.Black
-        Me.txtResult.Location = New System.Drawing.Point(214, 81)
-        Me.txtResult.Name = "txtResult"
-        Me.txtResult.Size = New System.Drawing.Size(375, 28)
-        Me.txtResult.TabIndex = 263
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(409, 120)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(322, 42)
-        Me.Label3.TabIndex = 262
-        Me.Label3.Text = "si el resultado siempre es positivo o " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "negativopuedo poner seleccionar"
-        '
-        'txtComments
-        '
-        Me.txtComments.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComments.ForeColor = System.Drawing.Color.Black
-        Me.txtComments.Location = New System.Drawing.Point(214, 165)
-        Me.txtComments.Multiline = True
-        Me.txtComments.Name = "txtComments"
-        Me.txtComments.Size = New System.Drawing.Size(375, 86)
-        Me.txtComments.TabIndex = 251
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(102, 169)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(106, 21)
-        Me.Label1.TabIndex = 250
-        Me.Label1.Text = "Comments:"
-        '
-        'ibtnSave
-        '
-        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.BorderSize = 2
-        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Database
-        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnSave.IconSize = 35
-        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(798, 228)
-        Me.ibtnSave.Name = "ibtnSave"
-        Me.ibtnSave.Size = New System.Drawing.Size(139, 42)
-        Me.ibtnSave.TabIndex = 85
-        Me.ibtnSave.Text = "Save"
-        Me.ibtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnSave.UseVisualStyleBackColor = False
-        '
-        'txtName
-        '
-        Me.txtName.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.ForeColor = System.Drawing.Color.Black
-        Me.txtName.Location = New System.Drawing.Point(214, 39)
-        Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(375, 28)
-        Me.txtName.TabIndex = 248
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(139, 85)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(69, 21)
-        Me.Label7.TabIndex = 247
-        Me.Label7.Text = "Result:"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(17, 43)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(191, 21)
-        Me.Label8.TabIndex = 246
-        Me.Label8.Text = "Test/Complementary:"
-        '
-        'wb1
-        '
-        Me.wb1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.wb1.Location = New System.Drawing.Point(3, 290)
-        Me.wb1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.wb1.Name = "wb1"
-        Me.wb1.Size = New System.Drawing.Size(954, 525)
-        Me.wb1.TabIndex = 85
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(153, 127)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(55, 21)
-        Me.Label2.TabIndex = 265
-        Me.Label2.Text = "Date:"
         '
         'GroupBox4
         '
@@ -226,6 +97,122 @@ Partial Class Frm_Test
         Me.ibtnImportFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnImportFile.UseVisualStyleBackColor = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(153, 127)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(58, 22)
+        Me.Label2.TabIndex = 265
+        Me.Label2.Text = "Date:"
+        '
+        'dtpDate
+        '
+        Me.dtpDate.CalendarMonthBackground = System.Drawing.Color.Honeydew
+        Me.dtpDate.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpDate.Location = New System.Drawing.Point(214, 124)
+        Me.dtpDate.Name = "dtpDate"
+        Me.dtpDate.Size = New System.Drawing.Size(175, 26)
+        Me.dtpDate.TabIndex = 264
+        '
+        'txtResult
+        '
+        Me.txtResult.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtResult.ForeColor = System.Drawing.Color.Black
+        Me.txtResult.Location = New System.Drawing.Point(214, 81)
+        Me.txtResult.Name = "txtResult"
+        Me.txtResult.Size = New System.Drawing.Size(375, 27)
+        Me.txtResult.TabIndex = 263
+        '
+        'txtComments
+        '
+        Me.txtComments.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComments.ForeColor = System.Drawing.Color.Black
+        Me.txtComments.Location = New System.Drawing.Point(214, 165)
+        Me.txtComments.Multiline = True
+        Me.txtComments.Name = "txtComments"
+        Me.txtComments.Size = New System.Drawing.Size(375, 86)
+        Me.txtComments.TabIndex = 251
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(102, 169)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(109, 22)
+        Me.Label1.TabIndex = 250
+        Me.Label1.Text = "Comments:"
+        '
+        'ibtnSave
+        '
+        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.BorderSize = 2
+        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Database
+        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnSave.IconSize = 35
+        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ibtnSave.Location = New System.Drawing.Point(798, 228)
+        Me.ibtnSave.Name = "ibtnSave"
+        Me.ibtnSave.Size = New System.Drawing.Size(139, 42)
+        Me.ibtnSave.TabIndex = 85
+        Me.ibtnSave.Text = "Save"
+        Me.ibtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnSave.UseVisualStyleBackColor = False
+        '
+        'txtName
+        '
+        Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtName.ForeColor = System.Drawing.Color.Black
+        Me.txtName.Location = New System.Drawing.Point(214, 39)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(375, 27)
+        Me.txtName.TabIndex = 248
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(139, 85)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(73, 22)
+        Me.Label7.TabIndex = 247
+        Me.Label7.Text = "Result:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(17, 43)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(200, 22)
+        Me.Label8.TabIndex = 246
+        Me.Label8.Text = "Test/Complementary:"
+        '
+        'wb1
+        '
+        Me.wb1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.wb1.Location = New System.Drawing.Point(3, 290)
+        Me.wb1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.wb1.Name = "wb1"
+        Me.wb1.Size = New System.Drawing.Size(954, 525)
+        Me.wb1.TabIndex = 85
+        '
         'Frm_Test
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -246,7 +233,6 @@ Partial Class Frm_Test
     Friend WithEvents gbInfo As GroupBox
     Friend WithEvents dtpDate As DateTimePicker
     Friend WithEvents txtResult As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents txtComments As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents ibtnSave As FontAwesome.Sharp.IconButton

@@ -1,4 +1,5 @@
-﻿Imports System.Reflection
+﻿Imports System.IO
+Imports System.Reflection
 
 Public Class Frm_Main
     Dim util As New Util
@@ -8,6 +9,7 @@ Public Class Frm_Main
     Dim dbUsers As New UserDB
     Dim appoitmentList As New List(Of Appoitmets)
     Dim userId As Integer = 0
+    Dim backupPath As String = String.Empty
     Public Property user As New Users
 
     Sub New(user As Users)
@@ -76,6 +78,20 @@ Public Class Frm_Main
         Dim frm As New Frm_Users(user)
         frm.Show()
     End Sub
+    Private Sub ibtnReports_Click(sender As Object, e As EventArgs) Handles ibtnReports.Click
+        If Not checkAccess("Reports") Then
+            Exit Sub
+        End If
+        Dim frm As New Frm_InvoicesReport
+        frm.Show()
+    End Sub
+
+    Private Sub ibtnBackup_Click(sender As Object, e As EventArgs) Handles ibtnBackup.Click
+        If Not checkAccess("Backup") Then
+            Exit Sub
+        End If
+        SelectFile()
+    End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblTime.Text = Now.ToLongTimeString
         lblDate.Text = Now.ToLongDateString
@@ -97,7 +113,29 @@ Public Class Frm_Main
 #End Region
 
 #Region "Metodos"
-
+    Sub SelectFile()
+        Try
+            Dim ofd As SaveFileDialog = New SaveFileDialog
+            ofd.DefaultExt = "bak"
+            ofd.FileName = "BackUp" & Now.ToString("dd-MMMM-yyyy-hh-mm-ss")
+            'ofd.InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads")
+            ofd.Filter = "All files|*.*|BAK files|*.BAK"
+            ofd.Title = "Select Folder"
+            If ofd.ShowDialog() <> DialogResult.Cancel Then
+                Dim fdirectory As New FileInfo(ofd.FileName)
+                Dim fName As New FileInfo(ofd.FileName)
+                Dim folder As String = fdirectory.Directory.ToString()
+                Dim name As String = fName.Name
+                Dim ext As String = fName.Extension
+                backupPath = fName.ToString.Replace("\", "\\")
+                backupPath = backupPath.Insert(0, "'")
+                backupPath = backupPath & "'"
+                dbMain.backupDatabase(backupPath)
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
     Function checkAccess(field As String) As Boolean
         Try
             user = New Users
@@ -387,10 +425,7 @@ Public Class Frm_Main
 
     End Sub
 
-    Private Sub ibtnReports_Click(sender As Object, e As EventArgs) Handles ibtnReports.Click
-        Dim frm As New Frm_InvoicesReport
-        frm.Show()
-    End Sub
+
 
 
 

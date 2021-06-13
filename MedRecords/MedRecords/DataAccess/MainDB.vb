@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-
+Imports SQLDMO
 Public Class MainDB
     Dim conString As String = My.Settings.connectString
 
@@ -27,5 +27,33 @@ Public Class MainDB
         End Using
         Return table
     End Function
+
+    'Dim WithEvents RS As New SQLDMO.Restore
+    'Dim oSQL As New SQLDMO.SQLServer
+    Sub backupDatabase(ByVal path As String)
+
+        Dim query As String = "DECLARE @BackupFile varchar(100)
+                SET @BackupFile = " & path & "
+                BACKUP DATABASE MedicalRecords to disk = @BackupFile"
+
+        Dim query2 As String = "DECLARE @BackupFile varchar(100)" +
+                " SET @BackupFile = 'C:\\Database\\Clinic_' +" +
+                " REPLACE(convert(nvarchar(20), GetDate(), 120), ':', '-') + " +
+                "'.BAK' " +
+                "BACKUP DATABASE MedicalRecords to disk = @BackupFile"
+
+
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+    End Sub
 
 End Class
