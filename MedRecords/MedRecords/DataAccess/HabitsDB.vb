@@ -15,7 +15,7 @@ Public Class HabitsDB
                 command.Parameters.AddWithValue("@Habit", SqlDbType.VarChar).Value = habit.Habit
                 command.Parameters.AddWithValue("@Frequency", SqlDbType.VarChar).Value = habit.Frequency
                 command.Parameters.AddWithValue("@From", SqlDbType.Date).Value = habit.FromD
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = habit.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = habit.SavedTime
                 Try
                     connection.Open()
@@ -95,7 +95,7 @@ Public Class HabitsDB
                 command.Parameters.AddWithValue("@Habit", SqlDbType.VarChar).Value = habit.Habit
                 command.Parameters.AddWithValue("@Frequency", SqlDbType.VarChar).Value = habit.FromD
                 command.Parameters.AddWithValue("@From", SqlDbType.Date).Value = habit.FromD
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = habit.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = habit.SavedTime
                 Try
                     connection.Open()

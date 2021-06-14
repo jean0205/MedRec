@@ -1,4 +1,5 @@
-﻿Imports System.Reflection
+﻿Imports System.IO
+Imports System.Reflection
 Public Class Frm_PatientFilevb
     Dim util As New Util
     'DB OBJECTS
@@ -686,5 +687,25 @@ Public Class Frm_PatientFilevb
         gbgynecol.Size = New Size(Me.Size.Width * 0.49, gbtest.Size.Height - gbpregnancy.Size.Height - 5)
     End Sub
 
-
+    Private Sub Frm_PatientFilevb_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Try
+            'My.Application.OpenForms.Cast(Of Form)() _
+            '  .Except({Me}) _
+            '  .ToList() _
+            '  .ForEach(Sub(form) form.Close())
+            My.Application.OpenForms.Cast(Of Form)() _
+              .Where(Function(r) r.Name = "Frm_FileViewer") _
+              .ToList() _
+              .ForEach(Sub(form) form.Close())
+            Dim myFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Tests\"
+            If Directory.Exists(myFolder) Then
+                Dim files() As String = IO.Directory.GetFiles(myFolder, "*.*")
+                If files.Length > 0 Then
+                    FileSystem.Kill(myFolder & "*.*")
+                End If
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 End Class

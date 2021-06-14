@@ -170,8 +170,8 @@ Public Class MedicalProblemsDB
                 command.Parameters.AddWithValue("@Reason", SqlDbType.VarChar).Value = ilness.Reason
                 command.Parameters.AddWithValue("@Comments", SqlDbType.VarChar).Value = ilness.Comments
                 command.Parameters.AddWithValue("@Gynecologic", SqlDbType.Bit).Value = ilness.isGynecologic
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.Date).Value = ilness.SavedBy
-                command.Parameters.AddWithValue("@SavedTime", SqlDbType.VarChar).Value = ilness.SavedTime
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
+                command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = ilness.SavedTime
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
@@ -198,8 +198,8 @@ Public Class MedicalProblemsDB
                 command.Parameters.AddWithValue("@Reason", SqlDbType.VarChar).Value = ilness.Reason
                 command.Parameters.AddWithValue("@Comments", SqlDbType.VarChar).Value = ilness.Comments
                 command.Parameters.AddWithValue("@Gynecologic", SqlDbType.Bit).Value = ilness.isGynecologic
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.Date).Value = ilness.SavedBy
-                command.Parameters.AddWithValue("@SavedTime", SqlDbType.VarChar).Value = ilness.SavedTime
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
+                command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = ilness.SavedTime
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()

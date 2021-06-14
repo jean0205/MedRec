@@ -186,7 +186,7 @@ Public Class MedicationsDB
                 command.Parameters.AddWithValue("@Reason", SqlDbType.VarChar).Value = medication.Reason
                 command.Parameters.AddWithValue("@Duration", SqlDbType.VarChar).Value = medication.Duration
                 command.Parameters.AddWithValue("@Active", SqlDbType.Bit).Value = medication.Active
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = medication.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = medication.SavedTime
                 Try
                     connection.Open()
@@ -213,7 +213,7 @@ Public Class MedicationsDB
                 command.Parameters.AddWithValue("@Reason", SqlDbType.VarChar).Value = medication.Reason
                 command.Parameters.AddWithValue("@Duration", SqlDbType.VarChar).Value = medication.Duration
                 command.Parameters.AddWithValue("@Active", SqlDbType.Bit).Value = medication.Active
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = medication.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = medication.SavedTime
                 Try
                     connection.Open()

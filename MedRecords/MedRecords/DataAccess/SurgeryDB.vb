@@ -76,7 +76,7 @@ Public Class SurgeryDB
                 command.Parameters.AddWithValue("@Reason", SqlDbType.VarChar).Value = surgery.Reason
                 command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = surgery.SurgeryDate
                 command.Parameters.AddWithValue("@Comments", SqlDbType.VarChar).Value = surgery.Comments
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = surgery.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = surgery.SavedTime
                 Try
                     connection.Open()
@@ -102,7 +102,7 @@ Public Class SurgeryDB
                 command.Parameters.AddWithValue("@Reason", SqlDbType.VarChar).Value = surgery.Reason
                 command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = surgery.SurgeryDate
                 command.Parameters.AddWithValue("@Comments", SqlDbType.VarChar).Value = surgery.Comments
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = surgery.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = surgery.SavedTime
                 Try
                     connection.Open()

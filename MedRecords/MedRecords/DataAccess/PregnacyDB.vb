@@ -75,7 +75,7 @@ Public Class PregnacyDB
                 command.Parameters.AddWithValue("@Normal", SqlDbType.Bit).Value = pregnancy.Normal
                 command.Parameters.AddWithValue("@CSection", SqlDbType.Bit).Value = pregnancy.CSection
                 command.Parameters.AddWithValue("@Miscarriage", SqlDbType.Bit).Value = pregnancy.Miscarriage
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = pregnancy.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = pregnancy.SavedTime
                 Try
                     connection.Open()
@@ -102,7 +102,7 @@ Public Class PregnacyDB
                 command.Parameters.AddWithValue("@Normal", SqlDbType.Bit).Value = pregnancy.Normal
                 command.Parameters.AddWithValue("@CSection", SqlDbType.Bit).Value = pregnancy.CSection
                 command.Parameters.AddWithValue("@Miscarriage", SqlDbType.Bit).Value = pregnancy.Miscarriage
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = pregnancy.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = pregnancy.SavedTime
                 Try
                     connection.Open()

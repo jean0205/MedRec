@@ -1,7 +1,19 @@
 ﻿Imports Microsoft.Office.Interop
 Public Class Util
 
-
+    Function userWorking() As Users
+        Dim user As New Users
+        Try
+            user = Form1.user
+        Catch ex As Exception
+            MessageBox.Show(ex.Message,
+                                      "Error",
+                                           MessageBoxButtons.OK,
+                                              MessageBoxIcon.Error,
+                                                  MessageBoxDefaultButton.Button1)
+        End Try
+        Return user
+    End Function
     'yes or not message
     Function yesOrNot(message As String, title As String) As Boolean
         Dim response As Boolean = False

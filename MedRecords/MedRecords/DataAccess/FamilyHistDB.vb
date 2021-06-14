@@ -16,7 +16,7 @@ Public Class FamilyHistDB
                 command.Parameters.AddWithValue("@FamilyMember", SqlDbType.VarChar).Value = familiy.FamilyMember
                 command.Parameters.AddWithValue("@Disease", SqlDbType.VarChar).Value = familiy.Disease
                 command.Parameters.AddWithValue("@Alive", SqlDbType.Bit).Value = familiy.Alive
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = familiy.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = familiy.SavedTime
                 Try
                     connection.Open()
@@ -96,7 +96,7 @@ Public Class FamilyHistDB
                 command.Parameters.AddWithValue("@FamilyMember", SqlDbType.VarChar).Value = familiy.FamilyMember
                 command.Parameters.AddWithValue("@Disease", SqlDbType.VarChar).Value = familiy.Disease
                 command.Parameters.AddWithValue("@Alive", SqlDbType.Bit).Value = familiy.Alive
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = familiy.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = familiy.SavedTime
                 Try
                     connection.Open()

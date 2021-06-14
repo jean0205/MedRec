@@ -167,8 +167,8 @@ Public Class PatientEDB
                 command.Parameters.AddWithValue("@Email", SqlDbType.VarChar).Value = patient.Email
                 command.Parameters.AddWithValue("@PaperRecord", SqlDbType.Bit).Value = patient.PaperRecord
                 command.Parameters.AddWithValue("@RegistrationDate", SqlDbType.DateTime).Value = patient.RegistrationDate
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.Date).Value = patient.SavedBy
-                command.Parameters.AddWithValue("@SavedTime", SqlDbType.VarChar).Value = patient.SavedTime
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
+                command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = patient.SavedTime
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
@@ -202,8 +202,8 @@ Public Class PatientEDB
                 command.Parameters.AddWithValue("@Email", SqlDbType.VarChar).Value = patient.Email
                 command.Parameters.AddWithValue("@PaperRecord", SqlDbType.Bit).Value = patient.PaperRecord
                 command.Parameters.AddWithValue("@RegistrationDate", SqlDbType.DateTime).Value = patient.RegistrationDate
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.Date).Value = patient.SavedBy
-                command.Parameters.AddWithValue("@SavedTime", SqlDbType.VarChar).Value = patient.SavedTime
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
+                command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = patient.SavedTime
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()

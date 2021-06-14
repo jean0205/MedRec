@@ -88,10 +88,15 @@ Public Class Frm_Test
                 End If
             Else
                 newTest.PatientId = patientId
-                dbTest.insertTest(newTest)
+                If String.IsNullOrEmpty(filePath) Then
+                    dbTest.insertTestNoFile(newTest)
+                Else
+                    dbTest.insertTest(newTest)
+                End If
+
                 updating = False
             End If
-            util.InformationMessage("Surgery successfully saved", "Surgery")
+            util.InformationMessage("Test/Complementary successfully saved", "Test/Complementary")
             cleanAfterInsert()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -139,12 +144,12 @@ Public Class Frm_Test
             If Not Directory.Exists(myFolder) Then
                 Directory.CreateDirectory(myFolder)
             End If
-            Dim files() As String = IO.Directory.GetFiles(myFolder, "*.*")
-            If files.Length > 0 Then
-                FileSystem.Kill(myFolder & "*.*")
-            End If
-            File.WriteAllBytes(myFolder & "Test", dbTest.getTestDocument(id))
-            Dim path As String = myFolder & "Test"
+            'Dim files() As String = IO.Directory.GetFiles(myFolder, "*.*")
+            'If files.Length > 0 Then
+            '    FileSystem.Kill(myFolder & "*.*")
+            'End If
+            File.WriteAllBytes(myFolder & "Test" & id, dbTest.getTestDocument(id))
+            Dim path As String = myFolder & "Test" & id
             openDocumentInBrowser(path)
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")

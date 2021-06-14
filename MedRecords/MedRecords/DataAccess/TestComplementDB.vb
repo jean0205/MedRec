@@ -134,7 +134,34 @@ Public Class TestComplementDB
                 command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = test.TestDate
                 command.Parameters.AddWithValue("@Comments", SqlDbType.VarChar).Value = test.Comments
                 command.Parameters.AddWithValue("@File", SqlDbType.VarBinary).Value = test.File
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = test.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
+                command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = test.SavedTime
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+    End Sub
+    Sub insertTestNoFile(ByVal test As TestComplement)
+        Dim query As String = "INSERT INTO [dbo].[TestComplementariy]
+                                   ([PatientId],[VisitId],[Name],[Result],[TestDate],[Comments]
+                                   ,[SavedBy],[SavedTime])
+                             VALUES
+                                   (@PatientId, @VisitId, @Name, @Result, @Date, @Comments, 
+		                           @SavedBy, @SavedTime)"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = test.PatientId
+                command.Parameters.AddWithValue("@VisitId", SqlDbType.Int).Value = test.VisitId
+                command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = test.Name
+                command.Parameters.AddWithValue("@Result", SqlDbType.VarChar).Value = test.Result
+                command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = test.TestDate
+                command.Parameters.AddWithValue("@Comments", SqlDbType.VarChar).Value = test.Comments
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = test.SavedTime
                 Try
                     connection.Open()
@@ -161,7 +188,7 @@ Public Class TestComplementDB
                 command.Parameters.AddWithValue("@TestDate", SqlDbType.Date).Value = test.TestDate
                 command.Parameters.AddWithValue("@Comments", SqlDbType.VarChar).Value = test.Comments
                 command.Parameters.AddWithValue("@File", SqlDbType.VarBinary).Value = test.File
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = test.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = test.SavedTime
                 Try
                     connection.Open()
@@ -185,7 +212,7 @@ Public Class TestComplementDB
                 command.Parameters.AddWithValue("@Result", SqlDbType.VarChar).Value = test.Result
                 command.Parameters.AddWithValue("@TestDate", SqlDbType.Date).Value = test.TestDate
                 command.Parameters.AddWithValue("@Comments", SqlDbType.VarChar).Value = test.Comments
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = test.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = test.SavedTime
                 Try
                     connection.Open()

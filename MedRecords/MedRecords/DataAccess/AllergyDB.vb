@@ -95,7 +95,7 @@ Public Class AllergyDB
                 command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = allergy.Patientid
                 command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = allergy.Name
                 command.Parameters.AddWithValue("@NatureOfReaction", SqlDbType.VarChar).Value = allergy.NatureOfReaction
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = allergy.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = allergy.SavedTime
                 Try
                     connection.Open()
@@ -119,7 +119,7 @@ Public Class AllergyDB
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = allergy.id
                 command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = allergy.Name
                 command.Parameters.AddWithValue("@NatureOfReaction", SqlDbType.VarChar).Value = allergy.NatureOfReaction
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = allergy.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = allergy.SavedTime
                 Try
                     connection.Open()

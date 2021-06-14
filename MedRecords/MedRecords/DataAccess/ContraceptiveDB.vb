@@ -16,7 +16,7 @@ Public Class ContraceptiveDB
                 command.Parameters.AddWithValue("@From", SqlDbType.Date).Value = contraceptive.FromD
                 command.Parameters.AddWithValue("@To", SqlDbType.Date).Value = contraceptive.ToDate
                 command.Parameters.AddWithValue("@Results", SqlDbType.Bit).Value = contraceptive.Results
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = contraceptive.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = contraceptive.SavedTime
                 Try
                     connection.Open()
@@ -97,7 +97,7 @@ Public Class ContraceptiveDB
                 command.Parameters.AddWithValue("@From", SqlDbType.Date).Value = contraceptive.FromD
                 command.Parameters.AddWithValue("@To", SqlDbType.Date).Value = contraceptive.ToDate
                 command.Parameters.AddWithValue("@Results", SqlDbType.Bit).Value = contraceptive.Results
-                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = contraceptive.SavedBy
+                command.Parameters.AddWithValue("@SavedBy", SqlDbType.VarChar).Value = Form1.user.User
                 command.Parameters.AddWithValue("@SavedTime", SqlDbType.DateTime).Value = contraceptive.SavedTime
                 Try
                     connection.Open()

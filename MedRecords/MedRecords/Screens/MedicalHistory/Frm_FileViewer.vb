@@ -26,15 +26,15 @@ Public Class Frm_FileViewer
             If Not Directory.Exists(myFolder) Then
                 Directory.CreateDirectory(myFolder)
             End If
-            Dim files() As String = IO.Directory.GetFiles(myFolder, "*.*")
-            If files.Length > 0 Then
-                FileSystem.Kill(myFolder & "*.*")
-            End If
-            File.WriteAllBytes(myFolder & "Test", dbTest.getTestDocument(id))
-            Dim path As String = myFolder & "Test"
+            'Dim files() As String = IO.Directory.GetFiles(myFolder, "*.*")
+            'If files.Length > 0 Then
+            '    FileSystem.Kill(myFolder & "*.*")
+            'End If
+            File.WriteAllBytes(myFolder & "Test" & id, dbTest.getTestDocument(id))
+            Dim path As String = myFolder & "Test" & id
             openDocumentInBrowser(path)
         Catch ex As Exception
-            Util.ErrorMessage(ex.Message, "Error")
+            util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
 End Class

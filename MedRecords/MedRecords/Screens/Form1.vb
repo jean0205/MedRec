@@ -1,5 +1,6 @@
 ﻿Public Class Form1
-    Dim user As New Users
+
+    Public Property user As New Users
     Dim db As New UserDB
     Dim util As New Util
     Dim dbMain As New MainDB
