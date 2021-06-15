@@ -23,6 +23,14 @@ Partial Class Frm_VisitHistory
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.gb1 = New System.Windows.Forms.GroupBox()
+        Me.lblVisits = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblOustanding = New System.Windows.Forms.Label()
+        Me.lblPaid = New System.Windows.Forms.Label()
+        Me.lblPatients = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.gbId = New System.Windows.Forms.GroupBox()
         Me.chkName = New System.Windows.Forms.CheckBox()
         Me.txtId = New System.Windows.Forms.TextBox()
@@ -40,19 +48,12 @@ Partial Class Frm_VisitHistory
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.gbPeriod = New System.Windows.Forms.GroupBox()
         Me.chkPeriod = New System.Windows.Forms.CheckBox()
+        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
+        Me.IconButton4 = New FontAwesome.Sharp.IconButton()
         Me.dtpPeriod = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.lblPatients = New System.Windows.Forms.Label()
-        Me.lblPaid = New System.Windows.Forms.Label()
-        Me.lblOustanding = New System.Windows.Forms.Label()
-        Me.lblVisits = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton4 = New FontAwesome.Sharp.IconButton()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.gb1.SuspendLayout()
         Me.gbId.SuspendLayout()
         Me.gbStatus.SuspendLayout()
@@ -89,6 +90,86 @@ Partial Class Frm_VisitHistory
         Me.gb1.Size = New System.Drawing.Size(1418, 138)
         Me.gb1.TabIndex = 62
         Me.gb1.TabStop = False
+        '
+        'lblVisits
+        '
+        Me.lblVisits.AutoSize = True
+        Me.lblVisits.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVisits.Location = New System.Drawing.Point(1088, 25)
+        Me.lblVisits.Name = "lblVisits"
+        Me.lblVisits.Size = New System.Drawing.Size(70, 22)
+        Me.lblVisits.TabIndex = 77
+        Me.lblVisits.Text = "______"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(1026, 25)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(58, 22)
+        Me.Label7.TabIndex = 76
+        Me.Label7.Text = "Visits:"
+        '
+        'lblOustanding
+        '
+        Me.lblOustanding.AutoSize = True
+        Me.lblOustanding.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOustanding.Location = New System.Drawing.Point(1088, 108)
+        Me.lblOustanding.Name = "lblOustanding"
+        Me.lblOustanding.Size = New System.Drawing.Size(70, 22)
+        Me.lblOustanding.TabIndex = 75
+        Me.lblOustanding.Text = "______"
+        '
+        'lblPaid
+        '
+        Me.lblPaid.AutoSize = True
+        Me.lblPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPaid.Location = New System.Drawing.Point(1088, 83)
+        Me.lblPaid.Name = "lblPaid"
+        Me.lblPaid.Size = New System.Drawing.Size(70, 22)
+        Me.lblPaid.TabIndex = 74
+        Me.lblPaid.Text = "______"
+        '
+        'lblPatients
+        '
+        Me.lblPatients.AutoSize = True
+        Me.lblPatients.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPatients.Location = New System.Drawing.Point(1088, 55)
+        Me.lblPatients.Name = "lblPatients"
+        Me.lblPatients.Size = New System.Drawing.Size(70, 22)
+        Me.lblPatients.TabIndex = 73
+        Me.lblPatients.Text = "______"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(977, 108)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(107, 22)
+        Me.Label5.TabIndex = 72
+        Me.Label5.Text = "Oustanding:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(987, 83)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(97, 22)
+        Me.Label4.TabIndex = 71
+        Me.Label4.Text = "Total Paid:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(1004, 55)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(80, 22)
+        Me.Label3.TabIndex = 70
+        Me.Label3.Text = "Patients:"
         '
         'gbId
         '
@@ -283,128 +364,6 @@ Partial Class Frm_VisitHistory
         Me.chkPeriod.UseVisualStyleBackColor = True
         Me.chkPeriod.Visible = False
         '
-        'dtpPeriod
-        '
-        Me.dtpPeriod.CustomFormat = "  MMM-yyyy"
-        Me.dtpPeriod.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpPeriod.Location = New System.Drawing.Point(54, 67)
-        Me.dtpPeriod.Name = "dtpPeriod"
-        Me.dtpPeriod.Size = New System.Drawing.Size(124, 26)
-        Me.dtpPeriod.TabIndex = 17
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox10.Controls.Add(Me.dgv1)
-        Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox10.Location = New System.Drawing.Point(6, 136)
-        Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox10.Size = New System.Drawing.Size(1418, 673)
-        Me.GroupBox10.TabIndex = 63
-        Me.GroupBox10.TabStop = False
-        '
-        'dgv1
-        '
-        Me.dgv1.AllowUserToAddRows = False
-        Me.dgv1.AllowUserToDeleteRows = False
-        Me.dgv1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv1.Location = New System.Drawing.Point(6, 15)
-        Me.dgv1.Name = "dgv1"
-        Me.dgv1.ReadOnly = True
-        Me.dgv1.RowHeadersVisible = False
-        Me.dgv1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
-        Me.dgv1.RowTemplate.Height = 32
-        Me.dgv1.Size = New System.Drawing.Size(1404, 650)
-        Me.dgv1.TabIndex = 59
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(1004, 55)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(80, 22)
-        Me.Label3.TabIndex = 70
-        Me.Label3.Text = "Patients:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(987, 83)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(97, 22)
-        Me.Label4.TabIndex = 71
-        Me.Label4.Text = "Total Paid:"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(977, 108)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(107, 22)
-        Me.Label5.TabIndex = 72
-        Me.Label5.Text = "Oustanding:"
-        '
-        'lblPatients
-        '
-        Me.lblPatients.AutoSize = True
-        Me.lblPatients.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPatients.Location = New System.Drawing.Point(1088, 55)
-        Me.lblPatients.Name = "lblPatients"
-        Me.lblPatients.Size = New System.Drawing.Size(70, 22)
-        Me.lblPatients.TabIndex = 73
-        Me.lblPatients.Text = "______"
-        '
-        'lblPaid
-        '
-        Me.lblPaid.AutoSize = True
-        Me.lblPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPaid.Location = New System.Drawing.Point(1088, 83)
-        Me.lblPaid.Name = "lblPaid"
-        Me.lblPaid.Size = New System.Drawing.Size(70, 22)
-        Me.lblPaid.TabIndex = 74
-        Me.lblPaid.Text = "______"
-        '
-        'lblOustanding
-        '
-        Me.lblOustanding.AutoSize = True
-        Me.lblOustanding.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOustanding.Location = New System.Drawing.Point(1088, 108)
-        Me.lblOustanding.Name = "lblOustanding"
-        Me.lblOustanding.Size = New System.Drawing.Size(70, 22)
-        Me.lblOustanding.TabIndex = 75
-        Me.lblOustanding.Text = "______"
-        '
-        'lblVisits
-        '
-        Me.lblVisits.AutoSize = True
-        Me.lblVisits.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVisits.Location = New System.Drawing.Point(1088, 25)
-        Me.lblVisits.Name = "lblVisits"
-        Me.lblVisits.Size = New System.Drawing.Size(70, 22)
-        Me.lblVisits.TabIndex = 77
-        Me.lblVisits.Text = "______"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(1026, 25)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(58, 22)
-        Me.Label7.TabIndex = 76
-        Me.Label7.Text = "Visits:"
-        '
         'IconButton3
         '
         Me.IconButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
@@ -438,6 +397,60 @@ Partial Class Frm_VisitHistory
         Me.IconButton4.TabIndex = 4
         Me.IconButton4.UseVisualStyleBackColor = False
         '
+        'dtpPeriod
+        '
+        Me.dtpPeriod.CustomFormat = "  MMM-yyyy"
+        Me.dtpPeriod.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpPeriod.Location = New System.Drawing.Point(54, 67)
+        Me.dtpPeriod.Name = "dtpPeriod"
+        Me.dtpPeriod.Size = New System.Drawing.Size(124, 26)
+        Me.dtpPeriod.TabIndex = 17
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox10.Controls.Add(Me.Label6)
+        Me.GroupBox10.Controls.Add(Me.dgv1)
+        Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox10.Location = New System.Drawing.Point(6, 136)
+        Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox10.Size = New System.Drawing.Size(1418, 673)
+        Me.GroupBox10.TabIndex = 63
+        Me.GroupBox10.TabStop = False
+        '
+        'dgv1
+        '
+        Me.dgv1.AllowUserToAddRows = False
+        Me.dgv1.AllowUserToDeleteRows = False
+        Me.dgv1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv1.Location = New System.Drawing.Point(6, 15)
+        Me.dgv1.Name = "dgv1"
+        Me.dgv1.ReadOnly = True
+        Me.dgv1.RowHeadersVisible = False
+        Me.dgv1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
+        Me.dgv1.RowTemplate.Height = 32
+        Me.dgv1.Size = New System.Drawing.Size(1404, 650)
+        Me.dgv1.TabIndex = 59
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label6.Location = New System.Drawing.Point(669, 325)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(388, 22)
+        Me.Label6.TabIndex = 71
+        Me.Label6.Text = "poner boton para modificar y eliminar las visitas"
+        '
         'Frm_VisitHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -461,6 +474,7 @@ Partial Class Frm_VisitHistory
         Me.gbPeriod.ResumeLayout(False)
         Me.gbPeriod.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -497,4 +511,5 @@ Partial Class Frm_VisitHistory
     Friend WithEvents Label3 As Label
     Friend WithEvents lblVisits As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
 End Class
