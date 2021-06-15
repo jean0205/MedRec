@@ -616,10 +616,11 @@
     End Sub
     Private Sub Frm_Visit_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
-
             If Not savedVisit Then
                 If util.yesOrNot("This visit have not been saved and will be deleted if you close this screen. Do you want To continue?", "Delete Visit") Then
                     dbVisit.DeleteVisit(visitId)
+                    dbMedications.DeleteMedicationByVisitId(visitId)
+                    dbTest.DeleteTestByVisitId(visitId)
                 Else
                     'loadVisit(visitList(visitList.Count - 1))
                     'EnableChanges(True)

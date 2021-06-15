@@ -227,13 +227,29 @@ Public Class TestComplementDB
         End Using
     End Sub
 
-    '########### DELETE SURGERY ####################
+    '########### DELETE Test ####################
     Sub DeleteTest(ByVal id As Integer)
         Dim query As String = "DELETE FROM [dbo].[TestComplementariy]
                                WHERE Id= @Id"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+    End Sub
+    Sub DeleteTestByVisitId(ByVal VisitId As Integer)
+        Dim query As String = "DELETE FROM [dbo].[TestComplementariy]
+                               WHERE VisitId= @VisitId"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@VisitId", SqlDbType.Int).Value = VisitId
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()

@@ -243,5 +243,21 @@ Public Class MedicationsDB
             End Using
         End Using
     End Sub
+    Sub DeleteMedicationByVisitId(ByVal visitId As Integer)
+        Dim query As String = "DELETE FROM [dbo].[Medications]
+                               WHERE VisitId= @VisitId"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@VisitId", SqlDbType.Int).Value = visitId
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+    End Sub
 
 End Class

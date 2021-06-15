@@ -1,6 +1,8 @@
 ﻿Public Class Frm_VisitHistory
     Dim util As New Util
     Dim db As New VisitDB
+    Dim dbTest As New TestComplementDB
+    Dim dbMedications As New MedicationsDB
     Dim dtVisits As New DataTable
     Dim dtNames As New DataTable
     Dim dtDate As New DataTable
@@ -62,6 +64,8 @@
             dgv1.Columns(0).Visible = False
             dgv1.Columns(1).Visible = False
             util.paintDGVRows(dgv1, Color.Beige, Color.Bisque)
+            util.addBottomColumns(dgv1, "UpdateCol", "Update")
+            util.addBottomColumns(dgv1, "DeleteCol", "Delete")
             'headers
             dgv1.Columns(2).HeaderText = "Patient Name"
             dgv1.Columns(3).HeaderText = "Visit Date"
@@ -297,6 +301,66 @@
                     gb.Enabled = False
                 End If
             Next
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Private Sub DgvCellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgv1.CellPainting
+        Try
+            Dim senderGrid As DataGridView = CType(sender, DataGridView)
+            If e.RowIndex < 0 Then
+                Exit Sub
+            End If
+            If e.ColumnIndex >= 0 Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All)
+                    Dim w = My.Resources.delete.Width
+                    Dim h = My.Resources.delete.Height
+                    Dim x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2
+                    Dim y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2
+                    e.Graphics.DrawImage(My.Resources.delete, New Rectangle(x, y, w, h))
+                    e.Handled = True
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "UpdateCol" Then
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All)
+                    Dim w = My.Resources.update.Width
+                    Dim h = My.Resources.update.Height
+                    Dim x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2
+                    Dim y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2
+                    e.Graphics.DrawImage(My.Resources.update, New Rectangle(x, y, w, h))
+                    e.Handled = True
+                End If
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
+    Private Sub dgv1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv1.CellContentClick
+        Try
+            If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
+                Exit Sub
+            End If
+            Dim senderGrid = DirectCast(sender, DataGridView)
+            Dim visitId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("Id").Value)
+            'buttom Form
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
+                    If util.yesOrNot("Do you want to delete the selected Visit", "Delete Visit") Then
+                        db.DeleteVisit(visitId)
+                        dbTest.DeleteTestByVisitId(visitId)
+                        dbMedications.DeleteMedicationByVisitId(visitId)
+                        util.InformationMessage("Visit successfully deleted", "Visit Daleted")
+                        getHistory()
+                    End If
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "UpdateCol" Then
+                    Dim patientId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("PatientId").Value)
+                    Dim frm As New Frm_Visit(visitId, patientId)
+                    frm.ShowDialog()
+                    getHistory()
+                End If
+            End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

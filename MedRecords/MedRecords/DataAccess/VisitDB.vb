@@ -202,7 +202,8 @@ Public Class VisitDB
     Async Function GetVisitTable() As Task(Of DataTable)
         Dim query As String = "SELECT V.Id,[PatientId],concat (P.[First Name],' ',P.[Last Name]),[VisitDate],[ServicesId],
                                     [ServiceTotal],[OtherServices],[OSCharges],[Disscount],[ToPay],[Paid],[Oustanding]
-                              FROM [dbo].[Visit] V inner join Patient P on V.PatientId=p.Id"
+                              FROM [dbo].[Visit] V inner join Patient P on V.PatientId=p.Id
+                                order by VisitDate desc"
         Dim table As New DataTable
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
