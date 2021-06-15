@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Imports SQLDMO
+
 Public Class MainDB
     Dim conString As String = My.Settings.connectString
 

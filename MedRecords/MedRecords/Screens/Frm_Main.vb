@@ -159,6 +159,7 @@ Public Class Frm_Main
                     backupPath = fName.ToString.Replace("\", "\\")
                     dbMain.RestoreDatabase(backupPath)
                     util.InformationMessage("Data Base successfully restored", "Data base Restored")
+                    Me.Close()
                 End If
             End If
         Catch ex As Exception

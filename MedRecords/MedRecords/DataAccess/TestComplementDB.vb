@@ -104,9 +104,11 @@ Public Class TestComplementDB
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
                     If reader.Read Then
-                        bytes = DirectCast(reader("File"), Byte())
+                        If Not IsDBNull(reader("File")) Then
+                            bytes = DirectCast(reader("File"), Byte())
+                        End If
                     End If
-                    reader.Close()
+                        reader.Close()
                     connection.Close()
                     command.Dispose()
                 Catch ex As Exception

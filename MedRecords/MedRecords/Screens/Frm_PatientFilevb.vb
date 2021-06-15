@@ -512,8 +512,12 @@ Public Class Frm_PatientFilevb
                     loadTest()
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "FileColTest" Then
-                    Dim frm As New Frm_FileViewer(rowId)
-                    frm.Show()
+                    If dbTest.getTestDocument(rowId).Length > 0 Then
+                        Dim frm As New Frm_FileViewer(rowId)
+                        frm.Show()
+                    Else
+                        util.InformationMessage("No file was attached to this test", "No File")
+                    End If
                 End If
             End If
             'PREGNANCY
