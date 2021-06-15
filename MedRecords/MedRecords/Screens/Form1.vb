@@ -48,6 +48,11 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtuser.Select()
+
+        If Not db.testConection() Then
+            util.ErrorMessage("Data Base server not found", "SQL Server Error")
+            Me.Close()
+        End If
     End Sub
 
     'Private Sub ibtnRestore_Click(sender As Object, e As EventArgs) Handles ibtnRestore.Click

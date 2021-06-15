@@ -4,6 +4,19 @@ Imports System.Reflection
 Public Class UserDB
     Dim conString As String = My.Settings.connectString
 
+    Function testConection() As Boolean
+        Dim resul As Boolean = True
+        Using connection As New SqlConnection(conString)
+            Try
+
+                connection.Open()
+            Catch ex As Exception
+                Return False
+            End Try
+        End Using
+        Return resul
+    End Function
+
     '########### INSERT Appoitment ####################
     Sub insertUser(ByVal user As Users)
         Dim query As String = "INSERT INTO [dbo].[UserAccess]
