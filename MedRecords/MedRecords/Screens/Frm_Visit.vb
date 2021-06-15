@@ -88,7 +88,7 @@
             ibtnEditVisit.Visible = True
             ibtnSave.Visible = False
         End If
-
+        chkPaperRecord.Checked = patient.PaperRecord
 
     End Sub
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click

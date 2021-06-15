@@ -311,6 +311,9 @@ Public Class Frm_Main
                     End If
                     If senderGrid.Columns(e.ColumnIndex).Name = "VisitCol" Then
                         Dim patientId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("PatientId").Value)
+                        If Not checkAccess("Visits") Then
+                            Exit Sub
+                        End If
                         If appoitment.VisitId = 0 Then
                             Dim frm As New Frm_Visit(patientId, rowId, True)
                             frm.ShowDialog()

@@ -62,7 +62,6 @@ Partial Class Frm_Visit
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lblLastName = New System.Windows.Forms.Label()
         Me.lblFirstName = New System.Windows.Forms.Label()
-        Me.chkNoHistory = New System.Windows.Forms.CheckBox()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.gbBilling = New System.Windows.Forms.GroupBox()
@@ -483,7 +482,6 @@ Partial Class Frm_Visit
         Me.GroupBox3.Controls.Add(Me.gbVisits)
         Me.GroupBox3.Controls.Add(Me.lblLastName)
         Me.GroupBox3.Controls.Add(Me.lblFirstName)
-        Me.GroupBox3.Controls.Add(Me.chkNoHistory)
         Me.GroupBox3.Controls.Add(Me.chkPaperRecord)
         Me.GroupBox3.Controls.Add(Me.IconButton1)
         Me.GroupBox3.Controls.Add(Me.gbBilling)
@@ -638,16 +636,6 @@ Partial Class Frm_Visit
         Me.lblFirstName.TabIndex = 290
         Me.lblFirstName.Text = "_______________"
         '
-        'chkNoHistory
-        '
-        Me.chkNoHistory.AutoSize = True
-        Me.chkNoHistory.Location = New System.Drawing.Point(266, 213)
-        Me.chkNoHistory.Name = "chkNoHistory"
-        Me.chkNoHistory.Size = New System.Drawing.Size(142, 24)
-        Me.chkNoHistory.TabIndex = 289
-        Me.chkNoHistory.Text = "No Clinic History"
-        Me.chkNoHistory.UseVisualStyleBackColor = True
-        '
         'chkPaperRecord
         '
         Me.chkPaperRecord.AutoSize = True
@@ -760,7 +748,7 @@ Partial Class Frm_Visit
         Me.lblOustanding.AutoSize = True
         Me.lblOustanding.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOustanding.ForeColor = System.Drawing.Color.Yellow
-        Me.lblOustanding.Location = New System.Drawing.Point(484, 17)
+        Me.lblOustanding.Location = New System.Drawing.Point(435, 17)
         Me.lblOustanding.Name = "lblOustanding"
         Me.lblOustanding.Size = New System.Drawing.Size(45, 24)
         Me.lblOustanding.TabIndex = 291
@@ -795,7 +783,7 @@ Partial Class Frm_Visit
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.Yellow
-        Me.Label21.Location = New System.Drawing.Point(330, 17)
+        Me.Label21.Location = New System.Drawing.Point(281, 17)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(148, 24)
         Me.Label21.TabIndex = 290
@@ -1143,7 +1131,6 @@ Partial Class Frm_Visit
     Friend WithEvents txtOtherServices As TextBox
     Friend WithEvents Label23 As Label
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
-    Friend WithEvents chkNoHistory As CheckBox
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents lblFirstName As Label
     Friend WithEvents lblLastName As Label

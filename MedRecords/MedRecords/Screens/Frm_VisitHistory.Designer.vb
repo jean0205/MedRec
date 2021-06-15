@@ -53,7 +53,6 @@ Partial Class Frm_VisitHistory
         Me.dtpPeriod = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.gb1.SuspendLayout()
         Me.gbId.SuspendLayout()
         Me.gbStatus.SuspendLayout()
@@ -411,7 +410,6 @@ Partial Class Frm_VisitHistory
         Me.GroupBox10.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox10.Controls.Add(Me.Label6)
         Me.GroupBox10.Controls.Add(Me.dgv1)
         Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox10.Location = New System.Drawing.Point(6, 136)
@@ -440,17 +438,6 @@ Partial Class Frm_VisitHistory
         Me.dgv1.Size = New System.Drawing.Size(1404, 650)
         Me.dgv1.TabIndex = 59
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label6.Location = New System.Drawing.Point(669, 325)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(388, 22)
-        Me.Label6.TabIndex = 71
-        Me.Label6.Text = "poner boton para modificar y eliminar las visitas"
-        '
         'Frm_VisitHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -474,7 +461,6 @@ Partial Class Frm_VisitHistory
         Me.gbPeriod.ResumeLayout(False)
         Me.gbPeriod.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -511,5 +497,4 @@ Partial Class Frm_VisitHistory
     Friend WithEvents Label3 As Label
     Friend WithEvents lblVisits As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Label6 As Label
 End Class

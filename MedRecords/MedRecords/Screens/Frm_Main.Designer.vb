@@ -37,15 +37,6 @@ Partial Class Frm_Main
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.lblTotalPaid = New System.Windows.Forms.Label()
-        Me.lblTotaltoPaid = New System.Windows.Forms.Label()
-        Me.lblTotalPatients = New System.Windows.Forms.Label()
-        Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
-        Me.lblAge = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.panel2 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -70,7 +61,6 @@ Partial Class Frm_Main
         Me.gbNewAppointment.SuspendLayout()
         CType(Me.dgv2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         Me.panel2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -262,112 +252,6 @@ Partial Class Frm_Main
         Me.lblTime.Size = New System.Drawing.Size(146, 64)
         Me.lblTime.TabIndex = 81
         Me.lblTime.Text = "Date"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.lblTotalPaid)
-        Me.GroupBox1.Controls.Add(Me.lblTotaltoPaid)
-        Me.GroupBox1.Controls.Add(Me.lblTotalPatients)
-        Me.GroupBox1.Controls.Add(Me.chkPaperRecord)
-        Me.GroupBox1.Controls.Add(Me.lblAge)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox1.Location = New System.Drawing.Point(1025, 3)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(379, 182)
-        Me.GroupBox1.TabIndex = 83
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Doctor Statistics:"
-        '
-        'lblTotalPaid
-        '
-        Me.lblTotalPaid.AutoSize = True
-        Me.lblTotalPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalPaid.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblTotalPaid.Location = New System.Drawing.Point(197, 102)
-        Me.lblTotalPaid.Name = "lblTotalPaid"
-        Me.lblTotalPaid.Size = New System.Drawing.Size(108, 20)
-        Me.lblTotalPaid.TabIndex = 261
-        Me.lblTotalPaid.Text = "___________"
-        '
-        'lblTotaltoPaid
-        '
-        Me.lblTotaltoPaid.AutoSize = True
-        Me.lblTotaltoPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotaltoPaid.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblTotaltoPaid.Location = New System.Drawing.Point(197, 67)
-        Me.lblTotaltoPaid.Name = "lblTotaltoPaid"
-        Me.lblTotaltoPaid.Size = New System.Drawing.Size(108, 20)
-        Me.lblTotaltoPaid.TabIndex = 260
-        Me.lblTotaltoPaid.Text = "___________"
-        '
-        'lblTotalPatients
-        '
-        Me.lblTotalPatients.AutoSize = True
-        Me.lblTotalPatients.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalPatients.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblTotalPatients.Location = New System.Drawing.Point(197, 32)
-        Me.lblTotalPatients.Name = "lblTotalPatients"
-        Me.lblTotalPatients.Size = New System.Drawing.Size(108, 20)
-        Me.lblTotalPatients.TabIndex = 259
-        Me.lblTotalPatients.Text = "___________"
-        '
-        'chkPaperRecord
-        '
-        Me.chkPaperRecord.AutoSize = True
-        Me.chkPaperRecord.Location = New System.Drawing.Point(860, 11)
-        Me.chkPaperRecord.Name = "chkPaperRecord"
-        Me.chkPaperRecord.Size = New System.Drawing.Size(126, 24)
-        Me.chkPaperRecord.TabIndex = 258
-        Me.chkPaperRecord.Text = "Paper Record"
-        Me.chkPaperRecord.UseVisualStyleBackColor = True
-        '
-        'lblAge
-        '
-        Me.lblAge.AutoSize = True
-        Me.lblAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAge.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblAge.Location = New System.Drawing.Point(706, 80)
-        Me.lblAge.Name = "lblAge"
-        Me.lblAge.Size = New System.Drawing.Size(36, 20)
-        Me.lblAge.TabIndex = 256
-        Me.lblAge.Text = "___"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(67, 102)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(124, 20)
-        Me.Label2.TabIndex = 238
-        Me.Label2.Text = "Patients waiting:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label1.Location = New System.Drawing.Point(52, 67)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(139, 20)
-        Me.Label1.TabIndex = 237
-        Me.Label1.Text = "Patients attended:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label4.Location = New System.Drawing.Point(13, 32)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(178, 20)
-        Me.Label4.TabIndex = 236
-        Me.Label4.Text = "Appointments for today:"
         '
         'panel2
         '
@@ -665,7 +549,7 @@ Partial Class Frm_Main
         Me.ibtnNewAppointment.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnNewAppointment.IconSize = 55
         Me.ibtnNewAppointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnNewAppointment.Location = New System.Drawing.Point(755, 87)
+        Me.ibtnNewAppointment.Location = New System.Drawing.Point(1143, 87)
         Me.ibtnNewAppointment.Name = "ibtnNewAppointment"
         Me.ibtnNewAppointment.Size = New System.Drawing.Size(251, 94)
         Me.ibtnNewAppointment.TabIndex = 84
@@ -691,7 +575,7 @@ Partial Class Frm_Main
         Me.GroupBox3.Controls.Add(Me.IconButton1)
         Me.GroupBox3.Controls.Add(Me.dtpDate)
         Me.GroupBox3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox3.Location = New System.Drawing.Point(737, 3)
+        Me.GroupBox3.Location = New System.Drawing.Point(1114, 3)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(282, 78)
         Me.GroupBox3.TabIndex = 255
@@ -749,7 +633,6 @@ Partial Class Frm_Main
         Me.ClientSize = New System.Drawing.Size(1408, 780)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.ibtnNewAppointment)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.lblTime)
         Me.Controls.Add(Me.GroupBox2)
@@ -764,8 +647,6 @@ Partial Class Frm_Main
         Me.gbNewAppointment.PerformLayout()
         CType(Me.dgv2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.panel2.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
@@ -777,15 +658,6 @@ Partial Class Frm_Main
     Friend WithEvents dgv1 As DataGridView
     Private WithEvents lblDate As Label
     Private WithEvents lblTime As Label
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents lblTotalPaid As Label
-    Friend WithEvents lblTotaltoPaid As Label
-    Friend WithEvents lblTotalPatients As Label
-    Friend WithEvents chkPaperRecord As CheckBox
-    Friend WithEvents lblAge As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label4 As Label
     Private WithEvents panel2 As Panel
     Friend WithEvents ibtnRestore As FontAwesome.Sharp.IconButton
     Friend WithEvents ibtnBackup As FontAwesome.Sharp.IconButton
