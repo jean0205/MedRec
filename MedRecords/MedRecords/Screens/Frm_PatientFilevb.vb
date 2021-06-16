@@ -101,6 +101,7 @@ Public Class Frm_PatientFilevb
             dgvMedicalProblems.Columns.Clear()
             dgvMedicalProblems.DataSource = dbMedicalProblems.GetIlnessList(patient.Id).
                                                 OrderByDescending(Function(r) r.ProblemDate).ToList
+            dgvMedicalProblems.Columns("ProblemDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
             util.paintDGVRows(dgvMedicalProblems, Color.Beige, Color.Bisque)
             util.addBottomColumns(dgvMedicalProblems, "DetailsCol", "Details")
             util.addBottomColumns(dgvMedicalProblems, "DeleteCol", "Delete")
@@ -118,6 +119,7 @@ Public Class Frm_PatientFilevb
             dgvGynProblems.Columns.Clear()
             dgvGynProblems.DataSource = dbMedicalProblems.GetGynecroblemsList(patient.Id).
                                                 OrderByDescending(Function(r) r.ProblemDate).ToList
+            dgvGynProblems.Columns("ProblemDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
             util.paintDGVRows(dgvGynProblems, Color.Beige, Color.Bisque)
             util.addBottomColumns(dgvGynProblems, "DetailsGCol", "Details")
             util.addBottomColumns(dgvGynProblems, "DeleteGCol", "Delete")
@@ -190,6 +192,7 @@ Public Class Frm_PatientFilevb
             dgvSurgeries.Columns.Clear()
             dgvSurgeries.DataSource = dbSurgery.GetSurgeryList(patient.Id).
                                                 OrderByDescending(Function(r) r.SurgeryDate).ToList
+            dgvSurgeries.Columns("SurgeryDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
             dgvSurgeries.RowsDefaultCellStyle.BackColor = Color.Beige
             For Each row As DataGridViewRow In dgvSurgeries.Rows.Cast(Of DataGridViewRow).
                         Where(Function(r) r.Cells("DoneByMe").Value = True).ToList
@@ -214,6 +217,9 @@ Public Class Frm_PatientFilevb
             dgvTests.Columns.Clear()
             dgvTests.DataSource = dbTest.GetTestListVisitView(patient.Id).
                                                 OrderByDescending(Function(r) r.TestDate).ToList
+            dgvTests.Columns("VisitDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
+            dgvTests.Columns("TestDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
+
             dgvTests.RowsDefaultCellStyle.BackColor = Color.Beige
             util.addBottomColumns(dgvTests, "DetailsColTest", "Details")
             util.addBottomColumns(dgvTests, "FileColTest", "File")
@@ -236,6 +242,7 @@ Public Class Frm_PatientFilevb
             dgvPregnancies.Columns.Clear()
             dgvPregnancies.DataSource = dbPregnancy.GetPregnancyList(patient.Id).
                                                 OrderByDescending(Function(r) r.PregnancyDate).ToList
+            dgvPregnancies.Columns("PregnancyDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
             dgvPregnancies.RowsDefaultCellStyle.BackColor = Color.Beige
             util.addBottomColumns(dgvPregnancies, "DetailsColPreg", "Details")
             util.addBottomColumns(dgvPregnancies, "DeleteColPreg", "Delete")
@@ -261,6 +268,8 @@ Public Class Frm_PatientFilevb
             util.hideDGVColumns(dgvContraceptive, indexList)
             dgvContraceptive.Columns("FromD").HeaderText = "From"
             dgvContraceptive.Columns("ToDate").HeaderText = "To"
+            dgvContraceptive.Columns("FromD").DefaultCellStyle.Format = "dd-MMM-yyyy"
+            dgvContraceptive.Columns("ToDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
             dgvContraceptive.Columns("DetailsColC").Width = 60
             dgvContraceptive.Columns("DeleteColC").Width = 60
             addContextMenu(dgvContraceptive, "New Contraceptive")
