@@ -31,7 +31,7 @@ Public Class Frm_Main
 #Region "Botones"
     Private Sub ibtnPatients_Click(sender As Object, e As EventArgs) Handles ibtnPatients.Click
 
-        Dim frm As New Frm_NewPatient
+        Dim frm As New Frm_NewPatient(userId)
         frm.ShowDialog()
     End Sub
     Private Sub ibtnVisits_Click(sender As Object, e As EventArgs) Handles ibtnVisits.Click
@@ -109,7 +109,7 @@ Public Class Frm_Main
     End Sub
 
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles ibtnNewPatient.Click
-        Dim frm As New Frm_NewPatient
+        Dim frm As New Frm_NewPatient(userId)
         frm.ShowDialog()
     End Sub
 

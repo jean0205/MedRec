@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=MedicalRecords;Persist Security Info=True;Integrate"& _ 
-            "d Security=true")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=SG-01-DEV-02\SQLSERVER;Initial Catalog=MedicalRecords;Persist Securit"& _ 
+            "y Info=True;Integrated Security=true")>  _
         Public ReadOnly Property connectString() As String
             Get
                 Return CType(Me("connectString"),String)

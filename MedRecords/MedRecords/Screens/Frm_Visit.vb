@@ -19,15 +19,6 @@
     Dim dbVisit As New VisitDB
     Dim dbAppoitment As New AppointmentDB
 
-
-    Sub New()
-
-        ' This call is required by the designer.
-        InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
-
-    End Sub
     Sub New(visitId As Integer, patientId As Integer)
 
         ' This call is required by the designer.

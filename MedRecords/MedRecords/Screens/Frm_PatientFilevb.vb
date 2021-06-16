@@ -15,6 +15,7 @@ Public Class Frm_PatientFilevb
     Dim dbContraceptive As New ContraceptiveDB
     Dim dbFamily As New FamilyHistDB
     Dim dbHabits As New HabitsDB
+    Dim dbUsers As New UserDB
     Dim notesExist As Boolean = False
 
     Dim patient As New PatientE
@@ -49,10 +50,25 @@ Public Class Frm_PatientFilevb
         notesExist = dbPatient.noteExist(patient.Id)
     End Sub
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
+        If Not checkAccess() Then
+            Exit Sub
+        End If
         Dim frm As New Frm_Visit(patient.Id)
         frm.ShowDialog()
     End Sub
-
+    Function checkAccess() As Boolean
+        Try
+            Dim user As New Users
+            user = dbUsers.GetUserById(Form1.user.id)
+            If Not user.GetType().GetProperties().Where(Function(r) r.Name = "Visits").First.GetValue(user) Then
+                util.ErrorMessage("You have not access to this feature in the application." & vbLf & " Please contact your system administrator", "No Access")
+                Return False
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+        Return True
+    End Function
 #Region "CargandoHistoria"
     Sub patientBasicInfo()
         Try

@@ -198,7 +198,7 @@ Partial Class Frm_NewPatient
         Me.cmbSex.Items.AddRange(New Object() {"FEMALE", "MALE"})
         Me.cmbSex.Location = New System.Drawing.Point(505, 38)
         Me.cmbSex.Name = "cmbSex"
-        Me.cmbSex.Size = New System.Drawing.Size(80, 28)
+        Me.cmbSex.Size = New System.Drawing.Size(119, 28)
         Me.cmbSex.TabIndex = 251
         '
         'cmbParish

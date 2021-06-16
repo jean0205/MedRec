@@ -3,17 +3,22 @@
 Public Class Frm_NewPatient
     Dim util As New Util
     Dim dbPatient As New PatientEDB
+    Dim dbUsers As New UserDB
     Dim patient As New PatientE
     Dim patientId As Integer
     Dim updating As Boolean = False
+    Dim patientList As New List(Of PatientE)
+    Dim userId As Integer
 
-    'validar todos los texbox
-    'solo numeros en el telefono
-    'cuando escriba en los campos de arribafiltrar el datagridview
+    Sub New(userId As Integer)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        Me.userId = userId
+    End Sub
 
     Private Sub Frm_NewPatient_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadPatientsList()
-
+        loadList()
     End Sub
     Private Sub dtpDOB_ValueChanged(sender As Object, e As EventArgs) Handles dtpDOB.ValueChanged
         Try
@@ -55,17 +60,33 @@ Public Class Frm_NewPatient
             End If
             cleanAfterInsert()
             util.InformationMessage("Patient successfully saved", "New Patient")
-            loadPatientsList()
+            loadList()
             updating = False
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+    Sub loadList()
+        Try
+            patientList = New List(Of PatientE)
+            patientList = dbPatient.GetPatientList(True).OrderByDescending(Function(r) r.RegistrationDate).ToList
+            loadPatientsList(patientList)
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
 
-    Sub loadPatientsList()
+    Sub loadPatientsList(list As List(Of PatientE))
         Try
             dgv1.Columns.Clear()
-            dgv1.DataSource = dbPatient.GetPatientList(True).OrderByDescending(Function(r) r.RegistrationDate).ToList
+            dgv1.DataSource = list
+            dgv1.Columns("FirstName").HeaderText = "First Name"
+            dgv1.Columns("LastName").HeaderText = "Last Name"
+            dgv1.Columns("OthersNames").HeaderText = "Others Names"
+            dgv1.Columns("RegistrationDate").HeaderText = "Regist. Date"
+
+            dgv1.Columns("DatOB").DefaultCellStyle.Format = "dd-MMM-yyyy"
+            dgv1.Columns("RegistrationDate").DefaultCellStyle.Format = "dd-MMM-yyyy (hh:mm)"
             util.paintDGVRows(dgv1, Color.Beige, Color.Bisque)
             util.addBottomColumns(dgv1, "MedHistCol", "Med. Hist.")
             util.addBottomColumns(dgv1, "UpdateCol", "Update")
@@ -177,10 +198,13 @@ Public Class Frm_NewPatient
                     If util.yesOrNot("Do you want to delete the selected Patient", "Delete Patient") Then
                         dbPatient.DeletePatient(patientId)
                         util.InformationMessage("Patient successfully deleted", "Patient Daleted")
-                        loadPatientsList()
+                        loadList()
                     End If
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "MedHistCol" Then
+                    If Not checkAccess() Then
+                        Exit Sub
+                    End If
                     Dim frm As New Frm_PatientFilevb(patient)
                     frm.ShowDialog()
                 End If
@@ -193,11 +217,31 @@ Public Class Frm_NewPatient
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
-
+    Function checkAccess() As Boolean
+        Try
+            Dim user As New Users
+            user = dbUsers.GetUserById(userId)
+            If Not user.GetType().GetProperties().Where(Function(r) r.Name = "PatientFile").First.GetValue(user) Then
+                util.ErrorMessage("You have not access to this feature in the application." & vbLf & " Please contact your system administrator", "No Access")
+                Return False
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+        Return True
+    End Function
     Private Sub chkFind_Click(sender As Object, e As EventArgs) Handles chkFind.Click
         Try
             If chkFind.Checked Then
                 cleanAfterInsert()
+                txtFirstName.BackColor = Color.LightGreen
+                txtLastName.BackColor = Color.LightGreen
+                txtFirstName.Select()
+            Else
+                loadList()
+                cleanAfterInsert()
+                txtFirstName.BackColor = Color.White
+                txtLastName.BackColor = Color.White
             End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -206,16 +250,40 @@ Public Class Frm_NewPatient
 
     ' HACER UNA FUNCION DE BUSCAR PACIENTES COMO LA QUE HICE PARA KIOSK
     Private Sub txtFirstName_KeyUp(sender As Object, e As KeyEventArgs) Handles txtOthersNames.KeyUp, txtLastName.KeyUp, txtFirstName.KeyUp
+        Dim txt As TextBox = CType(sender, TextBox)
+        Dim list As New List(Of PatientE)
         If chkFind.Checked Then
-
+            If txt.Name = "txtFirstName" Then
+                If txt.TextLength > 0 Or txtLastName.TextLength > 0 Then
+                    If patientList.Where(Function(r) r.FirstName.ToString.ToUpper.Contains(txt.Text.ToUpper) Or
+                                             r.LastName.ToString.ToUpper.Contains(txtLastName.Text.ToUpper)).Any Then
+                        list = patientList.Where(Function(r) r.FirstName.ToString.ToUpper.Contains(txt.Text.ToUpper) AndAlso
+                                                    r.LastName.ToString.ToUpper.Contains(txtLastName.Text.ToUpper)).ToList
+                        loadPatientsList(list.OrderByDescending(Function(r) r.RegistrationDate).ToList)
+                    End If
+                Else
+                    loadList()
+                End If
+            End If
+            If txt.Name = "txtLastName" Then
+                If txt.TextLength > 0 Or txtFirstName.TextLength > 0 Then
+                    If patientList.Where(Function(r) r.FirstName.ToString.ToUpper.Contains(txtFirstName.Text.ToUpper) Or
+                                             r.LastName.ToString.ToUpper.Contains(txt.Text.ToUpper)).Any Then
+                        list = patientList.Where(Function(r) r.FirstName.ToString.ToUpper.Contains(txtFirstName.Text.ToUpper) AndAlso
+                                                    r.LastName.ToString.ToUpper.Contains(txt.Text.ToUpper)).ToList
+                        loadPatientsList(list.OrderByDescending(Function(r) r.RegistrationDate).ToList)
+                    End If
+                Else
+                    loadList()
+                End If
+            End If
         End If
     End Sub
+
     Private Sub Escape(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
         If e.KeyChar = Chr(27) Then
             cleanAfterInsert()
         End If
     End Sub
-
-
 #End Region
 End Class
