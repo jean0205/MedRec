@@ -22,6 +22,7 @@ Partial Class Frm_VisitHistory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_VisitHistory))
         Me.gb1 = New System.Windows.Forms.GroupBox()
         Me.lblVisits = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -92,6 +93,7 @@ Partial Class Frm_VisitHistory
         '
         'lblVisits
         '
+        Me.lblVisits.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblVisits.AutoSize = True
         Me.lblVisits.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblVisits.Location = New System.Drawing.Point(1088, 25)
@@ -102,6 +104,7 @@ Partial Class Frm_VisitHistory
         '
         'Label7
         '
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(1026, 25)
@@ -112,6 +115,7 @@ Partial Class Frm_VisitHistory
         '
         'lblOustanding
         '
+        Me.lblOustanding.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblOustanding.AutoSize = True
         Me.lblOustanding.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOustanding.Location = New System.Drawing.Point(1088, 108)
@@ -122,6 +126,7 @@ Partial Class Frm_VisitHistory
         '
         'lblPaid
         '
+        Me.lblPaid.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblPaid.AutoSize = True
         Me.lblPaid.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPaid.Location = New System.Drawing.Point(1088, 83)
@@ -132,6 +137,7 @@ Partial Class Frm_VisitHistory
         '
         'lblPatients
         '
+        Me.lblPatients.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblPatients.AutoSize = True
         Me.lblPatients.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPatients.Location = New System.Drawing.Point(1088, 55)
@@ -142,6 +148,7 @@ Partial Class Frm_VisitHistory
         '
         'Label5
         '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(977, 108)
@@ -152,6 +159,7 @@ Partial Class Frm_VisitHistory
         '
         'Label4
         '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(987, 83)
@@ -162,6 +170,7 @@ Partial Class Frm_VisitHistory
         '
         'Label3
         '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(1004, 55)
@@ -446,8 +455,9 @@ Partial Class Frm_VisitHistory
         Me.ClientSize = New System.Drawing.Size(1429, 814)
         Me.Controls.Add(Me.gb1)
         Me.Controls.Add(Me.GroupBox10)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_VisitHistory"
-        Me.Text = "Frm_VisitHistory"
+        Me.Text = "Visits History"
         Me.gb1.ResumeLayout(False)
         Me.gb1.PerformLayout()
         Me.gbId.ResumeLayout(False)

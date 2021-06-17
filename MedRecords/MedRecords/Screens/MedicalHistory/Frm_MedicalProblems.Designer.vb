@@ -22,6 +22,7 @@ Partial Class Frm_MedicalProblems
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_MedicalProblems))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.chkGynec = New System.Windows.Forms.CheckBox()
         Me.dtpProblem = New System.Windows.Forms.DateTimePicker()
@@ -188,8 +189,9 @@ Partial Class Frm_MedicalProblems
         Me.ClientSize = New System.Drawing.Size(785, 244)
         Me.Controls.Add(Me.gbInfo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_MedicalProblems"
-        Me.Text = "Frm_MedicalProblems"
+        Me.Text = "Medical Problems"
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         Me.ResumeLayout(False)

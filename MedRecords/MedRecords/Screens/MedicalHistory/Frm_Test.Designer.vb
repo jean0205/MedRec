@@ -22,6 +22,7 @@ Partial Class Frm_Test
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Test))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.ibtnImportFile = New FontAwesome.Sharp.IconButton()
@@ -41,6 +42,8 @@ Partial Class Frm_Test
         '
         'gbInfo
         '
+        Me.gbInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.gbInfo.Controls.Add(Me.GroupBox4)
         Me.gbInfo.Controls.Add(Me.Label2)
@@ -65,7 +68,7 @@ Partial Class Frm_Test
         '
         'GroupBox4
         '
-        Me.GroupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox4.Controls.Add(Me.ibtnImportFile)
         Me.GroupBox4.Location = New System.Drawing.Point(696, 18)
         Me.GroupBox4.Name = "GroupBox4"
@@ -150,6 +153,7 @@ Partial Class Frm_Test
         '
         'ibtnSave
         '
+        Me.ibtnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
         Me.ibtnSave.FlatAppearance.BorderSize = 2
         Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -221,8 +225,9 @@ Partial Class Frm_Test
         Me.ClientSize = New System.Drawing.Size(962, 827)
         Me.Controls.Add(Me.wb1)
         Me.Controls.Add(Me.gbInfo)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Test"
-        Me.Text = "Frm_Test"
+        Me.Text = "Test-Complementary"
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)

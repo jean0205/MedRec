@@ -22,6 +22,7 @@ Partial Class Frm_Users
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Users))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.txtPassword = New System.Windows.Forms.TextBox()
@@ -184,6 +185,7 @@ Partial Class Frm_Users
         Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_Users"
         Me.Text = "Users and access"

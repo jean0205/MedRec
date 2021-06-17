@@ -22,6 +22,7 @@ Partial Class Frm_Family
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Family))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.chkAlive = New System.Windows.Forms.CheckBox()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
@@ -136,8 +137,10 @@ Partial Class Frm_Family
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(524, 240)
         Me.Controls.Add(Me.gbInfo)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Family"
-        Me.Text = "Frm_Family"
+        Me.Text = "Family History"
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         Me.ResumeLayout(False)

@@ -72,6 +72,7 @@ Public Class Frm_Medications
             End If
             util.InformationMessage("Medication successfully saved", "Medication")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

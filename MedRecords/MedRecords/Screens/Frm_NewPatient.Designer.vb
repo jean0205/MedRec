@@ -22,6 +22,7 @@ Partial Class Frm_NewPatient
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_NewPatient))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.chkFind = New System.Windows.Forms.CheckBox()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
@@ -390,10 +391,11 @@ Partial Class Frm_NewPatient
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.gbInfo)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_NewPatient"
-        Me.Text = "Register New Patient"
+        Me.Text = "Patients"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()

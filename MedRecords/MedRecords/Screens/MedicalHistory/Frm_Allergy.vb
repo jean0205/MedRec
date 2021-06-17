@@ -54,6 +54,7 @@
             End If
             util.InformationMessage("Allergy successfully saved", "Allergy")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

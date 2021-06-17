@@ -22,6 +22,7 @@ Partial Class Frm_Contraceptive
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Contraceptive))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.dtpTo = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -170,6 +171,8 @@ Partial Class Frm_Contraceptive
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(647, 281)
         Me.Controls.Add(Me.gbInfo)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Contraceptive"
         Me.Text = "Frm_Contraceptive"
         Me.gbInfo.ResumeLayout(False)

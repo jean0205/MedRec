@@ -22,6 +22,7 @@ Partial Class Frm_Medications
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Medications))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.txtReason = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -185,8 +186,9 @@ Partial Class Frm_Medications
         Me.ClientSize = New System.Drawing.Size(788, 246)
         Me.Controls.Add(Me.gbInfo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Medications"
-        Me.Text = "Frm_Medications"
+        Me.Text = "Medication"
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         Me.ResumeLayout(False)

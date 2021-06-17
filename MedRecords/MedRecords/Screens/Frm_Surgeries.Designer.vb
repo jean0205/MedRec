@@ -22,7 +22,9 @@ Partial Class Frm_Surgeries
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Surgeries))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.IconButton8 = New FontAwesome.Sharp.IconButton()
         Me.dtpPeriod2 = New System.Windows.Forms.DateTimePicker()
         Me.dtpPeriod1 = New System.Windows.Forms.DateTimePicker()
         Me.lblTotal = New System.Windows.Forms.Label()
@@ -42,7 +44,6 @@ Partial Class Frm_Surgeries
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
-        Me.IconButton8 = New FontAwesome.Sharp.IconButton()
         Me.GroupBox1.SuspendLayout()
         Me.gbInfo.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -67,6 +68,30 @@ Partial Class Frm_Surgeries
         Me.GroupBox1.Size = New System.Drawing.Size(447, 200)
         Me.GroupBox1.TabIndex = 260
         Me.GroupBox1.TabStop = False
+        '
+        'IconButton8
+        '
+        Me.IconButton8.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.IconButton8.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray
+        Me.IconButton8.FlatAppearance.BorderSize = 2
+        Me.IconButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton8.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt
+        Me.IconButton8.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton8.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton8.IconSize = 30
+        Me.IconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton8.Location = New System.Drawing.Point(312, 13)
+        Me.IconButton8.Name = "IconButton8"
+        Me.IconButton8.Size = New System.Drawing.Size(129, 39)
+        Me.IconButton8.TabIndex = 262
+        Me.IconButton8.Text = "Export"
+        Me.IconButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton8.UseVisualStyleBackColor = False
         '
         'dtpPeriod2
         '
@@ -301,30 +326,6 @@ Partial Class Frm_Surgeries
         Me.dgv1.Size = New System.Drawing.Size(1021, 543)
         Me.dgv1.TabIndex = 59
         '
-        'IconButton8
-        '
-        Me.IconButton8.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton8.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray
-        Me.IconButton8.FlatAppearance.BorderSize = 2
-        Me.IconButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton8.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt
-        Me.IconButton8.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton8.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton8.IconSize = 30
-        Me.IconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton8.Location = New System.Drawing.Point(312, 13)
-        Me.IconButton8.Name = "IconButton8"
-        Me.IconButton8.Size = New System.Drawing.Size(129, 39)
-        Me.IconButton8.TabIndex = 262
-        Me.IconButton8.Text = "Export"
-        Me.IconButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton8.UseVisualStyleBackColor = False
-        '
         'Frm_Surgeries
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -335,9 +336,10 @@ Partial Class Frm_Surgeries
         Me.Controls.Add(Me.gbInfo)
         Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_Surgeries"
-        Me.Text = "Frm_Surgeries"
+        Me.Text = "Surgeries"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.gbInfo.ResumeLayout(False)

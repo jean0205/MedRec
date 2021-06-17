@@ -98,6 +98,7 @@ Public Class Frm_Test
             End If
             util.InformationMessage("Test/Complementary successfully saved", "Test/Complementary")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

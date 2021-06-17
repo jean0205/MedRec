@@ -22,6 +22,7 @@ Partial Class Frm_FileViewer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_FileViewer))
         Me.wb1 = New System.Windows.Forms.WebBrowser()
         Me.SuspendLayout()
         '
@@ -40,8 +41,9 @@ Partial Class Frm_FileViewer
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1305, 822)
         Me.Controls.Add(Me.wb1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_FileViewer"
-        Me.Text = "Frm_FileViewer"
+        Me.Text = "File"
         Me.ResumeLayout(False)
 
     End Sub

@@ -65,6 +65,7 @@ Public Class Frm_Habits
             End If
             util.InformationMessage("Habit successfully saved", "Habit")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

@@ -83,7 +83,9 @@ Public Class Frm_PatientFilevb
             dtpDOB.Value = patient.DatOB
             If patient.PaperRecord Then
                 chkPaperRecord.Checked = True
-                chkPaperRecord.BackColor = Color.DarkGreen
+                chkPaperRecord.Visible = True
+            Else
+                chkPaperRecord.Visible = False
             End If
             lblAge.Text = util.CalculateAge(Today, patient.DatOB)
             lblId.Text = patient.Id

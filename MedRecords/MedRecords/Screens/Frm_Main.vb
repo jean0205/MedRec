@@ -102,6 +102,12 @@ Public Class Frm_Main
         lblTime.Text = Now.ToLongTimeString
         lblDate.Text = Now.ToLongDateString
     End Sub
+    Private Async Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        If dtpDate.Value.Date = Today Then
+            Await getPatientList()
+            loadAppoitmentsByDate()
+        End If
+    End Sub
 
     Private Sub ibtnNew_Click(sender As Object, e As EventArgs) Handles ibtnNewAppointment.Click
         loadPatientsTuSearch()
@@ -457,6 +463,8 @@ Public Class Frm_Main
         End If
 
     End Sub
+
+
 
 
 

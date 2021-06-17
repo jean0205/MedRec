@@ -68,6 +68,7 @@ Public Class FrmSurgery
             End If
             util.InformationMessage("Surgery successfully saved", "Surgery")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

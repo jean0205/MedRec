@@ -22,6 +22,7 @@ Partial Class Frm_Pregnancy
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Pregnancy))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.rbtnMisscarriage = New System.Windows.Forms.RadioButton()
@@ -150,8 +151,10 @@ Partial Class Frm_Pregnancy
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(576, 295)
         Me.Controls.Add(Me.gbInfo)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Pregnancy"
-        Me.Text = "Frm_Pregnancy"
+        Me.Text = "Pregnancy"
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)

@@ -74,6 +74,7 @@ Public Class Frm_MedicalProblems
             End If
             util.InformationMessage("Medical Problem/Ilness successfully saved", "Medical Problem/Ilness")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

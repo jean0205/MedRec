@@ -22,19 +22,19 @@ Partial Class Frm_Appoitment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gbInfo = New System.Windows.Forms.GroupBox()
+        Me.dgv1 = New System.Windows.Forms.DataGridView()
+        Me.PatientCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TimeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblPatientName = New System.Windows.Forms.Label()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtComments = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
-        Me.dgv1 = New System.Windows.Forms.DataGridView()
-        Me.PatientCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TimeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gbInfo.SuspendLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -60,6 +60,47 @@ Partial Class Frm_Appoitment
         Me.gbInfo.TabIndex = 82
         Me.gbInfo.TabStop = False
         Me.gbInfo.Text = "Appoitment/Walk-In"
+        '
+        'dgv1
+        '
+        Me.dgv1.AllowUserToAddRows = False
+        Me.dgv1.AllowUserToDeleteRows = False
+        Me.dgv1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgv1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
+        Me.dgv1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCoral
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PatientCol, Me.TimeCol})
+        Me.dgv1.Location = New System.Drawing.Point(422, 95)
+        Me.dgv1.Name = "dgv1"
+        Me.dgv1.ReadOnly = True
+        Me.dgv1.RowHeadersVisible = False
+        Me.dgv1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
+        Me.dgv1.RowTemplate.Height = 32
+        Me.dgv1.Size = New System.Drawing.Size(343, 180)
+        Me.dgv1.TabIndex = 263
+        '
+        'PatientCol
+        '
+        Me.PatientCol.HeaderText = "Patient"
+        Me.PatientCol.Name = "PatientCol"
+        Me.PatientCol.ReadOnly = True
+        '
+        'TimeCol
+        '
+        Me.TimeCol.HeaderText = "Appoitment Time"
+        Me.TimeCol.Name = "TimeCol"
+        Me.TimeCol.ReadOnly = True
         '
         'lblPatientName
         '
@@ -115,17 +156,6 @@ Partial Class Frm_Appoitment
         Me.Label1.TabIndex = 250
         Me.Label1.Text = "Comments:"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(39, 38)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(79, 22)
-        Me.Label8.TabIndex = 246
-        Me.Label8.Text = "Patient:"
-        '
         'ibtnSave
         '
         Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
@@ -149,46 +179,16 @@ Partial Class Frm_Appoitment
         Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnSave.UseVisualStyleBackColor = False
         '
-        'dgv1
+        'Label8
         '
-        Me.dgv1.AllowUserToAddRows = False
-        Me.dgv1.AllowUserToDeleteRows = False
-        Me.dgv1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgv1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
-        Me.dgv1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.LightCoral
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PatientCol, Me.TimeCol})
-        Me.dgv1.Location = New System.Drawing.Point(422, 95)
-        Me.dgv1.Name = "dgv1"
-        Me.dgv1.ReadOnly = True
-        Me.dgv1.RowHeadersVisible = False
-        Me.dgv1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
-        Me.dgv1.RowTemplate.Height = 32
-        Me.dgv1.Size = New System.Drawing.Size(343, 180)
-        Me.dgv1.TabIndex = 263
-        '
-        'PatientCol
-        '
-        Me.PatientCol.HeaderText = "Patient"
-        Me.PatientCol.Name = "PatientCol"
-        Me.PatientCol.ReadOnly = True
-        '
-        'TimeCol
-        '
-        Me.TimeCol.HeaderText = "Appoitment Time"
-        Me.TimeCol.Name = "TimeCol"
-        Me.TimeCol.ReadOnly = True
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(39, 38)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(79, 22)
+        Me.Label8.TabIndex = 246
+        Me.Label8.Text = "Patient:"
         '
         'Frm_Appoitment
         '
@@ -198,7 +198,7 @@ Partial Class Frm_Appoitment
         Me.ClientSize = New System.Drawing.Size(783, 301)
         Me.Controls.Add(Me.gbInfo)
         Me.Name = "Frm_Appoitment"
-        Me.Text = "Frm_Appoitment"
+        Me.Text = "New Appoitment"
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()

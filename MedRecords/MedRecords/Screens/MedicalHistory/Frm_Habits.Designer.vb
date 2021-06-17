@@ -22,14 +22,15 @@ Partial Class Frm_Habits
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Habits))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.dtpFrom = New System.Windows.Forms.DateTimePicker()
+        Me.txtFrequency = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.txtHabit = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtFrequency = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.gbInfo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -63,6 +64,15 @@ Partial Class Frm_Habits
         Me.dtpFrom.Name = "dtpFrom"
         Me.dtpFrom.Size = New System.Drawing.Size(175, 26)
         Me.dtpFrom.TabIndex = 264
+        '
+        'txtFrequency
+        '
+        Me.txtFrequency.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFrequency.ForeColor = System.Drawing.Color.Black
+        Me.txtFrequency.Location = New System.Drawing.Point(121, 92)
+        Me.txtFrequency.Name = "txtFrequency"
+        Me.txtFrequency.Size = New System.Drawing.Size(375, 27)
+        Me.txtFrequency.TabIndex = 263
         '
         'Label3
         '
@@ -107,17 +117,6 @@ Partial Class Frm_Habits
         Me.txtHabit.Size = New System.Drawing.Size(375, 27)
         Me.txtHabit.TabIndex = 248
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(56, 45)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(63, 22)
-        Me.Label8.TabIndex = 246
-        Me.Label8.Text = "Habit:"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -129,14 +128,16 @@ Partial Class Frm_Habits
         Me.Label7.TabIndex = 247
         Me.Label7.Text = "Frequency:"
         '
-        'txtFrequency
+        'Label8
         '
-        Me.txtFrequency.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFrequency.ForeColor = System.Drawing.Color.Black
-        Me.txtFrequency.Location = New System.Drawing.Point(121, 92)
-        Me.txtFrequency.Name = "txtFrequency"
-        Me.txtFrequency.Size = New System.Drawing.Size(375, 27)
-        Me.txtFrequency.TabIndex = 263
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(56, 45)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(63, 22)
+        Me.Label8.TabIndex = 246
+        Me.Label8.Text = "Habit:"
         '
         'Frm_Habits
         '
@@ -145,8 +146,10 @@ Partial Class Frm_Habits
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(548, 226)
         Me.Controls.Add(Me.gbInfo)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Habits"
-        Me.Text = "Frm_Habits"
+        Me.Text = "Toxic Habits"
         Me.gbInfo.ResumeLayout(False)
         Me.gbInfo.PerformLayout()
         Me.ResumeLayout(False)

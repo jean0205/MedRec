@@ -60,6 +60,7 @@
             End If
             util.InformationMessage("Pregnancy successfully saved", "Pregnancy")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

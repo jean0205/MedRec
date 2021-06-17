@@ -22,6 +22,7 @@ Partial Class Frm_PatientFilevb
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_PatientFilevb))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -700,13 +701,15 @@ Partial Class Frm_PatientFilevb
         'chkPaperRecord
         '
         Me.chkPaperRecord.AutoSize = True
+        Me.chkPaperRecord.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.chkPaperRecord.Enabled = False
+        Me.chkPaperRecord.ForeColor = System.Drawing.Color.Black
         Me.chkPaperRecord.Location = New System.Drawing.Point(655, 45)
         Me.chkPaperRecord.Name = "chkPaperRecord"
         Me.chkPaperRecord.Size = New System.Drawing.Size(126, 24)
         Me.chkPaperRecord.TabIndex = 260
         Me.chkPaperRecord.Text = "Paper Record"
-        Me.chkPaperRecord.UseVisualStyleBackColor = True
+        Me.chkPaperRecord.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
@@ -1054,9 +1057,10 @@ Partial Class Frm_PatientFilevb
         Me.ClientSize = New System.Drawing.Size(1452, 820)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_PatientFilevb"
-        Me.Text = "Frm_PatientFilevb"
+        Me.Text = "Patient File"
         Me.GroupBox1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)

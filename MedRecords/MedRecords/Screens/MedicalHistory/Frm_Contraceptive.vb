@@ -67,6 +67,7 @@ Public Class Frm_Contraceptive
             End If
             util.InformationMessage("contraceptive successfully saved", " Contraceptive")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

@@ -66,6 +66,7 @@ Public Class Frm_Family
             End If
             util.InformationMessage("Family history successfully saved", "Family history")
             cleanAfterInsert()
+            Me.Close()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

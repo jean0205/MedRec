@@ -22,12 +22,13 @@ Partial Class Frm_Allergy
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Allergy))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
+        Me.cmbReaction = New System.Windows.Forms.ComboBox()
+        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cmbReaction = New System.Windows.Forms.ComboBox()
-        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.gbInfo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -49,37 +50,6 @@ Partial Class Frm_Allergy
         Me.gbInfo.TabIndex = 82
         Me.gbInfo.TabStop = False
         Me.gbInfo.Text = "Allergies:"
-        '
-        'txtName
-        '
-        Me.txtName.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.ForeColor = System.Drawing.Color.Black
-        Me.txtName.Location = New System.Drawing.Point(229, 40)
-        Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(369, 28)
-        Me.txtName.TabIndex = 248
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(45, 80)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(178, 21)
-        Me.Label7.TabIndex = 247
-        Me.Label7.Text = "Nature Of Reaction:"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(7, 43)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(223, 21)
-        Me.Label8.TabIndex = 246
-        Me.Label8.Text = "Medicine/Food/Cosmetic:"
         '
         'cmbReaction
         '
@@ -114,6 +84,37 @@ Partial Class Frm_Allergy
         Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnSave.UseVisualStyleBackColor = False
         '
+        'txtName
+        '
+        Me.txtName.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtName.ForeColor = System.Drawing.Color.Black
+        Me.txtName.Location = New System.Drawing.Point(229, 40)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(369, 28)
+        Me.txtName.TabIndex = 248
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(45, 80)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(178, 21)
+        Me.Label7.TabIndex = 247
+        Me.Label7.Text = "Nature Of Reaction:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(7, 43)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(223, 21)
+        Me.Label8.TabIndex = 246
+        Me.Label8.Text = "Medicine/Food/Cosmetic:"
+        '
         'Frm_Allergy
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -121,6 +122,7 @@ Partial Class Frm_Allergy
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(785, 174)
         Me.Controls.Add(Me.gbInfo)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Allergy"
         Me.Text = "Frm_Allergy"
         Me.gbInfo.ResumeLayout(False)

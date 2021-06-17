@@ -56,6 +56,7 @@ Partial Class Frm_Main
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox2.SuspendLayout()
         Me.panelAddAppointment.SuspendLayout()
         Me.gbNewAppointment.SuspendLayout()
@@ -625,6 +626,11 @@ Partial Class Frm_Main
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton1.UseVisualStyleBackColor = False
         '
+        'Timer2
+        '
+        Me.Timer2.Enabled = True
+        Me.Timer2.Interval = 10000
+        '
         'Frm_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -638,9 +644,10 @@ Partial Class Frm_Main
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.panel2)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_Main"
-        Me.Text = "Frm_Main"
+        Me.Text = "Electronic Medical Records"
         Me.GroupBox2.ResumeLayout(False)
         Me.panelAddAppointment.ResumeLayout(False)
         Me.gbNewAppointment.ResumeLayout(False)
@@ -686,4 +693,5 @@ Partial Class Frm_Main
     Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
     Private WithEvents Label3 As Label
     Private WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Timer2 As Timer
 End Class
