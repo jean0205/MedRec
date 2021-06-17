@@ -37,10 +37,6 @@ Partial Class Frm_PatientFilevb
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.gbAnticoncept = New System.Windows.Forms.GroupBox()
         Me.dgvContraceptive = New System.Windows.Forms.DataGridView()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewButtonColumn9 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.gbgynecol = New System.Windows.Forms.GroupBox()
         Me.dgvGynProblems = New System.Windows.Forms.DataGridView()
         Me.gbpregnancy = New System.Windows.Forms.GroupBox()
@@ -333,38 +329,14 @@ Partial Class Frm_PatientFilevb
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvContraceptive.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvContraceptive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvContraceptive.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column11, Me.Column12, Me.Column13, Me.DataGridViewButtonColumn9})
         Me.dgvContraceptive.Location = New System.Drawing.Point(6, 25)
         Me.dgvContraceptive.Name = "dgvContraceptive"
         Me.dgvContraceptive.ReadOnly = True
         Me.dgvContraceptive.RowHeadersVisible = False
+        Me.dgvContraceptive.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvContraceptive.RowTemplate.Height = 32
         Me.dgvContraceptive.Size = New System.Drawing.Size(258, 198)
         Me.dgvContraceptive.TabIndex = 266
-        '
-        'Column11
-        '
-        Me.Column11.HeaderText = "Method"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
-        '
-        'Column12
-        '
-        Me.Column12.HeaderText = "From"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "To"
-        Me.Column13.Name = "Column13"
-        Me.Column13.ReadOnly = True
-        '
-        'DataGridViewButtonColumn9
-        '
-        Me.DataGridViewButtonColumn9.HeaderText = "Delete"
-        Me.DataGridViewButtonColumn9.Name = "DataGridViewButtonColumn9"
-        Me.DataGridViewButtonColumn9.ReadOnly = True
         '
         'gbgynecol
         '
@@ -1164,10 +1136,6 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents dgvVisitsHistory As DataGridView
     Friend WithEvents gbAnticoncept As GroupBox
     Friend WithEvents dgvContraceptive As DataGridView
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewButtonColumn9 As DataGridViewButtonColumn
     Friend WithEvents lblOustandingBill As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents chkPaperRecord As CheckBox
