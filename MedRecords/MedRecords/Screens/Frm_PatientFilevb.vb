@@ -109,8 +109,8 @@ Public Class Frm_PatientFilevb
             util.hideDGVColumns(dgvMedicalProblems, indexList)
             dgvMedicalProblems.Columns(2).HeaderText = "Medical Problem"
             dgvMedicalProblems.Columns(3).HeaderText = "Date"
-            dgvMedicalProblems.Columns("DetailsCol").Width = 60
-            dgvMedicalProblems.Columns("DeleteCol").Width = 60
+            dgvMedicalProblems.Columns("DetailsCol").Width = 50
+            dgvMedicalProblems.Columns("DeleteCol").Width = 50
             addContextMenu(dgvMedicalProblems, "New Medical Problem")
 
 
@@ -127,8 +127,8 @@ Public Class Frm_PatientFilevb
             util.hideDGVColumns(dgvGynProblems, indexList2)
             dgvGynProblems.Columns(2).HeaderText = "Gynecological Problem"
             dgvGynProblems.Columns(3).HeaderText = "Date"
-            dgvGynProblems.Columns("DetailsGCol").Width = 60
-            dgvGynProblems.Columns("DeleteGCol").Width = 60
+            dgvGynProblems.Columns("DetailsGCol").Width = 50
+            dgvGynProblems.Columns("DeleteGCol").Width = 50
             addContextMenu(dgvGynProblems, "New Gynecologycal Problem")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -154,8 +154,8 @@ Public Class Frm_PatientFilevb
             Dim indexList As New List(Of Integer)(New Integer() {0, 1, 4, 5})
             util.hideDGVColumns(dgvAllergies, indexList)
             dgvAllergies.Columns(2).HeaderText = "Allergen"
-            dgvAllergies.Columns("DetailsColAllergy").Width = 60
-            dgvAllergies.Columns("DeleteColAllergy").Width = 60
+            dgvAllergies.Columns("DetailsColAllergy").Width = 50
+            dgvAllergies.Columns("DeleteColAllergy").Width = 50
             addContextMenu(dgvAllergies, "New Allergy")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -163,10 +163,32 @@ Public Class Frm_PatientFilevb
     End Sub
 
     '########### MEDICATIONS ###############
-    Sub loadMedications()
+    'Sub loadMedications()
+    '    Try
+    '        dgvMedications.Columns.Clear()
+    '        dgvMedications.DataSource = dbMedications.GetMedicationsList(patient.Id).
+    '                                            OrderByDescending(Function(r) r.id).ToList
+    '        dgvMedications.RowsDefaultCellStyle.BackColor = Color.Beige
+    '        For Each row As DataGridViewRow In dgvMedications.Rows.Cast(Of DataGridViewRow).
+    '                    Where(Function(r) r.Cells("Active").Value = True).ToList
+    '            row.DefaultCellStyle.BackColor = Color.Salmon
+    '        Next
+    '        util.addBottomColumns(dgvMedications, "DetailsColMedi", "Details")
+    '        util.addBottomColumns(dgvMedications, "DeleteColMedi", "Delete")
+    '        Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9, 10})
+    '        util.hideDGVColumns(dgvMedications, indexList)
+    '        'dgvMedications.Columns(2).HeaderText = "Allergen"
+    '        dgvMedications.Columns("DetailsColMedi").Width = 60
+    '        dgvMedications.Columns("DeleteColMedi").Width = 60
+    '        addContextMenu(dgvMedications, "New Medication")
+    '    Catch ex As Exception
+    '        util.ErrorMessage(ex.Message, "Error")
+    '    End Try
+    'End Sub
+    Sub LoadMedications()
         Try
             dgvMedications.Columns.Clear()
-            dgvMedications.DataSource = dbMedications.GetMedicationsList(patient.Id).
+            dgvMedications.DataSource = dbMedications.GetMedicationsListVisitView(patient.Id).
                                                 OrderByDescending(Function(r) r.id).ToList
             dgvMedications.RowsDefaultCellStyle.BackColor = Color.Beige
             For Each row As DataGridViewRow In dgvMedications.Rows.Cast(Of DataGridViewRow).
@@ -175,11 +197,16 @@ Public Class Frm_PatientFilevb
             Next
             util.addBottomColumns(dgvMedications, "DetailsColMedi", "Details")
             util.addBottomColumns(dgvMedications, "DeleteColMedi", "Delete")
-            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9, 10})
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 8, 9, 10})
             util.hideDGVColumns(dgvMedications, indexList)
             'dgvMedications.Columns(2).HeaderText = "Allergen"
-            dgvMedications.Columns("DetailsColMedi").Width = 60
-            dgvMedications.Columns("DeleteColMedi").Width = 60
+            dgvMedications.Columns("DetailsColMedi").Width = 50
+            dgvMedications.Columns("DeleteColMedi").Width = 50
+            For Each row As DataGridViewRow In dgvMedications.Rows
+                If CDate(row.Cells("VisitDate").Value) <> Date.MinValue Then
+                    row.Cells("VisitDate").Style.Format = "dd-MMM-yyyy"
+                End If
+            Next
             addContextMenu(dgvMedications, "New Medication")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -203,8 +230,8 @@ Public Class Frm_PatientFilevb
             Dim indexList As New List(Of Integer)(New Integer() {0, 1, 6, 7, 8, 9})
             util.hideDGVColumns(dgvSurgeries, indexList)
             dgvSurgeries.Columns("SurgeryDate").HeaderText = "Date"
-            dgvSurgeries.Columns("DetailsColSurg").Width = 60
-            dgvSurgeries.Columns("DeleteColSurg").Width = 60
+            dgvSurgeries.Columns("DetailsColSurg").Width = 50
+            dgvSurgeries.Columns("DeleteColSurg").Width = 50
             addContextMenu(dgvSurgeries, "New Surgery")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -217,9 +244,13 @@ Public Class Frm_PatientFilevb
             dgvTests.Columns.Clear()
             dgvTests.DataSource = dbTest.GetTestListVisitView(patient.Id).
                                                 OrderByDescending(Function(r) r.TestDate).ToList
-            dgvTests.Columns("VisitDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
+            'dgvTests.Columns("VisitDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
             dgvTests.Columns("TestDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
-
+            For Each row As DataGridViewRow In dgvTests.Rows
+                If CDate(row.Cells("VisitDate").Value) <> Date.MinValue Then
+                    row.Cells("VisitDate").Style.Format = "dd-MMM-yyyy"
+                End If
+            Next
             dgvTests.RowsDefaultCellStyle.BackColor = Color.Beige
             util.addBottomColumns(dgvTests, "DetailsColTest", "Details")
             util.addBottomColumns(dgvTests, "FileColTest", "File")
@@ -227,10 +258,11 @@ Public Class Frm_PatientFilevb
             Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2, 7, 8, 9, 10})
             util.hideDGVColumns(dgvTests, indexList)
             dgvTests.Columns("TestDate").HeaderText = "Date"
-            dgvTests.Columns("DetailsColTest").Width = 60
-            dgvTests.Columns("FileColTest").Width = 60
-            dgvTests.Columns("DeleteColTest").Width = 60
+            dgvTests.Columns("DetailsColTest").Width = 50
+            dgvTests.Columns("FileColTest").Width = 50
+            dgvTests.Columns("DeleteColTest").Width = 50
             addContextMenu(dgvTests, "New Test/Complementary")
+
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -249,8 +281,8 @@ Public Class Frm_PatientFilevb
             Dim indexList As New List(Of Integer)(New Integer() {0, 1, 6, 7})
             util.hideDGVColumns(dgvPregnancies, indexList)
             dgvPregnancies.Columns("PregnancyDate").HeaderText = "Date"
-            dgvPregnancies.Columns("DetailsColPreg").Width = 60
-            dgvPregnancies.Columns("DeleteColPreg").Width = 60
+            dgvPregnancies.Columns("DetailsColPreg").Width = 50
+            dgvPregnancies.Columns("DeleteColPreg").Width = 50
             addContextMenu(dgvPregnancies, "New Pregnancy")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -270,8 +302,8 @@ Public Class Frm_PatientFilevb
             dgvContraceptive.Columns("ToDate").HeaderText = "To"
             dgvContraceptive.Columns("FromD").DefaultCellStyle.Format = "dd-MMM-yyyy"
             dgvContraceptive.Columns("ToDate").DefaultCellStyle.Format = "dd-MMM-yyyy"
-            dgvContraceptive.Columns("DetailsColC").Width = 60
-            dgvContraceptive.Columns("DeleteColC").Width = 60
+            dgvContraceptive.Columns("DetailsColC").Width = 50
+            dgvContraceptive.Columns("DeleteColC").Width = 50
             addContextMenu(dgvContraceptive, "New Contraceptive")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -287,8 +319,8 @@ Public Class Frm_PatientFilevb
             util.addBottomColumns(dgvFamilyHistory, "DeleteColF", "Delete")
             Dim indexList As New List(Of Integer)(New Integer() {0, 1, 5, 6})
             util.hideDGVColumns(dgvFamilyHistory, indexList)
-            dgvFamilyHistory.Columns("DetailsColF").Width = 60
-            dgvFamilyHistory.Columns("DeleteColF").Width = 60
+            dgvFamilyHistory.Columns("DetailsColF").Width = 50
+            dgvFamilyHistory.Columns("DeleteColF").Width = 50
             addContextMenu(dgvFamilyHistory, "New Family History")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -304,8 +336,8 @@ Public Class Frm_PatientFilevb
             util.addBottomColumns(dgvToxicHabits, "DeleteColH", "Delete")
             Dim indexList As New List(Of Integer)(New Integer() {0, 1, 5, 6})
             util.hideDGVColumns(dgvToxicHabits, indexList)
-            dgvToxicHabits.Columns("DetailsColH").Width = 60
-            dgvToxicHabits.Columns("DeleteColH").Width = 60
+            dgvToxicHabits.Columns("DetailsColH").Width = 50
+            dgvToxicHabits.Columns("DeleteColH").Width = 50
             addContextMenu(dgvToxicHabits, "New Toxic Habit")
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
@@ -325,7 +357,7 @@ Public Class Frm_PatientFilevb
             util.hideDGVColumns(dgvVisitsHistory, indexList)
             dgvVisitsHistory.Columns(3).HeaderText = "Visit Time"
             dgvVisitsHistory.Columns(3).DefaultCellStyle.Format = "dd-MMM-yyyy  (hh:mm)"
-            dgvVisitsHistory.Columns("DetailsColHist").Width = 60
+            dgvVisitsHistory.Columns("DetailsColHist").Width = 50
             addContextMenu(dgvVisitsHistory, "New Visit")
 
         Catch ex As Exception
