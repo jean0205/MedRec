@@ -1,4 +1,13 @@
-﻿Public Class Form1
+﻿Imports AutoUpdaterDotNET
+Public Class Form1
+    Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        'AutoUpdater.ReportErrors = True
+        AutoUpdater.Start("https://mykiosk.s3.us-east-2.amazonaws.com/MedRecords/updater.xml")
+        lblVersion.Text = "Version: " & My.Application.Info.Version.ToString
+    End Sub
 
     Public Property user As New Users
     Dim db As New UserDB

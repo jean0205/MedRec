@@ -32,6 +32,7 @@ Partial Class Form1
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.txtpass = New System.Windows.Forms.TextBox()
+        Me.lblVersion = New System.Windows.Forms.Label()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -141,12 +142,25 @@ Partial Class Form1
         Me.txtpass.Text = "Password"
         Me.txtpass.UseSystemPasswordChar = True
         '
+        'lblVersion
+        '
+        Me.lblVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblVersion.AutoSize = True
+        Me.lblVersion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVersion.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblVersion.Location = New System.Drawing.Point(590, 9)
+        Me.lblVersion.Name = "lblVersion"
+        Me.lblVersion.Size = New System.Drawing.Size(89, 17)
+        Me.lblVersion.TabIndex = 51
+        Me.lblVersion.Text = "Updated On:"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(749, 301)
+        Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.txtpass)
         Me.Controls.Add(Me.txtuser)
         Me.Controls.Add(Me.label3)
@@ -175,4 +189,5 @@ Partial Class Form1
     Friend WithEvents LineShape2 As PowerPacks.LineShape
     Friend WithEvents LineShape1 As PowerPacks.LineShape
     Private WithEvents txtpass As TextBox
+    Friend WithEvents lblVersion As Label
 End Class

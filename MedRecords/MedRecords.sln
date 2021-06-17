@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MedRecords", "MedRecords\MedRecords.vbproj", "{186CD856-1C07-4357-A04A-2EDA7DA225AF}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MedicalRecordsSetup", "MedicalRecordsSetup\MedicalRecordsSetup.vdproj", "{3ADA67F2-6A2C-4EC8-BC5D-28DDE5BE33BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{186CD856-1C07-4357-A04A-2EDA7DA225AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{186CD856-1C07-4357-A04A-2EDA7DA225AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{186CD856-1C07-4357-A04A-2EDA7DA225AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ADA67F2-6A2C-4EC8-BC5D-28DDE5BE33BC}.Debug|Any CPU.ActiveCfg = Debug
+		{3ADA67F2-6A2C-4EC8-BC5D-28DDE5BE33BC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
