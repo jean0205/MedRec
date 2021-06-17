@@ -1,4 +1,7 @@
-﻿Public Class Frm_Visit
+﻿Imports System.Runtime.InteropServices
+Imports System.Text
+
+Public Class Frm_Visit
     Dim util As New Util
     Dim patientId As Integer
     Dim visitId As Integer = 0
@@ -629,4 +632,62 @@
 
 #End Region
 
+#Region "Voice Notes"
+    Dim FLocation As String
+    Dim hh, mm, ss As Integer
+    <DllImport("winmm.dll")>
+    Private Shared Function mciSendString(ByVal command As String, ByVal buffer As StringBuilder, ByVal bufferSize As Integer, ByVal hwndCallback As IntPtr) As Integer
+    End Function
+
+    Private Sub IconButton3_Click_1(sender As Object, e As EventArgs) Handles ibtnStop.Click
+        Dim fl As New FolderBrowserDialog
+
+        Timer1.Stop()
+        ibtnStop.Enabled = False
+        ibtnStart.Enabled = True
+        'ProgressBar1.Visible = False
+
+        Try
+            fl.ShowDialog()
+            FLocation = fl.SelectedPath & "\v1.wav"
+            mciSendString("save capture " & FLocation, Nothing, 0, 0)
+            mciSendString("close capture", Nothing, 0, 0)
+            MsgBox("Your voice has been recorded and storend at " & fl.SelectedPath & "\v1.wav", MsgBoxStyle.Information, "Voice Recorder")
+
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub IconButton2_Click_1(sender As Object, e As EventArgs) Handles ibtnStart.Click
+        Try
+            Dim i As Integer
+            i = mciSendString("open new type waveaudio alias capture", Nothing, 0, 0)
+            Console.WriteLine(i)
+            i = mciSendString("record capture", Nothing, 0, 0)
+            Console.WriteLine(i)
+
+
+            lblDuration.Text = "00:00:00"
+            Timer1.Start()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Dim shh, smm, sss As String
+        ss += 1
+        If ss = 59 Then
+            ss = 0 : mm += 1
+            If mm >= 59 Then
+                mm = 0 : hh += 1
+            End If
+        End If
+        If hh < 10 Then shh = "0" & hh Else shh = hh
+        If mm < 10 Then smm = "0" & mm Else smm = mm
+        If ss < 10 Then sss = "0" & ss Else sss = ss
+        lblDuration.Text = shh & ":" & smm & ":" & sss
+    End Sub
+#End Region
 End Class
