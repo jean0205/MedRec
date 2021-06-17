@@ -34,6 +34,9 @@ Partial Class Frm_InvoicesReport
         Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_InvoicesReport))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -60,6 +63,9 @@ Partial Class Frm_InvoicesReport
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.ChartAgeDist = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ChartTotals, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -69,6 +75,8 @@ Partial Class Frm_InvoicesReport
         CType(Me.chartMonthly, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ChartAgeDist, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -86,12 +94,13 @@ Partial Class Frm_InvoicesReport
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.chartMonthly)
         Me.GroupBox1.Controls.Add(Me.Panel4)
+        Me.GroupBox1.Controls.Add(Me.Panel5)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1411, 841)
+        Me.GroupBox1.Size = New System.Drawing.Size(1461, 841)
         Me.GroupBox1.TabIndex = 67
         Me.GroupBox1.TabStop = False
         '
@@ -158,7 +167,7 @@ Partial Class Frm_InvoicesReport
         Me.Panel3.Controls.Add(Me.ChartBreakDown)
         Me.Panel3.Location = New System.Drawing.Point(6, 241)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(633, 334)
+        Me.Panel3.Size = New System.Drawing.Size(528, 334)
         Me.Panel3.TabIndex = 333
         '
         'Label2
@@ -191,7 +200,7 @@ Partial Class Frm_InvoicesReport
         Legend1.IsTextAutoFit = False
         Legend1.Name = "Legend1"
         Me.ChartBreakDown.Legends.Add(Legend1)
-        Me.ChartBreakDown.Location = New System.Drawing.Point(19, 13)
+        Me.ChartBreakDown.Location = New System.Drawing.Point(4, 14)
         Me.ChartBreakDown.Name = "ChartBreakDown"
         Me.ChartBreakDown.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel
         Series2.BorderColor = System.Drawing.Color.White
@@ -206,7 +215,7 @@ Partial Class Frm_InvoicesReport
         Series2.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black
         Series2.YValuesPerPoint = 2
         Me.ChartBreakDown.Series.Add(Series2)
-        Me.ChartBreakDown.Size = New System.Drawing.Size(562, 315)
+        Me.ChartBreakDown.Size = New System.Drawing.Size(518, 315)
         Me.ChartBreakDown.TabIndex = 321
         Me.ChartBreakDown.Text = "Chart5"
         '
@@ -219,7 +228,7 @@ Partial Class Frm_InvoicesReport
         Me.GroupBox5.Controls.Add(Me.IconButton2)
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox5.Location = New System.Drawing.Point(1124, 511)
+        Me.GroupBox5.Location = New System.Drawing.Point(1174, 511)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(275, 78)
         Me.GroupBox5.TabIndex = 332
@@ -294,7 +303,7 @@ Partial Class Frm_InvoicesReport
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label5.Location = New System.Drawing.Point(1355, 819)
+        Me.Label5.Location = New System.Drawing.Point(1380, 819)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(44, 13)
         Me.Label5.TabIndex = 327
@@ -304,7 +313,7 @@ Partial Class Frm_InvoicesReport
         '
         Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Panel2.BackColor = System.Drawing.Color.MediumAquamarine
-        Me.Panel2.Location = New System.Drawing.Point(1319, 817)
+        Me.Panel2.Location = New System.Drawing.Point(1344, 817)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(34, 17)
         Me.Panel2.TabIndex = 326
@@ -315,7 +324,7 @@ Partial Class Frm_InvoicesReport
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label4.Location = New System.Drawing.Point(1257, 819)
+        Me.Label4.Location = New System.Drawing.Point(1282, 819)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(56, 13)
         Me.Label4.TabIndex = 325
@@ -325,7 +334,7 @@ Partial Class Frm_InvoicesReport
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Panel1.BackColor = System.Drawing.Color.SeaGreen
-        Me.Panel1.Location = New System.Drawing.Point(1217, 817)
+        Me.Panel1.Location = New System.Drawing.Point(1242, 817)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(34, 17)
         Me.Panel1.TabIndex = 324
@@ -336,7 +345,7 @@ Partial Class Frm_InvoicesReport
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label14.Location = New System.Drawing.Point(1164, 819)
+        Me.Label14.Location = New System.Drawing.Point(1189, 819)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(53, 13)
         Me.Label14.TabIndex = 323
@@ -346,7 +355,7 @@ Partial Class Frm_InvoicesReport
         '
         Me.Panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Panel6.Location = New System.Drawing.Point(1124, 817)
+        Me.Panel6.Location = New System.Drawing.Point(1149, 817)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(34, 17)
         Me.Panel6.TabIndex = 322
@@ -359,7 +368,7 @@ Partial Class Frm_InvoicesReport
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox2.Location = New System.Drawing.Point(947, 10)
+        Me.GroupBox2.Location = New System.Drawing.Point(997, 10)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(455, 88)
         Me.GroupBox2.TabIndex = 10
@@ -449,7 +458,7 @@ Partial Class Frm_InvoicesReport
         Me.chartMonthly.Series.Add(Series3)
         Me.chartMonthly.Series.Add(Series4)
         Me.chartMonthly.Series.Add(Series5)
-        Me.chartMonthly.Size = New System.Drawing.Size(1517, 252)
+        Me.chartMonthly.Size = New System.Drawing.Size(1567, 252)
         Me.chartMonthly.TabIndex = 9
         Me.chartMonthly.Text = "Chart1"
         '
@@ -460,9 +469,9 @@ Partial Class Frm_InvoicesReport
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.Panel4.Controls.Add(Me.Label7)
         Me.Panel4.Controls.Add(Me.Chart3)
-        Me.Panel4.Location = New System.Drawing.Point(733, 124)
+        Me.Panel4.Location = New System.Drawing.Point(986, 124)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(676, 378)
+        Me.Panel4.Size = New System.Drawing.Size(473, 378)
         Me.Panel4.TabIndex = 331
         '
         'Label7
@@ -510,16 +519,75 @@ Partial Class Frm_InvoicesReport
         Series6.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black
         Series6.YValuesPerPoint = 2
         Me.Chart3.Series.Add(Series6)
-        Me.Chart3.Size = New System.Drawing.Size(676, 362)
+        Me.Chart3.Size = New System.Drawing.Size(473, 362)
         Me.Chart3.TabIndex = 330
         Me.Chart3.Text = "top te vendors"
+        '
+        'ChartAgeDist
+        '
+        Me.ChartAgeDist.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ChartAgeDist.BackColor = System.Drawing.Color.Transparent
+        Me.ChartAgeDist.BorderlineColor = System.Drawing.Color.Transparent
+        ChartArea5.Area3DStyle.Enable3D = True
+        ChartArea5.Area3DStyle.Inclination = 20
+        ChartArea5.Area3DStyle.IsRightAngleAxes = False
+        ChartArea5.AxisX.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number
+        ChartArea5.BackColor = System.Drawing.Color.Transparent
+        ChartArea5.Name = "ChartArea1"
+        Me.ChartAgeDist.ChartAreas.Add(ChartArea5)
+        Legend3.BackColor = System.Drawing.Color.Transparent
+        Legend3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Legend3.ForeColor = System.Drawing.Color.Gainsboro
+        Legend3.IsTextAutoFit = False
+        Legend3.Name = "Legend1"
+        Me.ChartAgeDist.Legends.Add(Legend3)
+        Me.ChartAgeDist.Location = New System.Drawing.Point(6, 31)
+        Me.ChartAgeDist.Name = "ChartAgeDist"
+        Series7.BorderColor = System.Drawing.Color.White
+        Series7.BorderWidth = 2
+        Series7.ChartArea = "ChartArea1"
+        Series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pyramid
+        Series7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series7.IsValueShownAsLabel = True
+        Series7.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot
+        Series7.LabelForeColor = System.Drawing.Color.White
+        Series7.Legend = "Legend1"
+        Series7.MarkerBorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Series7.Name = "Series1"
+        Series7.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.Yes
+        Series7.SmartLabelStyle.CalloutLineWidth = 0
+        Series7.YValuesPerPoint = 4
+        Me.ChartAgeDist.Series.Add(Series7)
+        Me.ChartAgeDist.Size = New System.Drawing.Size(486, 334)
+        Me.ChartAgeDist.TabIndex = 334
+        Me.ChartAgeDist.Text = "Chart5"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(5, 4)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(212, 24)
+        Me.Label8.TabIndex = 335
+        Me.Label8.Text = "Patients Age Distribution"
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.Label8)
+        Me.Panel5.Controls.Add(Me.ChartAgeDist)
+        Me.Panel5.Location = New System.Drawing.Point(537, 210)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(608, 365)
+        Me.Panel5.TabIndex = 336
         '
         'Frm_InvoicesReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1411, 841)
+        Me.ClientSize = New System.Drawing.Size(1461, 841)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -540,6 +608,9 @@ Partial Class Frm_InvoicesReport
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ChartAgeDist, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -569,4 +640,7 @@ Partial Class Frm_InvoicesReport
     Friend WithEvents Label6 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents ChartAgeDist As DataVisualization.Charting.Chart
+    Friend WithEvents Panel5 As Panel
 End Class

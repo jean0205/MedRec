@@ -28,6 +28,7 @@ Public Class Frm_InvoicesReport
             loaded = True
             dtp2.Value = dtVisits.AsEnumerable.Where(Function(r) Not IsDBNull(r("VisitDate"))).
             Select(Function(x) CDate(x("VisitDate"))).Last
+            ageDistributions(listPatients)
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -57,7 +58,9 @@ Public Class Frm_InvoicesReport
             patienVisitServicesChart(dt)
             getTotalCharts(dt)
             getBreakDownChartsIssueToUpload(dt)
+
         End If
+
     End Sub
 
     Sub doChartsMonthly(dt As DataTable)
@@ -109,9 +112,6 @@ Public Class Frm_InvoicesReport
             Dim servLis As New List(Of String)
             servLis = services.Select(Function(r) r.Name).ToList
             Dim listCant As New List(Of Integer)
-
-            ' dtfilterd = dtNames.AsEnumerable.Where(Function(r) r("ServicesId").ToString.ToUpper.Split("/").
-            ')).CopyToDataTable
             For Each serid As String In services.Select(Function(r) r.Id).ToList
                 listCant.Add(dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("ServicesId"))).Where(Function(r) r("ServicesId").ToString.Split(",").Contains(serid)).Count)
             Next
@@ -119,7 +119,6 @@ Public Class Frm_InvoicesReport
             If listCant.Any Then
                 ChartTotals.Series(0).Points.DataBindXY(servLis, listCant)
             End If
-
         Catch ex As Exception
             ChartTotals.Visible = False
             util.ErrorMessage(ex.Message, "Error getting Totals")
@@ -130,11 +129,7 @@ Public Class Frm_InvoicesReport
             ChartBreakDown.Visible = True
             Dim visitsNumbers As New List(Of Integer)
             Dim cantLst As New List(Of String)
-            'Dim daysGroup As IEnumerable(Of IGrouping(Of Integer, DataRow))
-            'daysGroup = Enumerable.Empty(Of IGrouping(Of Integer, DataRow))
-
             Dim patientsGroup = dt.AsEnumerable.GroupBy(Function(x) x("PatientId"))
-
             For Each group In patientsGroup
                 If Not visitsNumbers.Contains(group.Count) Then
                     visitsNumbers.Add(group.Count)
@@ -175,8 +170,8 @@ Public Class Frm_InvoicesReport
             chartMonthly.Visible = True
             Dim listImportedDays As New List(Of Integer)
             Dim listImpotedCant As New List(Of Integer)
-            listImportedDays = dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("VisitDate"))).Select(Function(r) CDate(r("VisitDate")).Day).Distinct.ToList
-            Dim daysGorup = dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("VisitDate"))).GroupBy(Function(r) CDate(r("VisitDate")).Day)
+            listImportedDays = dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("VisitDate")) AndAlso Not IsDBNull(x("ServicesId"))).Select(Function(r) CDate(r("VisitDate")).Day).Distinct.ToList
+            Dim daysGorup = dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("VisitDate")) AndAlso Not IsDBNull(x("ServicesId"))).GroupBy(Function(r) CDate(r("VisitDate")).Day)
             For Each group In daysGorup
                 listImpotedCant.Add(group.AsEnumerable.Where(Function(x) Not IsDBNull(x("ServicesId"))).
                                     Select(Function(r) r("ServicesId").ToString.Split(",")).ToList.SelectMany(Function(x) x).Count)
@@ -196,8 +191,8 @@ Public Class Frm_InvoicesReport
             chartMonthly.Visible = True
             Dim listImportedDays As New List(Of Integer)
             Dim listImpotedCant As New List(Of Decimal)
-            listImportedDays = dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("VisitDate"))).Select(Function(r) CDate(r("VisitDate")).Day).Distinct.ToList
-            Dim daysGorup = dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("VisitDate"))).GroupBy(Function(r) CDate(r("VisitDate")).Day)
+            listImportedDays = dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("VisitDate")) AndAlso Not IsDBNull(x("Paid"))).Select(Function(r) CDate(r("VisitDate")).Day).Distinct.ToList
+            Dim daysGorup = dt.AsEnumerable.Where(Function(x) Not IsDBNull(x("VisitDate")) AndAlso Not IsDBNull(x("Paid"))).GroupBy(Function(r) CDate(r("VisitDate")).Day)
             For Each group In daysGorup
                 listImpotedCant.Add(group.Where(Function(x) Not IsDBNull(x("Paid"))).Sum(Function(r) CDec(r("Paid"))))
             Next
@@ -209,6 +204,37 @@ Public Class Frm_InvoicesReport
         Catch ex As Exception
             chartMonthly.Visible = False
             util.ErrorMessage(ex.Message, "Error loading History")
+        End Try
+    End Sub
+
+    Sub ageDistributions(list As List(Of PatientE))
+        Try
+            Dim ageList As New List(Of Integer)
+            ageList = list.Select(Function(r) util.CalculateAge(Today, r.DatOB)).Distinct.ToList
+
+            Dim cantList As New List(Of Integer)
+            cantList.Add(ageList.Where(Function(r As Integer) r < 20).Count)
+            cantList.Add(ageList.Where(Function(r As Integer) r >= 20 And r < 30).Count)
+            cantList.Add(ageList.Where(Function(r As Integer) r >= 30 And r < 40).Count)
+            cantList.Add(ageList.Where(Function(r As Integer) r >= 40 And r < 50).Count)
+            cantList.Add(ageList.Where(Function(r As Integer) r >= 50 And r < 60).Count)
+            cantList.Add(ageList.Where(Function(r As Integer) r >= 60 And r < 70).Count)
+            cantList.Add(ageList.Where(Function(r As Integer) r >= 70 And r < 80).Count)
+            cantList.Add(ageList.Where(Function(r As Integer) r >= 80).Count)
+
+            Dim ageGroups As New List(Of String)({"Less Than 20 [" & cantList(0) & "]",
+                                                "Between 20' and 30 [" & cantList(1) & "]",
+                                                 "Between 30' and 40 [" & cantList(2) & "]",
+                                                 "Between 40' and 50 [" & cantList(3) & "]",
+                                                 "Between 50' and 60 [" & cantList(4) & "]",
+                                                 "Between 60' and 70 [" & cantList(5) & "]",
+                                                 "Between 70' and 80 [" & cantList(6) & "]",
+                                                 "Over 80 [" & cantList(7) & "]"})
+            ChartAgeDist.Series(0).Points.DataBindXY(ageGroups.Where(Function(r As String) CInt(r.Substring(r.IndexOf("[") + 1, r.IndexOf("]") - r.IndexOf("[") - 1)) <> 0).ToList,
+                                                     cantList.Where(Function(r As Integer) r <> 0).ToList)
+
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error getting Age Distributions")
         End Try
     End Sub
 
