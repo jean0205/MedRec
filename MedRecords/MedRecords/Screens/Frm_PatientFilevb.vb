@@ -675,6 +675,7 @@ Public Class Frm_PatientFilevb
     Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
         Try
             If TabControl1.SelectedIndex = 3 Then
+                loadVisitHistory()
                 getServicesName()
             End If
         Catch ex As Exception

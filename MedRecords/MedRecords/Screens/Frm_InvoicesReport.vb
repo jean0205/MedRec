@@ -156,7 +156,7 @@ Public Class Frm_InvoicesReport
                 listImpotedCant.Add(group.Count)
             Next
             chartMonthly.ChartAreas(0).AxisX.Minimum = 0
-            chartMonthly.ChartAreas(0).AxisX.Maximum = Date.DaysInMonth(_month.Year, _month.Month) + 1
+            chartMonthly.ChartAreas(0).AxisX.Maximum = 32
             If listImpotedCant.Count > 0 AndAlso listImportedDays.Count > 0 Then
                 chartMonthly.Series(0).Points.DataBindXY(listImportedDays, listImpotedCant)
             End If
@@ -177,7 +177,7 @@ Public Class Frm_InvoicesReport
                                     Select(Function(r) r("ServicesId").ToString.Split(",")).ToList.SelectMany(Function(x) x).Count)
             Next
             chartMonthly.ChartAreas(0).AxisX.Minimum = 0
-            chartMonthly.ChartAreas(0).AxisX.Maximum = Date.DaysInMonth(_month.Year, _month.Month) + 1
+            chartMonthly.ChartAreas(0).AxisX.Maximum = 32
             If listImpotedCant.Count > 0 AndAlso listImportedDays.Count > 0 Then
                 chartMonthly.Series(1).Points.DataBindXY(listImportedDays, listImpotedCant)
             End If
@@ -197,7 +197,7 @@ Public Class Frm_InvoicesReport
                 listImpotedCant.Add(group.Where(Function(x) Not IsDBNull(x("Paid"))).Sum(Function(r) CDec(r("Paid"))))
             Next
             chartMonthly.ChartAreas(0).AxisX.Minimum = 0
-            chartMonthly.ChartAreas(0).AxisX.Maximum = Date.DaysInMonth(_month.Year, _month.Month) + 1
+            chartMonthly.ChartAreas(0).AxisX.Maximum = 32
             If listImpotedCant.Count > 0 AndAlso listImportedDays.Count > 0 Then
                 chartMonthly.Series(2).Points.DataBindXY(listImportedDays, listImpotedCant)
             End If

@@ -449,7 +449,7 @@ Partial Class Frm_Visit
         Me.dgvVoiceNotes.RowHeadersVisible = False
         Me.dgvVoiceNotes.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvVoiceNotes.RowTemplate.Height = 32
-        Me.dgvVoiceNotes.Size = New System.Drawing.Size(838, 351)
+        Me.dgvVoiceNotes.Size = New System.Drawing.Size(838, 319)
         Me.dgvVoiceNotes.TabIndex = 268
         '
         'GroupBox6
@@ -990,10 +990,10 @@ Partial Class Frm_Visit
         Me.AxWindowsMediaPlayer1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AxWindowsMediaPlayer1.Enabled = True
-        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(3, 545)
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(3, 513)
         Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
         Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(843, 44)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(843, 76)
         Me.AxWindowsMediaPlayer1.TabIndex = 294
         '
         'ibtnStart
