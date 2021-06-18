@@ -34,7 +34,7 @@ Public Class Frm_Test
         SelectFile()
     End Sub
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
-        saveUpdateSurgery()
+        saveUpdateTest()
     End Sub
 
 
@@ -58,7 +58,7 @@ Public Class Frm_Test
         End Try
     End Sub
 
-    Sub saveUpdateSurgery()
+    Sub saveUpdateTest()
         Try
             Dim newTest As New TestComplement
             newTest.Id = testId

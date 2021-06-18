@@ -106,6 +106,7 @@
     <Compile Include="DataAccess\TestComplementDB.vb" />
     <Compile Include="DataAccess\UserDB.vb" />
     <Compile Include="DataAccess\VisitDB.vb" />
+    <Compile Include="DataAccess\VoiceNoteDB.vb" />
     <Compile Include="Entities\Allergy.vb" />
     <Compile Include="Entities\Appoitmets.vb" />
     <Compile Include="Entities\Contraceptive.vb" />
@@ -121,6 +122,7 @@
     <Compile Include="Entities\TestComplement.vb" />
     <Compile Include="Entities\Users.vb" />
     <Compile Include="Entities\VisitE.vb" />
+    <Compile Include="Entities\VoiceNote.vb" />
     <Compile Include="Screens\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -418,6 +420,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pdf.png" />
@@ -432,5 +443,4 @@
     <CO_Config>Debug|AnyCPU</CO_Config>
     <CO_ProjectFilePath>..\MedRecords_Debug_AnyCPU.obproj</CO_ProjectFilePath>
   </PropertyGroup>
- 
 </Project>
