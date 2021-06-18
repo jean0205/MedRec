@@ -63,9 +63,9 @@ Partial Class Frm_InvoicesReport
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.ChartAgeDist = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ChartAgeDist = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ChartTotals, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -75,8 +75,8 @@ Partial Class Frm_InvoicesReport
         CType(Me.chartMonthly, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ChartAgeDist, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
+        CType(Me.ChartAgeDist, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -158,7 +158,7 @@ Partial Class Frm_InvoicesReport
         Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones
         Series1.ShadowColor = System.Drawing.Color.Silver
         Me.ChartTotals.Series.Add(Series1)
-        Me.ChartTotals.Size = New System.Drawing.Size(491, 195)
+        Me.ChartTotals.Size = New System.Drawing.Size(491, 205)
         Me.ChartTotals.TabIndex = 17
         '
         'Panel3
@@ -506,7 +506,6 @@ Partial Class Frm_InvoicesReport
         Me.Chart3.Legends.Add(Legend2)
         Me.Chart3.Location = New System.Drawing.Point(0, 16)
         Me.Chart3.Name = "Chart3"
-        Me.Chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series6.BorderColor = System.Drawing.Color.White
         Series6.ChartArea = "ChartArea1"
         Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
@@ -522,6 +521,26 @@ Partial Class Frm_InvoicesReport
         Me.Chart3.Size = New System.Drawing.Size(473, 362)
         Me.Chart3.TabIndex = 330
         Me.Chart3.Text = "top te vendors"
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.Label8)
+        Me.Panel5.Controls.Add(Me.ChartAgeDist)
+        Me.Panel5.Location = New System.Drawing.Point(537, 210)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(608, 365)
+        Me.Panel5.TabIndex = 336
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(5, 4)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(212, 24)
+        Me.Label8.TabIndex = 335
+        Me.Label8.Text = "Patients Age Distribution"
         '
         'ChartAgeDist
         '
@@ -562,26 +581,6 @@ Partial Class Frm_InvoicesReport
         Me.ChartAgeDist.TabIndex = 334
         Me.ChartAgeDist.Text = "Chart5"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(5, 4)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(212, 24)
-        Me.Label8.TabIndex = 335
-        Me.Label8.Text = "Patients Age Distribution"
-        '
-        'Panel5
-        '
-        Me.Panel5.Controls.Add(Me.Label8)
-        Me.Panel5.Controls.Add(Me.ChartAgeDist)
-        Me.Panel5.Location = New System.Drawing.Point(537, 210)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(608, 365)
-        Me.Panel5.TabIndex = 336
-        '
         'Frm_InvoicesReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -608,9 +607,9 @@ Partial Class Frm_InvoicesReport
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ChartAgeDist, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        CType(Me.ChartAgeDist, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
