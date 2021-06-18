@@ -49,15 +49,8 @@ Partial Class Frm_Visit
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtDiagnosis = New System.Windows.Forms.RichTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
-        Me.ibtnStart = New FontAwesome.Sharp.IconButton()
         Me.lblDuration = New System.Windows.Forms.Label()
-        Me.ibtnStop = New FontAwesome.Sharp.IconButton()
         Me.dgvVoiceNotes = New System.Windows.Forms.DataGridView()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.dgvTests = New System.Windows.Forms.DataGridView()
@@ -67,8 +60,6 @@ Partial Class Frm_Visit
         Me.dgvMedications = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.gbVisits = New System.Windows.Forms.GroupBox()
-        Me.ibtnBack = New FontAwesome.Sharp.IconButton()
-        Me.ibtnFoward = New FontAwesome.Sharp.IconButton()
         Me.lblCurrentVisit = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.lblTotalVisits = New System.Windows.Forms.Label()
@@ -76,13 +67,10 @@ Partial Class Frm_Visit
         Me.lblLastName = New System.Windows.Forms.Label()
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.gbBilling = New System.Windows.Forms.GroupBox()
-        Me.ibtnEditVisit = New FontAwesome.Sharp.IconButton()
         Me.txtOtherServices = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.lblOustanding = New System.Windows.Forms.Label()
-        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.txtPaid = New System.Windows.Forms.TextBox()
@@ -107,6 +95,14 @@ Partial Class Frm_Visit
         Me.dtpDateVisit = New System.Windows.Forms.DateTimePicker()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
+        Me.ibtnStart = New FontAwesome.Sharp.IconButton()
+        Me.ibtnStop = New FontAwesome.Sharp.IconButton()
+        Me.ibtnBack = New FontAwesome.Sharp.IconButton()
+        Me.ibtnFoward = New FontAwesome.Sharp.IconButton()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.ibtnEditVisit = New FontAwesome.Sharp.IconButton()
+        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -129,6 +125,7 @@ Partial Class Frm_Visit
         Me.gbBilling.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvservices, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -400,9 +397,7 @@ Partial Class Frm_Visit
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.TabPage3.Controls.Add(Me.Label19)
-        Me.TabPage3.Controls.Add(Me.Label12)
-        Me.TabPage3.Controls.Add(Me.ProgressBar1)
+        Me.TabPage3.Controls.Add(Me.AxWindowsMediaPlayer1)
         Me.TabPage3.Controls.Add(Me.GroupBox4)
         Me.TabPage3.Controls.Add(Me.dgvVoiceNotes)
         Me.TabPage3.Location = New System.Drawing.Point(4, 29)
@@ -412,40 +407,10 @@ Partial Class Frm_Visit
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Voice Notes"
         '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label19.Location = New System.Drawing.Point(763, 516)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(80, 24)
-        Me.Label19.TabIndex = 296
-        Me.Label19.Text = "00:00:00"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label12.Location = New System.Drawing.Point(6, 516)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(80, 24)
-        Me.Label12.TabIndex = 295
-        Me.Label12.Text = "00:00:00"
-        '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Location = New System.Drawing.Point(9, 553)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(834, 23)
-        Me.ProgressBar1.TabIndex = 294
-        '
         'GroupBox4
         '
-        Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox4.Controls.Add(Me.IconButton3)
-        Me.GroupBox4.Controls.Add(Me.IconButton2)
+        Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox4.Controls.Add(Me.ibtnStart)
         Me.GroupBox4.Controls.Add(Me.lblDuration)
         Me.GroupBox4.Controls.Add(Me.ibtnStop)
@@ -457,112 +422,17 @@ Partial Class Frm_Visit
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Record"
         '
-        'IconButton3
-        '
-        Me.IconButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton3.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton3.FlatAppearance.BorderSize = 2
-        Me.IconButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.Play
-        Me.IconButton3.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton3.IconSize = 30
-        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.BottomRight
-        Me.IconButton3.Location = New System.Drawing.Point(284, 57)
-        Me.IconButton3.Name = "IconButton3"
-        Me.IconButton3.Size = New System.Drawing.Size(116, 48)
-        Me.IconButton3.TabIndex = 284
-        Me.IconButton3.Text = "Play"
-        Me.IconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.IconButton3.UseVisualStyleBackColor = False
-        '
-        'IconButton2
-        '
-        Me.IconButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton2.FlatAppearance.BorderSize = 2
-        Me.IconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.Save
-        Me.IconButton2.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton2.IconSize = 30
-        Me.IconButton2.ImageAlign = System.Drawing.ContentAlignment.BottomRight
-        Me.IconButton2.Location = New System.Drawing.Point(406, 57)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Size = New System.Drawing.Size(116, 48)
-        Me.IconButton2.TabIndex = 283
-        Me.IconButton2.Text = "Save"
-        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.IconButton2.UseVisualStyleBackColor = False
-        '
-        'ibtnStart
-        '
-        Me.ibtnStart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnStart.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnStart.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnStart.FlatAppearance.BorderSize = 2
-        Me.ibtnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnStart.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnStart.IconChar = FontAwesome.Sharp.IconChar.RecordVinyl
-        Me.ibtnStart.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnStart.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnStart.IconSize = 30
-        Me.ibtnStart.ImageAlign = System.Drawing.ContentAlignment.BottomRight
-        Me.ibtnStart.Location = New System.Drawing.Point(16, 57)
-        Me.ibtnStart.Name = "ibtnStart"
-        Me.ibtnStart.Size = New System.Drawing.Size(116, 48)
-        Me.ibtnStart.TabIndex = 280
-        Me.ibtnStart.Text = "Rec"
-        Me.ibtnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.ibtnStart.UseVisualStyleBackColor = False
-        '
         'lblDuration
         '
+        Me.lblDuration.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblDuration.AutoSize = True
-        Me.lblDuration.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDuration.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDuration.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblDuration.Location = New System.Drawing.Point(95, 22)
+        Me.lblDuration.Location = New System.Drawing.Point(258, 22)
         Me.lblDuration.Name = "lblDuration"
-        Me.lblDuration.Size = New System.Drawing.Size(80, 24)
+        Me.lblDuration.Size = New System.Drawing.Size(174, 46)
         Me.lblDuration.TabIndex = 282
         Me.lblDuration.Text = "00:00:00"
-        '
-        'ibtnStop
-        '
-        Me.ibtnStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnStop.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnStop.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnStop.FlatAppearance.BorderSize = 2
-        Me.ibtnStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnStop.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnStop.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnStop.IconChar = FontAwesome.Sharp.IconChar.[Stop]
-        Me.ibtnStop.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnStop.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnStop.IconSize = 30
-        Me.ibtnStop.ImageAlign = System.Drawing.ContentAlignment.BottomRight
-        Me.ibtnStop.Location = New System.Drawing.Point(136, 57)
-        Me.ibtnStop.Name = "ibtnStop"
-        Me.ibtnStop.Size = New System.Drawing.Size(116, 48)
-        Me.ibtnStop.TabIndex = 281
-        Me.ibtnStop.Text = "Stop"
-        Me.ibtnStop.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.ibtnStop.UseVisualStyleBackColor = False
         '
         'dgvVoiceNotes
         '
@@ -579,7 +449,7 @@ Partial Class Frm_Visit
         Me.dgvVoiceNotes.RowHeadersVisible = False
         Me.dgvVoiceNotes.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgvVoiceNotes.RowTemplate.Height = 32
-        Me.dgvVoiceNotes.Size = New System.Drawing.Size(838, 297)
+        Me.dgvVoiceNotes.Size = New System.Drawing.Size(838, 351)
         Me.dgvVoiceNotes.TabIndex = 268
         '
         'GroupBox6
@@ -724,55 +594,6 @@ Partial Class Frm_Visit
         Me.gbVisits.TabStop = False
         Me.gbVisits.Text = "Visits:"
         '
-        'ibtnBack
-        '
-        Me.ibtnBack.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnBack.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnBack.FlatAppearance.BorderSize = 0
-        Me.ibtnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnBack.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnBack.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
-        Me.ibtnBack.IconColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnBack.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnBack.IconSize = 40
-        Me.ibtnBack.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnBack.Location = New System.Drawing.Point(139, 89)
-        Me.ibtnBack.Name = "ibtnBack"
-        Me.ibtnBack.Rotation = 180.0R
-        Me.ibtnBack.Size = New System.Drawing.Size(51, 41)
-        Me.ibtnBack.TabIndex = 289
-        Me.ibtnBack.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.ibtnBack.UseVisualStyleBackColor = False
-        '
-        'ibtnFoward
-        '
-        Me.ibtnFoward.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnFoward.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnFoward.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnFoward.FlatAppearance.BorderSize = 0
-        Me.ibtnFoward.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnFoward.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnFoward.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnFoward.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnFoward.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnFoward.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
-        Me.ibtnFoward.IconColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnFoward.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnFoward.IconSize = 40
-        Me.ibtnFoward.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnFoward.Location = New System.Drawing.Point(3, 90)
-        Me.ibtnFoward.Name = "ibtnFoward"
-        Me.ibtnFoward.Size = New System.Drawing.Size(51, 41)
-        Me.ibtnFoward.TabIndex = 288
-        Me.ibtnFoward.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnFoward.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.ibtnFoward.UseVisualStyleBackColor = False
-        '
         'lblCurrentVisit
         '
         Me.lblCurrentVisit.AutoSize = True
@@ -849,30 +670,6 @@ Partial Class Frm_Visit
         Me.chkPaperRecord.Text = "Patient Clinic history in Paper"
         Me.chkPaperRecord.UseVisualStyleBackColor = True
         '
-        'IconButton1
-        '
-        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.IconButton1.FlatAppearance.BorderSize = 2
-        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 30
-        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.IconButton1.Location = New System.Drawing.Point(461, 14)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(122, 57)
-        Me.IconButton1.TabIndex = 287
-        Me.IconButton1.Text = "Clinic History"
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseVisualStyleBackColor = False
-        '
         'gbBilling
         '
         Me.gbBilling.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -900,31 +697,6 @@ Partial Class Frm_Visit
         Me.gbBilling.TabIndex = 286
         Me.gbBilling.TabStop = False
         Me.gbBilling.Text = "Billing Information:"
-        '
-        'ibtnEditVisit
-        '
-        Me.ibtnEditVisit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnEditVisit.BackColor = System.Drawing.Color.Red
-        Me.ibtnEditVisit.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnEditVisit.FlatAppearance.BorderSize = 2
-        Me.ibtnEditVisit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnEditVisit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnEditVisit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnEditVisit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnEditVisit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnEditVisit.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.ibtnEditVisit.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnEditVisit.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnEditVisit.IconSize = 30
-        Me.ibtnEditVisit.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnEditVisit.Location = New System.Drawing.Point(403, 128)
-        Me.ibtnEditVisit.Name = "ibtnEditVisit"
-        Me.ibtnEditVisit.Size = New System.Drawing.Size(160, 48)
-        Me.ibtnEditVisit.TabIndex = 294
-        Me.ibtnEditVisit.Text = "Change"
-        Me.ibtnEditVisit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnEditVisit.UseVisualStyleBackColor = False
-        Me.ibtnEditVisit.Visible = False
         '
         'txtOtherServices
         '
@@ -956,30 +728,6 @@ Partial Class Frm_Visit
         Me.lblOustanding.Size = New System.Drawing.Size(45, 24)
         Me.lblOustanding.TabIndex = 291
         Me.lblOustanding.Text = "0.00"
-        '
-        'ibtnSave
-        '
-        Me.ibtnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnSave.FlatAppearance.BorderSize = 2
-        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnSave.IconSize = 30
-        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(403, 54)
-        Me.ibtnSave.Name = "ibtnSave"
-        Me.ibtnSave.Size = New System.Drawing.Size(160, 48)
-        Me.ibtnSave.TabIndex = 279
-        Me.ibtnSave.Text = "Save/Update"
-        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnSave.UseVisualStyleBackColor = False
         '
         'Label21
         '
@@ -1237,6 +985,188 @@ Partial Class Frm_Visit
         'Timer1
         '
         '
+        'AxWindowsMediaPlayer1
+        '
+        Me.AxWindowsMediaPlayer1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AxWindowsMediaPlayer1.Enabled = True
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(3, 545)
+        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
+        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(843, 44)
+        Me.AxWindowsMediaPlayer1.TabIndex = 294
+        '
+        'ibtnStart
+        '
+        Me.ibtnStart.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ibtnStart.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnStart.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnStart.FlatAppearance.BorderSize = 2
+        Me.ibtnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnStart.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnStart.IconChar = FontAwesome.Sharp.IconChar.RecordVinyl
+        Me.ibtnStart.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnStart.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnStart.IconSize = 60
+        Me.ibtnStart.ImageAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.ibtnStart.Location = New System.Drawing.Point(155, 82)
+        Me.ibtnStart.Name = "ibtnStart"
+        Me.ibtnStart.Size = New System.Drawing.Size(195, 76)
+        Me.ibtnStart.TabIndex = 280
+        Me.ibtnStart.Text = "Rec"
+        Me.ibtnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.ibtnStart.UseVisualStyleBackColor = False
+        '
+        'ibtnStop
+        '
+        Me.ibtnStop.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ibtnStop.BackColor = System.Drawing.Color.FromArgb(CType(CType(197, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(26, Byte), Integer))
+        Me.ibtnStop.Enabled = False
+        Me.ibtnStop.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnStop.FlatAppearance.BorderSize = 2
+        Me.ibtnStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnStop.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnStop.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnStop.IconChar = FontAwesome.Sharp.IconChar.[Stop]
+        Me.ibtnStop.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnStop.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnStop.IconSize = 60
+        Me.ibtnStop.ImageAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.ibtnStop.Location = New System.Drawing.Point(356, 82)
+        Me.ibtnStop.Name = "ibtnStop"
+        Me.ibtnStop.Size = New System.Drawing.Size(195, 76)
+        Me.ibtnStop.TabIndex = 281
+        Me.ibtnStop.Text = "Stop"
+        Me.ibtnStop.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.ibtnStop.UseVisualStyleBackColor = False
+        '
+        'ibtnBack
+        '
+        Me.ibtnBack.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnBack.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnBack.FlatAppearance.BorderSize = 0
+        Me.ibtnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnBack.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnBack.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
+        Me.ibtnBack.IconColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnBack.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnBack.IconSize = 40
+        Me.ibtnBack.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnBack.Location = New System.Drawing.Point(139, 89)
+        Me.ibtnBack.Name = "ibtnBack"
+        Me.ibtnBack.Rotation = 180.0R
+        Me.ibtnBack.Size = New System.Drawing.Size(51, 41)
+        Me.ibtnBack.TabIndex = 289
+        Me.ibtnBack.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.ibtnBack.UseVisualStyleBackColor = False
+        '
+        'ibtnFoward
+        '
+        Me.ibtnFoward.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnFoward.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnFoward.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnFoward.FlatAppearance.BorderSize = 0
+        Me.ibtnFoward.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnFoward.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnFoward.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnFoward.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnFoward.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnFoward.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft
+        Me.ibtnFoward.IconColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnFoward.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnFoward.IconSize = 40
+        Me.ibtnFoward.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnFoward.Location = New System.Drawing.Point(3, 90)
+        Me.ibtnFoward.Name = "ibtnFoward"
+        Me.ibtnFoward.Size = New System.Drawing.Size(51, 41)
+        Me.ibtnFoward.TabIndex = 288
+        Me.ibtnFoward.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnFoward.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.ibtnFoward.UseVisualStyleBackColor = False
+        '
+        'IconButton1
+        '
+        Me.IconButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.IconButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.IconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.IconButton1.FlatAppearance.BorderSize = 2
+        Me.IconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.IconButton1.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 30
+        Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.IconButton1.Location = New System.Drawing.Point(461, 14)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Size = New System.Drawing.Size(122, 57)
+        Me.IconButton1.TabIndex = 287
+        Me.IconButton1.Text = "Clinic History"
+        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton1.UseVisualStyleBackColor = False
+        '
+        'ibtnEditVisit
+        '
+        Me.ibtnEditVisit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnEditVisit.BackColor = System.Drawing.Color.Red
+        Me.ibtnEditVisit.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnEditVisit.FlatAppearance.BorderSize = 2
+        Me.ibtnEditVisit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnEditVisit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnEditVisit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnEditVisit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnEditVisit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnEditVisit.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.ibtnEditVisit.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnEditVisit.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnEditVisit.IconSize = 30
+        Me.ibtnEditVisit.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnEditVisit.Location = New System.Drawing.Point(403, 128)
+        Me.ibtnEditVisit.Name = "ibtnEditVisit"
+        Me.ibtnEditVisit.Size = New System.Drawing.Size(160, 48)
+        Me.ibtnEditVisit.TabIndex = 294
+        Me.ibtnEditVisit.Text = "Change"
+        Me.ibtnEditVisit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnEditVisit.UseVisualStyleBackColor = False
+        Me.ibtnEditVisit.Visible = False
+        '
+        'ibtnSave
+        '
+        Me.ibtnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnSave.FlatAppearance.BorderSize = 2
+        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnSave.IconSize = 30
+        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnSave.Location = New System.Drawing.Point(403, 54)
+        Me.ibtnSave.Name = "ibtnSave"
+        Me.ibtnSave.Size = New System.Drawing.Size(160, 48)
+        Me.ibtnSave.TabIndex = 279
+        Me.ibtnSave.Text = "Save/Update"
+        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnSave.UseVisualStyleBackColor = False
+        '
         'Frm_Visit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1261,7 +1191,6 @@ Partial Class Frm_Visit
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.dgvVoiceNotes, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1279,6 +1208,7 @@ Partial Class Frm_Visit
         Me.gbBilling.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.dgvservices, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1361,9 +1291,5 @@ Partial Class Frm_Visit
     Friend WithEvents lblDuration As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
-    Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
 End Class

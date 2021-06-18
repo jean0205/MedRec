@@ -7,6 +7,7 @@ Public Class Frm_Visit
     Dim util As New Util
     Dim patientId As Integer
     Dim visitId As Integer = 0
+    Dim originalVisitId As Integer = 0
     Dim appoitmentId As Integer = 0
     Dim outstanding As Decimal = 0
     Dim savedVisit As Boolean = False
@@ -84,9 +85,11 @@ Public Class Frm_Visit
             savedVisit = True
             ibtnEditVisit.Visible = True
             ibtnSave.Visible = False
+
         End If
+        originalVisitId = visitId
+        LoadVoiceNotes()
         chkPaperRecord.Checked = patient.PaperRecord
-        voiceList = dbVoice.GetVoiceListVisit(patientId, visitId)
     End Sub
     Private Sub ibtnSave_Click(sender As Object, e As EventArgs) Handles ibtnSave.Click
         updatedVisit()
@@ -137,6 +140,8 @@ Public Class Frm_Visit
         Try
             ibtnSave.Visible = change
             dtpDateVisit.Enabled = change
+            ibtnStart.Visible = change
+            ibtnStop.Visible = change
             For Each txt As TextBox In util.FindAllTextBoxIterative(Me)
                 txt.Enabled = change
             Next
@@ -202,6 +207,7 @@ Public Class Frm_Visit
                 Next
 
             End If
+            LoadVoiceNotes()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -616,10 +622,10 @@ Public Class Frm_Visit
         Try
             If Not savedVisit Then
                 If util.yesOrNot("This visit have not been saved and will be deleted if you close this screen. Do you want To continue?", "Delete Visit") Then
-                    dbVisit.DeleteVisit(visitId)
-                    dbMedications.DeleteMedicationByVisitId(visitId)
-                    dbTest.DeleteTestByVisitId(visitId)
-                    dbVoice.DeleteVoiceByVisitId(visitId)
+                    dbVisit.DeleteVisit(originalVisitId)
+                    dbMedications.DeleteMedicationByVisitId(originalVisitId)
+                    dbTest.DeleteTestByVisitId(originalVisitId)
+                    dbVoice.DeleteVoiceByVisitId(originalVisitId)
                 Else
                     'loadVisit(visitList(visitList.Count - 1))
                     'EnableChanges(True)
@@ -627,6 +633,24 @@ Public Class Frm_Visit
                     e.Cancel = True
                 End If
             End If
+            Try
+                Dim myFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Tests\"
+                If Directory.Exists(myFolder) Then
+                    Dim files() As String = IO.Directory.GetFiles(myFolder, "*.*")
+                    If files.Length > 0 Then
+                        FileSystem.Kill(myFolder & "*.*")
+                    End If
+                End If
+                Dim myFolderN As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\VoiceNotes\"
+                If Directory.Exists(myFolderN) Then
+                    Dim files() As String = IO.Directory.GetFiles(myFolderN, "*.*")
+                    If files.Length > 0 Then
+                        FileSystem.Kill(myFolderN & "*.*")
+                    End If
+                End If
+            Catch ex As Exception
+
+            End Try
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -643,17 +667,18 @@ Public Class Frm_Visit
     Dim hh, mm, ss As Integer
     Sub LoadVoiceNotes()
         Try
+            voiceList = New List(Of VoiceNote)
+            voiceList = dbVoice.GetVoiceListVisit(patientId, visitId)
             dgvVoiceNotes.Columns.Clear()
             dgvVoiceNotes.DataSource = voiceList
             dgvVoiceNotes.RowsDefaultCellStyle.BackColor = Color.Beige
+            'dgvVoiceNotes.AlternatingRowsDefaultCellStyle.BackColor = Color.Bisque
             util.addBottomColumns(dgvVoiceNotes, "PlayCol", "Play")
-            util.addBottomColumns(dgvVoiceNotes, "StopCol", "Stop")
             util.addBottomColumns(dgvVoiceNotes, "DeleteCol", "Delete")
             Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2})
             util.hideDGVColumns(dgvVoiceNotes, indexList)
             dgvVoiceNotes.Columns("RecordDate").HeaderText = "Date"
             dgvVoiceNotes.Columns("PlayCol").Width = 60
-            dgvVoiceNotes.Columns("StopCol").Width = 60
             dgvVoiceNotes.Columns("DeleteCol").Width = 60
             dgvVoiceNotes.Columns("RecordDate").DefaultCellStyle.Format = "dd-MMM-yyyy (hh:mm)"
             dgvVoiceNotes.Columns.Remove("File")
@@ -691,25 +716,26 @@ Public Class Frm_Visit
             End Using
             voice.Duration = getDurationAsync(path)
             dbVoice.insertVoiceNoteVisit(voice)
-            voiceList = New List(Of VoiceNote)
-            voiceList = dbVoice.GetVoiceListVisit(patientId, visitId)
-            util.InformationMessage("Your voice notes has been recorded and saved in the Visit file.", "Voice Note")
             LoadVoiceNotes()
             lblDuration.Text = "00:00:00"
+            ibtnStart.Enabled = True
+            ibtnStop.Enabled = False
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
     Dim sound As New System.Media.SoundPlayer
     Sub Play(id As Integer)
-        sound = New Media.SoundPlayer
-        Dim stream As Stream = New MemoryStream(voiceList.Where(Function(r) r.Id = id).Select(Function(q) q.File).First)
-        sound.Stream = stream
-        sound.Play()
+        Try
+            Dim fileName As String = voiceList.Where(Function(r) r.Id = id).Select(Function(q) q.Name & ".wav").First
+            Dim myFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\VoiceNotes\"
+            File.WriteAllBytes(myFolder & fileName, voiceList.Where(Function(r) r.Id = id).Select(Function(q) q.File).First)
+            AxWindowsMediaPlayer1.URL = myFolder & fileName
+            AxWindowsMediaPlayer1.Ctlcontrols.play()
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
     End Sub
-
-
-
     Function getDurationAsync(path As String) As Double
         Dim duration As Double = 0.00
         Try
@@ -724,6 +750,8 @@ Public Class Frm_Visit
 
     Private Sub IconButton2_Click_1(sender As Object, e As EventArgs) Handles ibtnStart.Click
         Try
+            ibtnStart.Enabled = False
+            ibtnStop.Enabled = True
             hh = 0
             mm = 0
             ss = 0
@@ -765,16 +793,11 @@ Public Class Frm_Visit
             'Play
             If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "PlayCol" Then
+                    dgvVoiceNotes.Rows.Cast(Of DataGridViewRow).ToList.ForEach(Sub(r) r.DefaultCellStyle.BackColor = Color.Beige)
                     Play(rowId)
+                    senderGrid.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Bisque
                 End If
             End If
-            'Stop
-            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
-                If senderGrid.Columns(e.ColumnIndex).Name = "StopCol" Then
-                    sound.Stop()
-                End If
-            End If
-            'Test 
             If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
                 If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
                     If util.yesOrNot("Do you want to delete the selected Voice Note", "Delete Voice Note") Then
@@ -806,20 +829,11 @@ Public Class Frm_Visit
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "PlayCol" Then
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All)
-                    Dim w = My.Resources.medHistory.Width
-                    Dim h = My.Resources.medHistory.Height
+                    Dim w = My.Resources.play.Width
+                    Dim h = My.Resources.play.Height
                     Dim x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2
                     Dim y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2
-                    e.Graphics.DrawImage(My.Resources.medHistory, New Rectangle(x, y, w, h))
-                    e.Handled = True
-                End If
-                If senderGrid.Columns(e.ColumnIndex).Name = "StopCol" Then
-                    e.Paint(e.CellBounds, DataGridViewPaintParts.All)
-                    Dim w = My.Resources.pdf.Width
-                    Dim h = My.Resources.pdf.Height
-                    Dim x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2
-                    Dim y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2
-                    e.Graphics.DrawImage(My.Resources.pdf, New Rectangle(x, y, w, h))
+                    e.Graphics.DrawImage(My.Resources.play, New Rectangle(x, y, w, h))
                     e.Handled = True
                 End If
             End If

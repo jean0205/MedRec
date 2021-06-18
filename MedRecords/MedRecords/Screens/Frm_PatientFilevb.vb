@@ -1,5 +1,9 @@
 ﻿Imports System.IO
 Imports System.Reflection
+Imports System.Runtime.InteropServices
+Imports System.Text
+Imports WMPLib
+
 Public Class Frm_PatientFilevb
     Dim util As New Util
     'DB OBJECTS
@@ -38,7 +42,7 @@ Public Class Frm_PatientFilevb
     Private Sub Frm_PatientFilevb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadMedicalProblems()
         loadAllergies()
-        loadMedications()
+        LoadMedications()
         loadSurgeries()
         loadTest()
         loadPregnancies()
@@ -48,6 +52,7 @@ Public Class Frm_PatientFilevb
         loadHabits()
         txtNotes.Text = dbPatient.getNotes(patient.Id)
         notesExist = dbPatient.noteExist(patient.Id)
+        LoadVoiceNotes()
     End Sub
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
         If Not checkAccess() Then
@@ -398,7 +403,7 @@ Public Class Frm_PatientFilevb
             Case "New Medication"
                 Dim frm As New Frm_Medications(patient.Id, 0)
                 frm.ShowDialog()
-                loadMedications()
+                LoadMedications()
             Case "New Surgery"
                 Dim frm As New FrmSurgery(patient.Id)
                 frm.ShowDialog()
@@ -532,13 +537,13 @@ Public Class Frm_PatientFilevb
                     If util.yesOrNot("Do you want to delete the selected Medication", "Delete Medication") Then
                         dbMedications.DeleteMedication(rowId)
                         util.InformationMessage("Medication successfully deleted", "Medication Deleted")
-                        loadMedications()
+                        LoadMedications()
                     End If
                 End If
                 If senderGrid.Columns(e.ColumnIndex).Name = "DetailsColMedi" Then
                     Dim frm As New Frm_Medications(rowId, True)
                     frm.ShowDialog()
-                    loadMedications()
+                    LoadMedications()
                 End If
             End If
             'SURGERY
@@ -760,15 +765,207 @@ Public Class Frm_PatientFilevb
               .Where(Function(r) r.Name = "Frm_FileViewer") _
               .ToList() _
               .ForEach(Sub(form) form.Close())
-            Dim myFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Tests\"
-            If Directory.Exists(myFolder) Then
-                Dim files() As String = IO.Directory.GetFiles(myFolder, "*.*")
-                If files.Length > 0 Then
-                    FileSystem.Kill(myFolder & "*.*")
+            Try
+                Dim myFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Tests\"
+                If Directory.Exists(myFolder) Then
+                    Dim files() As String = IO.Directory.GetFiles(myFolder, "*.*")
+                    If files.Length > 0 Then
+                        FileSystem.Kill(myFolder & "*.*")
+                    End If
+                End If
+                Dim myFolderN As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\VoiceNotes\"
+                If Directory.Exists(myFolderN) Then
+                    Dim files() As String = IO.Directory.GetFiles(myFolderN, "*.*")
+                    If files.Length > 0 Then
+                        FileSystem.Kill(myFolderN & "*.*")
+                    End If
+                End If
+            Catch ex As Exception
+
+            End Try
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
+#Region "Voice Notes"
+    Dim voiceList As New List(Of VoiceNote)
+    Dim dbVoice As New VoiceNoteDB
+    Dim FLocation As String
+    Dim hh, mm, ss As Integer
+    Sub LoadVoiceNotes()
+        Try
+            voiceList = New List(Of VoiceNote)
+            voiceList = dbVoice.GetVoiceListPatient(patient.Id)
+            dgvVoiceNotes.Columns.Clear()
+            dgvVoiceNotes.DataSource = voiceList
+            dgvVoiceNotes.RowsDefaultCellStyle.BackColor = Color.Beige
+            util.addBottomColumns(dgvVoiceNotes, "PlayCol", "Play")
+            util.addBottomColumns(dgvVoiceNotes, "DeleteCol", "Delete")
+            Dim indexList As New List(Of Integer)(New Integer() {0, 1, 2})
+            util.hideDGVColumns(dgvVoiceNotes, indexList)
+            dgvVoiceNotes.Columns("RecordDate").HeaderText = "Date"
+            dgvVoiceNotes.Columns("PlayCol").Width = 60
+            dgvVoiceNotes.Columns("DeleteCol").Width = 60
+            dgvVoiceNotes.Columns("RecordDate").DefaultCellStyle.Format = "dd-MMM-yyyy (hh:mm)"
+            dgvVoiceNotes.Columns.Remove("File")
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
+
+
+    <DllImport("winmm.dll")>
+    Private Shared Function mciSendString(ByVal command As String, ByVal buffer As StringBuilder, ByVal bufferSize As Integer, ByVal hwndCallback As IntPtr) As Integer
+    End Function
+    Private Sub ibtnStart_Click(sender As Object, e As EventArgs) Handles ibtnStart.Click
+        Try
+            hh = 0
+            mm = 0
+            ss = 0
+            Dim i As Integer
+            i = mciSendString("open new type waveaudio alias capture", Nothing, 0, 0)
+            Console.WriteLine(i)
+            i = mciSendString("record capture", Nothing, 0, 0)
+            Console.WriteLine(i)
+            lblDuration.Text = "00:00:00"
+            Timer1.Start()
+            ibtnStart.Enabled = False
+            ibtnStop.Enabled = True
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Private Sub ibtnStop_Click(sender As Object, e As EventArgs) Handles ibtnStop.Click
+
+        Dim myFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\VoiceNotes\"
+        If Not Directory.Exists(myFolder) Then
+            Directory.CreateDirectory(myFolder)
+        End If
+        Timer1.Stop()
+        Try
+            Dim path As String = myFolder & "VoiceNote.wav"
+            mciSendString("save capture " & path, Nothing, 0, 0)
+            mciSendString("close capture", Nothing, 0, 0)
+            Dim voice As New VoiceNote
+            voice.PatientId = patient.Id
+            voice.Name = "Note-" & voiceList.Count + 1
+            voice.RecordDate = Now
+            Using fs As Stream = File.OpenRead(path)
+                Using br As New BinaryReader(fs)
+                    Dim bytes As Byte() = br.ReadBytes(fs.Length)
+                    voice.File = bytes
+                End Using
+            End Using
+            voice.Duration = getDurationAsync(path)
+            dbVoice.insertVoiceNotePatient(voice)
+            LoadVoiceNotes()
+            lblDuration.Text = "00:00:00"
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+        ibtnStart.Enabled = True
+        ibtnStop.Enabled = False
+    End Sub
+    Function getDurationAsync(path As String) As Double
+        Dim duration As Double = 0.00
+        Try
+            Dim wmp As New WindowsMediaPlayer
+            Dim mediainfo As IWMPMedia = wmp.newMedia(path)
+            duration = mediainfo.duration
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+        Return duration
+    End Function
+    Sub Play(id As Integer)
+        Try
+            Dim fileName As String = voiceList.Where(Function(r) r.Id = id).Select(Function(q) q.Name & ".wav").First
+            Dim myFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\VoiceNotes\"
+            File.WriteAllBytes(myFolder & fileName, voiceList.Where(Function(r) r.Id = id).Select(Function(q) q.File).First)
+            AxWindowsMediaPlayer1.URL = myFolder & fileName
+            AxWindowsMediaPlayer1.Ctlcontrols.play()
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+
+    Private Sub dgvVoiceNotes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvVoiceNotes.CellContentClick
+        Try
+            If e.RowIndex < 0 Or e.ColumnIndex < 0 Then
+                Exit Sub
+            End If
+            Dim senderGrid = DirectCast(sender, DataGridView)
+            Dim rowId As Integer = CInt(senderGrid.Rows(e.RowIndex).Cells("Id").Value)
+            'buttom Form
+
+            'Play
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "PlayCol" Then
+                    dgvVoiceNotes.Rows.Cast(Of DataGridViewRow).ToList.ForEach(Sub(r) r.DefaultCellStyle.BackColor = Color.Beige)
+                    Play(rowId)
+                    senderGrid.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Bisque
+                End If
+            End If
+            If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
+                    If util.yesOrNot("Do you want to delete the selected Voice Note", "Delete Voice Note") Then
+                        dbVoice.DeleteVoiceById(rowId)
+                        util.InformationMessage("Voice Note successfully deleted", "Voice Note Deleted")
+                        LoadVoiceNotes()
+                    End If
                 End If
             End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
     End Sub
+    Private Sub DgvCellPaintingVoice(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles dgvVoiceNotes.CellPainting
+        Try
+            Dim senderGrid As DataGridView = CType(sender, DataGridView)
+            If e.RowIndex < 0 Then
+                Exit Sub
+            End If
+            If e.ColumnIndex >= 0 Then
+                If senderGrid.Columns(e.ColumnIndex).Name = "DeleteCol" Then
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All)
+                    Dim w = My.Resources.delete.Width
+                    Dim h = My.Resources.delete.Height
+                    Dim x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2
+                    Dim y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2
+                    e.Graphics.DrawImage(My.Resources.delete, New Rectangle(x, y, w, h))
+                    e.Handled = True
+                End If
+                If senderGrid.Columns(e.ColumnIndex).Name = "PlayCol" Then
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All)
+                    Dim w = My.Resources.play.Width
+                    Dim h = My.Resources.play.Height
+                    Dim x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2
+                    Dim y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2
+                    e.Graphics.DrawImage(My.Resources.play, New Rectangle(x, y, w, h))
+                    e.Handled = True
+                End If
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+    End Sub
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Dim shh, smm, sss As String
+        ss += 1
+        If ss = 59 Then
+            ss = 0 : mm += 1
+            If mm >= 59 Then
+                mm = 0 : hh += 1
+            End If
+        End If
+        If hh < 10 Then shh = "0" & hh Else shh = hh
+        If mm < 10 Then smm = "0" & mm Else smm = mm
+        If ss < 10 Then sss = "0" & ss Else sss = ss
+        lblDuration.Text = shh & ":" & smm & ":" & sss
+    End Sub
+
+#End Region
+
 End Class

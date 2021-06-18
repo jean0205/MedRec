@@ -22,6 +22,7 @@ Partial Class Frm_PatientFilevb
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_PatientFilevb))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -94,6 +95,14 @@ Partial Class Frm_PatientFilevb
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ibtnStart = New FontAwesome.Sharp.IconButton()
+        Me.lblDuration = New System.Windows.Forms.Label()
+        Me.ibtnStop = New FontAwesome.Sharp.IconButton()
+        Me.dgvVoiceNotes = New System.Windows.Forms.DataGridView()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -124,6 +133,10 @@ Partial Class Frm_PatientFilevb
         CType(Me.dgvVisitsHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbInfo.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.dgvVoiceNotes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -149,6 +162,7 @@ Partial Class Frm_PatientFilevb
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Location = New System.Drawing.Point(0, 250)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -1021,6 +1035,118 @@ Partial Class Frm_PatientFilevb
         Me.Label4.TabIndex = 236
         Me.Label4.Text = "First Name:"
         '
+        'TabPage5
+        '
+        Me.TabPage5.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.TabPage5.Controls.Add(Me.AxWindowsMediaPlayer1)
+        Me.TabPage5.Controls.Add(Me.GroupBox4)
+        Me.TabPage5.Controls.Add(Me.dgvVoiceNotes)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Size = New System.Drawing.Size(1435, 531)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Voice Notes"
+        '
+        'AxWindowsMediaPlayer1
+        '
+        Me.AxWindowsMediaPlayer1.Enabled = True
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(845, 12)
+        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
+        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(582, 511)
+        Me.AxWindowsMediaPlayer1.TabIndex = 297
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Controls.Add(Me.ibtnStart)
+        Me.GroupBox4.Controls.Add(Me.lblDuration)
+        Me.GroupBox4.Controls.Add(Me.ibtnStop)
+        Me.GroupBox4.ForeColor = System.Drawing.Color.White
+        Me.GroupBox4.Location = New System.Drawing.Point(4, -1)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(837, 175)
+        Me.GroupBox4.TabIndex = 296
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Record"
+        '
+        'ibtnStart
+        '
+        Me.ibtnStart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnStart.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnStart.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnStart.FlatAppearance.BorderSize = 2
+        Me.ibtnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnStart.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnStart.IconChar = FontAwesome.Sharp.IconChar.RecordVinyl
+        Me.ibtnStart.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnStart.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnStart.IconSize = 60
+        Me.ibtnStart.ImageAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.ibtnStart.Location = New System.Drawing.Point(155, 82)
+        Me.ibtnStart.Name = "ibtnStart"
+        Me.ibtnStart.Size = New System.Drawing.Size(195, 76)
+        Me.ibtnStart.TabIndex = 280
+        Me.ibtnStart.Text = "Rec"
+        Me.ibtnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.ibtnStart.UseVisualStyleBackColor = False
+        '
+        'lblDuration
+        '
+        Me.lblDuration.AutoSize = True
+        Me.lblDuration.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDuration.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblDuration.Location = New System.Drawing.Point(258, 22)
+        Me.lblDuration.Name = "lblDuration"
+        Me.lblDuration.Size = New System.Drawing.Size(174, 46)
+        Me.lblDuration.TabIndex = 282
+        Me.lblDuration.Text = "00:00:00"
+        '
+        'ibtnStop
+        '
+        Me.ibtnStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnStop.BackColor = System.Drawing.Color.FromArgb(CType(CType(197, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(26, Byte), Integer))
+        Me.ibtnStop.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnStop.FlatAppearance.BorderSize = 2
+        Me.ibtnStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnStop.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnStop.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnStop.IconChar = FontAwesome.Sharp.IconChar.[Stop]
+        Me.ibtnStop.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnStop.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnStop.IconSize = 60
+        Me.ibtnStop.ImageAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.ibtnStop.Location = New System.Drawing.Point(356, 82)
+        Me.ibtnStop.Name = "ibtnStop"
+        Me.ibtnStop.Size = New System.Drawing.Size(195, 76)
+        Me.ibtnStop.TabIndex = 281
+        Me.ibtnStop.Text = "Stop"
+        Me.ibtnStop.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.ibtnStop.UseVisualStyleBackColor = False
+        '
+        'dgvVoiceNotes
+        '
+        Me.dgvVoiceNotes.AllowUserToAddRows = False
+        Me.dgvVoiceNotes.AllowUserToDeleteRows = False
+        Me.dgvVoiceNotes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvVoiceNotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvVoiceNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvVoiceNotes.Location = New System.Drawing.Point(4, 177)
+        Me.dgvVoiceNotes.Name = "dgvVoiceNotes"
+        Me.dgvVoiceNotes.ReadOnly = True
+        Me.dgvVoiceNotes.RowHeadersVisible = False
+        Me.dgvVoiceNotes.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
+        Me.dgvVoiceNotes.RowTemplate.Height = 32
+        Me.dgvVoiceNotes.Size = New System.Drawing.Size(838, 350)
+        Me.dgvVoiceNotes.TabIndex = 295
+        '
         'Frm_PatientFilevb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1065,6 +1191,11 @@ Partial Class Frm_PatientFilevb
         Me.gbInfo.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.TabPage5.ResumeLayout(False)
+        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        CType(Me.dgvVoiceNotes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1140,4 +1271,12 @@ Partial Class Frm_PatientFilevb
     Friend WithEvents Label21 As Label
     Friend WithEvents chkPaperRecord As CheckBox
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents ibtnStart As FontAwesome.Sharp.IconButton
+    Friend WithEvents lblDuration As Label
+    Friend WithEvents ibtnStop As FontAwesome.Sharp.IconButton
+    Friend WithEvents dgvVoiceNotes As DataGridView
+    Friend WithEvents Timer1 As Timer
 End Class

@@ -79,7 +79,7 @@ Public Class VoiceNoteDB
         End Using
         Return voiceList
     End Function
-    Function GetVoiceListPatient(patientId As Integer, visitId As Integer) As List(Of VoiceNote)
+    Function GetVoiceListPatient(patientId As Integer) As List(Of VoiceNote)
         Dim voiceList As New List(Of VoiceNote)
         Dim query As String = "SELECT *
 	                              FROM [dbo].[VoiceNotes]
@@ -88,7 +88,6 @@ Public Class VoiceNoteDB
         Using connection As New SqlConnection(conString)
             Dim command As New SqlCommand(query, connection)
             command.Parameters.AddWithValue("@PatientId", SqlDbType.Int).Value = patientId
-            command.Parameters.AddWithValue("@VisitId", SqlDbType.Int).Value = visitId
             Try
                 connection.Open()
                 Dim reader As SqlDataReader = command.ExecuteReader()
