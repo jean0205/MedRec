@@ -432,5 +432,5 @@
     <CO_Config>Debug|AnyCPU</CO_Config>
     <CO_ProjectFilePath>..\MedRecords_Debug_AnyCPU.obproj</CO_ProjectFilePath>
   </PropertyGroup>
-  <Import Project="C:\Program Files (x86)\LogicNP Software\Crypto Obfuscator For .Net 2018\CryptoObfuscator.targets" />
+ 
 </Project>

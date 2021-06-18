@@ -652,7 +652,7 @@ Public Class Frm_Visit
             FLocation = fl.SelectedPath & "\v1.wav"
             mciSendString("save capture " & FLocation, Nothing, 0, 0)
             mciSendString("close capture", Nothing, 0, 0)
-            MsgBox("Your voice has been recorded and storend at " & fl.SelectedPath & "\v1.wav", MsgBoxStyle.Information, "Voice Recorder")
+            MsgBox("Your voice has been recorded and stored at " & fl.SelectedPath & "\v1.wav", MsgBoxStyle.Information, "Voice Recorder")
 
         Catch ex As Exception
             Console.WriteLine(ex.Message)
