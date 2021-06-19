@@ -882,7 +882,7 @@ Public Class Frm_PatientFilevb
     End Function
     Sub Play(id As Integer)
         Try
-            Dim fileName As String = voiceList.Where(Function(r) r.Id = id).Select(Function(q) q.Name & ".wav").First
+            Dim fileName As String = voiceList.Where(Function(r) r.Id = id).Select(Function(q) q.Id & ".wav").First
             Dim myFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\VoiceNotes\"
             File.WriteAllBytes(myFolder & fileName, voiceList.Where(Function(r) r.Id = id).Select(Function(q) q.File).First)
             AxWindowsMediaPlayer1.URL = myFolder & fileName
