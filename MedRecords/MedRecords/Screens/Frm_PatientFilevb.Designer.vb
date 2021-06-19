@@ -62,6 +62,7 @@ Partial Class Frm_PatientFilevb
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.dgvVisitsHistory = New System.Windows.Forms.DataGridView()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.ibtnStart = New FontAwesome.Sharp.IconButton()
         Me.lblDuration = New System.Windows.Forms.Label()
@@ -102,7 +103,6 @@ Partial Class Frm_PatientFilevb
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -132,11 +132,11 @@ Partial Class Frm_PatientFilevb
         Me.TabPage4.SuspendLayout()
         CType(Me.dgvVisitsHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
+        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         CType(Me.dgvVoiceNotes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbInfo.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -635,9 +635,21 @@ Partial Class Frm_PatientFilevb
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Voice Notes"
         '
+        'AxWindowsMediaPlayer1
+        '
+        Me.AxWindowsMediaPlayer1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AxWindowsMediaPlayer1.Enabled = True
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(845, 12)
+        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
+        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(582, 511)
+        Me.AxWindowsMediaPlayer1.TabIndex = 297
+        '
         'GroupBox4
         '
-        Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox4.Controls.Add(Me.ibtnStart)
         Me.GroupBox4.Controls.Add(Me.lblDuration)
         Me.GroupBox4.Controls.Add(Me.ibtnStop)
@@ -651,7 +663,7 @@ Partial Class Frm_PatientFilevb
         '
         'ibtnStart
         '
-        Me.ibtnStart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnStart.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ibtnStart.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.ibtnStart.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.ibtnStart.FlatAppearance.BorderSize = 2
@@ -675,6 +687,7 @@ Partial Class Frm_PatientFilevb
         '
         'lblDuration
         '
+        Me.lblDuration.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblDuration.AutoSize = True
         Me.lblDuration.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDuration.ForeColor = System.Drawing.Color.Gainsboro
@@ -686,7 +699,7 @@ Partial Class Frm_PatientFilevb
         '
         'ibtnStop
         '
-        Me.ibtnStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnStop.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ibtnStop.BackColor = System.Drawing.Color.FromArgb(CType(CType(197, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(26, Byte), Integer))
         Me.ibtnStop.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.ibtnStop.FlatAppearance.BorderSize = 2
@@ -1140,15 +1153,6 @@ Partial Class Frm_PatientFilevb
         'Timer1
         '
         '
-        'AxWindowsMediaPlayer1
-        '
-        Me.AxWindowsMediaPlayer1.Enabled = True
-        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(845, 12)
-        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
-        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(582, 511)
-        Me.AxWindowsMediaPlayer1.TabIndex = 297
-        '
         'Frm_PatientFilevb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1190,6 +1194,7 @@ Partial Class Frm_PatientFilevb
         Me.TabPage4.ResumeLayout(False)
         CType(Me.dgvVisitsHistory, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
+        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.dgvVoiceNotes, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1197,7 +1202,6 @@ Partial Class Frm_PatientFilevb
         Me.gbInfo.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
