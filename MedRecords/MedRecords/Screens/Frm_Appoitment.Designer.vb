@@ -23,6 +23,7 @@ Partial Class Frm_Appoitment
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Appoitment))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.PatientCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -32,9 +33,9 @@ Partial Class Frm_Appoitment
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtComments = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.gbInfo.SuspendLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -156,6 +157,17 @@ Partial Class Frm_Appoitment
         Me.Label1.TabIndex = 250
         Me.Label1.Text = "Comments:"
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(39, 38)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(79, 22)
+        Me.Label8.TabIndex = 246
+        Me.Label8.Text = "Patient:"
+        '
         'ibtnSave
         '
         Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
@@ -179,17 +191,6 @@ Partial Class Frm_Appoitment
         Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ibtnSave.UseVisualStyleBackColor = False
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(39, 38)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(79, 22)
-        Me.Label8.TabIndex = 246
-        Me.Label8.Text = "Patient:"
-        '
         'Frm_Appoitment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -197,6 +198,7 @@ Partial Class Frm_Appoitment
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(783, 301)
         Me.Controls.Add(Me.gbInfo)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Appoitment"
         Me.Text = "New Appoitment"
         Me.gbInfo.ResumeLayout(False)

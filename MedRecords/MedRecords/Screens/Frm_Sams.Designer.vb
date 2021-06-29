@@ -26,7 +26,6 @@ Partial Class Frm_Sams
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
-        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.txtCost = New System.Windows.Forms.TextBox()
         Me.txtService = New System.Windows.Forms.TextBox()
         Me.txtPatientName = New System.Windows.Forms.TextBox()
@@ -36,7 +35,6 @@ Partial Class Frm_Sams
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.IconButton8 = New FontAwesome.Sharp.IconButton()
         Me.dtpPeriod2 = New System.Windows.Forms.DateTimePicker()
         Me.dtpPeriod1 = New System.Windows.Forms.DateTimePicker()
         Me.lblTotal = New System.Windows.Forms.Label()
@@ -44,6 +42,8 @@ Partial Class Frm_Sams
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.IconButton8 = New FontAwesome.Sharp.IconButton()
+        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.gbInfo.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,30 +91,6 @@ Partial Class Frm_Sams
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(152, 26)
         Me.dtpDate.TabIndex = 255
-        '
-        'ibtnSave
-        '
-        Me.ibtnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnSave.FlatAppearance.BorderSize = 2
-        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnSave.IconSize = 30
-        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(431, 143)
-        Me.ibtnSave.Name = "ibtnSave"
-        Me.ibtnSave.Size = New System.Drawing.Size(114, 49)
-        Me.ibtnSave.TabIndex = 61
-        Me.ibtnSave.Text = "Save"
-        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnSave.UseVisualStyleBackColor = False
         '
         'txtCost
         '
@@ -226,30 +202,6 @@ Partial Class Frm_Sams
         Me.GroupBox1.TabIndex = 257
         Me.GroupBox1.TabStop = False
         '
-        'IconButton8
-        '
-        Me.IconButton8.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.IconButton8.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray
-        Me.IconButton8.FlatAppearance.BorderSize = 2
-        Me.IconButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.IconButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.IconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton8.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt
-        Me.IconButton8.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton8.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton8.IconSize = 30
-        Me.IconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton8.Location = New System.Drawing.Point(312, 16)
-        Me.IconButton8.Name = "IconButton8"
-        Me.IconButton8.Size = New System.Drawing.Size(129, 39)
-        Me.IconButton8.TabIndex = 262
-        Me.IconButton8.Text = "Export"
-        Me.IconButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton8.UseVisualStyleBackColor = False
-        '
         'dtpPeriod2
         '
         Me.dtpPeriod2.CalendarMonthBackground = System.Drawing.Color.Honeydew
@@ -326,6 +278,54 @@ Partial Class Frm_Sams
         Me.Label8.Size = New System.Drawing.Size(70, 24)
         Me.Label8.TabIndex = 236
         Me.Label8.Text = "Period:"
+        '
+        'IconButton8
+        '
+        Me.IconButton8.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.IconButton8.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray
+        Me.IconButton8.FlatAppearance.BorderSize = 2
+        Me.IconButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.IconButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.IconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton8.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt
+        Me.IconButton8.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton8.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton8.IconSize = 30
+        Me.IconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton8.Location = New System.Drawing.Point(312, 16)
+        Me.IconButton8.Name = "IconButton8"
+        Me.IconButton8.Size = New System.Drawing.Size(129, 39)
+        Me.IconButton8.TabIndex = 262
+        Me.IconButton8.Text = "Export"
+        Me.IconButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton8.UseVisualStyleBackColor = False
+        '
+        'ibtnSave
+        '
+        Me.ibtnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnSave.FlatAppearance.BorderSize = 2
+        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnSave.IconSize = 30
+        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnSave.Location = New System.Drawing.Point(431, 143)
+        Me.ibtnSave.Name = "ibtnSave"
+        Me.ibtnSave.Size = New System.Drawing.Size(114, 49)
+        Me.ibtnSave.TabIndex = 61
+        Me.ibtnSave.Text = "Save"
+        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnSave.UseVisualStyleBackColor = False
         '
         'Frm_Sams
         '

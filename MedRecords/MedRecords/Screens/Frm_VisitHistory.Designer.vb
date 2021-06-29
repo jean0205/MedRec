@@ -49,11 +49,11 @@ Partial Class Frm_VisitHistory
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.gbPeriod = New System.Windows.Forms.GroupBox()
         Me.chkPeriod = New System.Windows.Forms.CheckBox()
-        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton4 = New FontAwesome.Sharp.IconButton()
         Me.dtpPeriod = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
+        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
+        Me.IconButton4 = New FontAwesome.Sharp.IconButton()
         Me.gb1.SuspendLayout()
         Me.gbId.SuspendLayout()
         Me.gbStatus.SuspendLayout()
@@ -372,39 +372,6 @@ Partial Class Frm_VisitHistory
         Me.chkPeriod.UseVisualStyleBackColor = True
         Me.chkPeriod.Visible = False
         '
-        'IconButton3
-        '
-        Me.IconButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton3.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
-        Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
-        Me.IconButton3.IconColor = System.Drawing.Color.Gainsboro
-        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton3.IconSize = 25
-        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.IconButton3.Location = New System.Drawing.Point(8, 64)
-        Me.IconButton3.Name = "IconButton3"
-        Me.IconButton3.Size = New System.Drawing.Size(35, 35)
-        Me.IconButton3.TabIndex = 5
-        Me.IconButton3.UseVisualStyleBackColor = False
-        '
-        'IconButton4
-        '
-        Me.IconButton4.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.IconButton4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton4.ForeColor = System.Drawing.Color.Gainsboro
-        Me.IconButton4.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
-        Me.IconButton4.IconColor = System.Drawing.Color.Gainsboro
-        Me.IconButton4.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton4.IconSize = 25
-        Me.IconButton4.ImageAlign = System.Drawing.ContentAlignment.BottomRight
-        Me.IconButton4.Location = New System.Drawing.Point(184, 64)
-        Me.IconButton4.Name = "IconButton4"
-        Me.IconButton4.Size = New System.Drawing.Size(35, 35)
-        Me.IconButton4.TabIndex = 4
-        Me.IconButton4.UseVisualStyleBackColor = False
-        '
         'dtpPeriod
         '
         Me.dtpPeriod.CustomFormat = "  MMM-yyyy"
@@ -446,6 +413,39 @@ Partial Class Frm_VisitHistory
         Me.dgv1.RowTemplate.Height = 32
         Me.dgv1.Size = New System.Drawing.Size(1404, 650)
         Me.dgv1.TabIndex = 59
+        '
+        'IconButton3
+        '
+        Me.IconButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton3.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
+        Me.IconButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton3.ForeColor = System.Drawing.Color.Gainsboro
+        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
+        Me.IconButton3.IconColor = System.Drawing.Color.Gainsboro
+        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton3.IconSize = 25
+        Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.IconButton3.Location = New System.Drawing.Point(8, 64)
+        Me.IconButton3.Name = "IconButton3"
+        Me.IconButton3.Size = New System.Drawing.Size(35, 35)
+        Me.IconButton3.TabIndex = 5
+        Me.IconButton3.UseVisualStyleBackColor = False
+        '
+        'IconButton4
+        '
+        Me.IconButton4.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.IconButton4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton4.ForeColor = System.Drawing.Color.Gainsboro
+        Me.IconButton4.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
+        Me.IconButton4.IconColor = System.Drawing.Color.Gainsboro
+        Me.IconButton4.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton4.IconSize = 25
+        Me.IconButton4.ImageAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.IconButton4.Location = New System.Drawing.Point(184, 64)
+        Me.IconButton4.Name = "IconButton4"
+        Me.IconButton4.Size = New System.Drawing.Size(35, 35)
+        Me.IconButton4.TabIndex = 4
+        Me.IconButton4.UseVisualStyleBackColor = False
         '
         'Frm_VisitHistory
         '

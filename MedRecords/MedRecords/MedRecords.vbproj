@@ -48,7 +48,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>gynecologist.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\medRecIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoUpdater.NET, Version=1.6.4.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
@@ -443,6 +443,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="gynecologist.ico" />
+    <None Include="Resources\medRecIcon.ico" />
     <None Include="Resources\play.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

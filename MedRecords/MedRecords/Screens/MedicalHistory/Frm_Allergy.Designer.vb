@@ -25,10 +25,10 @@ Partial Class Frm_Allergy
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Allergy))
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.cmbReaction = New System.Windows.Forms.ComboBox()
-        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.gbInfo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -61,29 +61,6 @@ Partial Class Frm_Allergy
         Me.cmbReaction.Size = New System.Drawing.Size(204, 28)
         Me.cmbReaction.TabIndex = 251
         '
-        'ibtnSave
-        '
-        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.BorderSize = 2
-        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Database
-        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnSave.IconSize = 35
-        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(630, 118)
-        Me.ibtnSave.Name = "ibtnSave"
-        Me.ibtnSave.Size = New System.Drawing.Size(139, 42)
-        Me.ibtnSave.TabIndex = 85
-        Me.ibtnSave.Text = "Save"
-        Me.ibtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnSave.UseVisualStyleBackColor = False
-        '
         'txtName
         '
         Me.txtName.Font = New System.Drawing.Font("NewsGoth Lt BT", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -114,6 +91,29 @@ Partial Class Frm_Allergy
         Me.Label8.Size = New System.Drawing.Size(223, 21)
         Me.Label8.TabIndex = 246
         Me.Label8.Text = "Medicine/Food/Cosmetic:"
+        '
+        'ibtnSave
+        '
+        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(158, Byte), Integer), CType(CType(5, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.BorderSize = 2
+        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Database
+        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnSave.IconSize = 35
+        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ibtnSave.Location = New System.Drawing.Point(630, 118)
+        Me.ibtnSave.Name = "ibtnSave"
+        Me.ibtnSave.Size = New System.Drawing.Size(139, 42)
+        Me.ibtnSave.TabIndex = 85
+        Me.ibtnSave.Text = "Save"
+        Me.ibtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnSave.UseVisualStyleBackColor = False
         '
         'Frm_Allergy
         '

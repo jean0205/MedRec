@@ -26,7 +26,6 @@ Partial Class Frm_Services
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.gbInfo = New System.Windows.Forms.GroupBox()
-        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.chkPaperRecord = New System.Windows.Forms.CheckBox()
         Me.lblAge = New System.Windows.Forms.Label()
         Me.txtServiceCost = New System.Windows.Forms.TextBox()
@@ -35,6 +34,7 @@ Partial Class Frm_Services
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.ibtnSave = New FontAwesome.Sharp.IconButton()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbInfo.SuspendLayout()
@@ -96,30 +96,6 @@ Partial Class Frm_Services
         Me.gbInfo.Size = New System.Drawing.Size(628, 200)
         Me.gbInfo.TabIndex = 80
         Me.gbInfo.TabStop = False
-        '
-        'ibtnSave
-        '
-        Me.ibtnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ibtnSave.FlatAppearance.BorderSize = 2
-        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Hdd
-        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.ibtnSave.IconSize = 30
-        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.ibtnSave.Location = New System.Drawing.Point(508, 143)
-        Me.ibtnSave.Name = "ibtnSave"
-        Me.ibtnSave.Size = New System.Drawing.Size(114, 49)
-        Me.ibtnSave.TabIndex = 61
-        Me.ibtnSave.Text = "Save"
-        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ibtnSave.UseVisualStyleBackColor = False
         '
         'chkPaperRecord
         '
@@ -196,6 +172,30 @@ Partial Class Frm_Services
         Me.Label4.Size = New System.Drawing.Size(111, 20)
         Me.Label4.TabIndex = 236
         Me.Label4.Text = "Service Name:"
+        '
+        'ibtnSave
+        '
+        Me.ibtnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ibtnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ibtnSave.FlatAppearance.BorderSize = 2
+        Me.ibtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ibtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ibtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ibtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ibtnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconChar = FontAwesome.Sharp.IconChar.Hdd
+        Me.ibtnSave.IconColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.ibtnSave.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.ibtnSave.IconSize = 30
+        Me.ibtnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ibtnSave.Location = New System.Drawing.Point(508, 143)
+        Me.ibtnSave.Name = "ibtnSave"
+        Me.ibtnSave.Size = New System.Drawing.Size(114, 49)
+        Me.ibtnSave.TabIndex = 61
+        Me.ibtnSave.Text = "Save"
+        Me.ibtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ibtnSave.UseVisualStyleBackColor = False
         '
         'Frm_Services
         '
