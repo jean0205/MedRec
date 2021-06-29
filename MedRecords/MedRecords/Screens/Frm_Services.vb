@@ -25,6 +25,7 @@
             dgv1.Columns("Update").Width = 60
             dgv1.Columns("Delete").Width = 60
             dgv1.Columns("Cost").DefaultCellStyle.Format = "N2"
+            Me.updating = False
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -42,10 +43,10 @@
             Else
                 dbService.insertService(service)
             End If
+            Me.updating = False
             cleanAfterInsert()
             util.InformationMessage("Service successfully saved", "New Service")
             loadServices()
-            updating = False
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

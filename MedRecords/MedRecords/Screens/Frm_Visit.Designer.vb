@@ -802,7 +802,6 @@ Partial Class Frm_Visit
         Me.IconButton1.Text = "Clinic History"
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton1.UseVisualStyleBackColor = False
-        Me.IconButton1.Visible = False
         '
         'gbBilling
         '

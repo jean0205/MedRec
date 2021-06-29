@@ -114,9 +114,11 @@ Public Class Frm_Main
         panelAddAppointment.Visible = True
     End Sub
 
-    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles ibtnNewPatient.Click
+    Private Async Sub IconButton1_Click(sender As Object, e As EventArgs) Handles ibtnNewPatient.Click
         Dim frm As New Frm_NewPatient(userId)
         frm.ShowDialog()
+        Await getPatientList()
+        loadPatientsTuSearch()
     End Sub
 
     Private Sub ibtnClosePanel_Click(sender As Object, e As EventArgs) Handles ibtnClosePanel.Click
@@ -256,7 +258,9 @@ Public Class Frm_Main
     Private Async Function getPatientList() As Task
         Try
             dtPatients = Await dbMain.GetPatientList(True)
-            dtPatients = dtPatients.AsEnumerable.OrderBy(Function(r) r("First Name")).CopyToDataTable
+            If dtPatients.AsEnumerable.Any Then
+                dtPatients = dtPatients.AsEnumerable.OrderBy(Function(r) r("First Name")).CopyToDataTable
+            End If
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

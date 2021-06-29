@@ -33,6 +33,8 @@ Partial Class Form1
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.txtpass = New System.Windows.Forms.TextBox()
         Me.lblVersion = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -92,14 +94,13 @@ Partial Class Form1
         'txtuser
         '
         Me.txtuser.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtuser.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtuser.ForeColor = System.Drawing.Color.Silver
-        Me.txtuser.Location = New System.Drawing.Point(315, 81)
+        Me.txtuser.Location = New System.Drawing.Point(403, 74)
         Me.txtuser.Name = "txtuser"
-        Me.txtuser.Size = New System.Drawing.Size(335, 29)
+        Me.txtuser.Size = New System.Drawing.Size(261, 36)
         Me.txtuser.TabIndex = 15
-        Me.txtuser.Text = "User"
         '
         'ShapeContainer1
         '
@@ -115,31 +116,30 @@ Partial Class Form1
         '
         Me.LineShape2.BorderColor = System.Drawing.SystemColors.ControlLightLight
         Me.LineShape2.Name = "LineShape2"
-        Me.LineShape2.X1 = 318
-        Me.LineShape2.X2 = 648
-        Me.LineShape2.Y1 = 178
-        Me.LineShape2.Y2 = 178
+        Me.LineShape2.X1 = 0
+        Me.LineShape2.X2 = 0
+        Me.LineShape2.Y1 = 0
+        Me.LineShape2.Y2 = 0
         '
         'LineShape1
         '
         Me.LineShape1.BorderColor = System.Drawing.SystemColors.ControlLightLight
         Me.LineShape1.Name = "LineShape1"
-        Me.LineShape1.X1 = 318
-        Me.LineShape1.X2 = 648
-        Me.LineShape1.Y1 = 114
-        Me.LineShape1.Y2 = 114
+        Me.LineShape1.X1 = 0
+        Me.LineShape1.X2 = 0
+        Me.LineShape1.Y1 = 0
+        Me.LineShape1.Y2 = 0
         '
         'txtpass
         '
         Me.txtpass.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpass.ForeColor = System.Drawing.Color.Silver
-        Me.txtpass.Location = New System.Drawing.Point(315, 148)
+        Me.txtpass.Location = New System.Drawing.Point(403, 144)
         Me.txtpass.Name = "txtpass"
-        Me.txtpass.Size = New System.Drawing.Size(335, 29)
+        Me.txtpass.Size = New System.Drawing.Size(261, 36)
         Me.txtpass.TabIndex = 17
-        Me.txtpass.Text = "Password"
         Me.txtpass.UseSystemPasswordChar = True
         '
         'lblVersion
@@ -154,12 +154,36 @@ Partial Class Form1
         Me.lblVersion.TabIndex = 51
         Me.lblVersion.Text = "Updated On:"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Silver
+        Me.Label1.Location = New System.Drawing.Point(317, 79)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(80, 26)
+        Me.Label1.TabIndex = 52
+        Me.Label1.Text = "USER:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Silver
+        Me.Label2.Location = New System.Drawing.Point(249, 149)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(148, 26)
+        Me.Label2.TabIndex = 53
+        Me.Label2.Text = "PASSWORD:"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(749, 301)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.txtpass)
         Me.Controls.Add(Me.txtuser)
@@ -190,4 +214,6 @@ Partial Class Form1
     Friend WithEvents LineShape1 As PowerPacks.LineShape
     Private WithEvents txtpass As TextBox
     Friend WithEvents lblVersion As Label
+    Private WithEvents Label1 As Label
+    Private WithEvents Label2 As Label
 End Class

@@ -35,8 +35,38 @@ Public Class Frm_NewPatient
     End Sub
 
 #Region "Metodos"
+    Function MissingInfo() As Boolean
+        Try
+            If txtFirstName.TextLength = 0 Then
+                util.ErrorMessage("Please enter the patient First name.", "Missing Information")
+                Return True
+            End If
+            If txtLastName.TextLength = 0 Then
+                util.ErrorMessage("Please enter the patient Last name.", "Missing Information")
+                Return True
+            End If
+            If cmbSex.Text.Length = 0 Then
+                util.ErrorMessage("Please enter the patient Sex.", "Missing Information")
+                Return True
+            End If
+            If dtpDOB.Value.Date = Today Then
+                util.ErrorMessage("Please enter the patient Date of Birth.", "Missing Information")
+                Return True
+            End If
+            If cmbParish.Text.Length = 0 Then
+                util.ErrorMessage("Please enter the patient Parish.", "Missing Information")
+                Return True
+            End If
+        Catch ex As Exception
+            util.ErrorMessage(ex.Message, "Error")
+        End Try
+        Return False
+    End Function
     Sub savePatient(updating As Boolean)
         Try
+            If MissingInfo() Then
+                Exit Sub
+            End If
             Dim newPatient As New PatientE
             Dim properties As List(Of PropertyInfo) = newPatient.GetType().GetProperties().ToList
             newPatient.Active = True
@@ -61,7 +91,7 @@ Public Class Frm_NewPatient
             cleanAfterInsert()
             util.InformationMessage("Patient successfully saved", "New Patient")
             loadList()
-            updating = False
+            Me.updating = False
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

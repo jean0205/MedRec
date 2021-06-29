@@ -21,13 +21,14 @@ Public Class Frm_InvoicesReport
             _month = dtpMonth.Value.Date
             Label1.Text = _month.ToString("MMM-yyyy")
             doChartsMonthly(dtVisits)
-
             'date range
-            dtp1.Value = dtVisits.AsEnumerable.Where(Function(r) Not IsDBNull(r("VisitDate"))).
+            If dtVisits.AsEnumerable.Any Then
+                dtp1.Value = dtVisits.AsEnumerable.Where(Function(r) Not IsDBNull(r("VisitDate"))).
             Select(Function(x) CDate(x("VisitDate"))).FirstOrDefault
-            loaded = True
-            dtp2.Value = dtVisits.AsEnumerable.Where(Function(r) Not IsDBNull(r("VisitDate"))).
-            Select(Function(x) CDate(x("VisitDate"))).Last
+                loaded = True
+                dtp2.Value = dtVisits.AsEnumerable.Where(Function(r) Not IsDBNull(r("VisitDate"))).
+                Select(Function(x) CDate(x("VisitDate"))).Last
+            End If
             ageDistributions(listPatients)
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")

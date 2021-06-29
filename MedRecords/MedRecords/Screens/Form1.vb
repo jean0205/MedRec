@@ -14,25 +14,25 @@ Public Class Form1
     Dim util As New Util
     Dim dbMain As New MainDB
 
-    Private Sub txtpass_MouseEnter(sender As Object, e As EventArgs) Handles txtuser.MouseEnter, txtpass.MouseEnter
-        Dim txt As TextBox = CType(sender, TextBox)
-        If txt.Text = "User" Or txt.Text = "Password" Then
-            txt.Clear()
-        End If
-    End Sub
+    'Private Sub txtpass_MouseEnter(sender As Object, e As EventArgs) Handles txtuser.MouseEnter, txtpass.MouseEnter
+    '    Dim txt As TextBox = CType(sender, TextBox)
+    '    If txt.Text = "User" Or txt.Text = "Password" Then
+    '        txt.Clear()
+    '    End If
+    'End Sub
 
-    Private Sub txtpass_MouseLeave(sender As Object, e As EventArgs) Handles txtuser.MouseLeave, txtpass.MouseLeave
-        Dim txt As TextBox = CType(sender, TextBox)
-        If txt.Text = String.Empty Then
-            If txt.Name = "txtuser" Then
-                txt.Text = "User"
-            Else
-                txt.Text = "Password"
-            End If
+    'Private Sub txtpass_MouseLeave(sender As Object, e As EventArgs) Handles txtuser.MouseLeave, txtpass.MouseLeave
+    '    Dim txt As TextBox = CType(sender, TextBox)
+    '    If txt.Text = String.Empty Then
+    '        If txt.Name = "txtuser" Then
+    '            txt.Text = "User"
+    '        Else
+    '            txt.Text = "Password"
+    '        End If
 
-        End If
+    '    End If
 
-    End Sub
+    'End Sub
 
     Private Sub button2_Click(sender As Object, e As EventArgs) Handles button2.Click
         Me.Close()

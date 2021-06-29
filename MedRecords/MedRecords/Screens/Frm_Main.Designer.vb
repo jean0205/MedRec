@@ -73,7 +73,6 @@ Partial Class Frm_Main
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.GroupBox2.Controls.Add(Me.panelAddAppointment)
         Me.GroupBox2.Controls.Add(Me.dgv1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Gainsboro
@@ -91,9 +90,9 @@ Partial Class Frm_Main
         Me.panelAddAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(165, Byte), Integer))
         Me.panelAddAppointment.Controls.Add(Me.ibtnClosePanel)
         Me.panelAddAppointment.Controls.Add(Me.gbNewAppointment)
-        Me.panelAddAppointment.Location = New System.Drawing.Point(71, 45)
+        Me.panelAddAppointment.Location = New System.Drawing.Point(261, 231)
         Me.panelAddAppointment.Name = "panelAddAppointment"
-        Me.panelAddAppointment.Size = New System.Drawing.Size(957, 494)
+        Me.panelAddAppointment.Size = New System.Drawing.Size(1011, 494)
         Me.panelAddAppointment.TabIndex = 81
         Me.panelAddAppointment.Visible = False
         '
@@ -108,7 +107,7 @@ Partial Class Frm_Main
         Me.ibtnClosePanel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnClosePanel.IconSize = 30
         Me.ibtnClosePanel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ibtnClosePanel.Location = New System.Drawing.Point(925, 2)
+        Me.ibtnClosePanel.Location = New System.Drawing.Point(979, 2)
         Me.ibtnClosePanel.Name = "ibtnClosePanel"
         Me.ibtnClosePanel.Size = New System.Drawing.Size(30, 30)
         Me.ibtnClosePanel.TabIndex = 97
@@ -129,7 +128,7 @@ Partial Class Frm_Main
         Me.gbNewAppointment.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.gbNewAppointment.Name = "gbNewAppointment"
         Me.gbNewAppointment.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.gbNewAppointment.Size = New System.Drawing.Size(942, 454)
+        Me.gbNewAppointment.Size = New System.Drawing.Size(996, 454)
         Me.gbNewAppointment.TabIndex = 80
         Me.gbNewAppointment.TabStop = False
         Me.gbNewAppointment.Text = "Search Patient:"
@@ -148,7 +147,7 @@ Partial Class Frm_Main
         Me.ibtnNewPatient.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ibtnNewPatient.IconSize = 55
         Me.ibtnNewPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ibtnNewPatient.Location = New System.Drawing.Point(773, 27)
+        Me.ibtnNewPatient.Location = New System.Drawing.Point(825, 27)
         Me.ibtnNewPatient.Name = "ibtnNewPatient"
         Me.ibtnNewPatient.Size = New System.Drawing.Size(162, 94)
         Me.ibtnNewPatient.TabIndex = 85
@@ -171,7 +170,7 @@ Partial Class Frm_Main
         Me.dgv2.RowHeadersVisible = False
         Me.dgv2.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.dgv2.RowTemplate.Height = 32
-        Me.dgv2.Size = New System.Drawing.Size(928, 317)
+        Me.dgv2.Size = New System.Drawing.Size(982, 317)
         Me.dgv2.TabIndex = 81
         '
         'txtLastName
@@ -637,6 +636,7 @@ Partial Class Frm_Main
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1408, 780)
+        Me.Controls.Add(Me.panelAddAppointment)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.ibtnNewAppointment)
         Me.Controls.Add(Me.lblDate)
