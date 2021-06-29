@@ -35,6 +35,7 @@ Partial Class Form1
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -43,7 +44,7 @@ Partial Class Form1
         Me.pictureBox1.Image = CType(resources.GetObject("pictureBox1.Image"), System.Drawing.Image)
         Me.pictureBox1.Location = New System.Drawing.Point(2, 2)
         Me.pictureBox1.Name = "pictureBox1"
-        Me.pictureBox1.Size = New System.Drawing.Size(194, 242)
+        Me.pictureBox1.Size = New System.Drawing.Size(202, 254)
         Me.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pictureBox1.TabIndex = 11
         Me.pictureBox1.TabStop = False
@@ -66,7 +67,7 @@ Partial Class Form1
         Me.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer))
         Me.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.button2.ForeColor = System.Drawing.Color.Silver
         Me.button2.Location = New System.Drawing.Point(551, 223)
         Me.button2.Name = "button2"
@@ -82,9 +83,9 @@ Partial Class Form1
         Me.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer))
         Me.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.button1.ForeColor = System.Drawing.Color.Silver
-        Me.button1.Location = New System.Drawing.Point(238, 223)
+        Me.button1.Location = New System.Drawing.Point(330, 223)
         Me.button1.Name = "button1"
         Me.button1.Size = New System.Drawing.Size(177, 55)
         Me.button1.TabIndex = 12
@@ -176,12 +177,24 @@ Partial Class Form1
         Me.Label2.TabIndex = 53
         Me.Label2.Text = "PASSWORD:"
         '
+        'Label4
+        '
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.Label4.Font = New System.Drawing.Font("Monotype Corsiva", 26.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label4.Location = New System.Drawing.Point(2, 259)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(202, 53)
+        Me.Label4.TabIndex = 244
+        Me.Label4.Text = "Dra. Hurtado"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(749, 301)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblVersion)
@@ -216,4 +229,5 @@ Partial Class Form1
     Friend WithEvents lblVersion As Label
     Private WithEvents Label1 As Label
     Private WithEvents Label2 As Label
+    Private WithEvents Label4 As Label
 End Class

@@ -71,5 +71,16 @@ Public Class Form1
     '    End If
     '    RestoreDataBase()
     'End Sub
-
+    Private Panel1Captured As Boolean
+    Private Panel1Grabbed As Point
+    Private Sub PanelEmployee_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown
+        Panel1Captured = True
+        Panel1Grabbed = e.Location
+    End Sub
+    Private Sub Panel1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove
+        If (Panel1Captured) Then Me.Location = Me.Location + e.Location - Panel1Grabbed
+    End Sub
+    Private Sub Panel1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseUp
+        Panel1Captured = False
+    End Sub
 End Class
