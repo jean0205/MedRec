@@ -15,24 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0E9942877EA6549C4EAC320EFDA18972"
-        "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_37452CC206BD81D0B751D5271E530544"
-        "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_53BF334BB84BD57AD1278D099DA31946"
-        "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6E2D84E7830805A5C7CEA15330574F56"
         "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
         "MsmSig" = "8:_UNDEFINED"
@@ -40,12 +22,18 @@
         "Entry"
         {
         "MsmKey" = "8:_7EE2DCEC77706E20F0152B651F88D77F"
-        "OwnerKey" = "8:_C50BA561302EDC91C913DDE7CC6C91AC"
+        "OwnerKey" = "8:_DD644AA21E3F42D465EB6ECDBDB1AC81"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_8AB1D8CB29068E3C3F3428A452513FE5"
+        "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9F729C10A1161D249058E0114D82B46C"
         "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -63,24 +51,24 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C50BA561302EDC91C913DDE7CC6C91AC"
-        "OwnerKey" = "8:_0E9942877EA6549C4EAC320EFDA18972"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C50BA561302EDC91C913DDE7CC6C91AC"
-        "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D837AC85E49949D1864CD7ABCDBCAA20"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_DD644AA21E3F42D465EB6ECDBDB1AC81"
+        "OwnerKey" = "8:_9F729C10A1161D249058E0114D82B46C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DD644AA21E3F42D465EB6ECDBDB1AC81"
+        "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A1AA41CCC7F4404E8502FDAF1523A644"
         "MsmSig" = "8:_UNDEFINED"
@@ -88,25 +76,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_37452CC206BD81D0B751D5271E530544"
+        "OwnerKey" = "8:_9F729C10A1161D249058E0114D82B46C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_53BF334BB84BD57AD1278D099DA31946"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0E9942877EA6549C4EAC320EFDA18972"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C50BA561302EDC91C913DDE7CC6C91AC"
+        "OwnerKey" = "8:_DD644AA21E3F42D465EB6ECDBDB1AC81"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -216,99 +192,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0E9942877EA6549C4EAC320EFDA18972"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_0E9942877EA6549C4EAC320EFDA18972"
-                    {
-                    "Name" = "8:AxInterop.WMPLib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:AxInterop.WMPLib.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_36F326C9794340E6993E3432ACBD2986"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_37452CC206BD81D0B751D5271E530544"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_37452CC206BD81D0B751D5271E530544"
-                    {
-                    "Name" = "8:FontAwesome.Sharp.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:FontAwesome.Sharp.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_36F326C9794340E6993E3432ACBD2986"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_53BF334BB84BD57AD1278D099DA31946"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AutoUpdater.NET, Version=1.6.4.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_53BF334BB84BD57AD1278D099DA31946"
-                    {
-                    "Name" = "8:AutoUpdater.NET.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:AutoUpdater.NET.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_36F326C9794340E6993E3432ACBD2986"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6E2D84E7830805A5C7CEA15330574F56"
             {
             "AssemblyRegister" = "3:1"
@@ -391,6 +274,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9F729C10A1161D249058E0114D82B46C"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_9F729C10A1161D249058E0114D82B46C"
+                    {
+                    "Name" = "8:AxInterop.WMPLib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:AxInterop.WMPLib.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_36F326C9794340E6993E3432ACBD2986"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A6072685F7BC41F393521AE0217A8F25"
             {
             "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\gynecologist.ico"
@@ -411,14 +325,34 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C50BA561302EDC91C913DDE7CC6C91AC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D837AC85E49949D1864CD7ABCDBCAA20"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\medRecIcon.ico"
+            "TargetName" = "8:medRecIcon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_36F326C9794340E6993E3432ACBD2986"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DD644AA21E3F42D465EB6ECDBDB1AC81"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C50BA561302EDC91C913DDE7CC6C91AC"
+                    "_DD644AA21E3F42D465EB6ECDBDB1AC81"
                     {
                     "Name" = "8:Interop.WMPLib.dll"
                     "Attributes" = "3:512"
@@ -440,26 +374,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D837AC85E49949D1864CD7ABCDBCAA20"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\medRecIcon.ico"
-            "TargetName" = "8:medRecIcon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_36F326C9794340E6993E3432ACBD2986"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -518,15 +432,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MedicalRecordsSetup"
-        "ProductCode" = "8:{7D730B33-9753-409E-908C-88D6D99B0D22}"
-        "PackageCode" = "8:{3796D97B-9864-4E86-9183-12971A4DAACC}"
+        "ProductCode" = "8:{8F24CFA0-87A1-4E9C-B789-97862894DC94}"
+        "PackageCode" = "8:{5E484E0E-B85D-4D6E-9062-3600841AB108}"
         "UpgradeCode" = "8:{9365AD1C-753B-42AF-B5FF-D2AAE3ECC8D7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.7"
+        "ProductVersion" = "8:1.0.8"
         "Manufacturer" = "8:Jean Carlos Soto"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

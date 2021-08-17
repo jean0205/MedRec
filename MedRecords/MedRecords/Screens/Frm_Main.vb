@@ -251,6 +251,8 @@ Public Class Frm_Main
             dgv2.Columns("SetVisit").Width = 60
             dgv2.Columns("Date OB").DefaultCellStyle.Format = "dd-MMM-yyyy"
             dgv2.CurrentCell = Nothing
+            txtFirstName.Clear()
+            txtLastName.Clear()
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try
@@ -360,17 +362,35 @@ Public Class Frm_Main
                 dgv2.Columns.Clear()
 
                 If txtFirstName.TextLength > 0 And txtLastName.TextLength = 0 Then
-                    dgv2.DataSource = dtPatients.AsEnumerable.Where(Function(r) (r("First Name").ToUpper & r("Last Name").ToUpper & r("Others Name").ToUpper).Contains(toFind.ToUpper)).CopyToDataTable
+                    If dtPatients.AsEnumerable.Where(Function(r) (r("First Name").ToUpper & r("Last Name").ToUpper & r("Others Name").ToUpper).Contains(toFind.ToUpper)).Any Then
+
+                        dgv2.DataSource = dtPatients.AsEnumerable.Where(Function(r) (r("First Name").ToUpper & r("Last Name").ToUpper & r("Others Name").ToUpper).Contains(toFind.ToUpper)).CopyToDataTable
+
+                    End If
+
                 ElseIf txtFirstName.TextLength = 0 And txtLastName.TextLength > 0 Then
-                    dgv2.DataSource = dtPatients.AsEnumerable.Where(Function(r) (r("First Name").ToUpper & r("Last Name").ToUpper & r("Others Name").ToUpper).Contains(toFind.ToUpper)).CopyToDataTable
+                    If dtPatients.AsEnumerable.Where(Function(r) (r("First Name").ToUpper & r("Last Name").ToUpper & r("Others Name").ToUpper).Contains(toFind.ToUpper)).Any Then
+
+                        dgv2.DataSource = dtPatients.AsEnumerable.Where(Function(r) (r("First Name").ToUpper & r("Last Name").ToUpper & r("Others Name").ToUpper).Contains(toFind.ToUpper)).CopyToDataTable
+
+                    End If
+
                 ElseIf txtFirstName.TextLength > 0 And txtLastName.TextLength > 0 Then
-                    dgv2.DataSource = dtPatients.AsEnumerable.Where(Function(r) r("First Name").ToUpper.Contains(txtFirstName.Text.ToUpper) AndAlso r("Last Name").ToUpper.Contains(txtLastName.Text.ToUpper)).CopyToDataTable
+                    If dtPatients.AsEnumerable.Where(Function(r) r("First Name").ToUpper.Contains(txtFirstName.Text.ToUpper) AndAlso r("Last Name").ToUpper.Contains(txtLastName.Text.ToUpper)).Any Then
+
+                        dgv2.DataSource = dtPatients.AsEnumerable.Where(Function(r) r("First Name").ToUpper.Contains(txtFirstName.Text.ToUpper) AndAlso r("Last Name").ToUpper.Contains(txtLastName.Text.ToUpper)).CopyToDataTable
+
+                    End If
+
                 End If
-                util.addBottomColumns(dgv2, "SetVisit", "Schedule Visit")
+                If dgv2.Rows.Count > 0 Then
+                    util.addBottomColumns(dgv2, "SetVisit", "Schedule Visit")
+                    dgv2.Columns(0).Visible = False
+                    dgv2.Columns("Date OB").DefaultCellStyle.Format = "dd-MMM-yyyy"
+                    dgv2.CurrentCell = Nothing
+                End If
             End If
-            dgv2.Columns(0).Visible = False
-            dgv2.Columns("Date OB").DefaultCellStyle.Format = "dd-MMM-yyyy"
-            dgv2.CurrentCell = Nothing
+
         Catch ex As Exception
             util.ErrorMessage(ex.Message, "Error")
         End Try

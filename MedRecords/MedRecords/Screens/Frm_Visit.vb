@@ -143,10 +143,10 @@ Public Class Frm_Visit
             ibtnStart.Visible = change
             ibtnStop.Visible = change
             For Each txt As TextBox In util.FindAllTextBoxIterative(Me)
-                txt.Enabled = change
+                txt.ReadOnly = Not change
             Next
             For Each Rtxt As RichTextBox In util.FindAllTextRichBoxIterative(Me)
-                Rtxt.Enabled = change
+                Rtxt.ReadOnly = Not change
             Next
             If change = False Then
                 gbVisits.BackColor = Color.FromArgb(210, 44, 44)

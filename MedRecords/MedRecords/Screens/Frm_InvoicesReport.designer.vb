@@ -47,6 +47,8 @@ Partial Class Frm_InvoicesReport
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.dtpMonth = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -64,8 +66,6 @@ Partial Class Frm_InvoicesReport
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ChartAgeDist = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ChartTotals, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -131,7 +131,6 @@ Partial Class Frm_InvoicesReport
         ChartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro
         ChartArea1.AxisX.LineColor = System.Drawing.Color.Transparent
         ChartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea1.AxisY.IsLogarithmic = True
         ChartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro
         ChartArea1.AxisY.LineColor = System.Drawing.Color.Gainsboro
         ChartArea1.BackColor = System.Drawing.Color.Transparent
@@ -256,6 +255,46 @@ Partial Class Frm_InvoicesReport
         Me.Label1.Size = New System.Drawing.Size(77, 25)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Label1"
+        '
+        'IconButton1
+        '
+        Me.IconButton1.FlatAppearance.BorderSize = 0
+        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(121, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(135, Byte), Integer))
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
+        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.ForeColor = System.Drawing.Color.Gainsboro
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
+        Me.IconButton1.IconColor = System.Drawing.Color.Gainsboro
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 30
+        Me.IconButton1.Location = New System.Drawing.Point(4, 19)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.IconButton1.Size = New System.Drawing.Size(45, 35)
+        Me.IconButton1.TabIndex = 7
+        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton1.UseMnemonic = False
+        Me.IconButton1.UseVisualStyleBackColor = True
+        '
+        'IconButton2
+        '
+        Me.IconButton2.FlatAppearance.BorderSize = 0
+        Me.IconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(121, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(135, Byte), Integer))
+        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton2.ForeColor = System.Drawing.Color.Gainsboro
+        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
+        Me.IconButton2.IconColor = System.Drawing.Color.Gainsboro
+        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton2.IconSize = 30
+        Me.IconButton2.Location = New System.Drawing.Point(225, 19)
+        Me.IconButton2.Name = "IconButton2"
+        Me.IconButton2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.IconButton2.Size = New System.Drawing.Size(45, 35)
+        Me.IconButton2.TabIndex = 6
+        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton2.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -540,46 +579,6 @@ Partial Class Frm_InvoicesReport
         Me.ChartAgeDist.Size = New System.Drawing.Size(486, 334)
         Me.ChartAgeDist.TabIndex = 334
         Me.ChartAgeDist.Text = "Chart5"
-        '
-        'IconButton1
-        '
-        Me.IconButton1.FlatAppearance.BorderSize = 0
-        Me.IconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(121, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(135, Byte), Integer))
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
-        Me.IconButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
-        Me.IconButton1.IconColor = System.Drawing.Color.Gainsboro
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.IconSize = 30
-        Me.IconButton1.Location = New System.Drawing.Point(4, 19)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.IconButton1.Size = New System.Drawing.Size(45, 35)
-        Me.IconButton1.TabIndex = 7
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseMnemonic = False
-        Me.IconButton1.UseVisualStyleBackColor = True
-        '
-        'IconButton2
-        '
-        Me.IconButton2.FlatAppearance.BorderSize = 0
-        Me.IconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(121, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(135, Byte), Integer))
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButton2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
-        Me.IconButton2.IconColor = System.Drawing.Color.Gainsboro
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton2.IconSize = 30
-        Me.IconButton2.Location = New System.Drawing.Point(225, 19)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.IconButton2.Size = New System.Drawing.Size(45, 35)
-        Me.IconButton2.TabIndex = 6
-        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton2.UseVisualStyleBackColor = True
         '
         'Frm_InvoicesReport
         '
