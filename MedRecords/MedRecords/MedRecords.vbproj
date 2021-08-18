@@ -443,6 +443,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="gynecologist.ico" />
+    <None Include="Resources\update1.png" />
     <None Include="Resources\medRecIcon.ico" />
     <None Include="Resources\play.png" />
   </ItemGroup>
